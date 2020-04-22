@@ -72,5 +72,15 @@ namespace UnityPackages.Tweens {
       this.ease = Ease.BackIn;
       return this;
     }
+
+    public Tween<T> SetEaseBackOut () {
+      this.ease = Ease.BackOut;
+      return this;
+    }
+
+    public Tween<T> SetEaseBackInOut () {
+      this.ease = Ease.BackInOut;
+      return this;
+    }
   }
 }
