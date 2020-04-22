@@ -24,6 +24,21 @@ namespace UnityPackages.Tweens {
     public static Tween<float> TweenMoveZ (this Component self, float to, float duration) =>
       self.gameObject.AddComponent<LocalPositionZTween> ().Finalize (duration, to);
 
+    public static Tween<Vector2> TweenMoveAnchored (this GameObject self, Vector2 to, float duration) =>
+      self.AddComponent<AnchoredPositionTween> ().Finalize (duration, to);
+    public static Tween<Vector2> TweenMoveAnchored (this Component self, Vector2 to, float duration) =>
+      self.gameObject.AddComponent<AnchoredPositionTween> ().Finalize (duration, to);
+
+    public static Tween<float> TweenMoveAnchoredX (this GameObject self, float to, float duration) =>
+      self.AddComponent<AnchoredPositionXTween> ().Finalize (duration, to);
+    public static Tween<float> TweenMoveAnchoredX (this Component self, float to, float duration) =>
+      self.gameObject.AddComponent<AnchoredPositionXTween> ().Finalize (duration, to);
+
+    public static Tween<float> TweenMoveAnchoredY (this GameObject self, float to, float duration) =>
+      self.AddComponent<AnchoredPositionYTween> ().Finalize (duration, to);
+    public static Tween<float> TweenMoveAnchoredY (this Component self, float to, float duration) =>
+      self.gameObject.AddComponent<AnchoredPositionYTween> ().Finalize (duration, to);
+
     public static Tween<Vector3> TweenRotate (this GameObject self, Vector3 to, float duration) =>
       self.AddComponent<LocalEulerAnglesTween> ().Finalize (duration, to);
     public static Tween<Vector3> TweenRotate (this Component self, Vector3 to, float duration) =>
