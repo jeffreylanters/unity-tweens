@@ -10,7 +10,7 @@ namespace UnityPackages.Tweens {
 
     public override void OnUpdate (float easedTime, bool isCompleted) {
       this.localScale = this.transform.localScale;
-      this.valueCurrent = Mathf.Lerp (this.valueFrom, this.valueTo, easedTime);
+      this.valueCurrent = this.LerpValue (this.valueFrom, this.valueTo, easedTime);
       this.localScale.z = this.valueCurrent;
       this.transform.localScale = this.localScale;
     }

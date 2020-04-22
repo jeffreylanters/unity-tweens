@@ -13,6 +13,8 @@ namespace UnityPackages.Tweens {
             return EasingMethods.SineOut (time);
         case Ease.SineInOut:
             return EasingMethods.SineInOut (time);
+        case Ease.BackIn:
+            return EasingMethods.BackIn (time);
       }
     }
 
@@ -30,6 +32,15 @@ namespace UnityPackages.Tweens {
 
     public static float SineInOut (float time) {
       return -(Mathf.Cos (Mathf.PI * time) - 1f) / 2f;
+    }
+
+    private const float backConstantA = 1.70158f;
+    private const float backConstantB = 2.70158f;
+
+    public static float BackIn (float time) {
+      var x = backConstantB * time * time * time - backConstantA * time * time;
+      Debug.Log (x);
+      return x;
     }
   }
 }

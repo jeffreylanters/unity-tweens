@@ -32,6 +32,10 @@ namespace UnityPackages.Tweens {
         UnityEngine.Object.Destroy (this);
     }
 
+    public float LerpValue (float from, float to, float time) {
+      return Mathf.Lerp (from, to, time);
+    }
+
     public Tween<T> Finalize (float duration, T valueTo) {
       this.duration = duration;
       this.valueTo = valueTo;
@@ -61,6 +65,11 @@ namespace UnityPackages.Tweens {
 
     public Tween<T> SetEaseSineInOut () {
       this.ease = Ease.SineInOut;
+      return this;
+    }
+
+    public Tween<T> SetEaseBackIn () {
+      this.ease = Ease.BackIn;
       return this;
     }
   }

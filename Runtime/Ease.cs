@@ -1,8 +1,9 @@
 namespace UnityPackages.Tweens {
   public enum Ease {
     Linear = 0,
-    SineIn = 1,
-    SineOut = 2,
-    SineInOut = 3,
+    SineIn = 10,
+    SineOut = 11,
+    SineInOut = 12,
+    BackIn = 20,
   }
 }

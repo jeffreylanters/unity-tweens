@@ -10,7 +10,7 @@ namespace UnityPackages.Tweens {
 
     public override void OnUpdate (float easedTime, bool isCompleted) {
       this.localEulerAngles = this.transform.localEulerAngles;
-      this.valueCurrent = Mathf.Lerp (this.valueFrom, this.valueTo, easedTime);
+      this.valueCurrent = this.LerpValue (this.valueFrom, this.valueTo, easedTime);
       this.localEulerAngles.z = this.valueCurrent;
       this.transform.localEulerAngles = this.localEulerAngles;
     }

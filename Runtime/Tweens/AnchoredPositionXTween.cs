@@ -15,7 +15,7 @@ namespace UnityPackages.Tweens {
     public override void OnUpdate (float easedTime, bool isCompleted) {
       if (this.hasRectTransform == true) {
         this.anchoredPosition = this.rectTransform.anchoredPosition;
-        this.valueCurrent = Mathf.Lerp (this.valueFrom, this.valueTo, easedTime);
+        this.valueCurrent = this.LerpValue (this.valueFrom, this.valueTo, easedTime);
         this.anchoredPosition.x = this.valueCurrent;
         this.rectTransform.anchoredPosition = this.anchoredPosition;
       }

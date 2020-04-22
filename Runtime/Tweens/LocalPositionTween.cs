@@ -7,9 +7,9 @@ namespace UnityPackages.Tweens {
     }
 
     public override void OnUpdate (float easedTime, bool isCompleted) {
-      this.valueCurrent.x = Mathf.Lerp (this.valueFrom.x, this.valueTo.x, easedTime);
-      this.valueCurrent.y = Mathf.Lerp (this.valueFrom.y, this.valueTo.y, easedTime);
-      this.valueCurrent.z = Mathf.Lerp (this.valueFrom.z, this.valueTo.z, easedTime);
+      this.valueCurrent.x = this.LerpValue (this.valueFrom.x, this.valueTo.x, easedTime);
+      this.valueCurrent.y = this.LerpValue (this.valueFrom.y, this.valueTo.y, easedTime);
+      this.valueCurrent.z = this.LerpValue (this.valueFrom.z, this.valueTo.z, easedTime);
       this.transform.localPosition = this.valueCurrent;
     }
   }
