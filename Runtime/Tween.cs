@@ -33,6 +33,7 @@ namespace UnityPackages.Tweens {
     }
 
     public float LerpValue (float from, float to, float time) {
+      // TODO allow negative values for Back eases
       return Mathf.Lerp (from, to, time);
     }
 
