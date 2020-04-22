@@ -10,7 +10,7 @@ namespace UnityPackages.Tweens {
 
     public override void OnUpdate (float easedTime, bool isCompleted) {
       this.localPosition = this.transform.localPosition;
-      this.valueCurrent = this.LerpValue (this.valueFrom, this.valueTo, easedTime);
+      this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
       this.localPosition.x = this.valueCurrent;
       this.transform.localPosition = this.localPosition;
     }

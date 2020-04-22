@@ -16,7 +16,7 @@ namespace UnityPackages.Tweens {
     public override void OnUpdate (float easedTime, bool isCompleted) {
       if (this.hasGraphic == true) {
         this.color = this.graphic.color;
-        this.valueCurrent = this.LerpValue (this.valueFrom, this.valueTo, easedTime);
+        this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
         this.color.a = this.valueCurrent;
         this.graphic.color = this.color;
       }

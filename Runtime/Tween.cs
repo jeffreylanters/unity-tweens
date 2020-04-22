@@ -4,8 +4,8 @@ using UnityEngine;
 namespace UnityPackages.Tweens {
   public abstract class Tween<T> : MonoBehaviour {
 
-    [HideInInspector] public T valueTo = default (T);
     [HideInInspector] public T valueFrom = default (T);
+    [HideInInspector] public T valueTo = default (T);
     [HideInInspector] public T valueCurrent = default (T);
 
     private float time = 0;
@@ -32,9 +32,8 @@ namespace UnityPackages.Tweens {
         UnityEngine.Object.Destroy (this);
     }
 
-    public float LerpValue (float from, float to, float time) {
-      // TODO allow negative values for Back eases
-      return Mathf.Lerp (from, to, time);
+    public float InterpolateValue (float from, float to, float time) {
+      return from * (1 - time) + to * time;
     }
 
     public Tween<T> Finalize (float duration, T valueTo) {

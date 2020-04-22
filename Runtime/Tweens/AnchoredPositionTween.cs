@@ -13,8 +13,8 @@ namespace UnityPackages.Tweens {
 
     public override void OnUpdate (float easedTime, bool isCompleted) {
       if (this.hasRectTransform == true) {
-        this.valueCurrent.x = this.LerpValue (this.valueFrom.x, this.valueTo.x, easedTime);
-        this.valueCurrent.y = this.LerpValue (this.valueFrom.y, this.valueTo.y, easedTime);
+        this.valueCurrent.x = this.InterpolateValue (this.valueFrom.x, this.valueTo.x, easedTime);
+        this.valueCurrent.y = this.InterpolateValue (this.valueFrom.y, this.valueTo.y, easedTime);
         this.rectTransform.anchoredPosition = this.valueCurrent;
       }
     }

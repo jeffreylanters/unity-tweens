@@ -11,7 +11,7 @@ namespace UnityPackages.Tweens {
     }
 
     public override void OnUpdate (float easedTime, bool isCompleted) {
-      this.valueCurrent = this.LerpValue (this.valueFrom, this.valueTo, easedTime);
+      this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
       if (this.hasOnUpdate == true)
         this.onUpdate (this.valueCurrent);
     }
