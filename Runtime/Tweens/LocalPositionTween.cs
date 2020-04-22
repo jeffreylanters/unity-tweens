@@ -6,7 +6,7 @@ namespace UnityPackages.Tweens {
       return this.transform.localPosition;
     }
 
-    public override void OnUpdate (float easedTime) {
+    public override void OnUpdate (float easedTime, bool isCompleted) {
       this.valueCurrent.x = Mathf.Lerp (this.valueFrom.x, this.valueTo.x, easedTime);
       this.valueCurrent.y = Mathf.Lerp (this.valueFrom.y, this.valueTo.y, easedTime);
       this.valueCurrent.z = Mathf.Lerp (this.valueFrom.z, this.valueTo.z, easedTime);

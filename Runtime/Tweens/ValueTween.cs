@@ -10,7 +10,7 @@ namespace UnityPackages.Tweens {
       return 0;
     }
 
-    public override void OnUpdate (float easedTime) {
+    public override void OnUpdate (float easedTime, bool isCompleted) {
       this.valueCurrent = Mathf.Lerp (this.valueFrom, this.valueTo, easedTime);
       if (this.hasOnUpdate == true)
         this.onUpdate (this.valueCurrent);

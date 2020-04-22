@@ -11,10 +11,11 @@ namespace UnityPackages.Tweens {
     private float time = 0;
     private float duration = 0;
     private Ease ease = 0;
+    private bool isCompleted = false;
     private bool didOverwriteFrom = false;
 
     public abstract T OnGetFrom ();
-    public abstract void OnUpdate (float easedTime);
+    public abstract void OnUpdate (float easedTime, bool isCompleted);
 
     private void Awake () {
       if (this.didOverwriteFrom == false)
@@ -25,8 +26,9 @@ namespace UnityPackages.Tweens {
       this.time += Time.deltaTime / this.duration;
       if (this.time >= 1)
         this.time = 1;
-      this.OnUpdate (EasingMethods.ByEase (this.ease, this.time));
-      if (this.time == 1)
+      this.isCompleted = this.time == 1;
+      this.OnUpdate (EasingMethods.ByEase (this.ease, this.time), this.isCompleted);
+      if (this.isCompleted == true)
         UnityEngine.Object.Destroy (this);
     }
 
