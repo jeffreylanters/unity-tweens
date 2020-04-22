@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityPackages.Tweens {
   public static class TweenExtensions {
@@ -62,6 +63,16 @@ namespace UnityPackages.Tweens {
       self.AddComponent<LocalScaleZTween> ().Finalize (duration, to);
     public static Tween<float> TweenScaleZ (this Component self, float to, float duration) =>
       self.gameObject.AddComponent<LocalScaleZTween> ().Finalize (duration, to);
+
+    public static Tween<float> TweenGraphicAlpha (this GameObject self, float to, float duration) =>
+      self.AddComponent<GraphicAlphaTween> ().Finalize (duration, to);
+    public static Tween<float> TweenGraphicAlpha (this Graphic self, float to, float duration) =>
+      self.gameObject.AddComponent<GraphicAlphaTween> ().Finalize (duration, to);
+
+    public static Tween<Color> TweenGraphicColor (this GameObject self, Color to, float duration) =>
+      self.AddComponent<GraphicColorTween> ().Finalize (duration, to);
+    public static Tween<Color> TweenGraphicColor (this Graphic self, Color to, float duration) =>
+      self.gameObject.AddComponent<GraphicColorTween> ().Finalize (duration, to);
 
     public static Tween<float> TweenValue (this GameObject self, float to, float duration, Action<float> onUpdate) =>
       self.AddComponent<ValueTween> ().SetOnUpdate (onUpdate).Finalize (duration, to);

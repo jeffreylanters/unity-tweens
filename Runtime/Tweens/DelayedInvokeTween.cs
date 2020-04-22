@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace UnityPackages.Tweens {
   public class DelayedInvokeTween : Tween<bool> {
