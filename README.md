@@ -14,10 +14,14 @@ An extremely light weight, flexible and extendable tweening engine made for scri
 
 </div>
 
-# Installation
+## Installation
 
 To install this package, add the following line to your `manifest.json` file located within your project's packages directory.
 
 ```json
 "nl.elraccoone.tweens": "git+https://github.com/elraccoone/tweens"
 ```
+
+## Usage
+
+Documentation will be available soon.
