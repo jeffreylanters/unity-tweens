@@ -10,13 +10,18 @@ namespace ElRaccoone.Tweens.Core {
 
     private float time = 0;
     private float duration = 0;
-    private float delay = 0;
+    private int loopCount = 0;
     private Ease ease = 0;
+
     private bool hasDelay = false;
+    private float delay = 0;
+
+    private bool hasOvershooting = false;
+    private float overshooting = 0;
+
     private bool didOverwriteFrom = false;
     private bool isLoopPingPongEnabled = false;
     private bool isPlayingForward = true;
-    private int loopCount = 0;
 
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
@@ -64,6 +69,10 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     internal float InterpolateValue (float from, float to, float time) {
+      if (this.hasOvershooting == true) {
+        if (time > 1)
+          time -= (time - 1) / (this.overshooting + 1);
+      }
       return from * (1 - time) + to * time;
     }
 
@@ -92,6 +101,12 @@ namespace ElRaccoone.Tweens.Core {
     public TweenBase<T> SetDelay (float delay) {
       this.delay = delay;
       this.hasDelay = true;
+      return this;
+    }
+
+    public TweenBase<T> SetOvershooting (float overshooting) {
+      this.overshooting = overshooting;
+      this.hasOvershooting = true;
       return this;
     }
 
