@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/elraccoone/tweens/master/.github/WIKI/logo.png" height="300px"></br>
+<img src="https://raw.githubusercontent.com/elraccoone/tweens/master/.github/WIKI/logo.jpg" height="300px"></br>
 
 An extremely light weight, flexible and extendable tweening engine made for script-based animations in Unity.
 
