@@ -141,12 +141,14 @@ namespace ElRaccoone.Tweens {
     public static TweenInstance TweenDelayedInvoke (this GameObject self, float duration, Action onComplete) =>
       self.AddComponent<DelayedInvokeTweenDriver> ().Invoke (duration, onComplete);
 
-    public static void TweenCancelAll (this Component self) =>
-      Tweens.TweenCancelAll (self.gameObject);
-    public static void TweenCancelAll (this GameObject self) {
-      var _tweens = self.GetComponents<TweenInstance> ();
-      foreach (var _tween in _tweens)
-        _tween.Cancel ();
+    public static void TweenCancelAll (this Component self, bool includeChildren = false) =>
+      Tweens.TweenCancelAll (self.gameObject, includeChildren);
+    public static void TweenCancelAll (this GameObject self, bool includeChildren = false) {
+      var _tweensInstances = includeChildren == true ?
+        self.GetComponentsInChildren<TweenInstance> () :
+        self.GetComponents<TweenInstance> ();
+      foreach (var _tweenInstance in _tweensInstances)
+        _tweenInstance.Cancel ();
     }
   }
 }
