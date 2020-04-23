@@ -1,6 +1,6 @@
 <div align="center">
   
-# Tweens
+# Tweens for Unity
 
 An extremely light weight, flexible and extendable tweening engine made for script-based animations in Unity.
 
