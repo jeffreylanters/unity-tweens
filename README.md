@@ -7,24 +7,20 @@
 [![npm](https://img.shields.io/badge/upm-1.0.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)](./LICENSE.md)
 
+[![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
+
 An extremely light weight, flexible and extendable tweening engine made for script-based animations in Unity.
+
+When using this Unity Package, make sure to **Star** this repository. When using any of the packages please make sure to give credits to **Jeffrey Lanters / El Raccoone** somewhere in your app or game. **These packages are not allowed to be sold anywhere!**
 
 **&Lt;**
 [**Installation**](#installation) &middot;
 [**Documentation**](#documentation)
 **&Gt;**
 
-<br/><br/>
-
-[![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
-
-When using this Unity Package, make sure to **Star** this repository. When using any of the packages please make sure to give credits to **Jeffrey Lanters / El Raccoone** somewhere in your app or game. **These packages are not allowed to be sold anywhere!**
-
 **&Lt;**
 **Made with &hearts; by Jeffrey Lanters**
 **&Gt;**
-
-<br/><br/>
 
 </div>
 
