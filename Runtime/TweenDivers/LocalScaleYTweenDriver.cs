@@ -2,7 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class LocalScaleYTweenDriver : TweenMotor<float> {
+  public class LocalScaleYTweenDriver : TweenBase<float> {
     private Vector3 localScale;
 
     public override float OnGetFrom () {

@@ -2,7 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class LocalPositionTweenDriver : TweenMotor<Vector3> {
+  public class LocalPositionTweenDriver : TweenBase<Vector3> {
     public override Vector3 OnGetFrom () {
       return this.transform.localPosition;
     }

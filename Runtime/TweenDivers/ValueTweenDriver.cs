@@ -2,7 +2,7 @@ using System;
 using ElRaccoone.Tweens.Core;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class ValueTweenDriver : TweenMotor<float> {
+  public class ValueTweenDriver : TweenBase<float> {
     private Action<float> onUpdate = null;
     private bool hasOnUpdate = false;
 
@@ -16,7 +16,7 @@ namespace ElRaccoone.Tweens.TweenDrivers {
         this.onUpdate (this.valueCurrent);
     }
 
-    public TweenMotor<float> SetOnUpdate (Action<float> onUpdate) {
+    public TweenBase<float> SetOnUpdate (Action<float> onUpdate) {
       this.onUpdate = onUpdate;
       this.hasOnUpdate = true;
       return this;

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class GraphicColorTweenDriver : TweenMotor<Color> {
+  public class GraphicColorTweenDriver : TweenBase<Color> {
     private bool hasGraphic;
     private Graphic graphic;
 

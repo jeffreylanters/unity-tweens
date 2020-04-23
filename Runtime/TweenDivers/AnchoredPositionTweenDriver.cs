@@ -2,7 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class AnchoredPositionTweenDriver : TweenMotor<Vector2> {
+  public class AnchoredPositionTweenDriver : TweenBase<Vector2> {
     private bool hasRectTransform;
     private RectTransform rectTransform;
 

@@ -2,7 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class LocalEulerAnglesXTweenDriver : TweenMotor<float> {
+  public class LocalEulerAnglesXTweenDriver : TweenBase<float> {
     private Vector3 localEulerAngles;
 
     public override float OnGetFrom () {
