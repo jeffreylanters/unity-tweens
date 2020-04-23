@@ -21,16 +21,25 @@ namespace ElRaccoone.Tweens.Core {
     private bool didOverwriteFrom = false;
     private bool isLoopPingPongEnabled = false;
     private bool isPlayingForward = true;
+    private bool didInitialize = false;
 
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
     private void Awake () {
-      if (this.didOverwriteFrom == false && this.hasDelay == false)
+      this.Initialize ();
+    }
+
+    private void Initialize () {
+      if (this.didOverwriteFrom == false && this.hasDelay == false) {
         this.valueFrom = this.OnGetFrom ();
+        this.didInitialize = true;
+      }
     }
 
     private void Update () {
+      if (this.didInitialize == false)
+        this.Initialize ();
       if (this.hasDelay == true) {
         this.delay -= Time.deltaTime;
         if (this.delay <= 0) {
