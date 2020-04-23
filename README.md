@@ -4,9 +4,8 @@
 
 # Tweens for Unity
 
-[![npm](https://img.shields.io/badge/unity--packages-3.2.0-232c37.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/unity--packages-1.0.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)]()
-[![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
 An extremely light weight, flexible and extendable tweening engine made for script-based animations in Unity.
 
