@@ -22,15 +22,18 @@ namespace ElRaccoone.Tweens.Core {
     public abstract void OnUpdate (float easedTime);
 
     private void Awake () {
-      if (this.didOverwriteFrom == false)
+      if (this.didOverwriteFrom == false && this.hasDelay == false)
         this.valueFrom = this.OnGetFrom ();
     }
 
     private void Update () {
       if (this.hasDelay == true) {
         this.delay -= Time.deltaTime;
-        if (this.delay <= 0)
+        if (this.delay <= 0) {
           this.hasDelay = false;
+          if (this.didOverwriteFrom == false)
+            this.valueFrom = this.OnGetFrom ();
+        }
       } else {
         var _timeDelta = Time.deltaTime / this.duration;
         if (this.isLoopPingPongEnabled == true) {
