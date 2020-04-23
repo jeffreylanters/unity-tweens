@@ -60,7 +60,7 @@ namespace ElRaccoone.Tweens.Core {
       }
     }
 
-    public float InterpolateValue (float from, float to, float time) {
+    internal float InterpolateValue (float from, float to, float time) {
       return from * (1 - time) + to * time;
     }
 
@@ -112,6 +112,96 @@ namespace ElRaccoone.Tweens.Core {
       return this;
     }
 
+    public TweenBase<T> SetEaseQuadIn () {
+      this.ease = Ease.QuadIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuadOut () {
+      this.ease = Ease.QuadOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuadInOut () {
+      this.ease = Ease.QuadInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseCubicIn () {
+      this.ease = Ease.CubicIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseCubicOut () {
+      this.ease = Ease.CubicOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseCubicInOut () {
+      this.ease = Ease.CubicInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuartIn () {
+      this.ease = Ease.QuartIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuartOut () {
+      this.ease = Ease.QuartOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuartInOut () {
+      this.ease = Ease.QuartInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuintIn () {
+      this.ease = Ease.QuintIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuintOut () {
+      this.ease = Ease.QuintOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseQuintInOut () {
+      this.ease = Ease.QuintInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseExpoIn () {
+      this.ease = Ease.ExpoIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseExpoOut () {
+      this.ease = Ease.ExpoOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseExpoInOut () {
+      this.ease = Ease.ExpoInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseCircIn () {
+      this.ease = Ease.CircIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseCircOut () {
+      this.ease = Ease.CircOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseCircInOut () {
+      this.ease = Ease.CircInOut;
+      return this;
+    }
+
     public TweenBase<T> SetEaseBackIn () {
       this.ease = Ease.BackIn;
       return this;
@@ -124,6 +214,36 @@ namespace ElRaccoone.Tweens.Core {
 
     public TweenBase<T> SetEaseBackInOut () {
       this.ease = Ease.BackInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseElasticIn () {
+      this.ease = Ease.ElasticIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseElasticOut () {
+      this.ease = Ease.ElasticOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseElasticInOut () {
+      this.ease = Ease.ElasticInOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseBounceIn () {
+      this.ease = Ease.BounceIn;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseBounceOut () {
+      this.ease = Ease.BounceOut;
+      return this;
+    }
+
+    public TweenBase<T> SetEaseBounceInOut () {
+      this.ease = Ease.BounceInOut;
       return this;
     }
   }
