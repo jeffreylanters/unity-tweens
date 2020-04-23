@@ -6,9 +6,12 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     private bool hasRectTransform;
     private RectTransform rectTransform;
 
-    public override Vector2 OnGetFrom () {
+    public override void OnInitialize () {
       this.rectTransform = this.gameObject.GetComponent<RectTransform> ();
       this.hasRectTransform = this.rectTransform != null;
+    }
+
+    public override Vector2 OnGetFrom () {
       return this.hasRectTransform == true ? this.rectTransform.anchoredPosition : Vector2.zero;
     }
 

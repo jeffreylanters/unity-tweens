@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   public class LocalEulerAnglesTweenDriver : TweenBase<Vector3> {
+    public override void OnInitialize () {
+      this.valueTo.x = this.WrapAngle (this.valueTo.x);
+      this.valueTo.y = this.WrapAngle (this.valueTo.y);
+      this.valueTo.z = this.WrapAngle (this.valueTo.z);
+    }
+
     public override Vector3 OnGetFrom () {
       return this.transform.localEulerAngles;
     }

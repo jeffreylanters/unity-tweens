@@ -5,6 +5,10 @@ namespace ElRaccoone.Tweens.TweenDrivers {
   public class EulerAnglesZTweenDriver : TweenBase<float> {
     private Vector3 eulerAngles;
 
+    public override void OnInitialize () {
+      this.valueTo = this.WrapAngle (this.valueTo);
+    }
+
     public override float OnGetFrom () {
       return this.transform.eulerAngles.z;
     }

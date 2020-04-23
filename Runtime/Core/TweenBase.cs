@@ -24,6 +24,7 @@ namespace ElRaccoone.Tweens.Core {
     private bool isLoopPingPongEnabled = false;
     private bool isPlayingForward = true;
 
+    public abstract void OnInitialize ();
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
@@ -31,6 +32,7 @@ namespace ElRaccoone.Tweens.Core {
       // When From is not overwritten and the Tween has no delay, the valueFrom
       // is requested from the inheriter. Then the animation will be set to its
       // first frame.
+      this.OnInitialize ();
       if (this.didOverwriteFrom == false && this.hasDelay == false) {
         this.valueFrom = this.OnGetFrom ();
         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
@@ -90,6 +92,14 @@ namespace ElRaccoone.Tweens.Core {
             this.Decommission ();
         }
       }
+    }
+
+    internal float WrapAngle (float value) {
+      while (value >= 360)
+        value -= 360;
+      while (value < 0)
+        value += 360;
+      return value;
     }
 
     // Returns the interpolated value of time between from and to.

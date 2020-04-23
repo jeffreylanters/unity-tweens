@@ -5,6 +5,8 @@ namespace ElRaccoone.Tweens.TweenDrivers {
   public class LocalPositionYTweenDriver : TweenBase<float> {
     private Vector3 localPosition;
 
+    public override void OnInitialize () { }
+
     public override float OnGetFrom () {
       return this.transform.localPosition.y;
     }

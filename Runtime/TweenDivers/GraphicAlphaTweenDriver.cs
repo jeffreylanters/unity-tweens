@@ -8,9 +8,12 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     private Graphic graphic;
     private Color color;
 
-    public override float OnGetFrom () {
+    public override void OnInitialize () {
       this.graphic = this.gameObject.GetComponent<Graphic> ();
       this.hasGraphic = this.graphic != null;
+    }
+
+    public override float OnGetFrom () {
       return this.hasGraphic == true ? this.graphic.color.a : 0;
     }
 
