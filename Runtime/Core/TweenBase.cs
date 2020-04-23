@@ -28,7 +28,7 @@ namespace ElRaccoone.Tweens.Core {
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
-    private void Awake () {
+    private void Start () {
       // When From is not overwritten and the Tween has no delay, the valueFrom
       // is requested from the inheriter. Then the animation will be set to its
       // first frame.
@@ -92,14 +92,6 @@ namespace ElRaccoone.Tweens.Core {
             this.Decommission ();
         }
       }
-    }
-
-    internal float WrapAngle (float value) {
-      while (value >= 360)
-        value -= 360;
-      while (value < 0)
-        value += 360;
-      return value;
     }
 
     // Returns the interpolated value of time between from and to.
