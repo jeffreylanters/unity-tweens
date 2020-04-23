@@ -26,9 +26,29 @@ namespace ElRaccoone.Tweens {
     public static TweenBase<float> TweenLocalPositionZ (this GameObject self, float to, float duration) =>
       self.AddComponent<LocalPositionZTweenDriver> ().Finalize (duration, to);
 
-    public static TweenBase<Vector2> TweenAnchoredPositionAnchored (this Component self, Vector2 to, float duration) =>
-      Tweens.TweenAnchoredPositionAnchored (self.gameObject, to, duration);
-    public static TweenBase<Vector2> TweenAnchoredPositionAnchored (this GameObject self, Vector2 to, float duration) =>
+    public static TweenBase<Vector3> TweenPosition (this Component self, Vector3 to, float duration) =>
+      Tweens.TweenPosition (self.gameObject, to, duration);
+    public static TweenBase<Vector3> TweenPosition (this GameObject self, Vector3 to, float duration) =>
+      self.AddComponent<PositionTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenPositionX (this Component self, float to, float duration) =>
+      Tweens.TweenPositionX (self.gameObject, to, duration);
+    public static TweenBase<float> TweenPositionX (this GameObject self, float to, float duration) =>
+      self.AddComponent<PositionXTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenPositionY (this Component self, float to, float duration) =>
+      Tweens.TweenPositionY (self.gameObject, to, duration);
+    public static TweenBase<float> TweenPositionY (this GameObject self, float to, float duration) =>
+      self.AddComponent<PositionYTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenPositionZ (this Component self, float to, float duration) =>
+      Tweens.TweenPositionZ (self.gameObject, to, duration);
+    public static TweenBase<float> TweenPositionZ (this GameObject self, float to, float duration) =>
+      self.AddComponent<PositionZTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<Vector2> TweenAnchoredPosition (this Component self, Vector2 to, float duration) =>
+      Tweens.TweenAnchoredPosition (self.gameObject, to, duration);
+    public static TweenBase<Vector2> TweenAnchoredPosition (this GameObject self, Vector2 to, float duration) =>
       self.AddComponent<AnchoredPositionTweenDriver> ().Finalize (duration, to);
 
     public static TweenBase<float> TweenAnchoredPositionX (this Component self, float to, float duration) =>
@@ -60,6 +80,26 @@ namespace ElRaccoone.Tweens {
       Tweens.TweenLocalRotationZ (self.gameObject, to, duration);
     public static TweenBase<float> TweenLocalRotationZ (this GameObject self, float to, float duration) =>
       self.AddComponent<LocalEulerAnglesZTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<Vector3> TweenRotation (this Component self, Vector3 to, float duration) =>
+      Tweens.TweenRotation (self.gameObject, to, duration);
+    public static TweenBase<Vector3> TweenRotation (this GameObject self, Vector3 to, float duration) =>
+      self.AddComponent<EulerAnglesTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenRotationX (this Component self, float to, float duration) =>
+      Tweens.TweenRotationX (self.gameObject, to, duration);
+    public static TweenBase<float> TweenRotationX (this GameObject self, float to, float duration) =>
+      self.AddComponent<EulerAnglesXTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenRotationY (this Component self, float to, float duration) =>
+      Tweens.TweenRotationY (self.gameObject, to, duration);
+    public static TweenBase<float> TweenRotationY (this GameObject self, float to, float duration) =>
+      self.AddComponent<EulerAnglesYTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenRotationZ (this Component self, float to, float duration) =>
+      Tweens.TweenRotationZ (self.gameObject, to, duration);
+    public static TweenBase<float> TweenRotationZ (this GameObject self, float to, float duration) =>
+      self.AddComponent<EulerAnglesZTweenDriver> ().Finalize (duration, to);
 
     public static TweenBase<Vector3> TweenLocalScale (this Component self, Vector3 to, float duration) =>
       Tweens.TweenLocalScale (self.gameObject, to, duration);

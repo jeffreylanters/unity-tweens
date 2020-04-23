@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
   public abstract class TweenBase<T> : TweenInstance {
-
     [HideInInspector] public T valueFrom = default (T);
     [HideInInspector] public T valueTo = default (T);
     [HideInInspector] public T valueCurrent = default (T);
@@ -40,8 +39,12 @@ namespace ElRaccoone.Tweens.Core {
             this.valueFrom = this.OnGetFrom ();
         }
       } else {
-        var _timeDelta = Time.deltaTime / this.duration;
-        if (this.isLoopPingPongEnabled == true) {
+        if (this.duration == 0) {
+          this.OnUpdate (EasingMethods.Apply (this.ease, 1));
+          this.Decommission ();
+          return;
+        } else if (this.isLoopPingPongEnabled == true) {
+          var _timeDelta = Time.deltaTime / this.duration;
           this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
           if (this.time > 1) {
             this.isPlayingForward = false;
@@ -52,7 +55,7 @@ namespace ElRaccoone.Tweens.Core {
           }
           this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
         } else {
-          this.time += _timeDelta;
+          this.time += Time.deltaTime / this.duration;
           if (this.time >= 1)
             this.time = 1;
           this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
@@ -60,9 +63,8 @@ namespace ElRaccoone.Tweens.Core {
             if (this.loopCount > 0) {
               this.loopCount -= 1;
               this.time = 0;
-            } else {
-              Object.Destroy (this);
-            }
+            } else
+              this.Decommission ();
           }
         }
       }
@@ -72,6 +74,8 @@ namespace ElRaccoone.Tweens.Core {
       if (this.hasOvershooting == true) {
         if (time > 1)
           time -= (time - 1) / (this.overshooting + 1);
+        else if (time < 0)
+          time -= time / (this.overshooting + 1);
       }
       return from * (1 - time) + to * time;
     }
@@ -104,12 +108,15 @@ namespace ElRaccoone.Tweens.Core {
       return this;
     }
 
+    /// Sets the overshooting of Eases that exceed their boundaries such as
+    /// elastic and back.
     public TweenBase<T> SetOvershooting (float overshooting) {
       this.overshooting = overshooting;
       this.hasOvershooting = true;
       return this;
     }
 
+    /// Sets the ease for this tween.
     public TweenBase<T> SetEase (Ease ease) {
       this.ease = ease;
       return this;
