@@ -18,9 +18,7 @@ When using this Unity Package, make sure to **Star** this repository. When using
 [**Documentation**](#documentation)
 **&Gt;**
 
-**&Lt;**
 **Made with &hearts; by Jeffrey Lanters**
-**&Gt;**
 
 </div>
 
