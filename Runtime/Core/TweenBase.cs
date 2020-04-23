@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
   public abstract class TweenBase<T> : TweenInstance {
-    [HideInInspector] public T valueFrom = default (T);
-    [HideInInspector] public T valueTo = default (T);
-    [HideInInspector] public T valueCurrent = default (T);
+    internal T valueFrom = default (T);
+    internal T valueTo = default (T);
+    internal T valueCurrent = default (T);
 
     private float time = 0;
     private int loopCount = 0;
@@ -103,11 +103,12 @@ namespace ElRaccoone.Tweens.Core {
       return from * (1 - time) + to * time;
     }
 
+    /// Sets the final values required for the tween can start.
     internal TweenBase<T> Finalize (float duration, T valueTo) {
       this.duration = duration;
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
-      this.hideFlags = HideFlags.HideInInspector;
+      // this.hideFlags = HideFlags.HideInInspector;
       return this;
     }
 
