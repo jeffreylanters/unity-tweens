@@ -3,21 +3,19 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   public class EulerAnglesZTweenDriver : TweenBase<float> {
-    private Vector3 eulerAngles;
+    private Quaternion quaternionValueFrom;
+    private Quaternion quaternionValueTo;
 
-    public override void OnInitialize () {
-      this.valueTo = this.WrapAngle (this.valueTo);
-    }
+    public override void OnInitialize () { }
 
     public override float OnGetFrom () {
       return this.transform.eulerAngles.z;
     }
 
     public override void OnUpdate (float easedTime) {
-      this.eulerAngles = this.transform.eulerAngles;
-      this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-      this.eulerAngles.z = this.valueCurrent;
-      this.transform.eulerAngles = this.eulerAngles;
+      this.quaternionValueFrom = Quaternion.Euler (this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.valueFrom);
+      this.quaternionValueTo = Quaternion.Euler (this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.valueTo);
+      this.transform.rotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
     }
   }
 }
