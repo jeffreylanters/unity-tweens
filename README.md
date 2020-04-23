@@ -14,7 +14,9 @@ When using this Unity Package, make sure to **Star** this repository. When using
 
 **&Lt;**
 [**Installation**](#installation) &middot;
-[**Documentation**](#documentation)
+[**Documentation**](#documentation) &middot;
+[**License**](./LICENSE.md) &middot;
+[**Sponsor**](https://paypal.me/jeffreylanters)
 **&Gt;**
 
 **Made with &hearts; by Jeffrey Lanters**
