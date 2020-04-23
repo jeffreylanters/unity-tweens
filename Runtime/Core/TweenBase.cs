@@ -86,7 +86,7 @@ namespace ElRaccoone.Tweens.Core {
       return this;
     }
 
-    public TweenBase<T> SetDelay (int delay) {
+    public TweenBase<T> SetDelay (float delay) {
       this.delay = delay;
       this.hasDelay = true;
       return this;
