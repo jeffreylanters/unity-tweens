@@ -35,6 +35,7 @@ namespace ElRaccoone.Tweens.Core {
         this.didInitialize = true;
         this.valueFrom = this.OnGetFrom ();
         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+        Debug.Log ("Initialized " + this.gameObject.name);
       }
     }
 
@@ -50,34 +51,38 @@ namespace ElRaccoone.Tweens.Core {
           if (this.didOverwriteFrom == false)
             this.valueFrom = this.OnGetFrom ();
         }
-      } else {
-        if (this.duration == 0) {
-          this.OnUpdate (EasingMethods.Apply (this.ease, 1));
-          this.Decommission ();
-          return;
-        } else if (this.isLoopPingPongEnabled == true) {
-          var _timeDelta = Time.deltaTime / this.duration;
-          this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
-          if (this.time > 1) {
-            this.isPlayingForward = false;
-            this.time = 1;
-          } else if (this.time < 0) {
-            this.isPlayingForward = true;
+      }
+      //
+      else if (this.duration == 0) {
+        this.OnUpdate (EasingMethods.Apply (this.ease, 1));
+        this.Decommission ();
+        return;
+      }
+      //
+      else if (this.isLoopPingPongEnabled == true) {
+        var _timeDelta = Time.deltaTime / this.duration;
+        this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
+        if (this.time > 1) {
+          this.isPlayingForward = false;
+          this.time = 1;
+        } else if (this.time < 0) {
+          this.isPlayingForward = true;
+          this.time = 0;
+        }
+        this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
+      }
+      //
+      else {
+        this.time += Time.deltaTime / this.duration;
+        if (this.time >= 1)
+          this.time = 1;
+        this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
+        if (this.time == 1) {
+          if (this.loopCount > 0) {
+            this.loopCount -= 1;
             this.time = 0;
-          }
-          this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
-        } else {
-          this.time += Time.deltaTime / this.duration;
-          if (this.time >= 1)
-            this.time = 1;
-          this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
-          if (this.time == 1) {
-            if (this.loopCount > 0) {
-              this.loopCount -= 1;
-              this.time = 0;
-            } else
-              this.Decommission ();
-          }
+          } else
+            this.Decommission ();
         }
       }
     }
