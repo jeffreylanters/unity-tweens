@@ -2,6 +2,8 @@
 
 <img src="https://raw.githubusercontent.com/elraccoone/tweens/master/.github/WIKI/logo.jpg" height="100px"></br>
 
+# Tweens for Unity
+
 An extremely light weight, flexible and extendable tweening engine made for script-based animations in Unity.
 
 **&Lt;**
