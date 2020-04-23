@@ -107,6 +107,7 @@ namespace ElRaccoone.Tweens.Core {
       this.duration = duration;
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
+      this.hideFlags = HideFlags.HideInInspector;
       return this;
     }
 
