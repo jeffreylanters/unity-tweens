@@ -92,6 +92,11 @@ namespace ElRaccoone.Tweens.Core {
       return this;
     }
 
+    public TweenBase<T> SetEase (Ease ease) {
+      this.ease = ease;
+      return this;
+    }
+
     public TweenBase<T> SetEaseLinear () {
       this.ease = Ease.Linear;
       return this;
