@@ -5,9 +5,7 @@
 [![npm](https://img.shields.io/badge/unity--packages-1.1.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)]()
 
-[![npm](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
-
-An extremely light weight code tweening engine.
+An extremely light weight, flexible and extendable tweening engine made for script-based animations.
 
 > When using this Unity Package, make sure to **Star** this repository. When using any of the packages please make sure to give credits to **Jeffrey Lanters** and **Unity Packages** somewhere in your app or game. **These packages are not allowed to be sold anywhere!**
 
@@ -21,8 +19,8 @@ An extremely light weight code tweening engine.
 
 # Installation
 
-To install this package, add the following line to your `manifest.json` file located within your project's packages directory. For more details and troubleshooting of the Unity Packages manager, head over to the [Installation Guide](https://github.com/unity-packages/installation).
+To install this package, add the following line to your `manifest.json` file located within your project's packages directory.
 
 ```json
-"com.unity-packages.tweens": "git+https://github.com/unity-packages/tweens"
+"nl.elraccoone.tweens": "git+https://github.com/elraccoone/tweens"
 ```
