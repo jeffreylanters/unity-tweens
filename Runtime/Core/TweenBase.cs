@@ -39,8 +39,10 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     private void Update () {
+      // Sometimes the component 
       if (this.didInitialize == false)
         this.Initialize ();
+      // Delay
       if (this.hasDelay == true) {
         this.delay -= Time.deltaTime;
         if (this.delay <= 0) {
