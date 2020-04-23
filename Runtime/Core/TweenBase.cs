@@ -32,8 +32,9 @@ namespace ElRaccoone.Tweens.Core {
 
     private void Initialize () {
       if (this.didOverwriteFrom == false && this.hasDelay == false) {
-        this.valueFrom = this.OnGetFrom ();
         this.didInitialize = true;
+        this.valueFrom = this.OnGetFrom ();
+        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
       }
     }
 
