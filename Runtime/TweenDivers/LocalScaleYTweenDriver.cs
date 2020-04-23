@@ -1,17 +1,18 @@
+using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace UnityPackages.Tweens {
-  public class LocalScaleZTween : Tween<float> {
+namespace ElRaccoone.Tweens.TweenDrivers {
+  public class LocalScaleYTweenDriver : TweenMotor<float> {
     private Vector3 localScale;
 
     public override float OnGetFrom () {
-      return this.transform.localScale.z;
+      return this.transform.localScale.y;
     }
 
-    public override void OnUpdate (float easedTime, bool isCompleted) {
+    public override void OnUpdate (float easedTime) {
       this.localScale = this.transform.localScale;
       this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-      this.localScale.z = this.valueCurrent;
+      this.localScale.y = this.valueCurrent;
       this.transform.localScale = this.localScale;
     }
   }

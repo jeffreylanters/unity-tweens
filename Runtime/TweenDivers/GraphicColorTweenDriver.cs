@@ -1,8 +1,9 @@
+using ElRaccoone.Tweens.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UnityPackages.Tweens {
-  public class GraphicColorTween : Tween<Color> {
+namespace ElRaccoone.Tweens.TweenDrivers {
+  public class GraphicColorTweenDriver : TweenMotor<Color> {
     private bool hasGraphic;
     private Graphic graphic;
 
@@ -12,7 +13,7 @@ namespace UnityPackages.Tweens {
       return this.hasGraphic == true ? this.graphic.color : Color.white;
     }
 
-    public override void OnUpdate (float easedTime, bool isCompleted) {
+    public override void OnUpdate (float easedTime) {
       if (this.hasGraphic == true) {
         this.valueCurrent.r = this.InterpolateValue (this.valueFrom.r, this.valueTo.r, easedTime);
         this.valueCurrent.g = this.InterpolateValue (this.valueFrom.g, this.valueTo.g, easedTime);

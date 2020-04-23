@@ -1,7 +1,8 @@
+using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace UnityPackages.Tweens {
-  public class AnchoredPositionXTween : Tween<float> {
+namespace ElRaccoone.Tweens.TweenDrivers {
+  public class AnchoredPositionXTweenDriver : TweenMotor<float> {
     private bool hasRectTransform;
     private RectTransform rectTransform;
     private Vector2 anchoredPosition;
@@ -12,7 +13,7 @@ namespace UnityPackages.Tweens {
       return this.hasRectTransform == true ? this.rectTransform.anchoredPosition.x : 0;
     }
 
-    public override void OnUpdate (float easedTime, bool isCompleted) {
+    public override void OnUpdate (float easedTime) {
       if (this.hasRectTransform == true) {
         this.anchoredPosition = this.rectTransform.anchoredPosition;
         this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);

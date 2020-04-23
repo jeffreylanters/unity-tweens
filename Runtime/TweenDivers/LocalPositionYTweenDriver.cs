@@ -1,17 +1,18 @@
+using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace UnityPackages.Tweens {
-  public class LocalPositionZTween : Tween<float> {
+namespace ElRaccoone.Tweens.TweenDrivers {
+  public class LocalPositionYTweenDriver : TweenMotor<float> {
     private Vector3 localPosition;
 
     public override float OnGetFrom () {
-      return this.transform.localPosition.z;
+      return this.transform.localPosition.y;
     }
 
-    public override void OnUpdate (float easedTime, bool isCompleted) {
+    public override void OnUpdate (float easedTime) {
       this.localPosition = this.transform.localPosition;
       this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-      this.localPosition.z = this.valueCurrent;
+      this.localPosition.y = this.valueCurrent;
       this.transform.localPosition = this.localPosition;
     }
   }

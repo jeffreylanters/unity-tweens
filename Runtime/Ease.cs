@@ -1,4 +1,4 @@
-namespace UnityPackages.Tweens {
+namespace ElRaccoone.Tweens {
   public enum Ease {
     Linear = 0,
     SineIn = 10,
