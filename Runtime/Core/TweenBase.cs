@@ -8,9 +8,11 @@ namespace ElRaccoone.Tweens.Core {
     [HideInInspector] public T valueCurrent = default (T);
 
     private float time = 0;
-    private float duration = 0;
     private int loopCount = 0;
     private Ease ease = 0;
+
+    private bool hasDuration = false;
+    private float duration = 0;
 
     private bool hasDelay = false;
     private float delay = 0;
@@ -21,39 +23,37 @@ namespace ElRaccoone.Tweens.Core {
     private bool didOverwriteFrom = false;
     private bool isLoopPingPongEnabled = false;
     private bool isPlayingForward = true;
-    private bool didInitialize = false;
 
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
     private void Awake () {
-      this.Initialize ();
-    }
-
-    private void Initialize () {
+      // When From is not overwritten and the Tween has no delay, the valueFrom
+      // is requested from the inheriter. Then the animation will be set to its
+      // first frame.
       if (this.didOverwriteFrom == false && this.hasDelay == false) {
-        this.didInitialize = true;
         this.valueFrom = this.OnGetFrom ();
         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
-        Debug.Log ("Initialized " + this.gameObject.name);
       }
     }
 
     private void Update () {
-      // Sometimes the component 
-      if (this.didInitialize == false)
-        this.Initialize ();
-      // Delay
+      // When the delay is active, the tween will wait for the delay to pass by.
       if (this.hasDelay == true) {
         this.delay -= Time.deltaTime;
         if (this.delay <= 0) {
           this.hasDelay = false;
-          if (this.didOverwriteFrom == false)
+          // When the delay is over, the valueFrom is requested from the 
+          // inheriter. Then the animation will be set to its first frame.
+          if (this.didOverwriteFrom == false) {
             this.valueFrom = this.OnGetFrom ();
+            this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+          }
         }
       }
-      //
-      else if (this.duration == 0) {
+      // When the tween has no duration, the timing will not be done and the
+      // animation will be set to its last frame amd decomissioned right away.
+      else if (this.hasDuration == false) {
         this.OnUpdate (EasingMethods.Apply (this.ease, 1));
         this.Decommission ();
         return;
@@ -99,6 +99,7 @@ namespace ElRaccoone.Tweens.Core {
 
     public TweenBase<T> Finalize (float duration, T valueTo) {
       this.duration = duration;
+      this.hasDuration = duration > 0;
       this.valueTo = valueTo;
       return this;
     }
