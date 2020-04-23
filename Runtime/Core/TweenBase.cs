@@ -51,6 +51,7 @@ namespace ElRaccoone.Tweens.Core {
           }
         }
       }
+
       // When the tween has no duration, the timing will not be done and the
       // animation will be set to its last frame amd decomissioned right away.
       else if (this.hasDuration == false) {
@@ -58,7 +59,9 @@ namespace ElRaccoone.Tweens.Core {
         this.Decommission ();
         return;
       }
-      //
+
+      // When the tween has a loop type of ping pong, the time will be bounced
+      // back and forth between 0 and 1 endlessly until decomissioned.
       else if (this.isLoopPingPongEnabled == true) {
         var _timeDelta = Time.deltaTime / this.duration;
         this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
@@ -71,7 +74,9 @@ namespace ElRaccoone.Tweens.Core {
         }
         this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
       }
-      //
+
+      // Otherwise the tween will play its regular animation cycle. When the
+      // loop count exceeds, the tween will be decomissioned.
       else {
         this.time += Time.deltaTime / this.duration;
         if (this.time >= 1)
@@ -87,6 +92,7 @@ namespace ElRaccoone.Tweens.Core {
       }
     }
 
+    // Returns the interpolated value of time between from and to.
     internal float InterpolateValue (float from, float to, float time) {
       if (this.hasOvershooting == true) {
         if (time > 1)
@@ -97,29 +103,35 @@ namespace ElRaccoone.Tweens.Core {
       return from * (1 - time) + to * time;
     }
 
-    public TweenBase<T> Finalize (float duration, T valueTo) {
+    internal TweenBase<T> Finalize (float duration, T valueTo) {
       this.duration = duration;
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
       return this;
     }
 
+    /// Sets the value this tween should animate from instead of its current.
     public TweenBase<T> SetFrom (T valueFrom) {
       this.didOverwriteFrom = true;
       this.valueFrom = valueFrom;
       return this;
     }
 
+    /// Sets the loop type to ping pong, this will bounce the animation back
+    /// and forth endlessly. This type hides the LoopCount value.
     public TweenBase<T> SetLoopPingPong () {
       this.isLoopPingPongEnabled = true;
       return this;
     }
 
+    /// Sets the loop count of this tween until it can be decomissioned.
     public TweenBase<T> SetLoopCount (int loopCount) {
       this.loopCount = loopCount;
       return this;
     }
 
+    /// Sets the delay of this tween. The tween will not play anything until
+    /// the requested delay time is reached.
     public TweenBase<T> SetDelay (float delay) {
       this.delay = delay;
       this.hasDelay = true;
