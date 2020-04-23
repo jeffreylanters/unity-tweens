@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/unity-packages/installation/master/.github/logo.jpg" height="300px"></br>
-
 [![npm](https://img.shields.io/badge/unity--packages-1.1.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)]()
 
