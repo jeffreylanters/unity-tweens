@@ -4,7 +4,7 @@
 
 # Tweens for Unity
 
-[![npm](https://img.shields.io/badge/upm-1.0.0-232c37.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/upm-1.4.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)](./LICENSE.md)
 [![npm](https://img.shields.io/badge/sponsor-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 
@@ -36,6 +36,7 @@ Install using the Unity Package Manager. add the following line to your `manifes
 ### Examples
 
 ```cs
+using ElRaccoone.Tweens;
 gameObject.TweenLocalRotationX(100, 1).SetFrom(-20).SetLoopCount(2).SetEaseQuadIn();
 rectTransform.TweenGraphicColor(Color.white, 1).SetFrom(Color.red).SetLoopPingPong();
 image.TweenLocalScale(new Vector3(2, 2, 2), 2).SetEaseBackOut().SetOvershooting(0.5f);
@@ -48,7 +49,6 @@ transform.TweenCancelAll();
 Tweens expose a various number of methods, these are presented in _Extention methods_ for _GameObjects_ and any kind of _Component_.
 
 ```cs
-using ElRaccoone.Tweens;
 TweenLocalPosition (Vector3 to, float duration);
 TweenLocalPositionX (float to, float duration);
 TweenLocalPositionY (float to, float duration);
