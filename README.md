@@ -48,7 +48,7 @@ transform.TweenCancelAll();
 
 ### Methods
 
-Tweens expose a various number of methods, these are presented in _Extention methods_ for _GameObjects_ and any kind of _Component_.
+Tweens expose a various number of methods, these are presented in **Extention methods** for **GameObjects** and any kind of **Component**. _Feel free to request more properties to tween_.
 
 ```cs
 TweenLocalPosition (Vector3 to, float duration);
