@@ -33,4 +33,96 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
-Documentation will be available soon.
+### Examples
+
+```cs
+gameObject.TweenLocalRotationX(100, 1).SetFrom(-20).SetLoopCount(2).SetEaseQuadIn();
+rectTransform.TweenGraphicColor(Color.white, 1).SetFrom(Color.red).SetLoopPingPong();
+image.TweenLocalScale(new Vector3(2, 2, 2), 2).SetEaseBackOut().SetOvershooting(0.5f);
+gameObject.TweenValue(100, 1, (value) => { /* ... */ }).SetFrom(10).SetEase(Ease.QuadOut);
+transform.TweenCancelAll();
+```
+
+### Methods
+
+Tweens expose a various number of methods, these are presented in _Extention methods_ for _GameObjects_ and any kind of _Component_.
+
+```cs
+using ElRaccoone.Tweens;
+TweenLocalPosition (Vector3 to, float duration);
+TweenLocalPositionX (float to, float duration);
+TweenLocalPositionY (float to, float duration);
+TweenLocalPositionZ (float to, float duration);
+TweenPosition (Vector3 to, float duration);
+TweenPositionX (float to, float duration);
+TweenPositionY (float to, float duration);
+TweenPositionZ (float to, float duration);
+TweenAnchoredPosition (Vector2 to, float duration);
+TweenAnchoredPositionX (float to, float duration);
+TweenAnchoredPositionY (float to, float duration);
+TweenLocalRotation (Vector3 to, float duration);
+TweenLocalRotationX (float to, float duration);
+TweenLocalRotationY (float to, float duration);
+TweenLocalRotationZ (float to, float duration);
+TweenRotation (Vector3 to, float duration);
+TweenRotationX (float to, float duration);
+TweenRotationY (float to, float duration);
+TweenRotationZ (float to, float duration);
+TweenLocalScale (Vector3 to, float duration);
+TweenLocalScaleX (float to, float duration);
+TweenLocalScaleY (float to, float duration);
+TweenLocalScaleZ (float to, float duration);
+TweenGraphicAlpha (float to, float duration);
+TweenGraphicColor (Color to, float duration);
+TweenTextMeshAlpha (float to, float duration);
+TweenCanvasGroupAlpha (float to, float duration);
+TweenAudioSourceVolume (float to, float duration);
+TweenAudioSourcePitch (float to, float duration);
+TweenValue (float to, float duration, Action<float> onUpdate);
+TweenDelayedInvoke(float duration, Action onComplete);
+TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
+```
+
+### Option Chaining
+
+When invoking a tween as show above, various options can be changed using chaining methods.
+
+```cs
+SetFrom (T valueFrom);
+SetLoopPingPong ();
+SetLoopCount (int loopCount);
+SetDelay (float delay);
+SetOvershooting (float overshooting);
+SetEase (Ease ease);
+SetEaseLinear ();
+SetEaseSineIn ();
+SetEaseSineOut ();
+SetEaseSineInOut ();
+SetEaseQuadIn ();
+SetEaseQuadOut ();
+SetEaseQuadInOut ();
+SetEaseCubicIn ();
+SetEaseCubicOut ();
+SetEaseCubicInOut ();
+SetEaseQuartIn ();
+SetEaseQuartOut ();
+SetEaseQuartInOut ();
+SetEaseQuintIn ();
+SetEaseQuintOut ();
+SetEaseQuintInOut ();
+SetEaseExpoIn ();
+SetEaseExpoOut ();
+SetEaseExpoInOut ();
+SetEaseCircIn ();
+SetEaseCircOut ();
+SetEaseCircInOut ();
+SetEaseBackIn ();
+SetEaseBackOut ();
+SetEaseBackInOut ();
+SetEaseElasticIn ();
+SetEaseElasticOut ();
+SetEaseElasticInOut ();
+SetEaseBounceIn ();
+SetEaseBounceOut ();
+SetEaseBounceInOut ()
+```

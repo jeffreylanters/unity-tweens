@@ -141,6 +141,16 @@ namespace ElRaccoone.Tweens {
     public static TweenBase<float> TweenCanvasGroupAlpha (this GameObject self, float to, float duration) =>
       self.AddComponent<CanvasGroupAlphaTweenDriver> ().Finalize (duration, to);
 
+    public static TweenBase<float> TweenAudioSourceVolume (this Component self, float to, float duration) =>
+      Tweens.TweenAudioSourceVolume (self.gameObject, to, duration);
+    public static TweenBase<float> TweenAudioSourceVolume (this GameObject self, float to, float duration) =>
+      self.AddComponent<AudioSourceVolumeTweenDriver> ().Finalize (duration, to);
+
+    public static TweenBase<float> TweenAudioSourcePitch (this Component self, float to, float duration) =>
+      Tweens.TweenAudioSourcePitch (self.gameObject, to, duration);
+    public static TweenBase<float> TweenAudioSourcePitch (this GameObject self, float to, float duration) =>
+      self.AddComponent<AudioSourcePitchTweenDriver> ().Finalize (duration, to);
+
     public static TweenBase<float> TweenValue (this Component self, float to, float duration, Action<float> onUpdate) =>
       Tweens.TweenValue (self.gameObject, to, duration, onUpdate);
     public static TweenBase<float> TweenValue (this GameObject self, float to, float duration, Action<float> onUpdate) =>
