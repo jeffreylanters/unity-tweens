@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/elraccoone/tweens/master/.github/WIKI/logo.jpg" height="100px"></br>
+<img src="https://raw.githubusercontent.com/elraccoone/unity-tweens/master/.github/WIKI/logo.jpg" height="100px"></br>
 
 # Tweens
 
