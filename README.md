@@ -28,7 +28,7 @@ When using this Unity Package, make sure to **Star** this repository. When using
 Install using the Unity Package Manager. add the following line to your `manifest.json` file located within your project's packages directory.
 
 ```json
-"nl.elraccoone.tweens": "git+https://github.com/elraccoone/tweens"
+"nl.elraccoone.tweens": "git+https://github.com/elraccoone/unity-tweens"
 ```
 
 ## Documentation
