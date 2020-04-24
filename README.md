@@ -37,6 +37,7 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ```cs
 using ElRaccoone.Tweens;
+transform.TweenPosition(new Vector3(10, 20, 30), 2);
 gameObject.TweenLocalRotationX(100, 1).SetFrom(-20).SetLoopCount(2).SetEaseQuadIn();
 rectTransform.TweenGraphicColor(Color.white, 1).SetFrom(Color.red).SetLoopPingPong();
 image.TweenLocalScale(new Vector3(2, 2, 2), 2).SetEaseBackOut().SetOvershooting(0.5f);
