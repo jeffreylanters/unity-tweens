@@ -2,6 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
+  [AddComponentMenu ("")]
   public class TextMeshAlphaTweenDriver : TweenBase<float> {
     private TextMesh textMesh;
     private Color color;

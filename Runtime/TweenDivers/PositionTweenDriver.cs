@@ -2,6 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
+  [AddComponentMenu ("")]
   public class PositionTweenDriver : TweenBase<Vector3> {
     public override bool OnInitialize () {
       return true;

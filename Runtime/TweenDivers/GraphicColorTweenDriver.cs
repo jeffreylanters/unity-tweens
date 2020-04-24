@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
+  [AddComponentMenu ("")]
   public class GraphicColorTweenDriver : TweenBase<Color> {
     private Graphic graphic;
 

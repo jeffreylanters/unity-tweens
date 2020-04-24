@@ -1,7 +1,9 @@
 using System;
 using ElRaccoone.Tweens.Core;
+using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
+  [AddComponentMenu ("")]
   public class ValueTweenDriver : TweenBase<float> {
     private Action<float> onUpdate = null;
     private bool hasOnUpdate = false;

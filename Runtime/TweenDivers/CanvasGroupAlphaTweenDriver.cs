@@ -2,6 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
+  [AddComponentMenu ("")]
   public class CanvasGroupAlphaTweenDriver : TweenBase<float> {
     private CanvasGroup canvasGroup;
 

@@ -4,6 +4,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
+  [AddComponentMenu ("")]
   public class DelayedInvokeTweenDriver : TweenInstance {
     public TweenInstance Invoke (float duration, Action action) {
       this.StartCoroutine (this.InvokeCoroutine (duration, action));
