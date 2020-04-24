@@ -3,7 +3,9 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   public class PositionTweenDriver : TweenBase<Vector3> {
-    public override void OnInitialize () { }
+    public override bool OnInitialize () {
+      return true;
+    }
 
     public override Vector3 OnGetFrom () {
       return this.transform.position;

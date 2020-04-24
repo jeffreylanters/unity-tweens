@@ -1,26 +1,25 @@
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class GraphicAlphaTweenDriver : TweenBase<float> {
-    private Graphic graphic;
+  public class TextMeshAlphaTweenDriver : TweenBase<float> {
+    private TextMesh textMesh;
     private Color color;
 
     public override bool OnInitialize () {
-      this.graphic = this.gameObject.GetComponent<Graphic> ();
-      return this.graphic != null;
+      this.textMesh = this.gameObject.GetComponent<TextMesh> ();
+      return this.textMesh != null;
     }
 
     public override float OnGetFrom () {
-      return this.graphic.color.a;
+      return this.textMesh.color.a;
     }
 
     public override void OnUpdate (float easedTime) {
-      this.color = this.graphic.color;
+      this.color = this.textMesh.color;
       this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
       this.color.a = this.valueCurrent;
-      this.graphic.color = this.color;
+      this.textMesh.color = this.color;
     }
   }
 }

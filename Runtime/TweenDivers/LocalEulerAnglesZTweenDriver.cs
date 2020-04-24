@@ -6,7 +6,9 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     private Quaternion quaternionValueFrom;
     private Quaternion quaternionValueTo;
 
-    public override void OnInitialize () { }
+    public override bool OnInitialize () {
+      return true;
+    }
 
     public override float OnGetFrom () {
       return this.transform.localEulerAngles.z;

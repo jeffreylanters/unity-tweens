@@ -24,7 +24,7 @@ namespace ElRaccoone.Tweens.Core {
     private bool isLoopPingPongEnabled = false;
     private bool isPlayingForward = true;
 
-    public abstract void OnInitialize ();
+    public abstract bool OnInitialize ();
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
@@ -32,14 +32,18 @@ namespace ElRaccoone.Tweens.Core {
       // When From is not overwritten and the Tween has no delay, the valueFrom
       // is requested from the inheriter. Then the animation will be set to its
       // first frame.
-      this.OnInitialize ();
-      if (this.didOverwriteFrom == false && this.hasDelay == false) {
+      if (this.OnInitialize () == false) {
+        this.Decommission ();
+      } else if (this.didOverwriteFrom == false && this.hasDelay == false) {
         this.valueFrom = this.OnGetFrom ();
         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
       }
     }
 
     private void Update () {
+      // When the tween is decommissioned, tweening is aborted.
+      if (this.isDecommissioned == true)
+        return;
       // When the delay is active, the tween will wait for the delay to pass by.
       if (this.hasDelay == true) {
         this.delay -= Time.deltaTime;

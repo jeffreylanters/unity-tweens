@@ -6,8 +6,9 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     private Quaternion quaternionValueFrom;
     private Quaternion quaternionValueTo;
 
-    public override void OnInitialize () {
+    public override bool OnInitialize () {
       this.quaternionValueTo = Quaternion.Euler (this.valueTo);
+      return true;
     }
 
     public override Vector3 OnGetFrom () {

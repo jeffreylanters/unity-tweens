@@ -6,7 +6,9 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     private Action<float> onUpdate = null;
     private bool hasOnUpdate = false;
 
-    public override void OnInitialize () { }
+    public override bool OnInitialize () {
+      return true;
+    }
 
     public override float OnGetFrom () {
       return 0;

@@ -5,7 +5,9 @@ namespace ElRaccoone.Tweens.TweenDrivers {
   public class LocalScaleXTweenDriver : TweenBase<float> {
     private Vector3 localScale;
 
-    public override void OnInitialize () { }
+    public override bool OnInitialize () {
+      return true;
+    }
 
     public override float OnGetFrom () {
       return this.transform.localScale.x;

@@ -2,22 +2,21 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
-  public class LocalPositionYTweenDriver : TweenBase<float> {
-    private Vector3 localPosition;
+  public class CanvasGroupAlphaTweenDriver : TweenBase<float> {
+    private CanvasGroup canvasGroup;
 
     public override bool OnInitialize () {
-      return true;
+      this.canvasGroup = this.gameObject.GetComponent<CanvasGroup> ();
+      return this.canvasGroup != null;
     }
 
     public override float OnGetFrom () {
-      return this.transform.localPosition.y;
+      return this.canvasGroup.alpha;
     }
 
     public override void OnUpdate (float easedTime) {
-      this.localPosition = this.transform.localPosition;
       this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-      this.localPosition.y = this.valueCurrent;
-      this.transform.localPosition = this.localPosition;
+      this.canvasGroup.alpha = this.valueCurrent;
     }
   }
 }

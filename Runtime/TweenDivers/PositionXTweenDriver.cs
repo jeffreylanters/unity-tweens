@@ -5,7 +5,9 @@ namespace ElRaccoone.Tweens.TweenDrivers {
   public class PositionXTweenDriver : TweenBase<float> {
     private Vector3 position;
 
-    public override void OnInitialize () { }
+    public override bool OnInitialize () {
+      return true;
+    }
 
     public override float OnGetFrom () {
       return this.transform.position.x;

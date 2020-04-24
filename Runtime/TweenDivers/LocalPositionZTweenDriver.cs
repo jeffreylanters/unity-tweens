@@ -5,7 +5,9 @@ namespace ElRaccoone.Tweens.TweenDrivers {
   public class LocalPositionZTweenDriver : TweenBase<float> {
     private Vector3 localPosition;
 
-    public override void OnInitialize () { }
+    public override bool OnInitialize () {
+      return true;
+    }
 
     public override float OnGetFrom () {
       return this.transform.localPosition.z;
