@@ -3,5 +3,5 @@
   "displayName": "Tweens",
   "version": "1.4.0",
   "unity": "2019.1",
-  "description": "An extremely light weight, flexible and extendable tweening engine made for script-based animations."
+  "description": "An extremely light weight, extendable and customisable tweening engine made for script-based animations for user-interfaces and world-spaces objects optimised for all platforms."
 }
