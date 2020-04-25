@@ -11,6 +11,8 @@
 
 An extremely light weight, extendable and customisable tweening engine made for script-based animations for user-interfaces and world-spaces objects optimised for all platforms.
 
+The power and speed you expect from other tweening engines, but with strictly types methods and clean usage.
+
 When using this Unity Package, make sure to **Star** this repository. When using any of the packages please make sure to give credits to **Jeffrey Lanters / El Raccoone** somewhere in your app or game. **It it prohibited to distribute, sublicense, and/or sell copies of the Software!**
 
 **&Lt;**
