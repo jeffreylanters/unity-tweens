@@ -76,6 +76,7 @@ TweenLocalScaleY (float to, float duration);
 TweenLocalScaleZ (float to, float duration);
 TweenGraphicAlpha (float to, float duration);
 TweenGraphicColor (Color to, float duration);
+TweenImageFillAmount (float to, float duration);
 TweenTextMeshAlpha (float to, float duration);
 TweenCanvasGroupAlpha (float to, float duration);
 TweenAudioSourceVolume (float to, float duration);

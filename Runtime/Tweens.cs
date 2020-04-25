@@ -131,6 +131,11 @@ namespace ElRaccoone.Tweens {
     public static TweenBase<Color> TweenGraphicColor (this GameObject self, Color to, float duration) =>
       self.AddComponent<GraphicColorTweenDriver> ().Finalize (duration, to);
 
+    public static TweenBase<float> TweenImageFillAmount (this Component self, float to, float duration) =>
+      Tweens.TweenImageFillAmount (self.gameObject, to, duration);
+    public static TweenBase<float> TweenImageFillAmount (this GameObject self, float to, float duration) =>
+      self.AddComponent<ImageFillAmountTweenDriver> ().Finalize (duration, to);
+
     public static TweenBase<float> TweenTextMeshAlpha (this Component self, float to, float duration) =>
       Tweens.TweenTextMeshAlpha (self.gameObject, to, duration);
     public static TweenBase<float> TweenTextMeshAlpha (this GameObject self, float to, float duration) =>
