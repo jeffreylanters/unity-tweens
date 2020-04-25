@@ -12,7 +12,6 @@ namespace ElRaccoone.Tweens.Core {
     private Ease ease = 0;
 
     private bool hasLoopCount = false;
-    private bool isInfinite = false;
     private int loopCount = 0;
 
     private bool hasDuration = false;
@@ -27,6 +26,7 @@ namespace ElRaccoone.Tweens.Core {
     private Action onComplete = null;
     private bool hasOnComplete = false;
 
+    private bool isInfinite = false;
     private bool didOverwriteFrom = false;
     private bool hasPingPong = false;
     private bool isPlayingForward = true;
