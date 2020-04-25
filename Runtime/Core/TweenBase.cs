@@ -1,4 +1,5 @@
 using ElRaccoone.Tweens.Helpers;
+using System;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
@@ -19,6 +20,9 @@ namespace ElRaccoone.Tweens.Core {
 
     private bool hasOvershooting = false;
     private float overshooting = 0;
+    
+    private Action onComplete = null;
+    private bool hasOnComplete = false;
 
     private bool didOverwriteFrom = false;
     private bool isLoopPingPongEnabled = false;
@@ -93,6 +97,8 @@ namespace ElRaccoone.Tweens.Core {
             this.loopCount -= 1;
             this.time = 0;
           } else
+            if (this.hasOnComplete == true)
+              this.onComplete ();
             this.Decommission ();
         }
       }
@@ -122,6 +128,13 @@ namespace ElRaccoone.Tweens.Core {
     public TweenBase<T> SetFrom (T valueFrom) {
       this.didOverwriteFrom = true;
       this.valueFrom = valueFrom;
+      return this;
+    }
+    
+    /// Binds an onComplete event which will be invoked when the tween ends.
+    public TweenBase<T> SetOnComplete (Action onComplete) {
+      this.hasOnComplete = true;
+      this.onComplete = onComplete;
       return this;
     }
 
