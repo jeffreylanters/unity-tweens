@@ -95,8 +95,9 @@ When invoking a tween as show above, various options can be changed using chaini
 ```cs
 SetFrom (T valueFrom);
 SetOnComplete (Action onComplete);
-SetLoopPingPong ();
+SetPingPong ();
 SetLoopCount (int loopCount);
+SetInfinite ();
 SetDelay (float delay);
 SetOvershooting (float overshooting);
 SetEase (Ease ease);

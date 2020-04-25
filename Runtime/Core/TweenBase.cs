@@ -1,5 +1,5 @@
-using ElRaccoone.Tweens.Helpers;
 using System;
+using ElRaccoone.Tweens.Helpers;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
@@ -9,8 +9,11 @@ namespace ElRaccoone.Tweens.Core {
     internal T valueCurrent = default (T);
 
     private float time = 0;
-    private int loopCount = 0;
     private Ease ease = 0;
+
+    private bool hasLoopCount = false;
+    private bool isInfinite = false;
+    private int loopCount = 0;
 
     private bool hasDuration = false;
     private float duration = 0;
@@ -20,13 +23,14 @@ namespace ElRaccoone.Tweens.Core {
 
     private bool hasOvershooting = false;
     private float overshooting = 0;
-    
+
     private Action onComplete = null;
     private bool hasOnComplete = false;
 
     private bool didOverwriteFrom = false;
-    private bool isLoopPingPongEnabled = false;
+    private bool hasPingPong = false;
     private bool isPlayingForward = true;
+    private bool timeDidReachEnd = false;
 
     public abstract bool OnInitialize ();
     public abstract T OnGetFrom ();
@@ -61,7 +65,6 @@ namespace ElRaccoone.Tweens.Core {
           }
         }
       }
-
       // When the tween has no duration, the timing will not be done and the
       // animation will be set to its last frame amd decomissioned right away.
       else if (this.hasDuration == false) {
@@ -69,38 +72,46 @@ namespace ElRaccoone.Tweens.Core {
         this.Decommission ();
         return;
       }
-
-      // When the tween has a loop type of ping pong, the time will be bounced
-      // back and forth between 0 and 1 endlessly until decomissioned.
-      else if (this.isLoopPingPongEnabled == true) {
+      // Oterwise it is... Showtime!
+      else {
+        // Increase or decrease the time of the tween based on the direction.
         var _timeDelta = Time.deltaTime / this.duration;
         this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
+        // The time will be capped to 1, when pingpong is enabled the tween will
+        // play backwards, otherwise when the tween is not infinite, didReachEnd
+        // will be set to true.
         if (this.time > 1) {
-          this.isPlayingForward = false;
           this.time = 1;
-        } else if (this.time < 0) {
-          this.isPlayingForward = true;
-          this.time = 0;
+          if (this.hasPingPong == true)
+            this.isPlayingForward = false;
+          else if (this.isInfinite == false)
+            this.timeDidReachEnd = true;
+          else
+            this.time = 0;
         }
+        // When pingpong is enabled, the time will be capped to 0 as well. When
+        // it is hit, the tween will play forwards again and didReachEnd will be
+        // set to true if the tween is not infinite.
+        else if (this.hasPingPong == true && this.time < 0) {
+          this.time = 0;
+          this.isPlayingForward = true;
+          if (this.isInfinite == false)
+            this.timeDidReachEnd = true;
+        }
+        // The time will be updated on the inheriter.
         this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
-      }
-
-      // Otherwise the tween will play its regular animation cycle. When the
-      // loop count exceeds, the tween will be decomissioned.
-      else {
-        this.time += Time.deltaTime / this.duration;
-        if (this.time >= 1)
-          this.time = 1;
-        this.OnUpdate (EasingMethods.Apply (this.ease, this.time));
-        if (this.time == 1) {
-          if (this.loopCount > 0) {
+        // When the end is reached either the loop count will be decreased, or
+        // the tween will be decommissioned, and the oncomplete may be invoked.
+        if (this.timeDidReachEnd == true)
+          if (this.hasLoopCount == true && this.loopCount > 1) {
+            this.timeDidReachEnd = false;
             this.loopCount -= 1;
             this.time = 0;
-          } else
+          } else {
             if (this.hasOnComplete == true)
               this.onComplete ();
             this.Decommission ();
-        }
+          }
       }
     }
 
@@ -130,7 +141,7 @@ namespace ElRaccoone.Tweens.Core {
       this.valueFrom = valueFrom;
       return this;
     }
-    
+
     /// Binds an onComplete event which will be invoked when the tween ends.
     public TweenBase<T> SetOnComplete (Action onComplete) {
       this.hasOnComplete = true;
@@ -139,15 +150,23 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the loop type to ping pong, this will bounce the animation back
-    /// and forth endlessly. This type hides the LoopCount value.
-    public TweenBase<T> SetLoopPingPong () {
-      this.isLoopPingPongEnabled = true;
+    /// and forth endlessly. When a loop count is set, the tween has play forward
+    /// and backwards to count as one cycle.
+    public TweenBase<T> SetPingPong () {
+      this.hasPingPong = true;
       return this;
     }
 
     /// Sets the loop count of this tween until it can be decomissioned.
     public TweenBase<T> SetLoopCount (int loopCount) {
+      this.hasLoopCount = true;
       this.loopCount = loopCount;
+      return this;
+    }
+
+    /// Sets this tween to infinite, the loopcount will be ignored.
+    public TweenBase<T> SetInfinite () {
+      this.isInfinite = true;
       return this;
     }
 
