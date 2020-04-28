@@ -13,6 +13,7 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     }
 
     public override void OnUpdate (float easedTime) {
+      UnityEngine.Debug.Log ("Test2 X: " + this.InterpolateValue (this.valueFrom.x, this.valueTo.x, easedTime));
       this.valueCurrent.x = this.InterpolateValue (this.valueFrom.x, this.valueTo.x, easedTime);
       this.valueCurrent.y = this.InterpolateValue (this.valueFrom.y, this.valueTo.y, easedTime);
       this.valueCurrent.z = this.InterpolateValue (this.valueFrom.z, this.valueTo.z, easedTime);
