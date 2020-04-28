@@ -40,12 +40,12 @@ namespace ElRaccoone.Tweens.Core {
       // When From is not overwritten and the Tween has no delay, the valueFrom
       // is requested from the inheriter. Then the animation will be set to its
       // first frame.
-      if (this.OnInitialize () == false) {
-        this.Decommission ();
-      } else if (this.didOverwriteFrom == false && this.hasDelay == false) {
-        this.valueFrom = this.OnGetFrom ();
-        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
-      }
+//       if (this.OnInitialize () == false) {
+//         this.Decommission ();
+//       } else if (this.didOverwriteFrom == false && this.hasDelay == false) {
+//         this.valueFrom = this.OnGetFrom ();
+//         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+//       }
     }
 
     private void Update () {
@@ -132,6 +132,12 @@ namespace ElRaccoone.Tweens.Core {
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
       // this.hideFlags = HideFlags.HideInInspector;
+      if (this.OnInitialize () == false) {
+        this.Decommission ();
+      } else if (this.didOverwriteFrom == false && this.hasDelay == false) {
+        this.valueFrom = this.OnGetFrom ();
+        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+      }
       return this;
     }
 
