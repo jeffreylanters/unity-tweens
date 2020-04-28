@@ -36,6 +36,20 @@ namespace ElRaccoone.Tweens.Core {
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
+    private void Start () {
+      // When From is not overwritten and the Tween has no delay, the valueFrom
+      // is requested from the inheriter. Then the animation will be set to its
+      // first frame. This is done during the Start method so other parameters
+      // can be set.
+      if (this.OnInitialize () == false)
+        this.Decommission ();
+      else if (this.hasDelay == false) {
+        if (this.didOverwriteFrom == false)
+          this.valueFrom = this.OnGetFrom ();
+        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+      }
+    }
+
     private void Update () {
       // When the tween is decommissioned, tweening is aborted.
       if (this.isDecommissioned == true)
@@ -118,16 +132,6 @@ namespace ElRaccoone.Tweens.Core {
       this.duration = duration;
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
-      // When From is not overwritten and the Tween has no delay, the valueFrom
-      // is requested from the inheriter. Then the animation will be set to its
-      // first frame.
-      if (this.OnInitialize () == false)
-        this.Decommission ();
-      else if (this.hasDelay == false) {
-        if (this.didOverwriteFrom == false)
-          this.valueFrom = this.OnGetFrom ();
-        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
-      }
       return this;
     }
 
