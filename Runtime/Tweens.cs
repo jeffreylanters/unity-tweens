@@ -103,7 +103,7 @@ namespace ElRaccoone.Tweens {
 
     public static TweenBase<Vector3> TweenLocalScale (this Component self, Vector3 to, float duration) =>
       Tweens.TweenLocalScale (self.gameObject, to, duration);
-    public static TweenBase<Vector3> TweenLocalScale (this GameObject self, Vector3 to, float duration) => {
+    public static TweenBase<Vector3> TweenLocalScale (this GameObject self, Vector3 to, float duration) {
       UnityEngine.Debug.Log ("Test1");
       self.AddComponent<LocalScaleTweenDriver> ().Finalize (duration, to);
     }
