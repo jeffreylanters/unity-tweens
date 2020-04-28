@@ -1,9 +1,11 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+
+using System;
 using System.Linq;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Tests {
-  [AddComponentMenu ("El Raccoone/Tweens/Tests/World Space Tests")]
+  [AddComponentMenu ("")]
   public class TweensWorldspaceTests : MonoBehaviour {
     private Vector2 scrollPosition = new Vector2 ();
 
@@ -71,3 +73,5 @@ namespace ElRaccoone.Tweens.Tests {
     }
   }
 }
+
+#endif
