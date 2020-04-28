@@ -24,8 +24,10 @@ namespace ElRaccoone.Tweens.Tests {
       GUILayout.Label ("[EASE TESTING]");
       var values = Enum.GetValues (typeof (Ease)).Cast<Ease> ();
       foreach (Ease value in values)
-        if (GUILayout.Button ("With Ease " + value.ToString ()))
-          this.gameObject.TweenLocalPosition (new Vector3 (0, -1, 0), 1).SetFrom (new Vector3 (0, 1, 0)).SetEase (value);
+        if (GUILayout.Button ("With Ease " + value.ToString ())) {
+          this.gameObject.transform.localPosition = new Vector3 (0, 1, 0);
+          this.gameObject.TweenLocalPosition (new Vector3 (0, -1, 0), 2).SetEase (value).SetDelay (.5f);
+        }
 
       // Flicker Testing
       GUILayout.Label ("[ROTATION TESTING]");
