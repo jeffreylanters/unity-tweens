@@ -123,9 +123,11 @@ namespace ElRaccoone.Tweens.Core {
       // first frame.
       if (this.OnInitialize () == false)
         this.Decommission ();
-      else if (this.didOverwriteFrom == false && this.hasDelay == false)
-        this.valueFrom = this.OnGetFrom ();
-      this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+      else if (this.hasDelay == false) {
+        if (this.didOverwriteFrom == false)
+          this.valueFrom = this.OnGetFrom ();
+        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
+      }
       return this;
     }
 
