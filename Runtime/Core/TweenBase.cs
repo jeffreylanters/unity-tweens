@@ -36,18 +36,6 @@ namespace ElRaccoone.Tweens.Core {
     public abstract T OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
-    private void Start () {
-      // When From is not overwritten and the Tween has no delay, the valueFrom
-      // is requested from the inheriter. Then the animation will be set to its
-      // first frame.
-//       if (this.OnInitialize () == false) {
-//         this.Decommission ();
-//       } else if (this.didOverwriteFrom == false && this.hasDelay == false) {
-//         this.valueFrom = this.OnGetFrom ();
-//         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
-//       }
-    }
-
     private void Update () {
       // When the tween is decommissioned, tweening is aborted.
       if (this.isDecommissioned == true)
@@ -59,10 +47,9 @@ namespace ElRaccoone.Tweens.Core {
           this.hasDelay = false;
           // When the delay is over, the valueFrom is requested from the 
           // inheriter. Then the animation will be set to its first frame.
-          if (this.didOverwriteFrom == false) {
+          if (this.didOverwriteFrom == false)
             this.valueFrom = this.OnGetFrom ();
-            this.OnUpdate (EasingMethods.Apply (this.ease, 0));
-          }
+          this.OnUpdate (EasingMethods.Apply (this.ease, 0));
         }
       }
       // When the tween has no duration, the timing will not be done and the
@@ -131,13 +118,14 @@ namespace ElRaccoone.Tweens.Core {
       this.duration = duration;
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
-      // this.hideFlags = HideFlags.HideInInspector;
-      if (this.OnInitialize () == false) {
+      // When From is not overwritten and the Tween has no delay, the valueFrom
+      // is requested from the inheriter. Then the animation will be set to its
+      // first frame.
+      if (this.OnInitialize () == false)
         this.Decommission ();
-      } else if (this.didOverwriteFrom == false && this.hasDelay == false) {
+      else if (this.didOverwriteFrom == false && this.hasDelay == false)
         this.valueFrom = this.OnGetFrom ();
-        this.OnUpdate (EasingMethods.Apply (this.ease, 0));
-      }
+      this.OnUpdate (EasingMethods.Apply (this.ease, 0));
       return this;
     }
 
