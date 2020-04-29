@@ -186,3 +186,13 @@ public static class TextMeshProAlphaTween {
   }
 }
 ```
+
+Now you're ready to use your tween!
+
+```cs
+public class Test : MonoBehaviour {
+  public void Start () {
+    this.myTmp.TweenTextMeshProAlpha (1, 2.5f).SetFrom(0).SetEaseBackIn().SetDelay(1);
+  }
+}
+```
