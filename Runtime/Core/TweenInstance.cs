@@ -13,7 +13,7 @@ namespace ElRaccoone.Tweens.Core {
     /// Destroys the component.
     internal void Decommission () {
       this.isDecommissioned = true;
-      Object.Destroy (this);
+      UnityEngine.Object.Destroy (this);
     }
 
     /// Cancel the tween and decommision the component.
