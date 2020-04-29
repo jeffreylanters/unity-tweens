@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class DelayedInvokeTween {
     public static Tween<bool> TweenDelayedInvoke (this Component self, bool to, float duration) =>
-      self.gameObject.TweenDelayedInvoke (to, duration);
+      self.gameObject.TweenDelayedInvoke (duration, to);
 
     public static Tween<bool> TweenDelayedInvoke (this GameObject self, bool to, float duration) =>
       self.AddComponent<Tween> ().Finalize (duration, to);
