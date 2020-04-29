@@ -95,6 +95,7 @@ When invoking a tween as show above, various options can be changed using chaini
 ```cs
 SetFrom (T valueFrom);
 SetOnComplete (Action onComplete);
+SetOnCancel (Action onCancel);
 SetPingPong ();
 SetLoopCount (int loopCount);
 SetInfinite ();
