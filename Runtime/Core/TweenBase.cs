@@ -149,6 +149,13 @@ namespace ElRaccoone.Tweens.Core {
       this.onComplete = onComplete;
       return this;
     }
+    
+    // Binds an onCancel event which will be invoked when the tween is canceled.
+    public void SetOnCancel (Action onCancel) {
+      this.hasOnCancel = true;
+      this.onCancel = onCancel;
+      return this;
+    }
 
     /// Sets the loop type to ping pong, this will bounce the animation back
     /// and forth endlessly. When a loop count is set, the tween has play forward
