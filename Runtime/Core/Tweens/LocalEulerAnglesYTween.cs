@@ -1,24 +1,31 @@
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace ElRaccoone.Tweens.Core.Drivers {
-  [AddComponentMenu ("")]
-  public class LocalEulerAnglesYTween : Tween<float> {
-    private Quaternion quaternionValueFrom;
-    private Quaternion quaternionValueTo;
+namespace ElRaccoone.Tweens {
+  public static class LocalEulerAnglesYTween {
+    public static Tween<float> TweenLocalEulerAnglesY (this Component self, float to, float duration) =>
+      self.gameObject.TweenLocalEulerAnglesY (to, duration);
 
-    public override bool OnInitialize () {
-      return true;
-    }
+    public static Tween<float> TweenLocalEulerAnglesY (this GameObject self, float to, float duration) =>
+      self.AddComponent<Tween> ().Finalize (duration, to);
 
-    public override float OnGetFrom () {
-      return this.transform.localEulerAngles.y;
-    }
+    private class Tween : Tween<float> {
+      private Quaternion quaternionValueFrom;
+      private Quaternion quaternionValueTo;
 
-    public override void OnUpdate (float easedTime) {
-      this.quaternionValueFrom = Quaternion.Euler (this.transform.localEulerAngles.x, this.valueFrom, this.transform.localEulerAngles.z);
-      this.quaternionValueTo = Quaternion.Euler (this.transform.localEulerAngles.x, this.valueTo, this.transform.localEulerAngles.z);
-      this.transform.localRotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+      public override bool OnInitialize () {
+        return true;
+      }
+
+      public override float OnGetFrom () {
+        return this.transform.localEulerAngles.y;
+      }
+
+      public override void OnUpdate (float easedTime) {
+        this.quaternionValueFrom = Quaternion.Euler (this.transform.localEulerAngles.x, this.valueFrom, this.transform.localEulerAngles.z);
+        this.quaternionValueTo = Quaternion.Euler (this.transform.localEulerAngles.x, this.valueTo, this.transform.localEulerAngles.z);
+        this.transform.localRotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+      }
     }
   }
 }

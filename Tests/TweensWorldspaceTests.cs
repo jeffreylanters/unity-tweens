@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Tests {
@@ -11,6 +12,11 @@ namespace ElRaccoone.Tweens.Tests {
 
     private void OnGUI () {
       this.scrollPosition = GUILayout.BeginScrollView (this.scrollPosition, GUILayout.Width (Screen.width / 4f));
+
+      // Flicker Testing
+      GUILayout.Label ("[BASE TESTING]");
+      if (GUILayout.Button ("Tween Position"))
+        this.gameObject.TweenPosition (Vector3.one, 1).SetFrom (Vector3.zero);
 
       // Flicker Testing
       GUILayout.Label ("[FLICKER TESTING]");
@@ -31,8 +37,8 @@ namespace ElRaccoone.Tweens.Tests {
 
       // Ease Testing
       GUILayout.Label ("[EASE TESTING]");
-      var values = Enum.GetValues (typeof (Ease)).Cast<Ease> ();
-      foreach (Ease value in values)
+      var values = Enum.GetValues (typeof (EaseType)).Cast<EaseType> ();
+      foreach (EaseType value in values)
         if (GUILayout.Button ("With Ease " + value.ToString ())) {
           this.gameObject.transform.localPosition = new Vector3 (0, 1, 0);
           this.gameObject.TweenLocalPosition (new Vector3 (0, -1, 0), 2).SetEase (value).SetDelay (.5f);

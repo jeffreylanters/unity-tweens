@@ -1,5 +1,5 @@
-namespace ElRaccoone.Tweens {
-  public enum Ease {
+namespace ElRaccoone.Tweens.Core { // TODO move this file?
+  public enum EaseType {
     Linear = 0,
     SineIn = 10,
     SineOut = 11,

@@ -1,24 +1,31 @@
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace ElRaccoone.Tweens.Core.Drivers {
-  [AddComponentMenu ("")]
-  public class EulerAnglesZTween : Tween<float> {
-    private Quaternion quaternionValueFrom;
-    private Quaternion quaternionValueTo;
+namespace ElRaccoone.Tweens {
+  public static class EulerAnglesZTween {
+    public static Tween<float> TweenEulerAnglesZ (this Component self, float to, float duration) =>
+      self.gameObject.TweenEulerAnglesZ (to, duration);
 
-    public override bool OnInitialize () {
-      return true;
-    }
+    public static Tween<float> TweenEulerAnglesZ (this GameObject self, float to, float duration) =>
+      self.AddComponent<Tween> ().Finalize (duration, to);
 
-    public override float OnGetFrom () {
-      return this.transform.eulerAngles.z;
-    }
+    private class Tween : Tween<float> {
+      private Quaternion quaternionValueFrom;
+      private Quaternion quaternionValueTo;
 
-    public override void OnUpdate (float easedTime) {
-      this.quaternionValueFrom = Quaternion.Euler (this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.valueFrom);
-      this.quaternionValueTo = Quaternion.Euler (this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.valueTo);
-      this.transform.rotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+      public override bool OnInitialize () {
+        return true;
+      }
+
+      public override float OnGetFrom () {
+        return this.transform.eulerAngles.z;
+      }
+
+      public override void OnUpdate (float easedTime) {
+        this.quaternionValueFrom = Quaternion.Euler (this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.valueFrom);
+        this.quaternionValueTo = Quaternion.Euler (this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.valueTo);
+        this.transform.rotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+      }
     }
   }
 }

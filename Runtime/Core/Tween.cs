@@ -8,7 +8,7 @@ namespace ElRaccoone.Tweens.Core {
     internal T valueCurrent = default (T);
 
     private float time = 0;
-    private Ease ease = 0;
+    private EaseType ease = 0;
 
     private bool hasLoopCount = false;
     private int loopCount = 0;
@@ -220,163 +220,163 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the ease for this tween.
-    public Tween<T> SetEase (Ease ease) {
+    public Tween<T> SetEase (EaseType ease) {
       this.ease = ease;
       return this;
     }
 
     public Tween<T> SetEaseLinear () {
-      this.ease = Ease.Linear;
+      this.ease = EaseType.Linear;
       return this;
     }
 
     public Tween<T> SetEaseSineIn () {
-      this.ease = Ease.SineIn;
+      this.ease = EaseType.SineIn;
       return this;
     }
 
     public Tween<T> SetEaseSineOut () {
-      this.ease = Ease.SineOut;
+      this.ease = EaseType.SineOut;
       return this;
     }
 
     public Tween<T> SetEaseSineInOut () {
-      this.ease = Ease.SineInOut;
+      this.ease = EaseType.SineInOut;
       return this;
     }
 
     public Tween<T> SetEaseQuadIn () {
-      this.ease = Ease.QuadIn;
+      this.ease = EaseType.QuadIn;
       return this;
     }
 
     public Tween<T> SetEaseQuadOut () {
-      this.ease = Ease.QuadOut;
+      this.ease = EaseType.QuadOut;
       return this;
     }
 
     public Tween<T> SetEaseQuadInOut () {
-      this.ease = Ease.QuadInOut;
+      this.ease = EaseType.QuadInOut;
       return this;
     }
 
     public Tween<T> SetEaseCubicIn () {
-      this.ease = Ease.CubicIn;
+      this.ease = EaseType.CubicIn;
       return this;
     }
 
     public Tween<T> SetEaseCubicOut () {
-      this.ease = Ease.CubicOut;
+      this.ease = EaseType.CubicOut;
       return this;
     }
 
     public Tween<T> SetEaseCubicInOut () {
-      this.ease = Ease.CubicInOut;
+      this.ease = EaseType.CubicInOut;
       return this;
     }
 
     public Tween<T> SetEaseQuartIn () {
-      this.ease = Ease.QuartIn;
+      this.ease = EaseType.QuartIn;
       return this;
     }
 
     public Tween<T> SetEaseQuartOut () {
-      this.ease = Ease.QuartOut;
+      this.ease = EaseType.QuartOut;
       return this;
     }
 
     public Tween<T> SetEaseQuartInOut () {
-      this.ease = Ease.QuartInOut;
+      this.ease = EaseType.QuartInOut;
       return this;
     }
 
     public Tween<T> SetEaseQuintIn () {
-      this.ease = Ease.QuintIn;
+      this.ease = EaseType.QuintIn;
       return this;
     }
 
     public Tween<T> SetEaseQuintOut () {
-      this.ease = Ease.QuintOut;
+      this.ease = EaseType.QuintOut;
       return this;
     }
 
     public Tween<T> SetEaseQuintInOut () {
-      this.ease = Ease.QuintInOut;
+      this.ease = EaseType.QuintInOut;
       return this;
     }
 
     public Tween<T> SetEaseExpoIn () {
-      this.ease = Ease.ExpoIn;
+      this.ease = EaseType.ExpoIn;
       return this;
     }
 
     public Tween<T> SetEaseExpoOut () {
-      this.ease = Ease.ExpoOut;
+      this.ease = EaseType.ExpoOut;
       return this;
     }
 
     public Tween<T> SetEaseExpoInOut () {
-      this.ease = Ease.ExpoInOut;
+      this.ease = EaseType.ExpoInOut;
       return this;
     }
 
     public Tween<T> SetEaseCircIn () {
-      this.ease = Ease.CircIn;
+      this.ease = EaseType.CircIn;
       return this;
     }
 
     public Tween<T> SetEaseCircOut () {
-      this.ease = Ease.CircOut;
+      this.ease = EaseType.CircOut;
       return this;
     }
 
     public Tween<T> SetEaseCircInOut () {
-      this.ease = Ease.CircInOut;
+      this.ease = EaseType.CircInOut;
       return this;
     }
 
     public Tween<T> SetEaseBackIn () {
-      this.ease = Ease.BackIn;
+      this.ease = EaseType.BackIn;
       return this;
     }
 
     public Tween<T> SetEaseBackOut () {
-      this.ease = Ease.BackOut;
+      this.ease = EaseType.BackOut;
       return this;
     }
 
     public Tween<T> SetEaseBackInOut () {
-      this.ease = Ease.BackInOut;
+      this.ease = EaseType.BackInOut;
       return this;
     }
 
     public Tween<T> SetEaseElasticIn () {
-      this.ease = Ease.ElasticIn;
+      this.ease = EaseType.ElasticIn;
       return this;
     }
 
     public Tween<T> SetEaseElasticOut () {
-      this.ease = Ease.ElasticOut;
+      this.ease = EaseType.ElasticOut;
       return this;
     }
 
     public Tween<T> SetEaseElasticInOut () {
-      this.ease = Ease.ElasticInOut;
+      this.ease = EaseType.ElasticInOut;
       return this;
     }
 
     public Tween<T> SetEaseBounceIn () {
-      this.ease = Ease.BounceIn;
+      this.ease = EaseType.BounceIn;
       return this;
     }
 
     public Tween<T> SetEaseBounceOut () {
-      this.ease = Ease.BounceOut;
+      this.ease = EaseType.BounceOut;
       return this;
     }
 
     public Tween<T> SetEaseBounceInOut () {
-      this.ease = Ease.BounceInOut;
+      this.ease = EaseType.BounceInOut;
       return this;
     }
   }

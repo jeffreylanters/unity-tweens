@@ -1,17 +1,24 @@
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace ElRaccoone.Tweens.Core.Drivers {
-  [AddComponentMenu ("")]
-  public class DelayedInvokeTween : Tween<bool> {
-    public override bool OnInitialize () {
-      return true;
-    }
+namespace ElRaccoone.Tweens {
+  public static class DelayedInvokeTween {
+    public static Tween<bool> TweenDelayedInvoke (this Component self, bool to, float duration) =>
+      self.gameObject.TweenDelayedInvoke (to, duration);
 
-    public override bool OnGetFrom () {
-      return true;
-    }
+    public static Tween<bool> TweenDelayedInvoke (this GameObject self, bool to, float duration) =>
+      self.AddComponent<Tween> ().Finalize (duration, to);
 
-    public override void OnUpdate (float easedTime) { }
+    private class Tween : Tween<bool> {
+      public override bool OnInitialize () {
+        return true;
+      }
+
+      public override bool OnGetFrom () {
+        return true;
+      }
+
+      public override void OnUpdate (float easedTime) { }
+    }
   }
 }

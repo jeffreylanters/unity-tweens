@@ -1,26 +1,33 @@
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace ElRaccoone.Tweens.Core.Drivers {
-  [AddComponentMenu ("")]
-  public class AnchoredPositionYTween : Tween<float> {
-    private RectTransform rectTransform;
-    private Vector2 anchoredPosition;
+namespace ElRaccoone.Tweens {
+  public static class AnchoredPositionYTween {
+    public static Tween<float> TweenAnchoredPositionY (this Component self, float to, float duration) =>
+      self.gameObject.TweenAnchoredPositionY (to, duration);
 
-    public override bool OnInitialize () {
-      this.rectTransform = this.gameObject.GetComponent<RectTransform> ();
-      return this.rectTransform != null;
-    }
+    public static Tween<float> TweenAnchoredPositionY (this GameObject self, float to, float duration) =>
+      self.AddComponent<Tween> ().Finalize (duration, to);
 
-    public override float OnGetFrom () {
-      return this.rectTransform.anchoredPosition.y;
-    }
+    private class Tween : Tween<float> {
+      private RectTransform rectTransform;
+      private Vector2 anchoredPosition;
 
-    public override void OnUpdate (float easedTime) {
-      this.anchoredPosition = this.rectTransform.anchoredPosition;
-      this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-      this.anchoredPosition.y = this.valueCurrent;
-      this.rectTransform.anchoredPosition = this.anchoredPosition;
+      public override bool OnInitialize () {
+        this.rectTransform = this.gameObject.GetComponent<RectTransform> ();
+        return this.rectTransform != null;
+      }
+
+      public override float OnGetFrom () {
+        return this.rectTransform.anchoredPosition.y;
+      }
+
+      public override void OnUpdate (float easedTime) {
+        this.anchoredPosition = this.rectTransform.anchoredPosition;
+        this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
+        this.anchoredPosition.y = this.valueCurrent;
+        this.rectTransform.anchoredPosition = this.anchoredPosition;
+      }
     }
   }
 }
