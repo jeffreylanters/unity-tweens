@@ -6,17 +6,79 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Tests {
-  [AddComponentMenu ("El Raccoone/Tweens/Tests/World Space Tests")]
-  public class TweensWorldspaceTests : MonoBehaviour {
+  [AddComponentMenu ("El Raccoone/Tweens/Tests/Tween Tests")]
+  public class TweenTests : MonoBehaviour {
     private Vector2 scrollPosition = new Vector2 ();
 
     private void OnGUI () {
-      this.scrollPosition = GUILayout.BeginScrollView (this.scrollPosition, GUILayout.Width (Screen.width / 4f));
+      this.scrollPosition = GUILayout.BeginScrollView (this.scrollPosition, GUILayout.Width (Screen.width / 3f));
 
-      // Flicker Testing
-      GUILayout.Label ("[BASE TESTING]");
-      if (GUILayout.Button ("Tween Position"))
+      // Visual Tweens Testing
+      GUILayout.Label ("[VISUAL TWEENS TESTING]");
+      if (GUILayout.Button ("AnchoredPosition"))
+        this.gameObject.TweenAnchoredPosition (new Vector2 (1, 0), 1).SetFrom (new Vector2 (-1, 0));
+      if (GUILayout.Button ("AnchoredPositionX"))
+        this.gameObject.TweenAnchoredPositionX (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AnchoredPositionY"))
+        this.gameObject.TweenAnchoredPositionY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AudioSourcePitch"))
+        this.gameObject.TweenAudioSourcePitch (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AudioSourceVolume"))
+        this.gameObject.TweenAudioSourceVolume (1, 1).SetFrom (0);
+      if (GUILayout.Button ("CanvasGroupAlpha"))
+        this.gameObject.TweenCanvasGroupAlpha (1, 1).SetFrom (0);
+      if (GUILayout.Button ("EulerAngles"))
+        this.gameObject.TweenRotation (Vector3.one, 1).SetFrom (Vector3.zero);
+      if (GUILayout.Button ("EulerAnglesX"))
+        this.gameObject.TweenRotationX (1, 1).SetFrom (0);
+      if (GUILayout.Button ("EulerAnglesY"))
+        this.gameObject.TweenRotationY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("EulerAnglesZ"))
+        this.gameObject.TweenRotationZ (1, 1).SetFrom (0);
+      if (GUILayout.Button ("GraphicAlpha"))
+        this.gameObject.TweenGraphicAlpha (1, 1).SetFrom (0);
+      if (GUILayout.Button ("GraphicColor"))
+        this.gameObject.TweenGraphicColor (Color.white, 1).SetFrom (Color.red);
+      if (GUILayout.Button ("ImageFillAmount"))
+        this.gameObject.TweenImageFillAmount (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalEulerAngles"))
+        this.gameObject.TweenLocalRotation (Vector3.one, 1).SetFrom (Vector3.zero);
+      if (GUILayout.Button ("LocalEulerAnglesX"))
+        this.gameObject.TweenLocalRotationX (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalEulerAnglesY"))
+        this.gameObject.TweenLocalRotationY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalEulerAnglesZ"))
+        this.gameObject.TweenLocalRotationZ (1, 1).SetFrom (0);
+      if (GUILayout.Button ("MaterialAlpha"))
+        this.gameObject.TweenMaterialAlpha (1, 1).SetFrom (0);
+      if (GUILayout.Button ("MaterialColor"))
+        this.gameObject.TweenMaterialColor (Color.white, 1).SetFrom (Color.red);
+      if (GUILayout.Button ("LocalPosition"))
+        this.gameObject.TweenLocalPosition (Vector3.one, 1).SetFrom (Vector3.zero);
+      if (GUILayout.Button ("LocalPositionX"))
+        this.gameObject.TweenLocalPositionX (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalPositionY"))
+        this.gameObject.TweenLocalPositionY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalPositionZ"))
+        this.gameObject.TweenLocalPositionZ (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalScale"))
+        this.gameObject.TweenLocalScale (Vector3.one, 1).SetFrom (Vector3.zero);
+      if (GUILayout.Button ("LocalScaleX"))
+        this.gameObject.TweenLocalScaleX (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalScaleY"))
+        this.gameObject.TweenLocalScaleY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LocalScaleZ"))
+        this.gameObject.TweenLocalScaleZ (1, 1).SetFrom (0);
+      if (GUILayout.Button ("Position"))
         this.gameObject.TweenPosition (Vector3.one, 1).SetFrom (Vector3.zero);
+      if (GUILayout.Button ("PositionX"))
+        this.gameObject.TweenPositionX (1, 1).SetFrom (0);
+      if (GUILayout.Button ("PositionY"))
+        this.gameObject.TweenPositionY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("PositionZ"))
+        this.gameObject.TweenPositionZ (1, 1).SetFrom (0);
+      if (GUILayout.Button ("TextMeshAlpha"))
+        this.gameObject.TweenTextMeshAlpha (1, 1).SetFrom (0);
 
       // Flicker Testing
       GUILayout.Label ("[FLICKER TESTING]");
@@ -79,12 +141,12 @@ namespace ElRaccoone.Tweens.Tests {
       if (GUILayout.Button ("PositionX:5 SetPingPong Infinite"))
         this.gameObject.TweenPositionX (5, 0.5f).SetPingPong ().SetInfinite ().SetEaseSineInOut ();
 
-      // if (GUILayout.Button ("Tween Value"))
-      //   this.gameObject.TweenValue (50, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-50);
-      // if (GUILayout.Button ("Tween Delayed Invoke"))
-      //   this.gameObject.TweenDelayedInvoke (1, () => Debug.Log ("Hello World!"));
-      // if (GUILayout.Button ("Tween Cancel"))
-      //   this.gameObject.TweenCancelAll ();
+      // Misc Testing
+      GUILayout.Label ("[MISC TESTING]");
+      if (GUILayout.Button ("Tween Value"))
+        this.gameObject.TweenValue (50, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-50);
+      if (GUILayout.Button ("Tween Delayed Invoke"))
+        this.gameObject.TweenDelayedInvoke (1, () => Debug.Log ("Hello World!"));
 
       // Flicker Testing
       GUILayout.Label ("[CANCELING TESTING]");

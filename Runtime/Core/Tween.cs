@@ -412,11 +412,11 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Adds and returns a driver to a gameObject.
-    public static Driver Add<Driver> (GameObject gameObject) where Driver : Tween<DriverValueType> =>
+    internal static Driver Add<Driver> (GameObject gameObject) where Driver : Tween<DriverValueType> =>
       gameObject.AddComponent<Driver> ();
 
     /// Adds and returns a driver to a component.
-    public static Driver Add<Driver> (Component component) where Driver : Tween<DriverValueType> =>
+    internal static Driver Add<Driver> (Component component) where Driver : Tween<DriverValueType> =>
       component.gameObject.AddComponent<Driver> ();
   }
 }

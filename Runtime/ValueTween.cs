@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens {
   public static class ValueTween {
-    public static Tween<float> TweenValue (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+    public static Tween<float> TweenValue (this Component self, float to, float duration, Action<float> onUpdate) =>
+      Tween<float>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
 
-    public static Tween<float> TweenValue (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+    public static Tween<float> TweenValue (this GameObject self, float to, float duration, Action<float> onUpdate) =>
+      Tween<float>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
 
     private class Driver : Tween<float> {
       private Action<float> onUpdate = null;

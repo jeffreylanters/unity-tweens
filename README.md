@@ -53,31 +53,33 @@ transform.TweenCancelAll();
 Tweens expose a various number of methods, these are presented in **Extention methods** for **GameObjects** and any **Component**. _Feel free to request more properties to tween_.
 
 ```cs
-TweenLocalPosition (Vector3 to, float duration);
-TweenLocalPositionX (float to, float duration);
-TweenLocalPositionY (float to, float duration);
-TweenLocalPositionZ (float to, float duration);
 TweenPosition (Vector3 to, float duration);
 TweenPositionX (float to, float duration);
 TweenPositionY (float to, float duration);
 TweenPositionZ (float to, float duration);
+TweenLocalPosition (Vector3 to, float duration);
+TweenLocalPositionX (float to, float duration);
+TweenLocalPositionY (float to, float duration);
+TweenLocalPositionZ (float to, float duration);
 TweenAnchoredPosition (Vector2 to, float duration);
 TweenAnchoredPositionX (float to, float duration);
 TweenAnchoredPositionY (float to, float duration);
-TweenLocalRotation (Vector3 to, float duration);
-TweenLocalRotationX (float to, float duration);
-TweenLocalRotationY (float to, float duration);
-TweenLocalRotationZ (float to, float duration);
 TweenRotation (Vector3 to, float duration);
 TweenRotationX (float to, float duration);
 TweenRotationY (float to, float duration);
 TweenRotationZ (float to, float duration);
+TweenLocalRotation (Vector3 to, float duration);
+TweenLocalRotationX (float to, float duration);
+TweenLocalRotationY (float to, float duration);
+TweenLocalRotationZ (float to, float duration);
 TweenLocalScale (Vector3 to, float duration);
 TweenLocalScaleX (float to, float duration);
 TweenLocalScaleY (float to, float duration);
 TweenLocalScaleZ (float to, float duration);
 TweenGraphicAlpha (float to, float duration);
 TweenGraphicColor (Color to, float duration);
+TweenMaterialAlpha (float to, float duration);
+TweenMaterialColor (Color to, float duration);
 TweenImageFillAmount (float to, float duration);
 TweenTextMeshAlpha (float to, float duration);
 TweenCanvasGroupAlpha (float to, float duration);
@@ -135,4 +137,3 @@ SetEaseBounceIn ();
 SetEaseBounceOut ();
 SetEaseBounceInOut ()
 ```
-
