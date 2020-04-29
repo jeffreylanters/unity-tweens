@@ -7,8 +7,8 @@ namespace ElRaccoone.Tweens.Core {
   public abstract class TweenInstance : MonoBehaviour {
     internal bool isDecommissioned = false;
     
-    private Action onCancel = null;
-    private bool hasOnCancel = false;
+    internal Action onCancel = null;
+    internal bool hasOnCancel = false;
 
     /// Destroys the component.
     internal void Decommission () {
