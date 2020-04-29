@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class ImageFillAmountTweenDriver : TweenBase<float> {
+  public class ImageFillAmountTweenDriver : TweenDriver<float> {
     private Image image;
 
     public override bool OnInitialize () {

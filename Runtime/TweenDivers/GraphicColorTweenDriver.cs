@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class GraphicColorTweenDriver : TweenBase<Color> {
+  public class GraphicColorTweenDriver : TweenDriver<Color> {
     private Graphic graphic;
 
     public override bool OnInitialize () {

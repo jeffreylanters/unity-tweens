@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class CanvasGroupAlphaTweenDriver : TweenBase<float> {
+  public class CanvasGroupAlphaTweenDriver : TweenDriver<float> {
     private CanvasGroup canvasGroup;
 
     public override bool OnInitialize () {

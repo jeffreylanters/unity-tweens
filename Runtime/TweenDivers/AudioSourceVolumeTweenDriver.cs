@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class AudioSourceVolumeTweenDriver : TweenBase<float> {
+  public class AudioSourceVolumeTweenDriver : TweenDriver<float> {
     private AudioSource audioSource;
 
     public override bool OnInitialize () {
