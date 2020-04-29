@@ -138,7 +138,7 @@ SetEaseBounceInOut ()
 
 <br/><br/><br/>
 
-### Or just write your own using the Tweens Core!
+### Or add your own tweens!
 
 In this example we'll write an TextMeshPro alpha tween.
 
