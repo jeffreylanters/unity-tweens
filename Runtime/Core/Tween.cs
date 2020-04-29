@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
-  public abstract class Tween<T> : MonoBehaviour, ITween {
-    internal T valueFrom = default (T);
-    internal T valueTo = default (T);
-    internal T valueCurrent = default (T);
+  public abstract class Tween<DriverValueType> : MonoBehaviour, ITween {
+    internal DriverValueType valueFrom = default (DriverValueType);
+    internal DriverValueType valueTo = default (DriverValueType);
+    internal DriverValueType valueCurrent = default (DriverValueType);
 
     private float currentTime = 0;
     private EaseType ease = 0;
@@ -37,7 +37,7 @@ namespace ElRaccoone.Tweens.Core {
     private bool timeDidReachEnd = false;
 
     public abstract bool OnInitialize ();
-    public abstract T OnGetFrom ();
+    public abstract DriverValueType OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
     private void Start () {
@@ -138,7 +138,7 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the final values required for the tween can start.
-    internal Tween<T> Finalize (float duration, T valueTo) {
+    internal Tween<DriverValueType> Finalize (float duration, DriverValueType valueTo) {
       this.duration = duration;
       this.hasDuration = duration > 0;
       this.valueTo = valueTo;
@@ -153,21 +153,21 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the value this tween should animate from instead of its current.
-    public Tween<T> SetFrom (T valueFrom) {
+    public Tween<DriverValueType> SetFrom (DriverValueType valueFrom) {
       this.didOverwriteFrom = true;
       this.valueFrom = valueFrom;
       return this;
     }
 
     /// Binds an onComplete event which will be invoked when the tween ends.
-    public Tween<T> SetOnComplete (Action onComplete) {
+    public Tween<DriverValueType> SetOnComplete (Action onComplete) {
       this.hasOnComplete = true;
       this.onComplete = onComplete;
       return this;
     }
 
     // Binds an onCancel event which will be invoked when the tween is canceled.
-    public Tween<T> SetOnCancel (Action onCancel) {
+    public Tween<DriverValueType> SetOnCancel (Action onCancel) {
       this.hasOnCancel = true;
       this.onCancel = onCancel;
       return this;
@@ -176,20 +176,20 @@ namespace ElRaccoone.Tweens.Core {
     /// Sets the loop type to ping pong, this will bounce the animation back
     /// and forth endlessly. When a loop count is set, the tween has play forward
     /// and backwards to count as one cycle.
-    public Tween<T> SetPingPong () {
+    public Tween<DriverValueType> SetPingPong () {
       this.hasPingPong = true;
       return this;
     }
 
     /// Sets the loop count of this tween until it can be decomissioned.
-    public Tween<T> SetLoopCount (int loopCount) {
+    public Tween<DriverValueType> SetLoopCount (int loopCount) {
       this.hasLoopCount = true;
       this.loopCount = loopCount;
       return this;
     }
 
     /// Sets this tween to infinite, the loopcount will be ignored.
-    public Tween<T> SetInfinite () {
+    public Tween<DriverValueType> SetInfinite () {
       this.isInfinite = true;
       return this;
     }
@@ -198,7 +198,7 @@ namespace ElRaccoone.Tweens.Core {
     /// the requested delay time is reached. You can change this behaviour by
     /// enabeling 'goToFirstFrameImmediately' to set the animation to the first
     /// frame immediately.
-    public Tween<T> SetDelay (float delay, bool goToFirstFrameImmediately = false) {
+    public Tween<DriverValueType> SetDelay (float delay, bool goToFirstFrameImmediately = false) {
       this.delay = delay;
       this.hasDelay = true;
       this.goToFirstFrameImmediately = goToFirstFrameImmediately;
@@ -206,209 +206,217 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the time of the tween to a random value.
-    public Tween<T> SetRandomStartTime () {
+    public Tween<DriverValueType> SetRandomStartTime () {
       this.currentTime = UnityEngine.Random.Range (0f, 1f);
       return this;
     }
 
     /// Sets the overshooting of Eases that exceed their boundaries such as
     /// elastic and back.
-    public Tween<T> SetOvershooting (float overshooting) {
+    public Tween<DriverValueType> SetOvershooting (float overshooting) {
       this.overshooting = overshooting;
       this.hasOvershooting = true;
       return this;
     }
 
     /// Sets the ease for this tween.
-    public Tween<T> SetEase (EaseType ease) {
+    public Tween<DriverValueType> SetEase (EaseType ease) {
       this.ease = ease;
       return this;
     }
 
-    // / Sets the ease for this tween to Linear.
-    public Tween<T> SetEaseLinear () {
+    /// Sets the ease for this tween to Linear.
+    public Tween<DriverValueType> SetEaseLinear () {
       this.ease = EaseType.Linear;
       return this;
     }
 
-    // / Sets the ease for this tween to Sine In.
-    public Tween<T> SetEaseSineIn () {
+    /// Sets the ease for this tween to Sine In.
+    public Tween<DriverValueType> SetEaseSineIn () {
       this.ease = EaseType.SineIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Sine Out.
-    public Tween<T> SetEaseSineOut () {
+    /// Sets the ease for this tween to Sine Out.
+    public Tween<DriverValueType> SetEaseSineOut () {
       this.ease = EaseType.SineOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Sine In Out.
-    public Tween<T> SetEaseSineInOut () {
+    /// Sets the ease for this tween to Sine In Out.
+    public Tween<DriverValueType> SetEaseSineInOut () {
       this.ease = EaseType.SineInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Quad In.
-    public Tween<T> SetEaseQuadIn () {
+    /// Sets the ease for this tween to Quad In.
+    public Tween<DriverValueType> SetEaseQuadIn () {
       this.ease = EaseType.QuadIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Quad Out.
-    public Tween<T> SetEaseQuadOut () {
+    /// Sets the ease for this tween to Quad Out.
+    public Tween<DriverValueType> SetEaseQuadOut () {
       this.ease = EaseType.QuadOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Quad In Out.
-    public Tween<T> SetEaseQuadInOut () {
+    /// Sets the ease for this tween to Quad In Out.
+    public Tween<DriverValueType> SetEaseQuadInOut () {
       this.ease = EaseType.QuadInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Cubic In.
-    public Tween<T> SetEaseCubicIn () {
+    /// Sets the ease for this tween to Cubic In.
+    public Tween<DriverValueType> SetEaseCubicIn () {
       this.ease = EaseType.CubicIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Cubic Out.
-    public Tween<T> SetEaseCubicOut () {
+    /// Sets the ease for this tween to Cubic Out.
+    public Tween<DriverValueType> SetEaseCubicOut () {
       this.ease = EaseType.CubicOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Cubic In Out.
-    public Tween<T> SetEaseCubicInOut () {
+    /// Sets the ease for this tween to Cubic In Out.
+    public Tween<DriverValueType> SetEaseCubicInOut () {
       this.ease = EaseType.CubicInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Quart In.
-    public Tween<T> SetEaseQuartIn () {
+    /// Sets the ease for this tween to Quart In.
+    public Tween<DriverValueType> SetEaseQuartIn () {
       this.ease = EaseType.QuartIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Quart Out.
-    public Tween<T> SetEaseQuartOut () {
+    /// Sets the ease for this tween to Quart Out.
+    public Tween<DriverValueType> SetEaseQuartOut () {
       this.ease = EaseType.QuartOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Quart In Out.
-    public Tween<T> SetEaseQuartInOut () {
+    /// Sets the ease for this tween to Quart In Out.
+    public Tween<DriverValueType> SetEaseQuartInOut () {
       this.ease = EaseType.QuartInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Quint In.
-    public Tween<T> SetEaseQuintIn () {
+    /// Sets the ease for this tween to Quint In.
+    public Tween<DriverValueType> SetEaseQuintIn () {
       this.ease = EaseType.QuintIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Quint Out.
-    public Tween<T> SetEaseQuintOut () {
+    /// Sets the ease for this tween to Quint Out.
+    public Tween<DriverValueType> SetEaseQuintOut () {
       this.ease = EaseType.QuintOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Quint In Out.
-    public Tween<T> SetEaseQuintInOut () {
+    /// Sets the ease for this tween to Quint In Out.
+    public Tween<DriverValueType> SetEaseQuintInOut () {
       this.ease = EaseType.QuintInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Expo In.
-    public Tween<T> SetEaseExpoIn () {
+    /// Sets the ease for this tween to Expo In.
+    public Tween<DriverValueType> SetEaseExpoIn () {
       this.ease = EaseType.ExpoIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Expo Out.
-    public Tween<T> SetEaseExpoOut () {
+    /// Sets the ease for this tween to Expo Out.
+    public Tween<DriverValueType> SetEaseExpoOut () {
       this.ease = EaseType.ExpoOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Expo In Out.
-    public Tween<T> SetEaseExpoInOut () {
+    /// Sets the ease for this tween to Expo In Out.
+    public Tween<DriverValueType> SetEaseExpoInOut () {
       this.ease = EaseType.ExpoInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Circ In.
-    public Tween<T> SetEaseCircIn () {
+    /// Sets the ease for this tween to Circ In.
+    public Tween<DriverValueType> SetEaseCircIn () {
       this.ease = EaseType.CircIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Circ Out.
-    public Tween<T> SetEaseCircOut () {
+    /// Sets the ease for this tween to Circ Out.
+    public Tween<DriverValueType> SetEaseCircOut () {
       this.ease = EaseType.CircOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Circ In Out.
-    public Tween<T> SetEaseCircInOut () {
+    /// Sets the ease for this tween to Circ In Out.
+    public Tween<DriverValueType> SetEaseCircInOut () {
       this.ease = EaseType.CircInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Back In.
-    public Tween<T> SetEaseBackIn () {
+    /// Sets the ease for this tween to Back In.
+    public Tween<DriverValueType> SetEaseBackIn () {
       this.ease = EaseType.BackIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Back Out.
-    public Tween<T> SetEaseBackOut () {
+    /// Sets the ease for this tween to Back Out.
+    public Tween<DriverValueType> SetEaseBackOut () {
       this.ease = EaseType.BackOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Back In Out.
-    public Tween<T> SetEaseBackInOut () {
+    /// Sets the ease for this tween to Back In Out.
+    public Tween<DriverValueType> SetEaseBackInOut () {
       this.ease = EaseType.BackInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Elastic In.
-    public Tween<T> SetEaseElasticIn () {
+    /// Sets the ease for this tween to Elastic In.
+    public Tween<DriverValueType> SetEaseElasticIn () {
       this.ease = EaseType.ElasticIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Elastic Out.
-    public Tween<T> SetEaseElasticOut () {
+    /// Sets the ease for this tween to Elastic Out.
+    public Tween<DriverValueType> SetEaseElasticOut () {
       this.ease = EaseType.ElasticOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Elastic In Out.
-    public Tween<T> SetEaseElasticInOut () {
+    /// Sets the ease for this tween to Elastic In Out.
+    public Tween<DriverValueType> SetEaseElasticInOut () {
       this.ease = EaseType.ElasticInOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Bounce In.
-    public Tween<T> SetEaseBounceIn () {
+    /// Sets the ease for this tween to Bounce In.
+    public Tween<DriverValueType> SetEaseBounceIn () {
       this.ease = EaseType.BounceIn;
       return this;
     }
 
-    // / Sets the ease for this tween to Bounce Out.
-    public Tween<T> SetEaseBounceOut () {
+    /// Sets the ease for this tween to Bounce Out.
+    public Tween<DriverValueType> SetEaseBounceOut () {
       this.ease = EaseType.BounceOut;
       return this;
     }
 
-    // / Sets the ease for this tween to Bounce In Out.
-    public Tween<T> SetEaseBounceInOut () {
+    /// Sets the ease for this tween to Bounce In Out.
+    public Tween<DriverValueType> SetEaseBounceInOut () {
       this.ease = EaseType.BounceInOut;
       return this;
     }
+
+    /// Adds and returns a driver to a gameObject.
+    public static Driver Add<Driver> (GameObject gameObject) where Driver : Tween<DriverValueType> =>
+      gameObject.AddComponent<Driver> ();
+
+    /// Adds and returns a driver to a component.
+    public static Driver Add<Driver> (Component component) where Driver : Tween<DriverValueType> =>
+      component.gameObject.AddComponent<Driver> ();
   }
 }

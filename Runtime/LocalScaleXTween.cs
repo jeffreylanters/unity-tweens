@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class LocalScaleXTween {
     public static Tween<float> TweenLocalScaleX (this Component self, float to, float duration) =>
-      self.gameObject.TweenLocalScaleX (to, duration);
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
     public static Tween<float> TweenLocalScaleX (this GameObject self, float to, float duration) =>
-      self.AddComponent<Tween> ().Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Tween : Tween<float> {
+    private class Driver : Tween<float> {
       private Vector3 localScale;
 
       public override bool OnInitialize () {

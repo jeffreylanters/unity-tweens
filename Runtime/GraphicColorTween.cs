@@ -5,12 +5,12 @@ using UnityEngine.UI;
 namespace ElRaccoone.Tweens {
   public static class GraphicColorTween {
     public static Tween<Color> TweenGraphicColor (this Component self, Color to, float duration) =>
-      self.gameObject.TweenGraphicColor (to, duration);
+      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
 
     public static Tween<Color> TweenGraphicColor (this GameObject self, Color to, float duration) =>
-      self.AddComponent<Tween> ().Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Tween : Tween<Color> {
+    private class Driver : Tween<Color> {
       private Graphic graphic;
 
       public override bool OnInitialize () {

@@ -5,12 +5,12 @@ using UnityEngine.UI;
 namespace ElRaccoone.Tweens {
   public static class ImageFillAmountTween {
     public static Tween<float> TweenImageFillAmount (this Component self, float to, float duration) =>
-      self.gameObject.TweenImageFillAmount (to, duration);
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
     public static Tween<float> TweenImageFillAmount (this GameObject self, float to, float duration) =>
-      self.AddComponent<Tween> ().Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Tween : Tween<float> {
+    private class Driver : Tween<float> {
       private Image image;
 
       public override bool OnInitialize () {

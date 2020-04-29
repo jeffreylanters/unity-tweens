@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class TextMeshAlphaTween {
     public static Tween<float> TweenTextMeshAlpha (this Component self, float to, float duration) =>
-      self.gameObject.TweenTextMeshAlpha (to, duration);
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
     public static Tween<float> TweenTextMeshAlpha (this GameObject self, float to, float duration) =>
-      self.AddComponent<Tween> ().Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Tween : Tween<float> {
+    private class Driver : Tween<float> {
       private TextMesh textMesh;
       private Color color;
 

@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class LocalEulerAnglesTween {
     public static Tween<Vector3> TweenLocalRotation (this Component self, Vector3 to, float duration) =>
-      self.gameObject.TweenLocalRotation (to, duration);
+      Tween<Vector3>.Add<Driver> (self).Finalize (duration, to);
 
     public static Tween<Vector3> TweenLocalRotation (this GameObject self, Vector3 to, float duration) =>
-      self.AddComponent<Tween> ().Finalize (duration, to);
+      Tween<Vector3>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Tween : Tween<Vector3> {
+    private class Driver : Tween<Vector3> {
       private Quaternion quaternionValueFrom;
       private Quaternion quaternionValueTo;
 

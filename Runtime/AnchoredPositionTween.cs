@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class AnchoredPositionTween {
     public static Tween<Vector2> TweenAnchoredPosition (this Component self, Vector2 to, float duration) =>
-      self.gameObject.TweenAnchoredPosition (to, duration);
+      Tween<Vector2>.Add<Driver> (self).Finalize (duration, to);
 
     public static Tween<Vector2> TweenAnchoredPosition (this GameObject self, Vector2 to, float duration) =>
-      self.AddComponent<Tween> ().Finalize (duration, to);
+      Tween<Vector2>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Tween : Tween<Vector2> {
+    private class Driver : Tween<Vector2> {
       private RectTransform rectTransform;
 
       public override bool OnInitialize () {
