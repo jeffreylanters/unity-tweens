@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace ElRaccoone.Tweens.Core {
 
