@@ -1,20 +1,17 @@
-using System;
-using System.Collections;
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class DelayedInvokeTweenDriver : TweenBase {
-    public TweenBase Invoke (float duration, Action action) {
-      this.StartCoroutine (this.InvokeCoroutine (duration, action));
-      return this;
+  public class DelayedInvokeTweenDriver : Tween<bool> {
+    public override bool OnInitialize () {
+      return true;
     }
 
-    private IEnumerator InvokeCoroutine (float duration, Action action) {
-      yield return new WaitForSeconds (duration);
-      action ();
-      UnityEngine.Object.Destroy (this);
+    public override bool OnGetFrom () {
+      return true;
     }
+
+    public override void OnUpdate (float easedTime) { }
   }
 }

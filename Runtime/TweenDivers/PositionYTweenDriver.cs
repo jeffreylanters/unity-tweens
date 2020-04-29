@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class PositionYTweenDriver : TweenDriver<float> {
+  public class PositionYTweenDriver : Tween<float> {
     private Vector3 position;
 
     public override bool OnInitialize () {

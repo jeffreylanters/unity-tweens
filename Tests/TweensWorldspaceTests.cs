@@ -89,9 +89,6 @@ namespace ElRaccoone.Tweens.Tests {
       if (GUILayout.Button ("CancelAll"))
         this.gameObject.TweenCancelAll ();
 
-      var x = this.gameObject.TweenLocalScaleX (1, 5).SetFrom (0);
-      x.
-
       GUILayout.EndScrollView ();
     }
   }

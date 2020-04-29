@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class LocalEulerAnglesTweenDriver : TweenDriver<Vector3> {
+  public class LocalEulerAnglesTweenDriver : Tween<Vector3> {
     private Quaternion quaternionValueFrom;
     private Quaternion quaternionValueTo;
 

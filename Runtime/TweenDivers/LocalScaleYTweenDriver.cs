@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class LocalScaleYTweenDriver : TweenDriver<float> {
+  public class LocalScaleYTweenDriver : Tween<float> {
     private Vector3 localScale;
 
     public override bool OnInitialize () {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class ValueTweenDriver : TweenDriver<float> {
+  public class ValueTweenDriver : Tween<float> {
     private Action<float> onUpdate = null;
     private bool hasOnUpdate = false;
 
@@ -22,7 +22,7 @@ namespace ElRaccoone.Tweens.TweenDrivers {
         this.onUpdate (this.valueCurrent);
     }
 
-    public TweenDriver<float> SetOnUpdate (Action<float> onUpdate) {
+    public Tween<float> SetOnUpdate (Action<float> onUpdate) {
       this.onUpdate = onUpdate;
       this.hasOnUpdate = true;
       return this;

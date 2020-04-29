@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace ElRaccoone.Tweens.Helpers {
-  public static class EasingMethods {
+namespace ElRaccoone.Tweens.Core {
+  public static class Easer {
     private const float constantA = 1.70158f;
     private const float constantB = constantA * 1.525f;
     private const float constantC = constantA + 1f;
@@ -14,67 +14,67 @@ namespace ElRaccoone.Tweens.Helpers {
       switch (ease) {
         default : return 0;
         case Ease.Linear:
-            return EasingMethods.Linear (time);
+            return Easer.Linear (time);
         case Ease.SineIn:
-            return EasingMethods.SineIn (time);
+            return Easer.SineIn (time);
         case Ease.SineOut:
-            return EasingMethods.SineOut (time);
+            return Easer.SineOut (time);
         case Ease.SineInOut:
-            return EasingMethods.SineInOut (time);
+            return Easer.SineInOut (time);
         case Ease.QuadIn:
-            return EasingMethods.QuadIn (time);
+            return Easer.QuadIn (time);
         case Ease.QuadOut:
-            return EasingMethods.QuadOut (time);
+            return Easer.QuadOut (time);
         case Ease.QuadInOut:
-            return EasingMethods.QuadInOut (time);
+            return Easer.QuadInOut (time);
         case Ease.CubicIn:
-            return EasingMethods.CubicIn (time);
+            return Easer.CubicIn (time);
         case Ease.CubicOut:
-            return EasingMethods.CubicOut (time);
+            return Easer.CubicOut (time);
         case Ease.CubicInOut:
-            return EasingMethods.CubicInOut (time);
+            return Easer.CubicInOut (time);
         case Ease.QuartIn:
-            return EasingMethods.QuartIn (time);
+            return Easer.QuartIn (time);
         case Ease.QuartOut:
-            return EasingMethods.QuartOut (time);
+            return Easer.QuartOut (time);
         case Ease.QuartInOut:
-            return EasingMethods.QuartInOut (time);
+            return Easer.QuartInOut (time);
         case Ease.QuintIn:
-            return EasingMethods.QuintIn (time);
+            return Easer.QuintIn (time);
         case Ease.QuintOut:
-            return EasingMethods.QuintOut (time);
+            return Easer.QuintOut (time);
         case Ease.QuintInOut:
-            return EasingMethods.QuintInOut (time);
+            return Easer.QuintInOut (time);
         case Ease.ExpoIn:
-            return EasingMethods.ExpoIn (time);
+            return Easer.ExpoIn (time);
         case Ease.ExpoOut:
-            return EasingMethods.ExpoOut (time);
+            return Easer.ExpoOut (time);
         case Ease.ExpoInOut:
-            return EasingMethods.ExpoInOut (time);
+            return Easer.ExpoInOut (time);
         case Ease.CircIn:
-            return EasingMethods.CircIn (time);
+            return Easer.CircIn (time);
         case Ease.CircOut:
-            return EasingMethods.CircOut (time);
+            return Easer.CircOut (time);
         case Ease.CircInOut:
-            return EasingMethods.CircInOut (time);
+            return Easer.CircInOut (time);
         case Ease.BackIn:
-            return EasingMethods.BackIn (time);
+            return Easer.BackIn (time);
         case Ease.BackOut:
-            return EasingMethods.BackOut (time);
+            return Easer.BackOut (time);
         case Ease.BackInOut:
-            return EasingMethods.BackInOut (time);
+            return Easer.BackInOut (time);
         case Ease.ElasticIn:
-            return EasingMethods.ElasticIn (time);
+            return Easer.ElasticIn (time);
         case Ease.ElasticOut:
-            return EasingMethods.ElasticOut (time);
+            return Easer.ElasticOut (time);
         case Ease.ElasticInOut:
-            return EasingMethods.ElasticInOut (time);
+            return Easer.ElasticInOut (time);
         case Ease.BounceIn:
-            return EasingMethods.BounceIn (time);
+            return Easer.BounceIn (time);
         case Ease.BounceOut:
-            return EasingMethods.BounceOut (time);
+            return Easer.BounceOut (time);
         case Ease.BounceInOut:
-            return EasingMethods.BounceInOut (time);
+            return Easer.BounceInOut (time);
       }
     }
 
@@ -193,7 +193,7 @@ namespace ElRaccoone.Tweens.Helpers {
     }
 
     private static float BounceIn (float time) {
-      return 1 - EasingMethods.BounceOut (1 - time);
+      return 1 - Easer.BounceOut (1 - time);
     }
 
     private static float BounceOut (float time) {
@@ -208,7 +208,7 @@ namespace ElRaccoone.Tweens.Helpers {
     }
 
     private static float BounceInOut (float time) {
-      return time < 0.5f ? (1 - EasingMethods.BounceOut (1 - 2 * time)) / 2 : (1 + EasingMethods.BounceOut (2 * time - 1)) / 2;
+      return time < 0.5f ? (1 - Easer.BounceOut (1 - 2 * time)) / 2 : (1 + Easer.BounceOut (2 * time - 1)) / 2;
     }
   }
 }

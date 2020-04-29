@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens.TweenDrivers {
   [AddComponentMenu ("")]
-  public class AnchoredPositionTweenDriver : TweenDriver<Vector2> {
+  public class AnchoredPositionTweenDriver : Tween<Vector2> {
     private RectTransform rectTransform;
 
     public override bool OnInitialize () {
