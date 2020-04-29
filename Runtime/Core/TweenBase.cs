@@ -151,7 +151,7 @@ namespace ElRaccoone.Tweens.Core {
     }
     
     // Binds an onCancel event which will be invoked when the tween is canceled.
-    public void SetOnCancel (Action onCancel) {
+    public TweenBase<T> SetOnCancel (Action onCancel) {
       this.hasOnCancel = true;
       this.onCancel = onCancel;
       return this;
