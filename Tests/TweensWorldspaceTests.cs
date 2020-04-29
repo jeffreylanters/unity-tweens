@@ -80,6 +80,18 @@ namespace ElRaccoone.Tweens.Tests {
       // if (GUILayout.Button ("Tween Cancel"))
       //   this.gameObject.TweenCancelAll ();
 
+      // Flicker Testing
+      GUILayout.Label ("[CANCELING TESTING]");
+      if (GUILayout.Button ("TweenScale"))
+        this.gameObject.TweenLocalScaleX (1, 5).SetFrom (0);
+      if (GUILayout.Button ("TweenScale With OnCancel"))
+        this.gameObject.TweenLocalScaleX (1, 5).SetFrom (0).SetOnCancel (() => Debug.Log ("Did Cancel"));
+      if (GUILayout.Button ("CancelAll"))
+        this.gameObject.TweenCancelAll ();
+
+      var x = this.gameObject.TweenLocalScaleX (1, 5).SetFrom (0);
+      x.
+
       GUILayout.EndScrollView ();
     }
   }
