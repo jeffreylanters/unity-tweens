@@ -19,7 +19,12 @@ namespace ElRaccoone.Tweens.TweenDrivers {
     }
 
     public override void OnUpdate (float easedTime) {
-      this.transform.localRotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+      if (easedTime == 0)
+        this.transform.localRotation = this.quaternionValueFrom;
+      else if (easedTime == 1)
+        this.transform.localRotation = this.quaternionValueTo;
+      else
+        this.transform.localRotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
     }
   }
 }
