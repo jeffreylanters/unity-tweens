@@ -118,14 +118,14 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     // Returns the interpolated value of time between from and to.
-    internal float InterpolateValue (float from, float to, float time) {
+    internal float InterpolateValue (float from, float to, float value) {
       if (this.hasOvershooting == true) {
-        if (time > 1)
-          time -= (time - 1) / (this.overshooting + 1);
+        if (value > 1)
+          value -= (value - 1) / (this.overshooting + 1);
         else if (time < 0)
-          time -= time / (this.overshooting + 1);
+          value -= value / (this.overshooting + 1);
       }
-      return from * (1 - time) + to * time;
+      return from * (1 - value) + to * value;
     }
 
     /// Sets the final values required for the tween can start.
@@ -179,6 +179,12 @@ namespace ElRaccoone.Tweens.Core {
       this.delay = delay;
       this.hasDelay = true;
       this.goToFirstFrameImmediately = goToFirstFrameImmediately;
+      return this;
+    }
+
+    /// Sets the time of the tween to a random value.
+    public TweenBase<T> SetRandomStartTime () {
+      this.time = UnityEngine.Random.Range(0f, 1f);
       return this;
     }
 
