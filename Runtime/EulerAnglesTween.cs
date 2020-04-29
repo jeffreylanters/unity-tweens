@@ -2,11 +2,11 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens {
-  public static class LocalEulerAnglesTween {
-    public static Tween<Vector3> TweenLocalEulerAngles (this Component self, Vector3 to, float duration) =>
-      self.gameObject.TweenLocalEulerAngles (to, duration);
+  public static class EulerAnglesTween {
+    public static Tween<Vector3> TweenRotation (this Component self, Vector3 to, float duration) =>
+      self.gameObject.TweenRotation (to, duration);
 
-    public static Tween<Vector3> TweenLocalEulerAngles (this GameObject self, Vector3 to, float duration) =>
+    public static Tween<Vector3> TweenRotation (this GameObject self, Vector3 to, float duration) =>
       self.AddComponent<Tween> ().Finalize (duration, to);
 
     private class Tween : Tween<Vector3> {
@@ -19,18 +19,18 @@ namespace ElRaccoone.Tweens {
       }
 
       public override Vector3 OnGetFrom () {
-        var _from = this.transform.localEulerAngles;
+        var _from = this.transform.eulerAngles;
         this.quaternionValueFrom = Quaternion.Euler (_from);
         return _from;
       }
 
       public override void OnUpdate (float easedTime) {
         if (easedTime == 0)
-          this.transform.localRotation = this.quaternionValueFrom;
+          this.transform.rotation = this.quaternionValueFrom;
         else if (easedTime == 1)
-          this.transform.localRotation = this.quaternionValueTo;
+          this.transform.rotation = this.quaternionValueTo;
         else
-          this.transform.localRotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+          this.transform.rotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
       }
     }
   }

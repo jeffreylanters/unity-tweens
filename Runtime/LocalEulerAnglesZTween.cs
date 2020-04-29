@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens {
   public static class LocalEulerAnglesZTween {
-    public static Tween<float> TweenLocalEulerAnglesZ (this Component self, float to, float duration) =>
-      self.gameObject.TweenLocalEulerAnglesZ (to, duration);
+    public static Tween<float> TweenLocalRotationZ (this Component self, float to, float duration) =>
+      self.gameObject.TweenLocalRotationZ (to, duration);
 
-    public static Tween<float> TweenLocalEulerAnglesZ (this GameObject self, float to, float duration) =>
+    public static Tween<float> TweenLocalRotationZ (this GameObject self, float to, float duration) =>
       self.AddComponent<Tween> ().Finalize (duration, to);
 
     private class Tween : Tween<float> {
