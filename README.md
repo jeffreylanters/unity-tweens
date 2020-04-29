@@ -99,6 +99,7 @@ SetPingPong ();
 SetLoopCount (int loopCount);
 SetInfinite ();
 SetDelay (float delay, bool goToFirstFrameImmediately = false);
+SetRandomStartTime ();
 SetOvershooting (float overshooting);
 SetEase (Ease ease);
 SetEaseLinear ();
