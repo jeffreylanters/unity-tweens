@@ -98,7 +98,7 @@ SetOnComplete (Action onComplete);
 SetPingPong ();
 SetLoopCount (int loopCount);
 SetInfinite ();
-SetDelay (float delay);
+SetDelay (float delay, bool goToFirstFrameImmediately = false);
 SetOvershooting (float overshooting);
 SetEase (Ease ease);
 SetEaseLinear ();

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Tests {
-  [AddComponentMenu ("")]
+  [AddComponentMenu ("El Raccoone/Tweens/Tests/World Space Tests")]
   public class TweensWorldspaceTests : MonoBehaviour {
     private Vector2 scrollPosition = new Vector2 ();
 
@@ -20,7 +20,16 @@ namespace ElRaccoone.Tweens.Tests {
           .SetOnComplete (() => this.gameObject.transform.GetChild (0).gameObject.SetActive (false));
       }
 
-      // Flicker Testing
+      // Delay Testing
+      GUILayout.Label ("[DELAY TESTING]");
+      if (GUILayout.Button ("Scale"))
+        this.gameObject.TweenLocalScale (Vector3.one, 1).SetFrom (Vector3.one * .5f);
+      if (GUILayout.Button ("Scale Delay(1)"))
+        this.gameObject.TweenLocalScale (Vector3.one, 1).SetDelay (1).SetFrom (Vector3.one * .5f);
+      if (GUILayout.Button ("Scale Delay(1,true)"))
+        this.gameObject.TweenLocalScale (Vector3.one, 1).SetDelay (1, true).SetFrom (Vector3.one * .5f);
+
+      // Ease Testing
       GUILayout.Label ("[EASE TESTING]");
       var values = Enum.GetValues (typeof (Ease)).Cast<Ease> ();
       foreach (Ease value in values)

@@ -19,6 +19,7 @@ namespace ElRaccoone.Tweens.Core {
 
     private bool hasDelay = false;
     private float delay = 0;
+    private bool goToFirstFrameImmediately = false;
 
     private bool hasOvershooting = false;
     private float overshooting = 0;
@@ -43,7 +44,7 @@ namespace ElRaccoone.Tweens.Core {
       // can be set.
       if (this.OnInitialize () == false)
         this.Decommission ();
-      else if (this.hasDelay == false) {
+      else if (this.hasDelay == false || this.goToFirstFrameImmediately == true) {
         if (this.didOverwriteFrom == false)
           this.valueFrom = this.OnGetFrom ();
         this.OnUpdate (EasingMethods.Apply (this.ease, 0));
@@ -171,10 +172,13 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the delay of this tween. The tween will not play anything until
-    /// the requested delay time is reached.
-    public TweenBase<T> SetDelay (float delay) {
+    /// the requested delay time is reached. You can change this behaviour by
+    /// enabeling 'goToFirstFrameImmediately' to set the animation to the first
+    /// frame immediately.
+    public TweenBase<T> SetDelay (float delay, bool goToFirstFrameImmediately = false) {
       this.delay = delay;
       this.hasDelay = true;
+      this.goToFirstFrameImmediately = goToFirstFrameImmediately;
       return this;
     }
 
