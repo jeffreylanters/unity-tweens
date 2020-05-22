@@ -87,9 +87,9 @@ TweenDelayedInvoke(float duration, Action onComplete);
 TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
 
-### Options (Chainable)
+### Options
 
-When invoking a Tween as show above, various options can be changed using the follwing chainable methods.
+When invoking a Tween as show above, various options can be changed using the follwing **chainable methods**.
 
 > When storing a tween in a variable, all these options can be changed afterwards as well.
 
