@@ -153,6 +153,15 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenValue (50, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-50);
       if (GUILayout.Button ("Tween Delayed Invoke"))
         this.target.TweenDelayedInvoke (1, () => Debug.Log ("Hello World!"));
+      if (GUILayout.Button ("Pausing")) {
+        var _tween = this.target.TweenPositionY (3, 5).SetFrom (-3);
+        this.target.TweenDelayedInvoke (2, () => _tween.SetPaused (true));
+        this.target.TweenDelayedInvoke (3, () => _tween.SetPaused (false));
+      }
+      if (GUILayout.Button ("Change ease type halfway")) {
+        var _tween = this.target.TweenPositionY (0, 4).SetFrom (-1).SetEaseBackInOut ();
+        this.target.TweenDelayedInvoke (2, () => _tween.SetEaseBounceInOut ());
+      }
 
       // Flicker Testing
       GUILayout.Label ("[CANCELING TESTING]");
