@@ -15,6 +15,10 @@ namespace ElRaccoone.Tweens.Tests {
     private void OnGUI () {
       this.scrollPosition = GUILayout.BeginScrollView (this.scrollPosition, GUILayout.Width (Screen.width / 3f));
 
+      // TEMP
+      if (GUILayout.Button ("TEMP"))
+        this.target.TweenPositionY (3, 5).SetShouldDecommissionOnDisable (false);
+
       // Visual Tweens Testing
       GUILayout.Label ("[VISUAL TWEENS TESTING]");
       if (GUILayout.Button ("AnchoredPosition"))

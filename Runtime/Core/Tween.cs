@@ -8,7 +8,7 @@ namespace ElRaccoone.Tweens.Core {
     internal DriverValueType valueCurrent = default (DriverValueType);
 
     private bool isPaused = false;
-    private float currentTime = 0;
+    private float time = 0;
     private EaseType ease = 0;
 
     private bool hasLoopCount = false;
@@ -92,37 +92,37 @@ namespace ElRaccoone.Tweens.Core {
       else {
         // Increase or decrease the time of the tween based on the direction.
         var _timeDelta = Time.deltaTime / this.duration;
-        this.currentTime += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
+        this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
         // The time will be capped to 1, when pingpong is enabled the tween will
         // play backwards, otherwise when the tween is not infinite, didReachEnd
         // will be set to true.
-        if (this.currentTime > 1) {
-          this.currentTime = 1;
+        if (this.time > 1) {
+          this.time = 1;
           if (this.hasPingPong == true)
             this.isPlayingForward = false;
           else if (this.isInfinite == false)
             this.timeDidReachEnd = true;
           else
-            this.currentTime = 0;
+            this.time = 0;
         }
         // When pingpong is enabled, the time will be capped to 0 as well. When
         // it is hit, the tween will play forwards again and didReachEnd will be
         // set to true if the tween is not infinite.
-        else if (this.hasPingPong == true && this.currentTime < 0) {
-          this.currentTime = 0;
+        else if (this.hasPingPong == true && this.time < 0) {
+          this.time = 0;
           this.isPlayingForward = true;
           if (this.isInfinite == false)
             this.timeDidReachEnd = true;
         }
         // The time will be updated on the inheriter.
-        this.OnUpdate (Easer.Apply (this.ease, this.currentTime));
+        this.OnUpdate (Easer.Apply (this.ease, this.time));
         // When the end is reached either the loop count will be decreased, or
         // the tween will be decommissioned, and the oncomplete may be invoked.
         if (this.timeDidReachEnd == true)
           if (this.hasLoopCount == true && this.loopCount > 1) {
             this.timeDidReachEnd = false;
             this.loopCount -= 1;
-            this.currentTime = 0;
+            this.time = 0;
           } else {
             if (this.hasOnComplete == true)
               this.onComplete ();
@@ -142,7 +142,7 @@ namespace ElRaccoone.Tweens.Core {
       if (this.hasOvershooting == true) {
         if (value > 1)
           value -= (value - 1) / (this.overshooting + 1);
-        else if (currentTime < 0)
+        else if (time < 0)
           value -= value / (this.overshooting + 1);
       }
       return from * (1 - value) + to * value;
@@ -223,13 +223,13 @@ namespace ElRaccoone.Tweens.Core {
 
     /// Sets the time of the tween to a random value.
     public Tween<DriverValueType> SetRandomTime () {
-      this.currentTime = UnityEngine.Random.Range (0f, 1f);
+      this.time = UnityEngine.Random.Range (0f, 1f);
       return this;
     }
 
     /// Sets the time of the tween.
     public Tween<DriverValueType> SetTime (float time) {
-      this.currentTime = currentTime;
+      this.time = time;
       return this;
     }
 
