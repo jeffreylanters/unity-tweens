@@ -105,8 +105,8 @@ SetPingPong ();
 SetLoopCount (int loopCount);
 SetInfinite ();
 SetDelay (float delay, bool goToFirstFrameImmediately = false);
-SetRandomTime ();
 SetTime (int time);
+SetRandomTime ();
 SetPaused (bool isPaused);
 
 // Animation
