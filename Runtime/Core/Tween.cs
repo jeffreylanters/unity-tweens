@@ -151,7 +151,7 @@ namespace ElRaccoone.Tweens.Core {
     /// Sets the final values required for the tween can start. When the object
     ///  is not active in the hierarchy, it will be decommissioned right away.
     internal Tween<DriverValueType> Finalize (float duration, DriverValueType valueTo) {
-      if (this.gameObject.activeInHierarchy == false)
+      if (this.gameObject.activeInHierarchy == false && this.shouldDecommissionOnDisable == true)
         this.Decommission ();
       else {
         this.duration = duration;
@@ -240,8 +240,8 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets wheter this tween should decommission when the object gets disabled.
-    public Tween<DriverValueType> SetShouldDecommissionOnDisable (bool shouldDecommissionOnDisable) {
-      this.shouldDecommissionOnDisable = shouldDecommissionOnDisable;
+    public Tween<DriverValueType> SetShouldDecommissionWhenDisabled (bool shouldDecommissionWhenDisabled) {
+      this.shouldDecommissionOnDisable = shouldDecommissionWhenDisabled;
       return this;
     }
 

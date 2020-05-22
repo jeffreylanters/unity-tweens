@@ -98,7 +98,7 @@ SetFrom (T valueFrom);
 // Events
 SetOnComplete (Action onComplete);
 SetOnCancel (Action onCancel);
-SetShouldDecommissionOnDisable (bool shouldDecommissionOnDisable);
+SetShouldDecommissionWhenDisabled (bool shouldDecommissionWhenDisabled);
 
 // Timing
 SetPingPong ();
