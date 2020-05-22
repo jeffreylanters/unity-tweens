@@ -12,69 +12,70 @@ namespace ElRaccoone.Tweens.Core {
 
     public static float Apply (EaseType ease, float time) {
       switch (ease) {
-        default : return 0;
+        default:
+          return 0;
         case EaseType.Linear:
-            return Easer.Linear (time);
+          return Easer.Linear (time);
         case EaseType.SineIn:
-            return Easer.SineIn (time);
+          return Easer.SineIn (time);
         case EaseType.SineOut:
-            return Easer.SineOut (time);
+          return Easer.SineOut (time);
         case EaseType.SineInOut:
-            return Easer.SineInOut (time);
+          return Easer.SineInOut (time);
         case EaseType.QuadIn:
-            return Easer.QuadIn (time);
+          return Easer.QuadIn (time);
         case EaseType.QuadOut:
-            return Easer.QuadOut (time);
+          return Easer.QuadOut (time);
         case EaseType.QuadInOut:
-            return Easer.QuadInOut (time);
+          return Easer.QuadInOut (time);
         case EaseType.CubicIn:
-            return Easer.CubicIn (time);
+          return Easer.CubicIn (time);
         case EaseType.CubicOut:
-            return Easer.CubicOut (time);
+          return Easer.CubicOut (time);
         case EaseType.CubicInOut:
-            return Easer.CubicInOut (time);
+          return Easer.CubicInOut (time);
         case EaseType.QuartIn:
-            return Easer.QuartIn (time);
+          return Easer.QuartIn (time);
         case EaseType.QuartOut:
-            return Easer.QuartOut (time);
+          return Easer.QuartOut (time);
         case EaseType.QuartInOut:
-            return Easer.QuartInOut (time);
+          return Easer.QuartInOut (time);
         case EaseType.QuintIn:
-            return Easer.QuintIn (time);
+          return Easer.QuintIn (time);
         case EaseType.QuintOut:
-            return Easer.QuintOut (time);
+          return Easer.QuintOut (time);
         case EaseType.QuintInOut:
-            return Easer.QuintInOut (time);
+          return Easer.QuintInOut (time);
         case EaseType.ExpoIn:
-            return Easer.ExpoIn (time);
+          return Easer.ExpoIn (time);
         case EaseType.ExpoOut:
-            return Easer.ExpoOut (time);
+          return Easer.ExpoOut (time);
         case EaseType.ExpoInOut:
-            return Easer.ExpoInOut (time);
+          return Easer.ExpoInOut (time);
         case EaseType.CircIn:
-            return Easer.CircIn (time);
+          return Easer.CircIn (time);
         case EaseType.CircOut:
-            return Easer.CircOut (time);
+          return Easer.CircOut (time);
         case EaseType.CircInOut:
-            return Easer.CircInOut (time);
+          return Easer.CircInOut (time);
         case EaseType.BackIn:
-            return Easer.BackIn (time);
+          return Easer.BackIn (time);
         case EaseType.BackOut:
-            return Easer.BackOut (time);
+          return Easer.BackOut (time);
         case EaseType.BackInOut:
-            return Easer.BackInOut (time);
+          return Easer.BackInOut (time);
         case EaseType.ElasticIn:
-            return Easer.ElasticIn (time);
+          return Easer.ElasticIn (time);
         case EaseType.ElasticOut:
-            return Easer.ElasticOut (time);
+          return Easer.ElasticOut (time);
         case EaseType.ElasticInOut:
-            return Easer.ElasticInOut (time);
+          return Easer.ElasticInOut (time);
         case EaseType.BounceIn:
-            return Easer.BounceIn (time);
+          return Easer.BounceIn (time);
         case EaseType.BounceOut:
-            return Easer.BounceOut (time);
+          return Easer.BounceOut (time);
         case EaseType.BounceInOut:
-            return Easer.BounceInOut (time);
+          return Easer.BounceInOut (time);
       }
     }
 

@@ -11,6 +11,13 @@ namespace ElRaccoone.Tweens.Core {
     private float time = 0;
     private EaseType ease = 0;
 
+    private bool isDecommissioned = false;
+    private bool isInfinite = false;
+    private bool didOverwriteFrom = false;
+    private bool hasPingPong = false;
+    private bool isPlayingForward = true;
+    private bool timeDidReachEnd = false;
+
     private bool hasLoopCount = false;
     private int loopCount = 0;
 
@@ -29,13 +36,6 @@ namespace ElRaccoone.Tweens.Core {
 
     private Action onCancel = null;
     private bool hasOnCancel = false;
-
-    private bool isDecommissioned = false;
-    private bool isInfinite = false;
-    private bool didOverwriteFrom = false;
-    private bool hasPingPong = false;
-    private bool isPlayingForward = true;
-    private bool timeDidReachEnd = false;
 
     public abstract bool OnInitialize ();
     public abstract DriverValueType OnGetFrom ();
