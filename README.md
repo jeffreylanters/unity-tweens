@@ -4,7 +4,7 @@
 
 # Tweens
 
-[![npm](https://img.shields.io/badge/upm-1.4.0-232c37.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/upm-1.5.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)](./LICENSE.md)
 [![npm](https://img.shields.io/badge/sponsor-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
@@ -36,23 +36,12 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
-### Examples
+### Easing Methods
+
+This module exposes a various number of methods, these are presented in **Extention methods** for **GameObjects** and any **Component**.
 
 ```cs
-using ElRaccoone.Tweens;
-transform.TweenPosition(new Vector3(10, 20, 30), 2);
-gameObject.TweenLocalRotationX(100, 1).SetFrom(-20).SetLoopCount(2).SetEaseQuadIn();
-rectTransform.TweenGraphicColor(Color.white, 1).SetFrom(Color.red).SetPingPong().SetInfinite();
-image.TweenLocalScale(new Vector3(2, 2, 2), 2).SetEaseBackOut().SetOvershooting(0.5f);
-gameObject.TweenValue(100, 1, (value) => { /* ... */ }).SetFrom(10).SetEase(Ease.QuadOut);
-transform.TweenCancelAll();
-```
-
-### Methods
-
-Tweens expose a various number of methods, these are presented in **Extention methods** for **GameObjects** and any **Component**. _Feel free to request more properties to tween_.
-
-```cs
+// Transforming
 TweenPosition (Vector3 to, float duration);
 TweenPositionX (float to, float duration);
 TweenPositionY (float to, float duration);
@@ -76,6 +65,8 @@ TweenLocalScale (Vector3 to, float duration);
 TweenLocalScaleX (float to, float duration);
 TweenLocalScaleY (float to, float duration);
 TweenLocalScaleZ (float to, float duration);
+
+// Renderers & Canvas
 TweenImageFillAmount (float to, float duration);
 TweenGraphicAlpha (float to, float duration);
 TweenGraphicColor (Color to, float duration);
@@ -85,26 +76,40 @@ TweenMaterialAlpha (float to, float duration);
 TweenMaterialColor (Color to, float duration);
 TweenTextMeshAlpha (float to, float duration);
 TweenCanvasGroupAlpha (float to, float duration);
+
+// Audio
 TweenAudioSourceVolume (float to, float duration);
 TweenAudioSourcePitch (float to, float duration);
+
+// Misc
 TweenValue (float to, float duration, Action<float> onUpdate);
 TweenDelayedInvoke(float duration, Action onComplete);
 TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
 
-### Option Chaining
+### Options (Chainable)
 
 When invoking a tween as show above, various options can be changed using chaining methods.
 
 ```cs
+// Basics
 SetFrom (T valueFrom);
+
+// Events
 SetOnComplete (Action onComplete);
 SetOnCancel (Action onCancel);
+SetShouldDecommissionOnDisable (bool shouldDecommissionOnDisable);
+
+// Timing
 SetPingPong ();
 SetLoopCount (int loopCount);
 SetInfinite ();
 SetDelay (float delay, bool goToFirstFrameImmediately = false);
-SetRandomStartTime ();
+SetRandomTime ();
+SetTime (int time);
+SetPaused (bool isPaused);
+
+// Animation
 SetOvershooting (float overshooting);
 SetEase (Ease ease);
 SetEaseLinear ();

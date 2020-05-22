@@ -7,6 +7,7 @@ namespace ElRaccoone.Tweens.Core {
     internal DriverValueType valueTo = default (DriverValueType);
     internal DriverValueType valueCurrent = default (DriverValueType);
 
+    private bool isPaused = false;
     private float currentTime = 0;
     private EaseType ease = 0;
 
@@ -35,6 +36,7 @@ namespace ElRaccoone.Tweens.Core {
     private bool hasPingPong = false;
     private bool isPlayingForward = true;
     private bool timeDidReachEnd = false;
+    private bool shouldDecommissionOnDisable = true;
 
     public abstract bool OnInitialize ();
     public abstract DriverValueType OnGetFrom ();
@@ -56,13 +58,16 @@ namespace ElRaccoone.Tweens.Core {
 
     // When the object is disabled, but the tween did not finish, decommission.
     private void OnDisable () {
-      if (this.timeDidReachEnd == false)
+      if (this.timeDidReachEnd == false && this.shouldDecommissionOnDisable == true)
         this.Decommission ();
     }
 
     private void Update () {
       // When the tween is decommissioned, tweening is aborted.
       if (this.isDecommissioned == true)
+        return;
+      // When the tween is paused, we'll just wait.
+      if (this.isPaused == true)
         return;
       // When the delay is active, the tween will wait for the delay to pass by.
       if (this.hasDelay == true) {
@@ -217,8 +222,26 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the time of the tween to a random value.
-    public Tween<DriverValueType> SetRandomStartTime () {
+    public Tween<DriverValueType> SetRandomTime () {
       this.currentTime = UnityEngine.Random.Range (0f, 1f);
+      return this;
+    }
+
+    /// Sets the time of the tween.
+    public Tween<DriverValueType> SetTime (float time) {
+      this.currentTime = currentTime;
+      return this;
+    }
+
+    /// Sets wheter the playback and delay should be paused.
+    public Tween<DriverValueType> SetPaused (bool isPaused) {
+      this.isPaused = isPaused;
+      return this;
+    }
+
+    /// Sets wheter this tween should decommission when the object gets disabled.
+    public Tween<DriverValueType> SetShouldDecommissionOnDisable (bool shouldDecommissionOnDisable) {
+      this.shouldDecommissionOnDisable = shouldDecommissionOnDisable;
       return this;
     }
 
