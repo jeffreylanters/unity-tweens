@@ -79,6 +79,10 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenPositionY (1, 1).SetFrom (0);
       if (GUILayout.Button ("PositionZ"))
         this.target.TweenPositionZ (1, 1).SetFrom (0);
+      if (GUILayout.Button ("SpriteRendererAlpha"))
+        this.target.TweenSpriteRendererAlpha (1, 1).SetFrom (0);
+      if (GUILayout.Button ("SpriteRendererColor"))
+        this.target.TweenSpriteRendererColor (Color.white, 1).SetFrom (Color.red);
       if (GUILayout.Button ("TextMeshAlpha"))
         this.target.TweenTextMeshAlpha (1, 1).SetFrom (0);
 
