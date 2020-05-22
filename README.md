@@ -38,7 +38,7 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ### Easing Methods
 
-This module exposes a various number of methods, these are presented in **Extention methods** for **GameObjects** and any **Component**.
+This module exposes a various number of methods, these are presented in **Extention methods** for both **GameObjects** and any type of **Component**.
 
 ```cs
 // Transforming
@@ -89,7 +89,9 @@ TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 
 ### Options (Chainable)
 
-When invoking a tween as show above, various options can be changed using chaining methods.
+When invoking a Tween as show above, various options can be changed using the follwing chainable methods.
+
+> When storing a tween in a variable, all these options can be changed afterwards as well.
 
 ```cs
 // Basics
