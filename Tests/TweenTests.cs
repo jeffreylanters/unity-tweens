@@ -16,10 +16,8 @@ namespace ElRaccoone.Tweens.Tests {
       this.scrollPosition = GUILayout.BeginScrollView (this.scrollPosition, GUILayout.Width (Screen.width / 3f));
 
       // TEMP
-      if (GUILayout.Button ("SetShouldDecommissionOnDisable False"))
-        this.target.TweenPositionY (3, 5).SetFrom (-3).SetShouldDecommissionWhenDisabled (false);
-      if (GUILayout.Button ("SetShouldDecommissionOnDisable True"))
-        this.target.TweenPositionY (3, 5).SetFrom (-3).SetShouldDecommissionWhenDisabled (true);
+      if (GUILayout.Button ("TEMP"))
+        this.target.TweenPositionY (3, 5).SetFrom (-3).SetTime (0.5f);
 
       // Visual Tweens Testing
       GUILayout.Label ("[VISUAL TWEENS TESTING]");

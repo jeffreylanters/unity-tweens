@@ -36,7 +36,6 @@ namespace ElRaccoone.Tweens.Core {
     private bool hasPingPong = false;
     private bool isPlayingForward = true;
     private bool timeDidReachEnd = false;
-    private bool shouldDecommissionOnDisable = true;
 
     public abstract bool OnInitialize ();
     public abstract DriverValueType OnGetFrom ();
@@ -58,7 +57,7 @@ namespace ElRaccoone.Tweens.Core {
 
     // When the object is disabled, but the tween did not finish, decommission.
     private void OnDisable () {
-      if (this.timeDidReachEnd == false && this.shouldDecommissionOnDisable == true)
+      if (this.timeDidReachEnd == false)
         this.Decommission ();
     }
 
@@ -151,7 +150,7 @@ namespace ElRaccoone.Tweens.Core {
     /// Sets the final values required for the tween can start. When the object
     ///  is not active in the hierarchy, it will be decommissioned right away.
     internal Tween<DriverValueType> Finalize (float duration, DriverValueType valueTo) {
-      if (this.gameObject.activeInHierarchy == false && this.shouldDecommissionOnDisable == true)
+      if (this.gameObject.activeInHierarchy == false)
         this.Decommission ();
       else {
         this.duration = duration;
@@ -236,12 +235,6 @@ namespace ElRaccoone.Tweens.Core {
     /// Sets wheter the playback and delay should be paused.
     public Tween<DriverValueType> SetPaused (bool isPaused) {
       this.isPaused = isPaused;
-      return this;
-    }
-
-    /// Sets wheter this tween should decommission when the object gets disabled.
-    public Tween<DriverValueType> SetShouldDecommissionWhenDisabled (bool shouldDecommissionWhenDisabled) {
-      this.shouldDecommissionOnDisable = shouldDecommissionWhenDisabled;
       return this;
     }
 
