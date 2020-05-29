@@ -149,8 +149,10 @@ namespace ElRaccoone.Tweens.Tests {
 
       // Misc Testing
       GUILayout.Label ("[MISC TESTING]");
-      if (GUILayout.Button ("Tween Value"))
-        this.target.TweenValue (50, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-50);
+      if (GUILayout.Button ("Tween Value Float"))
+        this.target.TweenValueFloat (50, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-50);
+      if (GUILayout.Button ("Tween Value Color"))
+        this.target.TweenValueColor (Color.red, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (Color.blue);
       if (GUILayout.Button ("Tween Delayed Invoke"))
         this.target.TweenDelayedInvoke (1, () => Debug.Log ("Hello World!"));
       if (GUILayout.Button ("Pausing")) {
