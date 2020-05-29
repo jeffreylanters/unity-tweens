@@ -4,7 +4,7 @@
 
 # Tweens
 
-[![npm](https://img.shields.io/badge/upm-1.5.0-232c37.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/upm-1.6.0-232c37.svg?style=for-the-badge)]()
 [![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)](./LICENSE.md)
 [![npm](https://img.shields.io/badge/sponsor-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
@@ -82,7 +82,8 @@ TweenAudioSourceVolume (float to, float duration);
 TweenAudioSourcePitch (float to, float duration);
 
 // Misc
-TweenValue (float to, float duration, Action<float> onUpdate);
+TweenFloatValue (float to, float duration, Action<float> onUpdate);
+TweenColorValue (Color to, float duration, Action<Color> onUpdate);
 TweenDelayedInvoke(float duration, Action onComplete);
 TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
