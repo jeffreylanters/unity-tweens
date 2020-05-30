@@ -82,8 +82,8 @@ TweenAudioSourceVolume (float to, float duration);
 TweenAudioSourcePitch (float to, float duration);
 
 // Misc
-TweenFloatValue (float to, float duration, Action<float> onUpdate);
-TweenColorValue (Color to, float duration, Action<Color> onUpdate);
+TweenValueFloat (float to, float duration, Action<float> onUpdate);
+TweenValueColor (Color to, float duration, Action<Color> onUpdate);
 TweenDelayedInvoke(float duration, Action onComplete);
 TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
