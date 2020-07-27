@@ -36,9 +36,7 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
-#### TweenPosition 
-
-###### available in version 1.0.0
+#### TweenPosition `version 1.0.0`
 
 Instantiates a Tween animating the Position.
 
