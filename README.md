@@ -40,17 +40,11 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
-<br/>
-
-### Tweening Methods
-
-<br/>
-
 #### TweenPosition `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Position.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenPosition (Vector3 to, float duration);
@@ -60,9 +54,9 @@ TweenPosition (Vector3 to, float duration);
 
 #### TweenPositionX `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the X axis of the Position.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenPositionX (float to, float duration);
@@ -72,9 +66,9 @@ TweenPositionX (float to, float duration);
 
 #### TweenPositionY `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Y axis of the Position.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenPositionY (float to, float duration);
@@ -84,9 +78,9 @@ TweenPositionY (float to, float duration);
 
 #### TweenPositionZ `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Z axis of the Position.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenPositionZ (float to, float duration);
@@ -96,9 +90,9 @@ TweenPositionZ (float to, float duration);
 
 #### TweenLocalPosition `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the LocalPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalPosition (Vector3 to, float duration);
@@ -108,9 +102,9 @@ TweenLocalPosition (Vector3 to, float duration);
 
 #### TweenLocalPositionX `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the X axis of the LocalPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalPositionX (float to, float duration);
@@ -120,9 +114,9 @@ TweenLocalPositionX (float to, float duration);
 
 #### TweenLocalPositionY `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Y axis of the LocalPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalPositionY (float to, float duration);
@@ -132,9 +126,9 @@ TweenLocalPositionY (float to, float duration);
 
 #### TweenLocalPositionZ `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Z axis of the LocalPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalPositionZ (float to, float duration);
@@ -144,9 +138,9 @@ TweenLocalPositionZ (float to, float duration);
 
 #### TweenAnchoredPosition `from 1.0.2`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the AnchoredPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenAnchoredPosition (Vector2 to, float duration);
@@ -156,9 +150,9 @@ TweenAnchoredPosition (Vector2 to, float duration);
 
 #### TweenAnchoredPositionX `from 1.0.2`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the X axis of the AnchoredPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenAnchoredPositionX (float to, float duration);
@@ -168,9 +162,9 @@ TweenAnchoredPositionX (float to, float duration);
 
 #### TweenAnchoredPositionY `from 1.0.2`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Y axis of the AnchoredPosition.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenAnchoredPositionY (float to, float duration);
@@ -180,9 +174,9 @@ TweenAnchoredPositionY (float to, float duration);
 
 #### TweenRotation `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Rotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenRotation (Vector3 to, float duration);
@@ -192,9 +186,9 @@ TweenRotation (Vector3 to, float duration);
 
 #### TweenRotationX `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the X axis of the Rotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenRotationX (float to, float duration);
@@ -204,9 +198,9 @@ TweenRotationX (float to, float duration);
 
 #### TweenRotationY `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Y axis of the Rotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenRotationY (float to, float duration);
@@ -216,9 +210,9 @@ TweenRotationY (float to, float duration);
 
 #### TweenRotationZ `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Z axis of the Rotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenRotationZ (float to, float duration);
@@ -228,9 +222,9 @@ TweenRotationZ (float to, float duration);
 
 #### TweenLocalRotation `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the LocalRotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalRotation (Vector3 to, float duration);
@@ -240,9 +234,9 @@ TweenLocalRotation (Vector3 to, float duration);
 
 #### TweenLocalRotationX `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the X axis of the LocalRotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalRotationX (float to, float duration);
@@ -252,9 +246,9 @@ TweenLocalRotationX (float to, float duration);
 
 #### TweenLocalRotationY `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Y axis of the LocalRotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalRotationY (float to, float duration);
@@ -264,9 +258,9 @@ TweenLocalRotationY (float to, float duration);
 
 #### TweenLocalRotationZ `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Z axis of the LocalRotation.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalRotationZ (float to, float duration);
@@ -276,9 +270,9 @@ TweenLocalRotationZ (float to, float duration);
 
 #### TweenLocalScale `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the LocalScale.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalScale (Vector3 to, float duration);
@@ -288,9 +282,9 @@ TweenLocalScale (Vector3 to, float duration);
 
 #### TweenLocalScaleX `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the X axis of the LocalScale.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalScaleX (float to, float duration);
@@ -300,9 +294,9 @@ TweenLocalScaleX (float to, float duration);
 
 #### TweenLocalScaleY `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Y axis of the LocalScale.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalScaleY (float to, float duration);
@@ -312,9 +306,9 @@ TweenLocalScaleY (float to, float duration);
 
 #### TweenLocalScaleZ `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the Z axis of the LocalScale.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenLocalScaleZ (float to, float duration);
@@ -324,9 +318,9 @@ TweenLocalScaleZ (float to, float duration);
 
 #### TweenImageFillAmount `from 1.0.3`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the ImageFillAmount.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenImageFillAmount (float to, float duration);
@@ -336,9 +330,9 @@ TweenImageFillAmount (float to, float duration);
 
 #### TweenGraphicAlpha `from 1.0.4`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the GraphicAlpha.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenGraphicAlpha (float to, float duration);
@@ -348,9 +342,9 @@ TweenGraphicAlpha (float to, float duration);
 
 #### TweenGraphicColor `from 1.0.4`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the GraphicColor.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenGraphicColor (Color to, float duration);
@@ -360,9 +354,9 @@ TweenGraphicColor (Color to, float duration);
 
 #### TweenSpriteRendererAlpha `from 1.0.4`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the SpriteRendererAlpha.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenSpriteRendererAlpha (float to, float duration);
@@ -372,9 +366,9 @@ TweenSpriteRendererAlpha (float to, float duration);
 
 #### TweenSpriteRendererColor `from 1.0.5`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the SpriteRendererColor.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenSpriteRendererColor (Color to, float duration);
@@ -384,9 +378,9 @@ TweenSpriteRendererColor (Color to, float duration);
 
 #### TweenMaterialAlpha `from 1.0.9`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the MaterialAlpha.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenMaterialAlpha (float to, float duration);
@@ -396,9 +390,9 @@ TweenMaterialAlpha (float to, float duration);
 
 #### TweenMaterialColor `from 1.0.9`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the MaterialColor.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenMaterialColor (Color to, float duration);
@@ -408,9 +402,9 @@ TweenMaterialColor (Color to, float duration);
 
 #### TweenTextMeshAlpha `from 1.0.8`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the TextMeshAlpha.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenTextMeshAlpha (float to, float duration);
@@ -420,9 +414,9 @@ TweenTextMeshAlpha (float to, float duration);
 
 #### TweenCanvasGroupAlpha `from 1.0.10`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the CanvasGroupAlpha.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenCanvasGroupAlpha (float to, float duration);
@@ -432,9 +426,9 @@ TweenCanvasGroupAlpha (float to, float duration);
 
 #### TweenAudioSourceVolume `from 1.0.11`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the AudioSourceVolume.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenAudioSourceVolume (float to, float duration);
@@ -444,9 +438,9 @@ TweenAudioSourceVolume (float to, float duration);
 
 #### TweenAudioSourcePitch `from 1.0.11`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the AudioSourcePitch.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenAudioSourcePitch (float to, float duration);
@@ -456,9 +450,9 @@ TweenAudioSourcePitch (float to, float duration);
 
 #### TweenValueFloat `from 1.0.3`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the ValueFloat.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenValueFloat (float to, float duration, Action<float> onUpdate);
@@ -468,9 +462,9 @@ TweenValueFloat (float to, float duration, Action<float> onUpdate);
 
 #### TweenValueColor `from 1.2.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween animating the ValueColor.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenValueColor (Color to, float duration, Action<Color> onUpdate);
@@ -480,9 +474,9 @@ TweenValueColor (Color to, float duration, Action<Color> onUpdate);
 
 #### TweenDelayedInvoke `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Creates a Tween which invokes a lambra method.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenDelayedInvoke(float duration, Action onComplete);
@@ -492,9 +486,9 @@ TweenDelayedInvoke(float duration, Action onComplete);
 
 #### TweenCancelAll `from 1.0.0`
 
-> Extension method for `GameObject` and `Component`.
-
 Cancels all the running tweens.
+
+> Extension method for `GameObject` and `Component`.
 
 ```cs
 TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
