@@ -40,454 +40,380 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
-#### TweenPosition `from 1.0.0`
+#### TweenPosition `version 1.0.0`
 
 Creates a Tween animating the Position.
 
 ```cs
-<GameObject, Component>TweenPosition (Vector3 to, float duration);
+<GameObject, Component>.TweenPosition (Vector3 to, float duration);
 ```
 
-#### TweenPositionX `from 1.0.0`
+#### TweenPositionX `version 1.0.0`
 
 Creates a Tween animating the X axis of the Position.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenPositionX (float to, float duration);
+<GameObject, Component>.TweenPositionX (float to, float duration);
 ```
 
 <br/>
 
-#### TweenPositionY `from 1.0.0`
+#### TweenPositionY `version 1.0.0`
 
 Creates a Tween animating the Y axis of the Position.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenPositionY (float to, float duration);
+<GameObject, Component>.TweenPositionY (float to, float duration);
 ```
 
 <br/>
 
-#### TweenPositionZ `from 1.0.0`
+#### TweenPositionZ `version 1.0.0`
 
 Creates a Tween animating the Z axis of the Position.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenPositionZ (float to, float duration);
+<GameObject, Component>.TweenPositionZ (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalPosition `from 1.0.0`
+#### TweenLocalPosition `version 1.0.0`
 
 Creates a Tween animating the LocalPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalPosition (Vector3 to, float duration);
+<GameObject, Component>.TweenLocalPosition (Vector3 to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalPositionX `from 1.0.0`
+#### TweenLocalPositionX `version 1.0.0`
 
 Creates a Tween animating the X axis of the LocalPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalPositionX (float to, float duration);
+<GameObject, Component>.TweenLocalPositionX (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalPositionY `from 1.0.0`
+#### TweenLocalPositionY `version 1.0.0`
 
 Creates a Tween animating the Y axis of the LocalPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalPositionY (float to, float duration);
+<GameObject, Component>.TweenLocalPositionY (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalPositionZ `from 1.0.0`
+#### TweenLocalPositionZ `version 1.0.0`
 
 Creates a Tween animating the Z axis of the LocalPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalPositionZ (float to, float duration);
+<GameObject, Component>.TweenLocalPositionZ (float to, float duration);
 ```
 
 <br/>
 
-#### TweenAnchoredPosition `from 1.0.2`
+#### TweenAnchoredPosition `version 1.0.2`
 
 Creates a Tween animating the AnchoredPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenAnchoredPosition (Vector2 to, float duration);
+<GameObject, Component>.TweenAnchoredPosition (Vector2 to, float duration);
 ```
 
 <br/>
 
-#### TweenAnchoredPositionX `from 1.0.2`
+#### TweenAnchoredPositionX `version 1.0.2`
 
 Creates a Tween animating the X axis of the AnchoredPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenAnchoredPositionX (float to, float duration);
+<GameObject, Component>.TweenAnchoredPositionX (float to, float duration);
 ```
 
 <br/>
 
-#### TweenAnchoredPositionY `from 1.0.2`
+#### TweenAnchoredPositionY `version 1.0.2`
 
 Creates a Tween animating the Y axis of the AnchoredPosition.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenAnchoredPositionY (float to, float duration);
+<GameObject, Component>.TweenAnchoredPositionY (float to, float duration);
 ```
 
 <br/>
 
-#### TweenRotation `from 1.0.0`
+#### TweenRotation `version 1.0.0`
 
 Creates a Tween animating the Rotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenRotation (Vector3 to, float duration);
+<GameObject, Component>.TweenRotation (Vector3 to, float duration);
 ```
 
 <br/>
 
-#### TweenRotationX `from 1.0.0`
+#### TweenRotationX `version 1.0.0`
 
 Creates a Tween animating the X axis of the Rotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenRotationX (float to, float duration);
+<GameObject, Component>.TweenRotationX (float to, float duration);
 ```
 
 <br/>
 
-#### TweenRotationY `from 1.0.0`
+#### TweenRotationY `version 1.0.0`
 
 Creates a Tween animating the Y axis of the Rotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenRotationY (float to, float duration);
+<GameObject, Component>.TweenRotationY (float to, float duration);
 ```
 
 <br/>
 
-#### TweenRotationZ `from 1.0.0`
+#### TweenRotationZ `version 1.0.0`
 
 Creates a Tween animating the Z axis of the Rotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenRotationZ (float to, float duration);
+<GameObject, Component>.TweenRotationZ (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalRotation `from 1.0.0`
+#### TweenLocalRotation `version 1.0.0`
 
 Creates a Tween animating the LocalRotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalRotation (Vector3 to, float duration);
+<GameObject, Component>.TweenLocalRotation (Vector3 to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalRotationX `from 1.0.0`
+#### TweenLocalRotationX `version 1.0.0`
 
 Creates a Tween animating the X axis of the LocalRotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalRotationX (float to, float duration);
+<GameObject, Component>.TweenLocalRotationX (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalRotationY `from 1.0.0`
+#### TweenLocalRotationY `version 1.0.0`
 
 Creates a Tween animating the Y axis of the LocalRotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalRotationY (float to, float duration);
+<GameObject, Component>.TweenLocalRotationY (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalRotationZ `from 1.0.0`
+#### TweenLocalRotationZ `version 1.0.0`
 
 Creates a Tween animating the Z axis of the LocalRotation.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalRotationZ (float to, float duration);
+<GameObject, Component>.TweenLocalRotationZ (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalScale `from 1.0.0`
+#### TweenLocalScale `version 1.0.0`
 
 Creates a Tween animating the LocalScale.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalScale (Vector3 to, float duration);
+<GameObject, Component>.TweenLocalScale (Vector3 to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalScaleX `from 1.0.0`
+#### TweenLocalScaleX `version 1.0.0`
 
 Creates a Tween animating the X axis of the LocalScale.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalScaleX (float to, float duration);
+<GameObject, Component>.TweenLocalScaleX (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalScaleY `from 1.0.0`
+#### TweenLocalScaleY `version 1.0.0`
 
 Creates a Tween animating the Y axis of the LocalScale.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalScaleY (float to, float duration);
+<GameObject, Component>.TweenLocalScaleY (float to, float duration);
 ```
 
 <br/>
 
-#### TweenLocalScaleZ `from 1.0.0`
+#### TweenLocalScaleZ `version 1.0.0`
 
 Creates a Tween animating the Z axis of the LocalScale.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenLocalScaleZ (float to, float duration);
+<GameObject, Component>.TweenLocalScaleZ (float to, float duration);
 ```
 
 <br/>
 
-#### TweenImageFillAmount `from 1.0.3`
+#### TweenImageFillAmount `version 1.0.3`
 
 Creates a Tween animating the ImageFillAmount.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenImageFillAmount (float to, float duration);
+<GameObject, Component>.TweenImageFillAmount (float to, float duration);
 ```
 
 <br/>
 
-#### TweenGraphicAlpha `from 1.0.4`
+#### TweenGraphicAlpha `version 1.0.4`
 
 Creates a Tween animating the GraphicAlpha.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenGraphicAlpha (float to, float duration);
+<GameObject, Component>.TweenGraphicAlpha (float to, float duration);
 ```
 
 <br/>
 
-#### TweenGraphicColor `from 1.0.4`
+#### TweenGraphicColor `version 1.0.4`
 
 Creates a Tween animating the GraphicColor.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenGraphicColor (Color to, float duration);
+<GameObject, Component>.TweenGraphicColor (Color to, float duration);
 ```
 
 <br/>
 
-#### TweenSpriteRendererAlpha `from 1.0.4`
+#### TweenSpriteRendererAlpha `version 1.0.4`
 
 Creates a Tween animating the SpriteRendererAlpha.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenSpriteRendererAlpha (float to, float duration);
+<GameObject, Component>.TweenSpriteRendererAlpha (float to, float duration);
 ```
 
 <br/>
 
-#### TweenSpriteRendererColor `from 1.0.5`
+#### TweenSpriteRendererColor `version 1.0.5`
 
 Creates a Tween animating the SpriteRendererColor.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenSpriteRendererColor (Color to, float duration);
+<GameObject, Component>.TweenSpriteRendererColor (Color to, float duration);
 ```
 
 <br/>
 
-#### TweenMaterialAlpha `from 1.0.9`
+#### TweenMaterialAlpha `version 1.0.9`
 
 Creates a Tween animating the MaterialAlpha.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenMaterialAlpha (float to, float duration);
+<GameObject, Component>.TweenMaterialAlpha (float to, float duration);
 ```
 
 <br/>
 
-#### TweenMaterialColor `from 1.0.9`
+#### TweenMaterialColor `version 1.0.9`
 
 Creates a Tween animating the MaterialColor.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenMaterialColor (Color to, float duration);
+<GameObject, Component>.TweenMaterialColor (Color to, float duration);
 ```
 
 <br/>
 
-#### TweenTextMeshAlpha `from 1.0.8`
+#### TweenTextMeshAlpha `version 1.0.8`
 
 Creates a Tween animating the TextMeshAlpha.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenTextMeshAlpha (float to, float duration);
+<GameObject, Component>.TweenTextMeshAlpha (float to, float duration);
 ```
 
 <br/>
 
-#### TweenCanvasGroupAlpha `from 1.0.10`
+#### TweenCanvasGroupAlpha `version 1.0.10`
 
 Creates a Tween animating the CanvasGroupAlpha.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenCanvasGroupAlpha (float to, float duration);
+<GameObject, Component>.TweenCanvasGroupAlpha (float to, float duration);
 ```
 
 <br/>
 
-#### TweenAudioSourceVolume `from 1.0.11`
+#### TweenAudioSourceVolume `version 1.0.11`
 
 Creates a Tween animating the AudioSourceVolume.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenAudioSourceVolume (float to, float duration);
+<GameObject, Component>.TweenAudioSourceVolume (float to, float duration);
 ```
 
 <br/>
 
-#### TweenAudioSourcePitch `from 1.0.11`
+#### TweenAudioSourcePitch `version 1.0.11`
 
 Creates a Tween animating the AudioSourcePitch.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenAudioSourcePitch (float to, float duration);
+<GameObject, Component>.TweenAudioSourcePitch (float to, float duration);
 ```
 
 <br/>
 
-#### TweenValueFloat `from 1.0.3`
+#### TweenValueFloat `version 1.0.3`
 
 Creates a Tween animating the ValueFloat.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenValueFloat (float to, float duration, Action<float> onUpdate);
+<GameObject, Component>.TweenValueFloat (float to, float duration, Action<float> onUpdate);
 ```
 
 <br/>
 
-#### TweenValueColor `from 1.2.0`
+#### TweenValueColor `version 1.2.0`
 
 Creates a Tween animating the ValueColor.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenValueColor (Color to, float duration, Action<Color> onUpdate);
+<GameObject, Component>.TweenValueColor (Color to, float duration, Action<Color> onUpdate);
 ```
 
 <br/>
 
-#### TweenDelayedInvoke `from 1.0.0`
+#### TweenDelayedInvoke `version 1.0.0`
 
 Creates a Tween which invokes a lambra method.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenDelayedInvoke(float duration, Action onComplete);
+<GameObject, Component>.TweenDelayedInvoke(float duration, Action onComplete);
 ```
 
 <br/>
 
-#### TweenCancelAll `from 1.0.0`
+#### TweenCancelAll `version 1.0.0`
 
 Cancels all the running tweens.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
+<GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
 
 <br/>
