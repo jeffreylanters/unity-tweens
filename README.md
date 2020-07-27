@@ -44,13 +44,9 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 Creates a Tween animating the Position.
 
-> Extension method for `GameObject` and `Component`.
-
 ```cs
-TweenPosition (Vector3 to, float duration);
+<GameObject, Component>TweenPosition (Vector3 to, float duration);
 ```
-
-<br/>
 
 #### TweenPositionX `from 1.0.0`
 
