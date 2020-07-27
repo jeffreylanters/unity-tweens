@@ -26,6 +26,8 @@ When using any of the packages, please make sure to **Star** this repository and
 
 </div>
 
+<br/>
+
 ## Installation
 
 Install using the Unity Package Manager. add the following line to your `manifest.json` file located within your project's packages directory.
@@ -34,9 +36,15 @@ Install using the Unity Package Manager. add the following line to your `manifes
 "nl.elraccoone.tweens": "git+https://github.com/elraccoone/unity-tweens"
 ```
 
+<br/>
+
 ## Documentation
 
+<br/>
+
 ### Tweening Methods
+
+<br/>
 
 #### TweenPosition `from 1.0.0`
 
