@@ -340,7 +340,7 @@ Cancels all the running tweens.
 <GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
 
-#### (Common) SetFrom `version 1.0.0`
+#### SetFrom `version 1.0.0`
 
 Sets the From value of a tween, when not set the current value will be used.
 
@@ -348,7 +348,7 @@ Sets the From value of a tween, when not set the current value will be used.
 <Tween>.SetFrom (T valueFrom);
 ```
 
-#### (Event) SetOnComplete `version 1.1.0`
+#### SetOnComplete `version 1.1.0`
 
 Sets the event which will be invoked when the tween completes playing. This will
 not be invoked when the tween is canceled.
@@ -357,7 +357,7 @@ not be invoked when the tween is canceled.
 <Tween>.SetOnComplete (Action onComplete);
 ```
 
-#### (Event) SetOnCancel `version 1.3.0`
+#### SetOnCancel `version 1.3.0`
 
 Sets the event which will be invoked when the tween is canceled.
 
