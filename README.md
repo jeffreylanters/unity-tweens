@@ -26,7 +26,7 @@ When using any of the packages, please make sure to **Star** this repository and
 
 </div>
 
-## Installation
+# Installation
 
 Install using the Unity Package Manager. add the following line to your `manifest.json` file located within your project's packages directory.
 
@@ -34,9 +34,9 @@ Install using the Unity Package Manager. add the following line to your `manifes
 "nl.elraccoone.tweens": "git+https://github.com/elraccoone/unity-tweens"
 ```
 
-## Documentation
+# Documentation
 
-### Examples
+## Examples
 
 These are some of the endless possibilities using Tweens.
 
@@ -49,7 +49,7 @@ private void Start () {
 }
 ```
 
-### Tweening Methods
+## Tweening Methods
 
 #### TweenPosition `version 1.0.0`
 
@@ -355,7 +355,7 @@ Cancels all the running tweens.
 <GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
 
-### Chainable Options
+## Chainable Options
 
 #### Cancel `version 1.0.0`
 
