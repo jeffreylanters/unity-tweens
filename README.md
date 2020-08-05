@@ -36,6 +36,8 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
+### Tweening Methods
+
 #### TweenPosition `version 1.0.0`
 
 Instantiates a Tween animating the Position.
@@ -339,6 +341,8 @@ Cancels all the running tweens.
 ```cs
 <GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
 ```
+
+### Chainable Options
 
 #### SetFrom `version 1.0.0`
 
