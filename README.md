@@ -222,7 +222,7 @@ Instantiates a Tween animating the Z axis of the LocalScale.
 
 #### TweenImageFillAmount `version 1.0.3`
 
-Instantiates a Tween animating the ImageFillAmount.
+Instantiates a Tween animating the fillAmount of an image.
 
 ```cs
 <GameObject, Component>.TweenImageFillAmount (float to, float duration);
@@ -230,7 +230,7 @@ Instantiates a Tween animating the ImageFillAmount.
 
 #### TweenGraphicAlpha `version 1.0.4`
 
-Instantiates a Tween animating the GraphicAlpha.
+Instantiates a Tween animating the alpha of a graphic.
 
 ```cs
 <GameObject, Component>.TweenGraphicAlpha (float to, float duration);
@@ -238,7 +238,7 @@ Instantiates a Tween animating the GraphicAlpha.
 
 #### TweenGraphicColor `version 1.0.4`
 
-Instantiates a Tween animating the GraphicColor.
+Instantiates a Tween animating the color of a graphic.
 
 ```cs
 <GameObject, Component>.TweenGraphicColor (Color to, float duration);
@@ -246,7 +246,7 @@ Instantiates a Tween animating the GraphicColor.
 
 #### TweenSpriteRendererAlpha `version 1.0.4`
 
-Instantiates a Tween animating the SpriteRendererAlpha.
+Instantiates a Tween animating the alpha of a SpriteRenderer.
 
 ```cs
 <GameObject, Component>.TweenSpriteRendererAlpha (float to, float duration);
@@ -254,7 +254,7 @@ Instantiates a Tween animating the SpriteRendererAlpha.
 
 #### TweenSpriteRendererColor `version 1.0.5`
 
-Instantiates a Tween animating the SpriteRendererColor.
+Instantiates a Tween animating the color of a SpriteRenderer.
 
 ```cs
 <GameObject, Component>.TweenSpriteRendererColor (Color to, float duration);
@@ -262,7 +262,7 @@ Instantiates a Tween animating the SpriteRendererColor.
 
 #### TweenMaterialAlpha `version 1.0.9`
 
-Instantiates a Tween animating the MaterialAlpha.
+Instantiates a Tween animating the alpha of a Material.
 
 ```cs
 <GameObject, Component>.TweenMaterialAlpha (float to, float duration);
@@ -270,7 +270,7 @@ Instantiates a Tween animating the MaterialAlpha.
 
 #### TweenMaterialColor `version 1.0.9`
 
-Instantiates a Tween animating the MaterialColor.
+Instantiates a Tween animating the color of a Material.
 
 ```cs
 <GameObject, Component>.TweenMaterialColor (Color to, float duration);
@@ -278,7 +278,7 @@ Instantiates a Tween animating the MaterialColor.
 
 #### TweenTextMeshAlpha `version 1.0.8`
 
-Instantiates a Tween animating the TextMeshAlpha.
+Instantiates a Tween animating the alpha of a TextMesh.
 
 ```cs
 <GameObject, Component>.TweenTextMeshAlpha (float to, float duration);
@@ -286,7 +286,7 @@ Instantiates a Tween animating the TextMeshAlpha.
 
 #### TweenCanvasGroupAlpha `version 1.0.10`
 
-Instantiates a Tween animating the CanvasGroupAlpha.
+Instantiates a Tween animating the alpha of a CanvasGroup.
 
 ```cs
 <GameObject, Component>.TweenCanvasGroupAlpha (float to, float duration);
@@ -294,7 +294,7 @@ Instantiates a Tween animating the CanvasGroupAlpha.
 
 #### TweenAudioSourceVolume `version 1.0.11`
 
-Instantiates a Tween animating the AudioSourceVolume.
+Instantiates a Tween easing the volume of an AudioSource.
 
 ```cs
 <GameObject, Component>.TweenAudioSourceVolume (float to, float duration);
@@ -302,7 +302,7 @@ Instantiates a Tween animating the AudioSourceVolume.
 
 #### TweenAudioSourcePitch `version 1.0.11`
 
-Instantiates a Tween animating the AudioSourcePitch.
+Instantiates a Tween easing the pitch of an AudioSource.
 
 ```cs
 <GameObject, Component>.TweenAudioSourcePitch (float to, float duration);
@@ -310,7 +310,7 @@ Instantiates a Tween animating the AudioSourcePitch.
 
 #### TweenValueFloat `version 1.0.3`
 
-Instantiates a Tween animating the ValueFloat.
+Instantiates a Tween animating the a float value.
 
 ```cs
 <GameObject, Component>.TweenValueFloat (float to, float duration, Action<float> onUpdate);
@@ -318,7 +318,7 @@ Instantiates a Tween animating the ValueFloat.
 
 #### TweenValueColor `version 1.2.0`
 
-Instantiates a Tween animating the ValueColor.
+Instantiates a Tween animating the a color value.
 
 ```cs
 <GameObject, Component>.TweenValueColor (Color to, float duration, Action<Color> onUpdate);
@@ -338,6 +338,14 @@ Cancels all the running tweens.
 
 ```cs
 <GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
+``````
+
+#### Cancel `version 1.0.0`
+
+Cancel the tween.
+
+```cs
+<Tween>.Cancel ();
 ```
 
 #### SetFrom `version 1.0.0`
