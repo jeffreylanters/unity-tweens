@@ -36,6 +36,19 @@ Install using the Unity Package Manager. add the following line to your `manifes
 
 ## Documentation
 
+### Examples
+
+These are some of the endless possibilities using Tweens.
+
+```cs
+private void Start () {
+  myGameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
+  myGameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
+  myGameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
+  myGameObject.TweenCancelAll ();
+}
+```
+
 ### Tweening Methods
 
 #### TweenPosition `version 1.0.0`
@@ -340,7 +353,9 @@ Cancels all the running tweens.
 
 ```cs
 <GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false);
-``````
+```
+
+### Chainable Options
 
 #### Cancel `version 1.0.0`
 
@@ -349,8 +364,6 @@ Cancel the tween.
 ```cs
 <Tween>.Cancel ();
 ```
-
-### Chainable Options
 
 #### SetFrom `version 1.0.0`
 
