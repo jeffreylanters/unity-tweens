@@ -390,20 +390,67 @@ Sets the event which will be invoked when the tween is canceled.
 <Tween>.SetOnCancel (Action onCancel);
 ```
 
+#### SetOnCancel `version 1.6.0`
+
+Enabled ping pong playback, this will bounce the animation back and forth. The tween has play forward and backwards to count as one cycle. Use either SetLoopCount or SetInifinite to set the number of times the animation should ping pong.
+
+```cs
+<Tween>.SetPingPong ();
+```
+
+#### SetLoopCount `version 1.2.0`
+
+Sets the number of times the animation should loop.
+
+```cs
+<Tween>.SetLoopCount (int loopCount);
+```
+
+#### SetInfinite `version 1.5.0`
+
+Sets this tween to infinite, the loopcount will be ignored.
+
+```cs
+<Tween>.SetInfinite ();
+```
+
+#### SetDelay `version 1.3.0`
+
+Sets the delay of this tween. The tween will not play anything until the requested delay time is reached. You can change this behaviour by enabeling 'goToFirstFrameImmediately' to set the animation to the first frame immediately.
+
+```cs
+<Tween>.SetDelay (float delay, bool goToFirstFrameImmediately = false);
+```
+
+#### SetTime `version 1.1.0`
+
+Sets the time of the tween.
+
+```cs
+<Tween>.SetTime (int time);
+```
+
+#### SetRandomTime `version 1.3.0`
+
+Sets the time of the tween to a random value.
+
+```cs
+<Tween>.SetRandomTime ();
+```
+
+#### SetPaused `version 1.4.0`
+
+Sets wheter the playback and delay should be paused.
+
+```cs
+<Tween>.SetPaused (bool isPaused);
+```
+
 <br/><br/><br/><br/>
 
 # ------------
 
 ```cs
-// Timing
-SetPingPong ();
-SetLoopCount (int loopCount);
-SetInfinite ();
-SetDelay (float delay, bool goToFirstFrameImmediately = false);
-SetTime (int time);
-SetRandomTime ();
-SetPaused (bool isPaused);
-
 // Animation
 SetOvershooting (float overshooting);
 SetEase (Ease ease);
