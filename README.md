@@ -446,43 +446,266 @@ Sets wheter the playback and delay should be paused.
 <Tween>.SetPaused (bool isPaused);
 ```
 
-<br/><br/><br/><br/>
+#### SetOvershooting `version 1.5.0`
 
-# ------------
+Sets the overshooting of Eases that exceed their boundaries such as elastic and back.
 
 ```cs
-// Animation
-SetOvershooting (float overshooting);
-SetEase (Ease ease);
-SetEaseLinear ();
-SetEaseSineIn ();
-SetEaseSineOut ();
-SetEaseSineInOut ();
-SetEaseQuadIn ();
-SetEaseQuadOut ();
-SetEaseQuadInOut ();
-SetEaseCubicIn ();
-SetEaseCubicOut ();
-SetEaseCubicInOut ();
-SetEaseQuartIn ();
-SetEaseQuartOut ();
-SetEaseQuartInOut ();
-SetEaseQuintIn ();
-SetEaseQuintOut ();
-SetEaseQuintInOut ();
-SetEaseExpoIn ();
-SetEaseExpoOut ();
-SetEaseExpoInOut ();
-SetEaseCircIn ();
-SetEaseCircOut ();
-SetEaseCircInOut ();
-SetEaseBackIn ();
-SetEaseBackOut ();
-SetEaseBackInOut ();
-SetEaseElasticIn ();
-SetEaseElasticOut ();
-SetEaseElasticInOut ();
-SetEaseBounceIn ();
-SetEaseBounceOut ();
-SetEaseBounceInOut ()
+<Tween>.SetOvershooting (float overshooting);
+```
+
+#### SetEase `version 1.5.0`
+
+Sets the ease for this tween.
+
+```cs
+<Tween>.SetEase (Ease ease);
+```
+
+#### SetEaseLinear `version 1.0.0`
+
+Sets the ease for this tween to Linear.
+
+```cs
+<Tween>.SetEaseLinear ();
+```
+
+#### SetEaseSineIn `version 1.0.0`
+
+Sets the ease for this tween to SineIn.
+
+```cs
+<Tween>.SetEaseSineIn ();
+```
+
+#### SetEaseSineOut `version 1.0.0`
+
+Sets the ease for this tween to SineOut.
+
+```cs
+<Tween>.SetEaseSineOut ();
+```
+
+#### SetEaseSineInOut `version 1.0.0`
+
+Sets the ease for this tween to SineInOut.
+
+```cs
+<Tween>.SetEaseSineInOut ();
+```
+
+#### SetEaseQuadIn `version 1.0.0`
+
+Sets the ease for this tween to QuadIn.
+
+```cs
+<Tween>.SetEaseQuadIn ();
+```
+
+#### SetEaseQuadOut `version 1.0.0`
+
+Sets the ease for this tween to QuadOut.
+
+```cs
+<Tween>.SetEaseQuadOut ();
+```
+
+#### SetEaseQuadInOut `version 1.0.0`
+
+Sets the ease for this tween to QuadInOut.
+
+```cs
+<Tween>.SetEaseQuadInOut ();
+```
+
+#### SetEaseCubicIn `version 1.0.0`
+
+Sets the ease for this tween to CubicIn.
+
+```cs
+<Tween>.SetEaseCubicIn ();
+```
+
+#### SetEaseCubicOut `version 1.0.0`
+
+Sets the ease for this tween to CubicOut.
+
+```cs
+<Tween>.SetEaseCubicOut ();
+```
+
+#### SetEaseCubicInOut `version 1.0.0`
+
+Sets the ease for this tween to CubicInOut.
+
+```cs
+<Tween>.SetEaseCubicInOut ();
+```
+
+#### SetEaseQuartIn `version 1.0.0`
+
+Sets the ease for this tween to QuartIn.
+
+```cs
+<Tween>.SetEaseQuartIn ();
+```
+
+#### SetEaseQuartOut `version 1.0.0`
+
+Sets the ease for this tween to QuartOut.
+
+```cs
+<Tween>.SetEaseQuartOut ();
+```
+
+#### SetEaseQuartInOut `version 1.0.0`
+
+Sets the ease for this tween to QuartInOut.
+
+```cs
+<Tween>.SetEaseQuartInOut ();
+```
+
+#### SetEaseQuintIn `version 1.0.0`
+
+Sets the ease for this tween to QuintIn.
+
+```cs
+<Tween>.SetEaseQuintIn ();
+```
+
+#### SetEaseQuintOut `version 1.0.0`
+
+Sets the ease for this tween to QuintOut.
+
+```cs
+<Tween>.SetEaseQuintOut ();
+```
+
+#### SetEaseQuintInOut `version 1.0.0`
+
+Sets the ease for this tween to QuintInOut.
+
+```cs
+<Tween>.SetEaseQuintInOut ();
+```
+
+#### SetEaseExpoIn `version 1.0.0`
+
+Sets the ease for this tween to ExpoIn.
+
+```cs
+<Tween>.SetEaseExpoIn ();
+```
+
+#### SetEaseExpoOut `version 1.0.0`
+
+Sets the ease for this tween to ExpoOut.
+
+```cs
+<Tween>.SetEaseExpoOut ();
+```
+
+#### SetEaseExpoInOut `version 1.0.0`
+
+Sets the ease for this tween to ExpoInOut.
+
+```cs
+<Tween>.SetEaseExpoInOut ();
+```
+
+#### SetEaseCircIn `version 1.0.0`
+
+Sets the ease for this tween to CircIn.
+
+```cs
+<Tween>.SetEaseCircIn ();
+```
+
+#### SetEaseCircOut `version 1.0.0`
+
+Sets the ease for this tween to CircOut.
+
+```cs
+<Tween>.SetEaseCircOut ();
+```
+
+#### SetEaseCircInOut `version 1.0.0`
+
+Sets the ease for this tween to CircInOut.
+
+```cs
+<Tween>.SetEaseCircInOut ();
+```
+
+#### SetEaseBackIn `version 1.0.0`
+
+Sets the ease for this tween to BackIn.
+
+```cs
+<Tween>.SetEaseBackIn ();
+```
+
+#### SetEaseBackOut `version 1.0.0`
+
+Sets the ease for this tween to BackOut.
+
+```cs
+<Tween>.SetEaseBackOut ();
+```
+
+#### SetEaseBackInOut `version 1.0.0`
+
+Sets the ease for this tween to BackInOut.
+
+```cs
+<Tween>.SetEaseBackInOut ();
+```
+
+#### SetEaseElasticIn `version 1.0.0`
+
+Sets the ease for this tween to ElasticIn.
+
+```cs
+<Tween>.SetEaseElasticIn ();
+```
+
+#### SetEaseElasticOut `version 1.0.0`
+
+Sets the ease for this tween to ElasticOut.
+
+```cs
+<Tween>.SetEaseElasticOut ();
+```
+
+#### SetEaseElasticInOut `version 1.0.0`
+
+Sets the ease for this tween to ElasticInOut.
+
+```cs
+<Tween>.SetEaseElasticInOut ();
+```
+
+#### SetEaseBounceIn `version 1.0.0`
+
+Sets the ease for this tween to BounceIn.
+
+```cs
+<Tween>.SetEaseBounceIn ();
+```
+
+#### SetEaseBounceOut `version 1.0.0`
+
+Sets the ease for this tween to BounceOut.
+
+```cs
+<Tween>.SetEaseBounceOut ();
+```
+
+#### SetEaseBounceInOut `version 1.0.0`
+
+Sets the ease for this tween to BounceInOut.
+
+```cs
+<Tween>.SetEaseBounceInOut ();
 ```
