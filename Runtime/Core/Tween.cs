@@ -42,12 +42,14 @@ namespace ElRaccoone.Tweens.Core {
     public abstract void OnUpdate (float easedTime);
 
     private void Start () {
+      // Invokes the OnInitialize on the Tween driver. If returned false, the
+      // Tween is not ready to play or is incompatible. Then we'll decommission.
+      if (this.OnInitialize () == false)
+        this.Decommission ();
       // When From is not overwritten and the Tween has no delay, the valueFrom
       // is requested from the inheriter. Then the animation will be set to its
       // first frame. This is done during the Start method so other parameters
       // can be set.
-      if (this.OnInitialize () == false)
-        this.Decommission ();
       else if (this.hasDelay == false || this.goToFirstFrameImmediately == true) {
         if (this.didOverwriteFrom == false)
           this.valueFrom = this.OnGetFrom ();
