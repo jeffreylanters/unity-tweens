@@ -402,7 +402,7 @@ Sets the event which will be invoked when the tween is canceled.
 <Tween>.SetOnCancel (Action onCancel);
 ```
 
-#### SetOnCancel `version 1.6.0`
+#### SetPingPong `version 1.6.0`
 
 Enabled ping pong playback, this will bounce the animation back and forth. The tween has play forward and backwards to count as one cycle. Use either SetLoopCount or SetInifinite to set the number of times the animation should ping pong.
 
