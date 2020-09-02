@@ -9,7 +9,7 @@
 [![npm](https://img.shields.io/badge/sponsor-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/jeffreylanters)
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
 
-An extremely light weight, extendable and customisable tweening engine made for script-based animations for user-interfaces and world-spaces objects optimised for all platforms. The power and speed you expect get other tweening engines, but better, with strictly typed methods and clean and ease-to-use forward methods for all use cases.
+An extremely light weight, extendable and customisable tweening engine made for script-based animations for user-interfaces and world-spaces objects optimised for all platforms. 
 
 When using any of the packages, please make sure to **Star** this repository and give credit to **Jeffrey Lanters / El Raccoone** somewhere in your app or game. **It it prohibited to sublicense and/or sell copies of the Software in stores such as the Unity Asset Store!**
 
@@ -45,6 +45,8 @@ These are some of the projects made using Tweens!
 [<img src="https://is4-ssl.mzstatic.com/image/thumb/Purple49/v4/68/1c/01/681c015c-2489-9964-6dcc-51090b0d58c9/pr_source.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/woordenschatkist/id1049266288)
 
 # Documentation
+
+This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
 
 ## Examples
 
