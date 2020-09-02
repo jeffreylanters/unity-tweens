@@ -34,6 +34,11 @@ Install using the Unity Package Manager. add the following line to your `manifes
 "nl.elraccoone.tweens": "git+https://github.com/elraccoone/unity-tweens"
 ```
 
+# Made with
+
+[<img src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/5e/6a/8a/5e6a8ad5-ed2c-70fa-cb88-d6ad4b795e72/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.png" height="50px">](https://whoomb.com)
+[<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/3f/bc/a1/3fbca1c6-7062-08cf-cd16-9ff21efaaf14/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.png" height="50px">](https://asgaard-saga.nl)
+
 # Documentation
 
 ## Examples
