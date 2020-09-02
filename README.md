@@ -43,7 +43,6 @@ These are some of the projects made using Tweens!
 [<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple3/v4/94/a9/0f/94a90f35-42fe-684d-99cc-6b485ccd1f62/mzl.jxhhtqpi.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/haal-je-theorie-3d/id902989145)
 [<img src="https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/a2/33/5d/a2335d18-6c84-0477-8ff7-0dcdc2a02501/AppIcon-1x_U007emarketing-85-220-0-5.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/skeleton/id1342556124)
 [<img src="https://is4-ssl.mzstatic.com/image/thumb/Purple49/v4/68/1c/01/681c015c-2489-9964-6dcc-51090b0d58c9/pr_source.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/woordenschatkist/id1049266288)
-[<img src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/2c/8d/0e/2c8d0ead-1fe2-c0c3-5297-839b74fbc752/mzl.bmwqerwa.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/summa-quest/id1291896120)
 
 # Documentation
 
