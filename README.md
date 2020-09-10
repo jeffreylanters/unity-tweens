@@ -45,6 +45,8 @@ Install the latest stable release using the Unity Package Manager by adding the 
 
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
 
+The documentation is seperated into two parts; (Tweening Methods)[#tweeing-methods] and (Chainable Options)[#chainable-options]
+
 ## Examples
 
 These are some of the endless possibilities using Tweens.
