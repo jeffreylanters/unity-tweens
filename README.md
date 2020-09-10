@@ -13,8 +13,7 @@ An extremely light weight, extendable and customisable tweening engine made for 
 **&Lt;**
 [**Installation**](#installation) &middot;
 [**Documentation**](#documentation) &middot;
-[**License**](./LICENSE.md) &middot;
-[**Sponsor**](https://paypal.me/jeffreylanters)
+[**License**](./LICENSE.md)
 **&Gt;**
 
 </br>
