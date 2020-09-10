@@ -41,18 +41,6 @@ Install using the Unity Package Manager by adding the following line to your `ma
 "nl.elraccoone.tweens": "git+https://github.com/elraccoone/unity-tweens"
 ```
 
-# Made with
-
-These are some of projects which are made using Tweens! If you'd like a add your project to this list, feel free to create an issue or open a pull-request with the modified readme.
-
-[<img src="https://is5-ssl.mzstatic.com/image/thumb/Purple124/v4/5e/6a/8a/5e6a8ad5-ed2c-70fa-cb88-d6ad4b795e72/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.png" height="50px">](https://whoomb.com)
-[<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/3f/bc/a1/3fbca1c6-7062-08cf-cd16-9ff21efaaf14/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.png" height="50px">](https://asgaard-saga.nl)
-[<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/34/81/20/34812071-b20a-1547-341d-0b912c9ab486/AppIcon-1x_U007emarketing-0-85-220-0-8.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/kepler/id1325611598)
-[<img src="https://is3-ssl.mzstatic.com/image/thumb/Purple123/v4/e4/37/85/e437858e-6e52-aeb4-c28c-c163ff89921a/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/last-species/id1498516635)
-[<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple3/v4/94/a9/0f/94a90f35-42fe-684d-99cc-6b485ccd1f62/mzl.jxhhtqpi.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/haal-je-theorie-3d/id902989145)
-[<img src="https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/a2/33/5d/a2335d18-6c84-0477-8ff7-0dcdc2a02501/AppIcon-1x_U007emarketing-85-220-0-5.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/skeleton/id1342556124)
-[<img src="https://is4-ssl.mzstatic.com/image/thumb/Purple49/v4/68/1c/01/681c015c-2489-9964-6dcc-51090b0d58c9/pr_source.png/460x0w.png" height="50px">](https://apps.apple.com/nl/app/woordenschatkist/id1049266288)
-
 # Documentation
 
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
