@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/elraccoone/unity-tweens/master/.github/WIKI/logo.jpg" height="100px">
+<img src="https://raw.githubusercontent.com/elraccoone/unity-tweens/master/.github/WIKI/repository-open-graph-template.png" height="200px">
 
 </br>
 
