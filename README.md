@@ -5,7 +5,6 @@
 </br>
 
 [![npm](https://img.shields.io/badge/upm-1.6.0-232c37.svg?style=for-the-badge)]()
-[![license](https://img.shields.io/badge/license-Custom-%23ecc531.svg?style=for-the-badge)](./LICENSE.md)
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
 
@@ -42,6 +41,8 @@ Install the latest stable release using the Unity Package Manager by adding the 
 # Documentation
 
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
+
+The documentation is seperated into two parts; the [Tweening Methods](#tweening-methods) and [Chainable Options](#chainable-options).
 
 ## Examples
 
