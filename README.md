@@ -435,7 +435,7 @@ Sets the delay of this tween. The tween will not play anything until the request
 Sets the time of the tween.
 
 ```cs
-<Tween>.SetTime (int time);
+<Tween>.SetTime (float time);
 ```
 
 #### SetRandomTime `version 1.3.0`
