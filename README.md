@@ -4,7 +4,7 @@
 
 </br>
 
-[![npm](https://img.shields.io/badge/upm-1.6.0-232c37.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/upm-1.6.1-232c37.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
 
@@ -454,9 +454,9 @@ Sets whether the playback and delay should be paused.
 <Tween>.SetPaused (bool isPaused);
 ```
 
-#### SetUseUnscaledTime `version 1.7.0`
+#### SetUseUnscaledTime `version 1.6.1`
 
-Sets whether the tween should use Time.unscaledDeltaTime instead of Time.deltaTime.
+Sets whether the tween should use the unscaled delta time instead of the scaled delta time.
 
 ```cs
 <Tween>.SetUseUnscaledTime (bool useUnscaledTime);
