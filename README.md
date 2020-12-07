@@ -448,10 +448,18 @@ Sets the time of the tween to a random value.
 
 #### SetPaused `version 1.4.0`
 
-Sets wheter the playback and delay should be paused.
+Sets whether the playback and delay should be paused.
 
 ```cs
 <Tween>.SetPaused (bool isPaused);
+```
+
+#### SetUseUnscaledTime `version 1.7.0`
+
+Sets whether the tween should use Time.unscaledDeltaTime instead of Time.deltaTime.
+
+```cs
+<Tween>.SetUseUnscaledTime (bool useUnscaledTime);
 ```
 
 #### SetOvershooting `version 1.5.0`

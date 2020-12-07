@@ -17,6 +17,7 @@ namespace ElRaccoone.Tweens.Core {
     private bool hasPingPong = false;
     private bool isPlayingForward = true;
     private bool timeDidReachEnd = false;
+    private bool useUnscaledTime = false;
 
     private bool hasLoopCount = false;
     private int loopCount = 0;
@@ -72,7 +73,7 @@ namespace ElRaccoone.Tweens.Core {
         return;
       // When the delay is active, the tween will wait for the delay to pass by.
       if (this.hasDelay == true) {
-        this.delay -= Time.deltaTime;
+        this.delay -= this.useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
         if (this.delay <= 0) {
           this.hasDelay = false;
           // When the delay is over, the valueFrom is requested from the 
@@ -92,7 +93,7 @@ namespace ElRaccoone.Tweens.Core {
       // Oterwise it is... Showtime!
       else {
         // Increase or decrease the time of the tween based on the direction.
-        var _timeDelta = Time.deltaTime / this.duration;
+        var _timeDelta = (this.useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime) / this.duration;
         this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
         // The time will be capped to 1, when pingpong is enabled the tween will
         // play backwards, otherwise when the tween is not infinite, didReachEnd
@@ -238,6 +239,12 @@ namespace ElRaccoone.Tweens.Core {
     public Tween<DriverValueType> SetPaused (bool isPaused) {
       this.isPaused = isPaused;
       return this;
+    }
+
+    /// Sets wheter the tween should use Time.unscaledDeltaTime instead of Time.deltaTime.
+    public Tween<DriverValueType> SetUseUnscaledTime(bool useUnscaledTime) {
+        this.useUnscaledTime = useUnscaledTime;
+        return this;
     }
 
     /// Sets the overshooting of Eases that exceed their boundaries such as
