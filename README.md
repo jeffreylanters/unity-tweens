@@ -1,8 +1,10 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/elraccoone/unity-tweens/master/.github/WIKI/repository-open-graph-template.png" height="200px">
+<img src="https://raw.githubusercontent.com/elraccoone/unity-tweens/master/.github/WIKI/logo.jpg" height="100px">
 
 </br>
+
+# Tweens
 
 [![npm](https://img.shields.io/badge/upm-1.6.1-232c37.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
