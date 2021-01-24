@@ -5,23 +5,62 @@ namespace ElRaccoone.Tweens.Core {
   
   /// Types abstract class for all core Tween functionality.
   public abstract class Tween<DriverValueType> : MonoBehaviour, ITween {
+
+    /// The value the driver should Tween from.
     internal DriverValueType valueFrom = default (DriverValueType);
+
+    /// The value the driver should Tween to.
     internal DriverValueType valueTo = default (DriverValueType);
+
+    /// The state value the driving is currently tweening at.
     internal DriverValueType valueCurrent = default (DriverValueType);
 
+    /// Defines whether the Tween is paused.
     private bool isPaused = false;
+
+    /// The current play-time of the Tween.
     private float time = 0;
+
+    /// The Eas type of the Tween defining the style of animation.
     private EaseType ease = 0;
 
+    /// Defines whether the Tween is decommissioned, when set to true the Tween
+    /// will be stopped and destroyed as soon as possible. All playback will stop.
     private bool isDecommissioned = false;
+
+    /// Defines whether the Tween should play infinitly.
     private bool isInfinite = false;
+
+    /// Defines whether the from value has been overwritten. If not, the initial
+    /// value will be used to free from. This is defined by the Driver.
     private bool didOverwriteFrom = false;
+
+    /// Defines whether the Tween uses ping pong during it's animation. When set
+    /// to true, the twee will play back and forth. Going once forth and once
+    /// back counts as one cycle.
     private bool hasPingPong = false;
+
+    /// Defines whether the Tween is playing forward, this is only used for the
+    /// ping pong mechanic.
     private bool isPlayingForward = true;
+
+    /// Defines whether the Tween did reach the end time. If true, and no other
+    /// values such as ping pong or infinite will overwrite it, the Tween will
+    /// be decommissioned.
     private bool timeDidReachEnd = false;
+
+    /// Defines whether the Tween should use the unscale time, if false, scaled
+    /// time will be used by default.
     private bool useUnscaledTime = false;
 
+    /// Defines whether the Tween has a loop count, if true the Tween will keep
+    /// re-playing until the loop count hits zero. When ping pong is enbaled,
+    /// a play forth and back counts as a single loop.
     private bool hasLoopCount = false;
+
+    /// The value of the loop count. When the loop count is used the Tween will 
+    /// keep re-playing until the loop count hits zero. When ping pong is enbaled,
+    /// a play forth and back counts as a single loop.
     private int loopCount = 0;
 
     private bool hasDuration = false;
