@@ -163,13 +163,6 @@ namespace ElRaccoone.Tweens.Core {
       return this;
     }
 
-    /// Cancel the tween and decommision the component.
-    public void Cancel () {
-      if (this.hasOnCancel == true)
-        this.onCancel ();
-      this.Decommission ();
-    }
-
     /// Sets the value this tween should animate from instead of its current.
     public Tween<DriverValueType> SetFrom (DriverValueType valueFrom) {
       this.didOverwriteFrom = true;
@@ -445,6 +438,13 @@ namespace ElRaccoone.Tweens.Core {
     public Tween<DriverValueType> SetEaseBounceInOut () {
       this.ease = EaseType.BounceInOut;
       return this;
+    }
+
+    /// Cancel the tween and decommision the component.
+    public void Cancel () {
+      if (this.hasOnCancel == true)
+        this.onCancel ();
+      this.Decommission ();
     }
 
     /// Adds and returns a driver to a gameObject.
