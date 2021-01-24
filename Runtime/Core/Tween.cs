@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
+  
+  /// Types abstract class for all core Tween functionality.
   public abstract class Tween<DriverValueType> : MonoBehaviour, ITween {
     internal DriverValueType valueFrom = default (DriverValueType);
     internal DriverValueType valueTo = default (DriverValueType);
@@ -438,6 +440,28 @@ namespace ElRaccoone.Tweens.Core {
     public Tween<DriverValueType> SetEaseBounceInOut () {
       this.ease = EaseType.BounceInOut;
       return this;
+    }
+
+    /// Set the sequence delay of the tween, this is used by the sequence module
+    /// and should not be used manually. The sequence delay overwrites the
+    /// original delay.
+    public void SetSequenceDelay (float delay) {
+      this.delay = delay;
+      this.hasDelay = true;
+      this.goToFirstFrameImmediately = false;
+    }
+
+    /// Returns the total duration of the tween including the loop count and
+    /// ping pong settings, and the delay optionally.
+    public float GetTotalDuration (bool includeDelay = false) {
+      var _duration = this.duration;
+      if (this.hasLoopCount == true)
+        _duration *= this.loopCount;
+      if (this.hasPingPong == true)
+        _duration *= 2f;
+      if (includeDelay == true && this.hasDelay == true)
+        _duration += this.delay;
+      return _duration;
     }
 
     /// Cancel the tween and decommision the component.
