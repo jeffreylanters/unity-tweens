@@ -6,7 +6,7 @@
 
 # Tweens
 
-[![npm](https://img.shields.io/badge/upm-1.6.1-232c37.svg?style=for-the-badge)]()
+[![npm](https://img.shields.io/badge/upm-1.6.2-232c37.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
 [![npm](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
 
@@ -44,7 +44,7 @@ Install the latest stable release using the Unity Package Manager by adding the 
 
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
 
-The documentation is seperated into two parts; the [Tweening Methods](#tweening-methods) and [Chainable Options](#chainable-options).
+The documentation is seperated into two parts; the [Tweening Methods](#tweening-methods), [Chainable Options](#chainable-options) and [Methods](#methods).
 
 ## Examples
 
@@ -366,14 +366,6 @@ Cancels all the running tweens.
 ```
 
 ## Chainable Options
-
-#### Cancel `version 1.0.0`
-
-Cancel the tween.
-
-```cs
-<Tween>.Cancel ();
-```
 
 #### SetFrom `version 1.0.0`
 
@@ -726,4 +718,22 @@ Sets the ease for this tween to BounceInOut.
 
 ```cs
 <Tween>.SetEaseBounceInOut ();
+```
+
+## Methods
+
+#### Cancel `version 1.0.0`
+
+Cancel the tween.
+
+```cs
+<Tween>.Cancel ();
+```
+
+#### GetTotalDuration `version 1.6.2`
+
+Gets the total duration of the tween including the loop count and ping pong settings, and the delay optionally.
+
+```cs
+<Tween>.GetTotalDuration (bool includeDelay = false);
 ```
