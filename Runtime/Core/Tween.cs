@@ -490,7 +490,7 @@ namespace ElRaccoone.Tweens.Core {
       this.goToFirstFrameImmediately = false;
     }
 
-    /// Returns the total duration of the tween including the loop count and
+    /// Gets the total duration of the tween including the loop count and
     /// ping pong settings, and the delay optionally.
     public float GetTotalDuration (bool includeDelay = false) {
       var _duration = this.duration;
