@@ -745,5 +745,5 @@ Cancel the tween.
 Gets the total duration of the tween including the loop count and ping pong settings, and the delay optionally.
 
 ```cs
-<Tween>.GetTotalDuration (bool includeDelay = false) : void;
+<Tween>.GetTotalDuration (bool includeDelay = false) : float;
 ```
