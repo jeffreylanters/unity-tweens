@@ -27,6 +27,10 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenAudioSourcePitch (1, 1).SetFrom (0);
       if (GUILayout.Button ("AudioSourceVolume"))
         this.target.TweenAudioSourceVolume (1, 1).SetFrom (0);
+      if (GUILayout.Button ("CameraFieldOfView"))
+        this.target.TweenCameraFieldOfView (80, 1).SetFrom (40);
+      if (GUILayout.Button ("CameraOrthographicSize"))
+        this.target.TweenCameraOrthographicSize (6, 1).SetFrom (4);
       if (GUILayout.Button ("CanvasGroupAlpha"))
         this.target.TweenCanvasGroupAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAngles"))
