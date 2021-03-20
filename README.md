@@ -343,6 +343,22 @@ Instantiates a Tween easing the pitch of an AudioSource.
 <GameObject, Component>.TweenAudioSourcePitch (float to, float duration) : Tween;
 ```
 
+#### TweenCameraFieldOfView `version 1.6.4`
+
+Instantiates a Tween easing the field of view of a Camera.
+
+```cs
+<GameObject, Component>.TweenCameraFieldOfView (float to, float duration) : Tween;
+```
+
+#### TweenCameraOrthographicSize `version 1.6.4`
+
+Instantiates a Tween easing the orthographic size of a Camera.
+
+```cs
+<GameObject, Component>.TweenCameraOrthographicSize (float to, float duration) : Tween;
+```
+
 #### TweenValueFloat `version 1.0.3`
 
 Instantiates a Tween animating the a float value.
