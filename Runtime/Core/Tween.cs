@@ -7,18 +7,20 @@ namespace ElRaccoone.Tweens.Core {
   public abstract class Tween<DriverValueType> : MonoBehaviour, ITween {
 
     /// The value the driver should Tween from.
-    internal DriverValueType valueFrom = default (DriverValueType);
+    internal DriverValueType valueFrom = default;
 
     /// The value the driver should Tween to.
-    internal DriverValueType valueTo = default (DriverValueType);
+    internal DriverValueType valueTo = default;
 
     /// The state value the driving is currently tweening at.
-    internal DriverValueType valueCurrent = default (DriverValueType);
+    internal DriverValueType valueCurrent = default;
 
     /// Defines whether the Tween is paused.
     private bool isPaused = false;
 
-    /// The current play-time of the Tween.
+    /// The current play-time of the Tween. When actually playing, this value
+    /// is increased every frame based on a number of factors such as the
+    /// duration and the use of unscaled timing.
     private float time = 0;
 
     /// The Eas type of the Tween defining the style of animation.
@@ -47,7 +49,7 @@ namespace ElRaccoone.Tweens.Core {
     /// Defines whether the Tween did reach the end time. If true, and no other
     /// values such as ping pong or infinite will overwrite it, the Tween will
     /// be decommissioned.
-    private bool timeDidReachEnd = false;
+    private bool didTimeReachEnd = false;
 
     /// Defines whether the Tween should use the unscale time, if false, scaled
     /// time will be used by default.
@@ -63,11 +65,28 @@ namespace ElRaccoone.Tweens.Core {
     /// a play forth and back counts as a single loop.
     private int loopCount = 0;
 
+    /// Defines whether the Tween has a duration, we could assume this is true
+    /// but in theory a developer could append a tween manually without setting
+    /// the Tween's duration.
     private bool hasDuration = false;
+
+    /// The duration of the Tween, it's value is used to calculate the
+    /// progression of the time each frame.
     private float duration = 0;
 
+    /// Defines whether the Tween has a delay, the delay will hold the Tween
+    /// for its first play for a given amount of time.
     private bool hasDelay = false;
+
+    /// The delay of the Tween, when defines this will hold the Tween for its
+    /// first play. Any play after that when looping or ping-ponging will not
+    /// be delayed.
     private float delay = 0;
+
+    /// By default the value Tween will jump to the first frame of the animation
+    /// when the Tween is actually starting after its delay. Changing this value
+    /// will change this behaviour, when enabled the Tween will jump to the first
+    /// frame right away while still waiting for the delay.
     private bool goToFirstFrameImmediately = false;
 
     private bool hasOvershooting = false;
@@ -83,6 +102,7 @@ namespace ElRaccoone.Tweens.Core {
     public abstract DriverValueType OnGetFrom ();
     public abstract void OnUpdate (float easedTime);
 
+    /// During the monobehaviour start cycle, initialization will be performed.
     private void Start () {
       // Invokes the OnInitialize on the Tween driver. If returned false, the
       // Tween is not ready to play or is incompatible. Then we'll decommission.
@@ -101,10 +121,11 @@ namespace ElRaccoone.Tweens.Core {
 
     // When the object is disabled, but the tween did not finish, decommission.
     private void OnDisable () {
-      if (this.timeDidReachEnd == false)
+      if (this.didTimeReachEnd == false)
         this.Decommission ();
     }
 
+    /// During the monobehaviour update cycle, the logic will be performed.
     private void Update () {
       // When the tween is decommissioned, tweening is aborted.
       if (this.isDecommissioned == true)
@@ -144,7 +165,7 @@ namespace ElRaccoone.Tweens.Core {
           if (this.hasPingPong == true)
             this.isPlayingForward = false;
           else if (this.isInfinite == false)
-            this.timeDidReachEnd = true;
+            this.didTimeReachEnd = true;
           else
             this.time = 0;
         }
@@ -155,15 +176,15 @@ namespace ElRaccoone.Tweens.Core {
           this.time = 0;
           this.isPlayingForward = true;
           if (this.isInfinite == false)
-            this.timeDidReachEnd = true;
+            this.didTimeReachEnd = true;
         }
         // The time will be updated on the inheriter.
         this.OnUpdate (Easer.Apply (this.ease, this.time));
         // When the end is reached either the loop count will be decreased, or
         // the tween will be decommissioned, and the oncomplete may be invoked.
-        if (this.timeDidReachEnd == true)
+        if (this.didTimeReachEnd == true)
           if (this.hasLoopCount == true && this.loopCount > 1) {
-            this.timeDidReachEnd = false;
+            this.didTimeReachEnd = false;
             this.loopCount -= 1;
             this.time = 0;
           } else {
@@ -192,7 +213,7 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets the final values required for the tween can start. When the object
-    ///  is not active in the hierarchy, it will be decommissioned right away.
+    /// is not active in the hierarchy, it will be decommissioned right away.
     internal Tween<DriverValueType> Finalize (float duration, DriverValueType valueTo) {
       if (this.gameObject.activeInHierarchy == false)
         this.Decommission ();
