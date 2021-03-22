@@ -10,7 +10,7 @@
 [![](https://img.shields.io/github/stars/elraccoone/unity-tweens.svg?style=for-the-badge)]()
 [![](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)]()
 
-An extremely light weight, extendable and customisable tweening engine made for script-based animations for user-interfaces and world-spaces objects optimised for all platforms.
+An extremely light weight, extendable and customisable tweening engine made for strictly typed script-based animations for user-interfaces and world-space objects optimised for all platforms.
 
 **&Lt;**
 [**Installation**](#installation) &middot;
