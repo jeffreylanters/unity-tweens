@@ -71,7 +71,9 @@ private void Start () {
 
 ## Tweening Methods
 
-#### TweenPosition `version 1.0.0`
+#### TweenPosition
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Position.
 
@@ -79,7 +81,9 @@ Instantiates a Tween animating the Position.
 <GameObject, Component>.TweenPosition (Vector3 to, float duration) : Tween;
 ```
 
-#### TweenPositionX `version 1.0.0`
+#### TweenPositionX
+
+`version 1.0.0`
 
 Instantiates a Tween animating the X axis of the Position.
 
@@ -87,7 +91,9 @@ Instantiates a Tween animating the X axis of the Position.
 <GameObject, Component>.TweenPositionX (float to, float duration) : Tween;
 ```
 
-#### TweenPositionY `version 1.0.0`
+#### TweenPositionY
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Y axis of the Position.
 
@@ -95,7 +101,9 @@ Instantiates a Tween animating the Y axis of the Position.
 <GameObject, Component>.TweenPositionY (float to, float duration) : Tween;
 ```
 
-#### TweenPositionZ `version 1.0.0`
+#### TweenPositionZ
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Z axis of the Position.
 
@@ -103,7 +111,9 @@ Instantiates a Tween animating the Z axis of the Position.
 <GameObject, Component>.TweenPositionZ (float to, float duration) : Tween;
 ```
 
-#### TweenLocalPosition `version 1.0.0`
+#### TweenLocalPosition
+
+`version 1.0.0`
 
 Instantiates a Tween animating the LocalPosition.
 
@@ -111,7 +121,9 @@ Instantiates a Tween animating the LocalPosition.
 <GameObject, Component>.TweenLocalPosition (Vector3 to, float duration) : Tween;
 ```
 
-#### TweenLocalPositionX `version 1.0.0`
+#### TweenLocalPositionX
+
+`version 1.0.0`
 
 Instantiates a Tween animating the X axis of the LocalPosition.
 
@@ -119,7 +131,9 @@ Instantiates a Tween animating the X axis of the LocalPosition.
 <GameObject, Component>.TweenLocalPositionX (float to, float duration) : Tween;
 ```
 
-#### TweenLocalPositionY `version 1.0.0`
+#### TweenLocalPositionY
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Y axis of the LocalPosition.
 
@@ -127,7 +141,9 @@ Instantiates a Tween animating the Y axis of the LocalPosition.
 <GameObject, Component>.TweenLocalPositionY (float to, float duration) : Tween;
 ```
 
-#### TweenLocalPositionZ `version 1.0.0`
+#### TweenLocalPositionZ
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Z axis of the LocalPosition.
 
@@ -135,7 +151,9 @@ Instantiates a Tween animating the Z axis of the LocalPosition.
 <GameObject, Component>.TweenLocalPositionZ (float to, float duration) : Tween;
 ```
 
-#### TweenAnchoredPosition `version 1.0.2`
+#### TweenAnchoredPosition
+
+`version 1.0.2`
 
 Instantiates a Tween animating the AnchoredPosition.
 
@@ -143,7 +161,9 @@ Instantiates a Tween animating the AnchoredPosition.
 <GameObject, Component>.TweenAnchoredPosition (Vector2 to, float duration) : Tween;
 ```
 
-#### TweenAnchoredPositionX `version 1.0.2`
+#### TweenAnchoredPositionX
+
+`version 1.0.2`
 
 Instantiates a Tween animating the X axis of the AnchoredPosition.
 
@@ -151,7 +171,9 @@ Instantiates a Tween animating the X axis of the AnchoredPosition.
 <GameObject, Component>.TweenAnchoredPositionX (float to, float duration) : Tween;
 ```
 
-#### TweenAnchoredPositionY `version 1.0.2`
+#### TweenAnchoredPositionY
+
+`version 1.0.2`
 
 Instantiates a Tween animating the Y axis of the AnchoredPosition.
 
@@ -159,7 +181,9 @@ Instantiates a Tween animating the Y axis of the AnchoredPosition.
 <GameObject, Component>.TweenAnchoredPositionY (float to, float duration) : Tween;
 ```
 
-#### TweenRotation `version 1.0.0`
+#### TweenRotation
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Rotation.
 
@@ -167,7 +191,9 @@ Instantiates a Tween animating the Rotation.
 <GameObject, Component>.TweenRotation (Vector3 to, float duration) : Tween;
 ```
 
-#### TweenRotationX `version 1.0.0`
+#### TweenRotationX
+
+`version 1.0.0`
 
 Instantiates a Tween animating the X axis of the Rotation.
 
@@ -175,7 +201,9 @@ Instantiates a Tween animating the X axis of the Rotation.
 <GameObject, Component>.TweenRotationX (float to, float duration) : Tween;
 ```
 
-#### TweenRotationY `version 1.0.0`
+#### TweenRotationY
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Y axis of the Rotation.
 
@@ -183,7 +211,9 @@ Instantiates a Tween animating the Y axis of the Rotation.
 <GameObject, Component>.TweenRotationY (float to, float duration) : Tween;
 ```
 
-#### TweenRotationZ `version 1.0.0`
+#### TweenRotationZ
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Z axis of the Rotation.
 
@@ -191,7 +221,9 @@ Instantiates a Tween animating the Z axis of the Rotation.
 <GameObject, Component>.TweenRotationZ (float to, float duration) : Tween;
 ```
 
-#### TweenLocalRotation `version 1.0.0`
+#### TweenLocalRotation
+
+`version 1.0.0`
 
 Instantiates a Tween animating the LocalRotation.
 
@@ -199,7 +231,9 @@ Instantiates a Tween animating the LocalRotation.
 <GameObject, Component>.TweenLocalRotation (Vector3 to, float duration) : Tween;
 ```
 
-#### TweenLocalRotationX `version 1.0.0`
+#### TweenLocalRotationX
+
+`version 1.0.0`
 
 Instantiates a Tween animating the X axis of the LocalRotation.
 
@@ -207,7 +241,9 @@ Instantiates a Tween animating the X axis of the LocalRotation.
 <GameObject, Component>.TweenLocalRotationX (float to, float duration) : Tween;
 ```
 
-#### TweenLocalRotationY `version 1.0.0`
+#### TweenLocalRotationY
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Y axis of the LocalRotation.
 
@@ -215,7 +251,9 @@ Instantiates a Tween animating the Y axis of the LocalRotation.
 <GameObject, Component>.TweenLocalRotationY (float to, float duration) : Tween;
 ```
 
-#### TweenLocalRotationZ `version 1.0.0`
+#### TweenLocalRotationZ
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Z axis of the LocalRotation.
 
@@ -223,7 +261,9 @@ Instantiates a Tween animating the Z axis of the LocalRotation.
 <GameObject, Component>.TweenLocalRotationZ (float to, float duration) : Tween;
 ```
 
-#### TweenLocalScale `version 1.0.0`
+#### TweenLocalScale
+
+`version 1.0.0`
 
 Instantiates a Tween animating the LocalScale.
 
@@ -231,7 +271,9 @@ Instantiates a Tween animating the LocalScale.
 <GameObject, Component>.TweenLocalScale (Vector3 to, float duration) : Tween;
 ```
 
-#### TweenLocalScaleX `version 1.0.0`
+#### TweenLocalScaleX
+
+`version 1.0.0`
 
 Instantiates a Tween animating the X axis of the LocalScale.
 
@@ -239,7 +281,9 @@ Instantiates a Tween animating the X axis of the LocalScale.
 <GameObject, Component>.TweenLocalScaleX (float to, float duration) : Tween;
 ```
 
-#### TweenLocalScaleY `version 1.0.0`
+#### TweenLocalScaleY
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Y axis of the LocalScale.
 
@@ -247,7 +291,9 @@ Instantiates a Tween animating the Y axis of the LocalScale.
 <GameObject, Component>.TweenLocalScaleY (float to, float duration) : Tween;
 ```
 
-#### TweenLocalScaleZ `version 1.0.0`
+#### TweenLocalScaleZ
+
+`version 1.0.0`
 
 Instantiates a Tween animating the Z axis of the LocalScale.
 
@@ -255,7 +301,9 @@ Instantiates a Tween animating the Z axis of the LocalScale.
 <GameObject, Component>.TweenLocalScaleZ (float to, float duration) : Tween;
 ```
 
-#### TweenImageFillAmount `version 1.0.3`
+#### TweenImageFillAmount
+
+`version 1.0.3`
 
 Instantiates a Tween animating the fillAmount of an image.
 
@@ -263,7 +311,9 @@ Instantiates a Tween animating the fillAmount of an image.
 <GameObject, Component>.TweenImageFillAmount (float to, float duration) : Tween;
 ```
 
-#### TweenGraphicAlpha `version 1.0.4`
+#### TweenGraphicAlpha
+
+`version 1.0.4`
 
 Instantiates a Tween animating the alpha of a graphic.
 
@@ -271,7 +321,9 @@ Instantiates a Tween animating the alpha of a graphic.
 <GameObject, Component>.TweenGraphicAlpha (float to, float duration) : Tween;
 ```
 
-#### TweenGraphicColor `version 1.0.4`
+#### TweenGraphicColor
+
+`version 1.0.4`
 
 Instantiates a Tween animating the color of a graphic.
 
@@ -279,7 +331,9 @@ Instantiates a Tween animating the color of a graphic.
 <GameObject, Component>.TweenGraphicColor (Color to, float duration) : Tween;
 ```
 
-#### TweenSpriteRendererAlpha `version 1.0.4`
+#### TweenSpriteRendererAlpha
+
+`version 1.0.4`
 
 Instantiates a Tween animating the alpha of a SpriteRenderer.
 
@@ -287,7 +341,9 @@ Instantiates a Tween animating the alpha of a SpriteRenderer.
 <GameObject, Component>.TweenSpriteRendererAlpha (float to, float duration) : Tween;
 ```
 
-#### TweenSpriteRendererColor `version 1.0.5`
+#### TweenSpriteRendererColor
+
+`version 1.0.5`
 
 Instantiates a Tween animating the color of a SpriteRenderer.
 
@@ -295,7 +351,9 @@ Instantiates a Tween animating the color of a SpriteRenderer.
 <GameObject, Component>.TweenSpriteRendererColor (Color to, float duration) : Tween;
 ```
 
-#### TweenMaterialAlpha `version 1.0.9`
+#### TweenMaterialAlpha
+
+`version 1.0.9`
 
 Instantiates a Tween animating the alpha of a Material.
 
@@ -303,7 +361,9 @@ Instantiates a Tween animating the alpha of a Material.
 <GameObject, Component>.TweenMaterialAlpha (float to, float duration) : Tween;
 ```
 
-#### TweenMaterialColor `version 1.0.9`
+#### TweenMaterialColor
+
+`version 1.0.9`
 
 Instantiates a Tween animating the color of a Material.
 
@@ -311,7 +371,9 @@ Instantiates a Tween animating the color of a Material.
 <GameObject, Component>.TweenMaterialColor (Color to, float duration) : Tween;
 ```
 
-#### TweenTextMeshAlpha `version 1.0.8`
+#### TweenTextMeshAlpha
+
+`version 1.0.8`
 
 Instantiates a Tween animating the alpha of a TextMesh.
 
@@ -319,7 +381,9 @@ Instantiates a Tween animating the alpha of a TextMesh.
 <GameObject, Component>.TweenTextMeshAlpha (float to, float duration) : Tween;
 ```
 
-#### TweenCanvasGroupAlpha `version 1.0.10`
+#### TweenCanvasGroupAlpha
+
+`version 1.0.10`
 
 Instantiates a Tween animating the alpha of a CanvasGroup.
 
@@ -327,7 +391,9 @@ Instantiates a Tween animating the alpha of a CanvasGroup.
 <GameObject, Component>.TweenCanvasGroupAlpha (float to, float duration) : Tween;
 ```
 
-#### TweenAudioSourceVolume `version 1.0.11`
+#### TweenAudioSourceVolume
+
+`version 1.0.11`
 
 Instantiates a Tween easing the volume of an AudioSource.
 
@@ -335,7 +401,9 @@ Instantiates a Tween easing the volume of an AudioSource.
 <GameObject, Component>.TweenAudioSourceVolume (float to, float duration) : Tween;
 ```
 
-#### TweenAudioSourcePitch `version 1.0.11`
+#### TweenAudioSourcePitch
+
+`version 1.0.11`
 
 Instantiates a Tween easing the pitch of an AudioSource.
 
@@ -343,7 +411,9 @@ Instantiates a Tween easing the pitch of an AudioSource.
 <GameObject, Component>.TweenAudioSourcePitch (float to, float duration) : Tween;
 ```
 
-#### TweenCameraFieldOfView `version 1.6.4`
+#### TweenCameraFieldOfView
+
+`version 1.6.4`
 
 Instantiates a Tween easing the field of view of a Camera.
 
@@ -351,7 +421,9 @@ Instantiates a Tween easing the field of view of a Camera.
 <GameObject, Component>.TweenCameraFieldOfView (float to, float duration) : Tween;
 ```
 
-#### TweenCameraOrthographicSize `version 1.6.4`
+#### TweenCameraOrthographicSize
+
+`version 1.6.4`
 
 Instantiates a Tween easing the orthographic size of a Camera.
 
@@ -359,7 +431,9 @@ Instantiates a Tween easing the orthographic size of a Camera.
 <GameObject, Component>.TweenCameraOrthographicSize (float to, float duration) : Tween;
 ```
 
-#### TweenValueFloat `version 1.0.3`
+#### TweenValueFloat
+
+`version 1.0.3`
 
 Instantiates a Tween animating the a float value.
 
@@ -367,7 +441,9 @@ Instantiates a Tween animating the a float value.
 <GameObject, Component>.TweenValueFloat (float to, float duration, Action<float> onUpdate) : Tween;
 ```
 
-#### TweenValueColor `version 1.2.0`
+#### TweenValueColor
+
+`version 1.2.0`
 
 Instantiates a Tween animating the a color value.
 
@@ -375,7 +451,9 @@ Instantiates a Tween animating the a color value.
 <GameObject, Component>.TweenValueColor (Color to, float duration, Action<Color> onUpdate) : Tween;
 ```
 
-#### TweenDelayedInvoke `version 1.0.0`
+#### TweenDelayedInvoke
+
+`version 1.0.0`
 
 Instantiates a Tween which invokes a lambra method.
 
@@ -383,7 +461,9 @@ Instantiates a Tween which invokes a lambra method.
 <GameObject, Component>.TweenDelayedInvoke(float duration, Action onComplete) : Tween;
 ```
 
-#### TweenCancelAll `version 1.0.0`
+#### TweenCancelAll
+
+`version 1.0.0`
 
 Cancels all the running tweens.
 
@@ -393,7 +473,9 @@ Cancels all the running tweens.
 
 ## Chainable Options
 
-#### SetFrom `version 1.0.0`
+#### SetFrom
+
+`version 1.0.0`
 
 Sets the From value of a tween, when not set the current value will be used.
 
@@ -401,7 +483,9 @@ Sets the From value of a tween, when not set the current value will be used.
 <Tween>.SetFrom (T valueFrom) : Tween;
 ```
 
-#### SetOnComplete `version 1.1.0`
+#### SetOnComplete
+
+`version 1.1.0`
 
 Sets the event which will be invoked when the tween completes playing. This will
 not be invoked when the tween is canceled.
@@ -410,7 +494,9 @@ not be invoked when the tween is canceled.
 <Tween>.SetOnComplete (Action onComplete) : Tween;
 ```
 
-#### SetOnCancel `version 1.3.0`
+#### SetOnCancel
+
+`version 1.3.0`
 
 Sets the event which will be invoked when the tween is canceled.
 
@@ -418,7 +504,9 @@ Sets the event which will be invoked when the tween is canceled.
 <Tween>.SetOnCancel (Action onCancel) : Tween;
 ```
 
-#### SetPingPong `version 1.6.0`
+#### SetPingPong
+
+`version 1.6.0`
 
 Enabled ping pong playback, this will bounce the animation back and forth. The tween has play forward and backwards to count as one cycle. Use either SetLoopCount or SetInifinite to set the number of times the animation should ping pong.
 
@@ -426,7 +514,9 @@ Enabled ping pong playback, this will bounce the animation back and forth. The t
 <Tween>.SetPingPong () : Tween;
 ```
 
-#### SetLoopCount `version 1.2.0`
+#### SetLoopCount
+
+`version 1.2.0`
 
 Sets the number of times the animation should loop.
 
@@ -434,7 +524,9 @@ Sets the number of times the animation should loop.
 <Tween>.SetLoopCount (int loopCount) : Tween;
 ```
 
-#### SetInfinite `version 1.5.0`
+#### SetInfinite
+
+`version 1.5.0`
 
 Sets this tween to infinite, the loopcount will be ignored.
 
@@ -442,7 +534,9 @@ Sets this tween to infinite, the loopcount will be ignored.
 <Tween>.SetInfinite () : Tween;
 ```
 
-#### SetDelay `version 1.3.0`
+#### SetDelay
+
+`version 1.3.0`
 
 Sets the delay of this tween. The tween will not play anything until the requested delay time is reached. You can change this behaviour by enabeling 'goToFirstFrameImmediately' to set the animation to the first frame immediately.
 
@@ -450,7 +544,9 @@ Sets the delay of this tween. The tween will not play anything until the request
 <Tween>.SetDelay (float delay, bool goToFirstFrameImmediately = false) : Tween;
 ```
 
-#### SetTime `version 1.1.0`
+#### SetTime
+
+`version 1.1.0`
 
 Sets the time of the tween.
 
@@ -458,7 +554,9 @@ Sets the time of the tween.
 <Tween>.SetTime (float time) : Tween;
 ```
 
-#### SetRandomTime `version 1.3.0`
+#### SetRandomTime
+
+`version 1.3.0`
 
 Sets the time of the tween to a random value.
 
@@ -466,7 +564,9 @@ Sets the time of the tween to a random value.
 <Tween>.SetRandomTime () : Tween;
 ```
 
-#### SetPaused `version 1.4.0`
+#### SetPaused
+
+`version 1.4.0`
 
 Sets whether the playback and delay should be paused.
 
@@ -474,7 +574,9 @@ Sets whether the playback and delay should be paused.
 <Tween>.SetPaused (bool isPaused) : Tween;
 ```
 
-#### SetUseUnscaledTime `version 1.6.1`
+#### SetUseUnscaledTime
+
+`version 1.6.1`
 
 Sets whether the tween should use the unscaled delta time instead of the scaled delta time.
 
@@ -482,7 +584,9 @@ Sets whether the tween should use the unscaled delta time instead of the scaled 
 <Tween>.SetUseUnscaledTime (bool useUnscaledTime) : Tween;
 ```
 
-#### SetOvershooting `version 1.5.0`
+#### SetOvershooting
+
+`version 1.5.0`
 
 Sets the overshooting of Eases that exceed their boundaries such as elastic and back.
 
@@ -490,7 +594,9 @@ Sets the overshooting of Eases that exceed their boundaries such as elastic and 
 <Tween>.SetOvershooting (float overshooting) : Tween;
 ```
 
-#### SetEase `version 1.5.0`
+#### SetEase
+
+`version 1.5.0`
 
 Sets the ease for this tween.
 
@@ -498,7 +604,9 @@ Sets the ease for this tween.
 <Tween>.SetEase (Ease ease) : Tween;
 ```
 
-#### SetEaseLinear `version 1.0.0`
+#### SetEaseLinear
+
+`version 1.0.0`
 
 Sets the ease for this tween to Linear.
 
@@ -506,7 +614,9 @@ Sets the ease for this tween to Linear.
 <Tween>.SetEaseLinear () : Tween;
 ```
 
-#### SetEaseSineIn `version 1.0.0`
+#### SetEaseSineIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to SineIn.
 
@@ -514,7 +624,9 @@ Sets the ease for this tween to SineIn.
 <Tween>.SetEaseSineIn () : Tween;
 ```
 
-#### SetEaseSineOut `version 1.0.0`
+#### SetEaseSineOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to SineOut.
 
@@ -522,7 +634,9 @@ Sets the ease for this tween to SineOut.
 <Tween>.SetEaseSineOut () : Tween;
 ```
 
-#### SetEaseSineInOut `version 1.0.0`
+#### SetEaseSineInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to SineInOut.
 
@@ -530,7 +644,9 @@ Sets the ease for this tween to SineInOut.
 <Tween>.SetEaseSineInOut () : Tween;
 ```
 
-#### SetEaseQuadIn `version 1.0.0`
+#### SetEaseQuadIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuadIn.
 
@@ -538,7 +654,9 @@ Sets the ease for this tween to QuadIn.
 <Tween>.SetEaseQuadIn () : Tween;
 ```
 
-#### SetEaseQuadOut `version 1.0.0`
+#### SetEaseQuadOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuadOut.
 
@@ -546,7 +664,9 @@ Sets the ease for this tween to QuadOut.
 <Tween>.SetEaseQuadOut () : Tween;
 ```
 
-#### SetEaseQuadInOut `version 1.0.0`
+#### SetEaseQuadInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuadInOut.
 
@@ -554,7 +674,9 @@ Sets the ease for this tween to QuadInOut.
 <Tween>.SetEaseQuadInOut () : Tween;
 ```
 
-#### SetEaseCubicIn `version 1.0.0`
+#### SetEaseCubicIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to CubicIn.
 
@@ -562,7 +684,9 @@ Sets the ease for this tween to CubicIn.
 <Tween>.SetEaseCubicIn () : Tween;
 ```
 
-#### SetEaseCubicOut `version 1.0.0`
+#### SetEaseCubicOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to CubicOut.
 
@@ -570,7 +694,9 @@ Sets the ease for this tween to CubicOut.
 <Tween>.SetEaseCubicOut () : Tween;
 ```
 
-#### SetEaseCubicInOut `version 1.0.0`
+#### SetEaseCubicInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to CubicInOut.
 
@@ -578,7 +704,9 @@ Sets the ease for this tween to CubicInOut.
 <Tween>.SetEaseCubicInOut () : Tween;
 ```
 
-#### SetEaseQuartIn `version 1.0.0`
+#### SetEaseQuartIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuartIn.
 
@@ -586,7 +714,9 @@ Sets the ease for this tween to QuartIn.
 <Tween>.SetEaseQuartIn () : Tween;
 ```
 
-#### SetEaseQuartOut `version 1.0.0`
+#### SetEaseQuartOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuartOut.
 
@@ -594,7 +724,9 @@ Sets the ease for this tween to QuartOut.
 <Tween>.SetEaseQuartOut () : Tween;
 ```
 
-#### SetEaseQuartInOut `version 1.0.0`
+#### SetEaseQuartInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuartInOut.
 
@@ -602,7 +734,9 @@ Sets the ease for this tween to QuartInOut.
 <Tween>.SetEaseQuartInOut () : Tween;
 ```
 
-#### SetEaseQuintIn `version 1.0.0`
+#### SetEaseQuintIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuintIn.
 
@@ -610,7 +744,9 @@ Sets the ease for this tween to QuintIn.
 <Tween>.SetEaseQuintIn () : Tween;
 ```
 
-#### SetEaseQuintOut `version 1.0.0`
+#### SetEaseQuintOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuintOut.
 
@@ -618,7 +754,9 @@ Sets the ease for this tween to QuintOut.
 <Tween>.SetEaseQuintOut () : Tween;
 ```
 
-#### SetEaseQuintInOut `version 1.0.0`
+#### SetEaseQuintInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to QuintInOut.
 
@@ -626,7 +764,9 @@ Sets the ease for this tween to QuintInOut.
 <Tween>.SetEaseQuintInOut () : Tween;
 ```
 
-#### SetEaseExpoIn `version 1.0.0`
+#### SetEaseExpoIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to ExpoIn.
 
@@ -634,7 +774,9 @@ Sets the ease for this tween to ExpoIn.
 <Tween>.SetEaseExpoIn () : Tween;
 ```
 
-#### SetEaseExpoOut `version 1.0.0`
+#### SetEaseExpoOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to ExpoOut.
 
@@ -642,7 +784,9 @@ Sets the ease for this tween to ExpoOut.
 <Tween>.SetEaseExpoOut () : Tween;
 ```
 
-#### SetEaseExpoInOut `version 1.0.0`
+#### SetEaseExpoInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to ExpoInOut.
 
@@ -650,7 +794,9 @@ Sets the ease for this tween to ExpoInOut.
 <Tween>.SetEaseExpoInOut () : Tween;
 ```
 
-#### SetEaseCircIn `version 1.0.0`
+#### SetEaseCircIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to CircIn.
 
@@ -658,7 +804,9 @@ Sets the ease for this tween to CircIn.
 <Tween>.SetEaseCircIn () : Tween;
 ```
 
-#### SetEaseCircOut `version 1.0.0`
+#### SetEaseCircOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to CircOut.
 
@@ -666,7 +814,9 @@ Sets the ease for this tween to CircOut.
 <Tween>.SetEaseCircOut () : Tween;
 ```
 
-#### SetEaseCircInOut `version 1.0.0`
+#### SetEaseCircInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to CircInOut.
 
@@ -674,7 +824,9 @@ Sets the ease for this tween to CircInOut.
 <Tween>.SetEaseCircInOut () : Tween;
 ```
 
-#### SetEaseBackIn `version 1.0.0`
+#### SetEaseBackIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to BackIn.
 
@@ -682,7 +834,9 @@ Sets the ease for this tween to BackIn.
 <Tween>.SetEaseBackIn () : Tween;
 ```
 
-#### SetEaseBackOut `version 1.0.0`
+#### SetEaseBackOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to BackOut.
 
@@ -690,7 +844,9 @@ Sets the ease for this tween to BackOut.
 <Tween>.SetEaseBackOut () : Tween;
 ```
 
-#### SetEaseBackInOut `version 1.0.0`
+#### SetEaseBackInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to BackInOut.
 
@@ -698,7 +854,9 @@ Sets the ease for this tween to BackInOut.
 <Tween>.SetEaseBackInOut () : Tween;
 ```
 
-#### SetEaseElasticIn `version 1.0.0`
+#### SetEaseElasticIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to ElasticIn.
 
@@ -706,7 +864,9 @@ Sets the ease for this tween to ElasticIn.
 <Tween>.SetEaseElasticIn () : Tween;
 ```
 
-#### SetEaseElasticOut `version 1.0.0`
+#### SetEaseElasticOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to ElasticOut.
 
@@ -714,7 +874,9 @@ Sets the ease for this tween to ElasticOut.
 <Tween>.SetEaseElasticOut () : Tween;
 ```
 
-#### SetEaseElasticInOut `version 1.0.0`
+#### SetEaseElasticInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to ElasticInOut.
 
@@ -722,7 +884,9 @@ Sets the ease for this tween to ElasticInOut.
 <Tween>.SetEaseElasticInOut () : Tween;
 ```
 
-#### SetEaseBounceIn `version 1.0.0`
+#### SetEaseBounceIn
+
+`version 1.0.0`
 
 Sets the ease for this tween to BounceIn.
 
@@ -730,7 +894,9 @@ Sets the ease for this tween to BounceIn.
 <Tween>.SetEaseBounceIn () : Tween;
 ```
 
-#### SetEaseBounceOut `version 1.0.0`
+#### SetEaseBounceOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to BounceOut.
 
@@ -738,7 +904,9 @@ Sets the ease for this tween to BounceOut.
 <Tween>.SetEaseBounceOut () : Tween;
 ```
 
-#### SetEaseBounceInOut `version 1.0.0`
+#### SetEaseBounceInOut
+
+`version 1.0.0`
 
 Sets the ease for this tween to BounceInOut.
 
@@ -748,7 +916,9 @@ Sets the ease for this tween to BounceInOut.
 
 ## Methods
 
-#### Cancel `version 1.0.0`
+#### Cancel
+
+`version 1.0.0`
 
 Cancel the tween.
 
@@ -756,7 +926,9 @@ Cancel the tween.
 <Tween>.Cancel () : void;
 ```
 
-#### GetTotalDuration `version 1.6.2`
+#### GetTotalDuration
+
+`version 1.6.2`
 
 Gets the total duration of the tween including the loop count and ping pong settings, and the delay optionally.
 
