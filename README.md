@@ -440,6 +440,26 @@ Instantiates a Tween animating the a float value.
 <GameObject, Component>.TweenValueFloat (float to, float duration, Action<float> onUpdate) : Tween;
 ```
 
+#### TweenValueVector2
+
+`version 1.6.5`
+
+Instantiates a Tween animating the a Vector2 value.
+
+```cs
+<GameObject, Component>.TweenValueVector2 (Vector2 to, float duration, Action<Vector2> onUpdate) : Tween;
+```
+
+#### TweenValueVector3
+
+`version 1.6.5`
+
+Instantiates a Tween animating the a Vector3 value.
+
+```cs
+<GameObject, Component>.TweenValueVector3 (Vector3 to, float duration, Action<Vector3> onUpdate) : Tween;
+```
+
 #### TweenValueColor
 
 `version 1.2.0`
