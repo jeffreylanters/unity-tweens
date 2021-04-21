@@ -1,10 +1,9 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/logo-transparent.png" height="100px">
+<img src="https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/repository-readme-splash.png" width="100%">
 
 </br>
-
-# Tweens
+</br>
 
 [![openupm](https://img.shields.io/npm/v/nl.elraccoone.tweens?label=UPM&registry_uri=https://package.openupm.com&style=for-the-badge&color=232c37)](https://openupm.com/packages/nl.elraccoone.tweens/)
 [![](https://img.shields.io/github/stars/jeffreylanters/unity-tweens.svg?style=for-the-badge)]()
