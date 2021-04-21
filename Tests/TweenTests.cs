@@ -157,6 +157,10 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenValueFloat (50, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-50);
       if (GUILayout.Button ("Tween Value Color"))
         this.target.TweenValueColor (Color.red, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (Color.blue);
+      if (GUILayout.Button ("Tween Value Vector2"))
+        this.target.TweenValueVector2 (Vector2.one, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-Vector2.one);
+      if (GUILayout.Button ("Tween Value Vector3"))
+        this.target.TweenValueVector3 (Vector3.one, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-Vector3.one);
       if (GUILayout.Button ("Tween Delayed Invoke"))
         this.target.TweenDelayedInvoke (1, () => Debug.Log ("Hello World!"));
       if (GUILayout.Button ("Pausing")) {
