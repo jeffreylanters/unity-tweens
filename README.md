@@ -347,7 +347,7 @@ Instantiates a Tween animating the alpha of a SpriteRenderer.
 Instantiates a Tween animating the color of a SpriteRenderer.
 
 ```cs
-<GameObject, Component>.TweenSpriteRendererColor (Color to, float duration) : Tween<float>;
+<GameObject, Component>.TweenSpriteRendererColor (Color to, float duration) : Tween<Color>;
 ```
 
 #### Tween Material Alpha
