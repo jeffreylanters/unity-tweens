@@ -47,6 +47,8 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenGraphicColor (Color.white, 1).SetFrom (Color.red);
       if (GUILayout.Button ("ImageFillAmount"))
         this.target.TweenImageFillAmount (1, 1).SetFrom (0);
+      if (GUILayout.Button ("LightColor"))
+        this.target.TweenLightColor (Color.red, 1).SetFrom (Color.white);
       if (GUILayout.Button ("LocalEulerAngles"))
         this.target.TweenLocalRotation (Vector3.one, 1).SetFrom (Vector3.zero);
       if (GUILayout.Button ("LocalEulerAnglesX"))
