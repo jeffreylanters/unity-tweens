@@ -1,6 +1,6 @@
 {
   "name": "nl.elraccoone.tweens",
   "displayName": "Tweens",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "description": "An extremely light weight, extendable and customisable tweening engine made for strictly typed script-based animations for user-interfaces and world-space objects optimised for all platforms."
 }
