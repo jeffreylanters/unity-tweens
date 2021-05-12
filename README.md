@@ -480,6 +480,16 @@ Instantiates a Tween animating the a color value.
 <GameObject, Component>.TweenValueColor (Color to, float duration, Action<Color> onUpdate) : Tween<Color>;
 ```
 
+#### Tween Volume Weight
+
+`version 1.6.7`
+
+Instantiates a Tween animating the weight of a post-processing volume.
+
+```cs
+<GameObject, Component>.TweenVolumeWeight (float to, float duration, Action<float> onUpdate) : Tween<float>;
+```
+
 #### Tween Delayed Invoke
 
 `version 1.0.0`
