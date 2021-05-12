@@ -444,6 +444,8 @@ Instantiates a Tween easing the color of a Light.
 
 `version 1.6.7`
 
+`requires com.unity.render-pipelines.core`
+
 Instantiates a Tween animating the weight of a post-processing volume.
 
 ```cs
