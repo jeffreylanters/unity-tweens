@@ -383,6 +383,16 @@ Instantiates a Tween animating the alpha of a TextMesh.
 <GameObject, Component>.TweenTextMeshAlpha (float to, float duration) : Tween<float>;
 ```
 
+#### Tween Text Mesh Color
+
+`version 1.7.0`
+
+Instantiates a Tween animating the color of a TextMesh.
+
+```cs
+<GameObject, Component>.TweenTextMeshColor (Color to, float duration) : Tween<Color>;
+```
+
 #### Tween Text Mesh Pro Color (Text Mesh Pro)
 
 `version 1.7.0`
