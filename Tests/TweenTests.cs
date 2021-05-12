@@ -91,8 +91,10 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenSpriteRendererColor (Color.white, 1).SetFrom (Color.red);
       if (GUILayout.Button ("TextMeshAlpha"))
         this.target.TweenTextMeshAlpha (1, 1).SetFrom (0);
+#if UNITY_RENDER_PIPELINES_CORE
       if (GUILayout.Button ("VolumeWeight"))
         this.target.TweenVolumeWeight (1, 1).SetFrom (0);
+#endif
 
       // Flicker Testing
       GUILayout.Label ("[FLICKER TESTING]");
