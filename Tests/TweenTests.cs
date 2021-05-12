@@ -91,6 +91,12 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenSpriteRendererColor (Color.white, 1).SetFrom (Color.red);
       if (GUILayout.Button ("TextMeshAlpha"))
         this.target.TweenTextMeshAlpha (1, 1).SetFrom (0);
+#if TWEENS_TEXTMESHPRO
+      if (GUILayout.Button ("TextMeshProAlpha"))
+        this.target.TweenTextMeshProAlpha (1, 1).SetFrom (0);
+      if (GUILayout.Button ("TextMeshProColor"))
+        this.target.TweenTextMeshProColor (Color.white, 1).SetFrom (Color.red);
+#endif
 #if TWEENS_RENDER_PIPELINES_CORE
       if (GUILayout.Button ("VolumeWeight"))
         this.target.TweenVolumeWeight (1, 1).SetFrom (0);
