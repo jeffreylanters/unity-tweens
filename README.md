@@ -51,13 +51,16 @@ openupm add nl.elraccoone.tweens
 
 # Documentation
 
-This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases. Tweens can be invoked on any GameObject and Component and fetches their own required components so you don't have to.
+This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
 
-The documentation is seperated into three sections; the [Tweening Methods](#tweening-methods), [Chainable Options](#chainable-options) and [Methods](#methods).
+- [Getting Started](#getting-started)
+- [Tweening Methods](#tweening-methods)
+- [Chainable Options](#chainable-options)
+- [Other Methods](#other-methods)
 
-## Examples
+## Getting Started
 
-These are some of the endless possibilities using Tweens.
+These are some of the endless possibilities using Tweens. [Tweens](#tweening-methods) can be invoked on any GameObject and Component and fetches their own required components so you don't have to. [Chainable Options](#chainable-options) can used to customize the behaviour to your needs.
 
 ```cs
 private void Start () {
@@ -440,7 +443,7 @@ Instantiates a Tween easing the color of a Light.
 <GameObject, Component>.TweenLightColor (Color to, float duration) : Tween<Color>;
 ```
 
-#### Tween Volume Weight
+#### Tween Volume Weight (Scriptable Render Pipeline)
 
 `version 1.6.7`
 
@@ -955,7 +958,7 @@ Sets the ease for this tween to BounceInOut.
 <Tween>.SetEaseBounceInOut () : Tween<T>;
 ```
 
-## Methods
+## Other Methods
 
 #### Cancel
 
