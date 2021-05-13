@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ElRaccoone.Tweens.Core {
 
   /// Base class for all Tweens with a value type for the driver and a component.
-  public abstract class Tween<DriverValueType, ComponentType> : Tween<DriverValueType> {
+  public abstract class Tween<DriverValueType, ComponentType> : Tween<DriverValueType> where ComponentType : Component {
 
     ///
     public ComponentType component;
