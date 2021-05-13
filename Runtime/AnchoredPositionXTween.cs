@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace ElRaccoone.Tweens {
   public static class AnchoredPositionXTween {
-    public static Tween<float, RectTransform> TweenAnchoredPositionX (this Component self, float to, float duration) =>
-      Tween<float, RectTransform>.Add<Driver> (self).Finalize (duration, to);
+    public static Tween<float> TweenAnchoredPositionX (this Component self, float to, float duration) =>
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    public static Tween<float, RectTransform> TweenAnchoredPositionX (this GameObject self, float to, float duration) =>
-      Tween<float, RectTransform>.Add<Driver> (self).Finalize (duration, to);
+    public static Tween<float> TweenAnchoredPositionX (this GameObject self, float to, float duration) =>
+      Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
     private class Driver : Tween<float, RectTransform> {
       private Vector2 vector2Allocation;
