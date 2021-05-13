@@ -2,8 +2,21 @@ using System;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens.Core {
-  
-  /// Types abstract class for all core Tween functionality.
+
+  /// Base class for all Tweens with a value type for the driver and a component.
+  public abstract class Tween<DriverValueType, ComponentType> : Tween<DriverValueType> {
+
+    ///
+    public ComponentType component;
+
+    ///
+    public override bool OnInitialize () {
+      this.component = this.gameObject.GetComponent<ComponentType> ();
+      return this.component != null;
+    }
+  }
+
+  /// Base class for all Tweens with a value type for the driver.
   public abstract class Tween<DriverValueType> : MonoBehaviour, ITween {
 
     /// The value the driver should Tween from.
@@ -297,9 +310,9 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// Sets wheter the tween should use Time.unscaledDeltaTime instead of Time.deltaTime.
-    public Tween<DriverValueType> SetUseUnscaledTime(bool useUnscaledTime) {
-        this.useUnscaledTime = useUnscaledTime;
-        return this;
+    public Tween<DriverValueType> SetUseUnscaledTime (bool useUnscaledTime) {
+      this.useUnscaledTime = useUnscaledTime;
+      return this;
     }
 
     /// Sets the overshooting of Eases that exceed their boundaries such as
