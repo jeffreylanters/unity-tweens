@@ -10,7 +10,8 @@ namespace ElRaccoone.Tweens {
       Tween<Vector2>.Add<Driver> (self).Finalize (duration, to);
 
     private class Driver : Tween<Vector2, RectTransform> {
-      public override Vector2 OnGetFrom () => this.component.anchoredPosition;
+      public override Vector2 OnGetFrom () => 
+        this.component.anchoredPosition;
 
       public override void OnUpdate (float easedTime) {
         this.valueCurrent.x = this.InterpolateValue (this.valueFrom.x, this.valueTo.x, easedTime);
