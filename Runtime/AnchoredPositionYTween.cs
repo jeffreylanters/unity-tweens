@@ -12,8 +12,9 @@ namespace ElRaccoone.Tweens {
     private class Driver : Tween<float, RectTransform> {
       private Vector2 vector2Allocation;
 
-      public override float OnGetFrom () => 
-        this.component.anchoredPosition.y;
+      public override float OnGetFrom () {
+        return this.component.anchoredPosition.y;
+      }
 
       public override void OnUpdate (float easedTime) {
         this.vector2Allocation = this.component.anchoredPosition;

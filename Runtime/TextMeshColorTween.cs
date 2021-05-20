@@ -9,16 +9,9 @@ namespace ElRaccoone.Tweens {
     public static Tween<Color> TweenTextMeshColor (this GameObject self, Color to, float duration) =>
       Tween<Color>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<Color> {
-      private TextMesh textMesh;
-
-      public override bool OnInitialize () {
-        this.textMesh = this.gameObject.GetComponent<TextMesh> ();
-        return this.textMesh != null;
-      }
-
+    private class Driver : Tween<Color, TextMesh> {
       public override Color OnGetFrom () {
-        return this.textMesh.color;
+        return this.component.color;
       }
 
       public override void OnUpdate (float easedTime) {
@@ -26,7 +19,7 @@ namespace ElRaccoone.Tweens {
         this.valueCurrent.g = this.InterpolateValue (this.valueFrom.g, this.valueTo.g, easedTime);
         this.valueCurrent.b = this.InterpolateValue (this.valueFrom.b, this.valueTo.b, easedTime);
         this.valueCurrent.a = this.InterpolateValue (this.valueFrom.a, this.valueTo.a, easedTime);
-        this.textMesh.color = this.valueCurrent;
+        this.component.color = this.valueCurrent;
       }
     }
   }

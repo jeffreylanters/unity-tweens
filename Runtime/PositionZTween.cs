@@ -9,22 +9,18 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenPositionZ (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
+    private class Driver : Tween<float, Transform> {
       private Vector3 position;
 
-      public override bool OnInitialize () {
-        return true;
-      }
-
       public override float OnGetFrom () {
-        return this.transform.position.z;
+        return this.component.position.z;
       }
 
       public override void OnUpdate (float easedTime) {
-        this.position = this.transform.position;
+        this.position = this.component.position;
         this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
         this.position.z = this.valueCurrent;
-        this.transform.position = this.position;
+        this.component.position = this.position;
       }
     }
   }
