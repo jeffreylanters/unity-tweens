@@ -9,22 +9,18 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenRotationX (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
+    private class Driver : Tween<float, Transform> {
       private Quaternion quaternionValueFrom;
       private Quaternion quaternionValueTo;
 
-      public override bool OnInitialize () {
-        return true;
-      }
-
       public override float OnGetFrom () {
-        return this.transform.eulerAngles.x;
+        return this.component.eulerAngles.x;
       }
 
       public override void OnUpdate (float easedTime) {
-        this.quaternionValueFrom = Quaternion.Euler (this.valueFrom, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
-        this.quaternionValueTo = Quaternion.Euler (this.valueTo, this.transform.eulerAngles.y, this.transform.eulerAngles.z);
-        this.transform.rotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
+        this.quaternionValueFrom = Quaternion.Euler (this.valueFrom, this.component.eulerAngles.y, this.component.eulerAngles.z);
+        this.quaternionValueTo = Quaternion.Euler (this.valueTo, this.component.eulerAngles.y, this.component.eulerAngles.z);
+        this.component.rotation = Quaternion.Lerp (this.quaternionValueFrom, this.quaternionValueTo, easedTime);
       }
     }
   }

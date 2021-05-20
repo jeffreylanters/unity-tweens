@@ -9,12 +9,8 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenLocalPositionY (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
+    private class Driver : Tween<float, Transform> {
       private Vector3 localPosition;
-
-      public override bool OnInitialize () {
-        return true;
-      }
 
       public override float OnGetFrom () {
         return this.transform.localPosition.y;

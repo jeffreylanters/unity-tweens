@@ -34,13 +34,13 @@ namespace ElRaccoone.Tweens.Tests {
       if (GUILayout.Button ("CanvasGroupAlpha"))
         this.target.TweenCanvasGroupAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAngles"))
-        this.target.TweenRotation (Vector3.one, 1).SetFrom (Vector3.zero);
+        this.target.TweenRotation (Vector3.one * 45, 1).SetFrom (Vector3.zero);
       if (GUILayout.Button ("EulerAnglesX"))
-        this.target.TweenRotationX (1, 1).SetFrom (0);
+        this.target.TweenRotationX (45, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAnglesY"))
-        this.target.TweenRotationY (1, 1).SetFrom (0);
+        this.target.TweenRotationY (45, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAnglesZ"))
-        this.target.TweenRotationZ (1, 1).SetFrom (0);
+        this.target.TweenRotationZ (45, 1).SetFrom (0);
       if (GUILayout.Button ("GraphicAlpha"))
         this.target.TweenGraphicAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("GraphicColor"))
@@ -50,13 +50,13 @@ namespace ElRaccoone.Tweens.Tests {
       if (GUILayout.Button ("LightColor"))
         this.target.TweenLightColor (Color.red, 1).SetFrom (Color.white);
       if (GUILayout.Button ("LocalEulerAngles"))
-        this.target.TweenLocalRotation (Vector3.one, 1).SetFrom (Vector3.zero);
+        this.target.TweenLocalRotation (Vector3.one * 45, 1).SetFrom (Vector3.zero);
       if (GUILayout.Button ("LocalEulerAnglesX"))
-        this.target.TweenLocalRotationX (1, 1).SetFrom (0);
+        this.target.TweenLocalRotationX (45, 1).SetFrom (0);
       if (GUILayout.Button ("LocalEulerAnglesY"))
-        this.target.TweenLocalRotationY (1, 1).SetFrom (0);
+        this.target.TweenLocalRotationY (45, 1).SetFrom (0);
       if (GUILayout.Button ("LocalEulerAnglesZ"))
-        this.target.TweenLocalRotationZ (1, 1).SetFrom (0);
+        this.target.TweenLocalRotationZ (45, 1).SetFrom (0);
       if (GUILayout.Button ("MaterialAlpha"))
         this.target.TweenMaterialAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("MaterialColor"))

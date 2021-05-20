@@ -9,21 +9,14 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenCameraFieldOfView (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
-      private new Camera camera;
-
-      public override bool OnInitialize () {
-        this.camera = this.gameObject.GetComponent<Camera> ();
-        return this.camera != null;
-      }
-
+    private class Driver : Tween<float, Camera> {
       public override float OnGetFrom () {
-        return this.camera.fieldOfView;
+        return this.component.fieldOfView;
       }
 
       public override void OnUpdate (float easedTime) {
         this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-        this.camera.fieldOfView = this.valueCurrent;
+        this.component.fieldOfView = this.valueCurrent;
       }
     }
   }

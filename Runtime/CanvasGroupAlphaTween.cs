@@ -9,21 +9,14 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenCanvasGroupAlpha (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
-      private CanvasGroup canvasGroup;
-
-      public override bool OnInitialize () {
-        this.canvasGroup = this.gameObject.GetComponent<CanvasGroup> ();
-        return this.canvasGroup != null;
-      }
-
+    private class Driver : Tween<float, CanvasGroup> {
       public override float OnGetFrom () {
-        return this.canvasGroup.alpha;
+        return this.component.alpha;
       }
 
       public override void OnUpdate (float easedTime) {
         this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-        this.canvasGroup.alpha = this.valueCurrent;
+        this.component.alpha = this.valueCurrent;
       }
     }
   }

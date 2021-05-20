@@ -9,21 +9,14 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenCameraOrthographicSize (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
-      private new Camera camera;
-
-      public override bool OnInitialize () {
-        this.camera = this.gameObject.GetComponent<Camera> ();
-        return this.camera != null;
-      }
-
+    private class Driver : Tween<float, Camera> {
       public override float OnGetFrom () {
-        return this.camera.orthographicSize;
+        return this.component.orthographicSize;
       }
 
       public override void OnUpdate (float easedTime) {
         this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-        this.camera.orthographicSize = this.valueCurrent;
+        this.component.orthographicSize = this.valueCurrent;
       }
     }
   }

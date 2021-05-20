@@ -9,24 +9,18 @@ namespace ElRaccoone.Tweens {
     public static Tween<float> TweenTextMeshAlpha (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
-    private class Driver : Tween<float> {
-      private TextMesh textMesh;
+    private class Driver : Tween<float, TextMesh> {
       private Color color;
 
-      public override bool OnInitialize () {
-        this.textMesh = this.gameObject.GetComponent<TextMesh> ();
-        return this.textMesh != null;
-      }
-
       public override float OnGetFrom () {
-        return this.textMesh.color.a;
+        return this.component.color.a;
       }
 
       public override void OnUpdate (float easedTime) {
-        this.color = this.textMesh.color;
+        this.color = this.component.color;
         this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
         this.color.a = this.valueCurrent;
-        this.textMesh.color = this.color;
+        this.component.color = this.color;
       }
     }
   }
