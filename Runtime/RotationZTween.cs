@@ -2,7 +2,7 @@ using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
 namespace ElRaccoone.Tweens {
-  public static class EulerAnglesZTween {
+  public static class RotationZTween {
     public static Tween<float> TweenRotationZ (this Component self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (duration, to);
 
