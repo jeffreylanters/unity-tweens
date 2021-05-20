@@ -12,6 +12,7 @@ namespace ElRaccoone.Tweens {
     private class Driver : Tween<Vector3, Transform> {
       private Quaternion quaternionValueFrom;
       private Quaternion quaternionValueTo;
+      private bool didConvertValueFromToQuanternion;
 
       public override bool OnInitialize () {
         this.quaternionValueTo = Quaternion.Euler (this.valueTo);
@@ -19,12 +20,16 @@ namespace ElRaccoone.Tweens {
       }
 
       public override Vector3 OnGetFrom () {
-        var _from = this.component.localEulerAngles;
-        this.quaternionValueFrom = Quaternion.Euler (_from);
-        return _from;
+        this.quaternionValueFrom = Quaternion.Euler (this.component.localEulerAngles);
+        this.didConvertValueFromToQuanternion = true;
+        return this.component.localEulerAngles;
       }
 
       public override void OnUpdate (float easedTime) {
+        if (this.didConvertValueFromToQuanternion == false) {
+          this.quaternionValueFrom = Quaternion.Euler (this.valueFrom);
+          this.didConvertValueFromToQuanternion = true;
+        }
         if (easedTime == 0)
           this.component.localRotation = this.quaternionValueFrom;
         else if (easedTime == 1)
