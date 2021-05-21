@@ -1,17 +1,14 @@
-name: dotnet package
-
+name: Build and Test
 on:
   - push
-
 jobs:
-  build:
-
+  main:
+    name: Main
     runs-on: ubuntu-latest
     strategy:
       matrix:
         dotnet-version:
           - 2.0
-
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
