@@ -63,6 +63,7 @@ This module is benchmarked against LeanTween and ITween and beats both in Unity 
 These are some of the endless possibilities using Tweens. [Tweens](#tweening-methods) can be invoked on any GameObject and Component and fetches their own required components so you don't have to. [Chainable Options](#chainable-options) can used to customize the behaviour to your needs.
 
 ```cs
+using ElRaccoone.Tweens;
 private void Start () {
   myGameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
   myGameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
