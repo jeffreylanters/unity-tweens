@@ -53,10 +53,10 @@ openupm add nl.elraccoone.tweens
 
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
 
-- [Getting Started](#getting-started)
-- [Tweening Methods](#tweening-methods)
-- [Chainable Options](#chainable-options)
-- [Other Methods](#other-methods)
+- [Getting Started](#getting-started) Code examples on how to create your first Tween
+- [Tweening Methods](#tweening-methods) Tweening methods available to animate various properties
+- [Chainable Options](#chainable-options) Chainable options allowing you to alter the Tween's behaviour
+- [Other Methods](#other-methods) Various other options available on instanciated Tweens
 
 ## Getting Started
 
