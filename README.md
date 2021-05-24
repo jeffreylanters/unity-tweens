@@ -63,12 +63,20 @@ This module is benchmarked against LeanTween and ITween and beats both in Unity 
 These are some of the endless possibilities using Tweens. [Tweens](#tweening-methods) can be invoked on any GameObject and Component and fetches their own required components so you don't have to. [Chainable Options](#chainable-options) can used to customize the behaviour to your needs.
 
 ```cs
+using UnityEngine;
 using ElRaccoone.Tweens;
-private void Start () {
-  myGameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
-  myGameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
-  myGameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
-  myGameObject.TweenCancelAll ();
+public class MyGameObject : MonoBehaviour {
+  private void Start () {
+    gameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
+    gameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
+    gameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
+    gameObject.TweenCancelAll ();
+  }
+  private async void Chain () {
+    await gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Yield ();
+    await gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Yield ();
+    await gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Yield ();
+  }
 }
 ```
 
@@ -1003,6 +1011,16 @@ Cancel the tween.
 
 ```cs
 <Tween>.Cancel () : void;
+```
+
+#### Yield
+
+`version 1.9.0`
+
+Returns a Task allowing the Tween to be awaited using an Async Await block.
+
+```cs
+<Tween>.Yield () : Task;
 ```
 
 #### Get Total Duration
