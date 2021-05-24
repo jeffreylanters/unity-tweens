@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ElRaccoone.Tweens.Core {
@@ -213,12 +214,9 @@ namespace ElRaccoone.Tweens.Core {
     /// </summary>
     private void Start () {
       // Invokes the OnInitialize on the Tween driver. If returned false, the
-      // Tween is not ready to play or is incompatible. Then we'll mark the
-      // Tween as complated and decommission.
-      if (this.OnInitialize () == false) {
-        this.isCompleted = true;
+      // Tween is not ready to play or is incompatible. Then we'll decommission.
+      if (this.OnInitialize () == false)
         this.Decommission ();
-      }
       // When From is not overwritten and the Tween has no delay, the valueFrom
       // is requested from the inheriter. Then the animation will be set to its
       // first frame. This is done during the Start method so other parameters
@@ -231,14 +229,12 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// <summary>
-    /// When the object is disabled, but the tween did not finish, we mark the
-    /// Tween as completed and decommission it.
+    /// When the object is disabled, but the tween did not finish, we will
+    /// decommission it.
     /// </summary>
     private void OnDisable () {
-      if (this.didTimeReachEnd == false) {
-        this.isCompleted = true;
+      if (this.didTimeReachEnd == false)
         this.Decommission ();
-      }
     }
 
     /// <summary>
@@ -264,10 +260,9 @@ namespace ElRaccoone.Tweens.Core {
         }
       }
       // When the tween has no duration, the timing will not be done and the
-      // animation will be set to its last frame, the Tween will be marked as
-      // completed and will be decomissioned right away.
+      // animation will be set to its last frame, the Tween will be 
+      // decomissioned right away.
       else if (this.hasDuration == false) {
-        this.isCompleted = true;
         this.OnUpdate (Easer.Apply (this.ease, 1));
         this.Decommission ();
         return;
@@ -301,7 +296,8 @@ namespace ElRaccoone.Tweens.Core {
         // The time will be updated on the inheriter.
         this.OnUpdate (Easer.Apply (this.ease, this.time));
         // When the end is reached either the loop count will be decreased, or
-        // the tween will be decommissioned, and the oncomplete may be invoked.
+        // the tween will be marked as completed and will be decommissioned, 
+        // the oncomplete may be invoked.
         if (this.didTimeReachEnd == true)
           if (this.hasLoopCount == true && this.loopCount > 1) {
             this.didTimeReachEnd = false;
@@ -343,15 +339,14 @@ namespace ElRaccoone.Tweens.Core {
 
     /// <summary>
     /// Sets the final values required for the tween can start. When the object
-    /// is not active in the hierarchy, the Tween will be marked as completed
-    /// and will be decommissioned right away.
+    /// is not active in the hierarchy, the Tween will be decommissioned right 
+    /// away.
     /// </summary>
     /// <param name="duration">The duration of the tween.</param>
     /// <param name="valueTo">The To value.</param>
     /// <returns>The current Tween.</returns>
     internal Tween<DriverValueType> Finalize (float duration, DriverValueType valueTo) {
       if (this.gameObject.activeInHierarchy == false) {
-        this.isCompleted = true;
         this.Decommission ();
       } else {
         this.duration = duration;
@@ -804,16 +799,15 @@ namespace ElRaccoone.Tweens.Core {
     public void Cancel () {
       if (this.hasOnCancel == true)
         this.onCancel ();
-      this.isCompleted = true;
       this.Decommission ();
     }
 
     /// <summary>
-    /// Returns a Task which yields until the Tween is completed.
+    /// Returns a Task which awaits the Tween's completion or decommissioning.
     /// </summary>
     /// <returns>An awaitable Task.</returns>
     public async Task Yield () {
-      while (this.isCompleted == false)
+      while (this.isCompleted == false && this.isDecommissioned == false)
         await Task.Yield ();
     }
 
