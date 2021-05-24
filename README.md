@@ -1017,7 +1017,7 @@ Cancel the tween.
 
 `version 1.9.0`
 
-Returns a Task allowing the Tween to be awaited using an Async Await block until the Tween is either completed, destroyed, canceld or was unable to start.
+Returns a Task allowing the Tween to be awaited using an Async Await block until the Tween is either completed, destroyed, canceld or was unable to start. Make sure to cancel your Async method to prevent errors from being throwing in the Unity Editor when leaving Play mode while using Tasks to chain a sequence of Tweens.
 
 ```cs
 <Tween>.Yield () : Task;
