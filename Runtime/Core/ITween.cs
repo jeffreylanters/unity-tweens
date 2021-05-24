@@ -1,18 +1,21 @@
 namespace ElRaccoone.Tweens.Core {
 
+  /// <summary>
   /// Typeless interface for all core Tween functionality.
+  /// </summary>
   public interface ITween {
 
-    /// Set the sequence delay of the tween, this is used by the sequence module
-    /// and should not be used manually. The sequence delay overwrites the
-    /// original delay.
-    void SetSequenceDelay (float delay);
-
-    /// Returns the total duration of the tween including the loop count and
+    /// <summary>
+    /// Gets the total duration of the tween including the loop count and
     /// ping pong settings, and the delay optionally.
+    /// </summary>
+    /// <param name="includeDelay">Include delay in calculation?</param>
+    /// <returns>The total duration of the Tween.</returns>
     float GetTotalDuration (bool includeDelay = false);
 
+    /// <summary>
     /// Cancel the tween and decommision the component.
+    /// </summary>
     void Cancel ();
   }
 }
