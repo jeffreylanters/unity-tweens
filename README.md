@@ -53,10 +53,10 @@ openupm add nl.elraccoone.tweens
 
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
 
-- [Getting Started](#getting-started) Code examples on how to create your first Tween
-- [Tweening Methods](#tweening-methods) Tweening methods available to animate various properties
-- [Chainable Options](#chainable-options) Chainable options allowing you to alter the Tween's behaviour
-- [Other Methods](#other-methods) Various other options available on instanciated Tweens
+- [Getting Started](#getting-started) - Code examples on how to create your first Tween
+- [Tweening Methods](#tweening-methods) - Tweening methods available to animate various properties
+- [Chainable Options](#chainable-options) - Chainable options allowing you to alter the Tween's behaviour
+- [Other Methods](#other-methods) - Various other options available on instanciated Tweens
 
 ## Getting Started
 
@@ -67,15 +67,15 @@ using UnityEngine;
 using ElRaccoone.Tweens;
 public class MyGameObject : MonoBehaviour {
   private void Start () {
-    gameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
-    gameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
-    gameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
-    gameObject.TweenCancelAll ();
+    this.gameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
+    this.gameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
+    this.gameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
+    this.gameObject.TweenCancelAll ();
   }
-  private async void Chain () {
-    await gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Yield ();
-    await gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Yield ();
-    await gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Yield ();
+  private async void AnimationSequence () {
+    await this.gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Yield ();
+    await this.gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Yield ();
+    await this.gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Yield ();
   }
 }
 ```
@@ -1017,7 +1017,7 @@ Cancel the tween.
 
 `version 1.9.0`
 
-Returns a Task allowing the Tween to be awaited using an Async Await block.
+Returns a Task allowing the Tween to be awaited using an Async Await block until the Tween is either completed, destroyed, canceld or was unable to start.
 
 ```cs
 <Tween>.Yield () : Task;
