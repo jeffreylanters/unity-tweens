@@ -72,10 +72,15 @@ public class MyGameObject : MonoBehaviour {
     this.gameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
     this.gameObject.TweenCancelAll ();
   }
-  private async void AnimationSequence () {
-    await this.gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Yield ();
-    await this.gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Yield ();
-    await this.gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Yield ();
+  private async void AsyncAnimationSequence () {
+    await this.gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Await ();
+    await this.gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Await ();
+    await this.gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Await ();
+  }
+  private IEnumerator RoutineAnimationSequence () {
+    yield return this.gameObject.TweenGraphicColor (Color.red, 5).SetEaseCircInOut ().Yield ();
+    yield return this.gameObject.TweenGraphicColor (Color.green, 5).SetEaseCircInOut ().Yield ();
+    yield return this.gameObject.TweenLocalRotationZ (360, 5).SetFrom (1).SetPingPong ().Yield ();
   }
 }
 ```
@@ -1013,14 +1018,24 @@ Cancel the tween.
 <Tween>.Cancel () : void;
 ```
 
-#### Yield
+#### Await
 
-`version 1.9.0`
+`version 1.9.1`
 
 Returns a Task allowing the Tween to be awaited using an Async Await block until the Tween is either completed, destroyed, canceld or was unable to start. Make sure to cancel your Async method to prevent errors from being throwing in the Unity Editor when leaving Play mode while using Tasks to chain a sequence of Tweens.
 
 ```cs
-<Tween>.Yield () : Task;
+<Tween>.Await () : Task;
+```
+
+#### Yield
+
+`version 1.9.1`
+
+Returns a IEnumerator allowing the Tween to be yielded using a coroutine until the Tween is either completed, destroyed, canceld or was unable to start.
+
+```cs
+<Tween>.Yield () : IEnumerator;
 ```
 
 #### Get Total Duration
