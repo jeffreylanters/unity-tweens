@@ -813,9 +813,9 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// <summary>
-    /// Returns a Task which awaits the Tween's completion or decommissioning.
+    /// Returns an enumerator which yields the Tween's completion or decommissioning.
     /// </summary>
-    /// <returns>An awaitable Task.</returns>
+    /// <returns>An enumerator.</returns>
     public IEnumerator Yield () {
       while (this.isCompleted == false && this.isDecommissioned == false)
         yield return 0;
