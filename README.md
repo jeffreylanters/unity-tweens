@@ -60,7 +60,7 @@ This module is benchmarked against LeanTween and ITween and beats both in Unity 
 
 ## Getting Started
 
-These are some of the endless possibilities using Tweens. [Tweens](#tweening-methods) can be invoked on any GameObject and Component and fetches their own required components so you don't have to. [Chainable Options](#chainable-options) can used to customize the behaviour to your needs.
+These are some of the endless possibilities using Tweens. Tweens can be invoked on any GameObject and Component and fetches their own required components so you don't have to. Chainable Options can used to customize the behaviour to your needs.
 
 ```cs
 using UnityEngine;
