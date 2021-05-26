@@ -157,34 +157,44 @@ namespace ElRaccoone.Tweens.Core {
     private bool goToFirstFrameImmediately = false;
 
     /// <summary>
-    /// 
+    /// Defines whether the Tween has an overshooting multiplier. When this is
+    /// enabled, easing types such as Back will multiply their strength when
+    /// their times goes out of bounds.
     /// </summary>
     private bool hasOvershooting = false;
 
     /// <summary>
-    /// 
+    /// The overshooting multiplier is used on Tweens with easing types such as
+    /// Back will multiply their strength when their times goes out of bounds.
     /// </summary>
     private float overshooting = 0;
 
     /// <summary>
-    /// 
-    /// </summary>
-    private Action onComplete = null;
-
-    /// <summary>
-    /// 
+    /// Defines whether this Tween has a completion callback. When this is
+    /// defined, the onComplete action will be invoked when the Tween completes.
     /// </summary>
     private bool hasOnComplete = false;
 
     /// <summary>
-    /// 
+    /// The completion callback will be invoked when the Tween completes. This
+    /// will only happen when the Tween truely ends and will not invoke when
+    /// the Tween is canceld or destroyed.
     /// </summary>
-    private Action onCancel = null;
+    private Action onComplete = null;
 
     /// <summary>
-    /// 
+    /// Defines whether this Tween has a cancelation callback. When this is
+    /// defined, the onCancel action will be invoked when the Tween cancels.
     /// </summary>
     private bool hasOnCancel = false;
+
+    /// <summary>
+    /// The cancelation callback will be invoked when the Tween is canceled.
+    /// This will only happen when the Tween is manually canceled and will not
+    /// invoke when the Tween is decommissioned due to a destroy or missing
+    /// component reference.
+    /// </summary>
+    private Action onCancel = null;
 
     /// <summary>
     /// Defines whether the Tween is completed, this flag will only be set to
@@ -193,21 +203,28 @@ namespace ElRaccoone.Tweens.Core {
     private bool isCompleted = false;
 
     /// <summary>
-    /// 
+    /// On Initialize will be invoked when the Tween will initialize. During this 
+    /// cycle the Tween has yet to be started, but expect all chainable options 
+    /// to be set already. This method should return a boolean informing the 
+    /// Tween if the initialization was successfull. When it was not, the Tween 
+    /// will be decommissioned.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Whether the Tween is initialized succesfully.</returns>
     public abstract bool OnInitialize ();
 
     /// <summary>
-    /// 
+    /// On Get From will be invoked when the Tween wants to fetch its from value.
+    /// When the Tween was initialized with a SetFrom chainable option, this will
+    /// not be invoked.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The new From value.</returns>
     public abstract DriverValueType OnGetFrom ();
 
     /// <summary>
-    /// 
+    /// On Update will be invoked every frame and passes the eased time. During
+    /// this cycle all animation calculations can be performed.
     /// </summary>
-    /// <param name="easedTime"></param>
+    /// <param name="easedTime">The current time of the ease.</param>
     public abstract void OnUpdate (float easedTime);
 
     /// <summary>
