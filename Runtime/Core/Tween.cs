@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Threading;
+using System.Collections;
 using System.Threading.Tasks;
 
 namespace ElRaccoone.Tweens.Core {
@@ -806,9 +807,18 @@ namespace ElRaccoone.Tweens.Core {
     /// Returns a Task which awaits the Tween's completion or decommissioning.
     /// </summary>
     /// <returns>An awaitable Task.</returns>
-    public async Task Yield () {
+    public async Task Await () {
       while (this.isCompleted == false && this.isDecommissioned == false)
         await Task.Yield ();
+    }
+
+    /// <summary>
+    /// Returns a Task which awaits the Tween's completion or decommissioning.
+    /// </summary>
+    /// <returns>An awaitable Task.</returns>
+    public IEnumerator Yield () {
+      while (this.isCompleted == false && this.isDecommissioned == false)
+        yield return 0;
     }
 
     /// <summary>
