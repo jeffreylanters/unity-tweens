@@ -1,9 +1,6 @@
+<h1><img src="https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/repository-readme-splash.png" width="100%"></h1>
+
 <div align="center">
-
-<img src="https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/repository-readme-splash.png" width="100%">
-
-</br>
-</br>
 
 [![openupm](https://img.shields.io/npm/v/nl.elraccoone.tweens?label=UPM&registry_uri=https://package.openupm.com&style=for-the-badge&color=232c37)](https://openupm.com/packages/nl.elraccoone.tweens/)
 [![](https://img.shields.io/github/stars/jeffreylanters/unity-tweens.svg?style=for-the-badge)]()
@@ -28,7 +25,7 @@ Hi! My name is Jeffrey Lanters, thanks for checking out my modules! I've been a 
 **Made with &hearts; by Jeffrey Lanters**
 **&Gt;**
 
-</br>
+</br></br>
 
 </div>
 
