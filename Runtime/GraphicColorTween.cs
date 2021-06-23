@@ -1,4 +1,4 @@
-#if TWEENS_UNITY_UI
+#if TWEENS_UGUI
 
 using ElRaccoone.Tweens.Core;
 using UnityEngine;

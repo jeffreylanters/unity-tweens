@@ -41,7 +41,7 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenRotationY (45, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAnglesZ"))
         this.target.TweenRotationZ (45, 1).SetFrom (0);
-#if TWEENS_UNITY_UI
+#if TWEENS_UGUI
       if (GUILayout.Button ("GraphicAlpha"))
         this.target.TweenGraphicAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("GraphicColor"))
