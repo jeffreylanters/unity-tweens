@@ -1,6 +1,5 @@
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ElRaccoone.Tweens {
   public static class MaterialAlphaTween {
