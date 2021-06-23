@@ -319,6 +319,8 @@ Instantiates a Tween animating the Z axis of the LocalScale.
 
 `version 1.0.3`
 
+`requires com.unity.ugui`
+
 Instantiates a Tween animating the fillAmount of an image.
 
 ```cs
@@ -329,6 +331,8 @@ Instantiates a Tween animating the fillAmount of an image.
 
 `version 1.0.4`
 
+`requires com.unity.ugui`
+
 Instantiates a Tween animating the alpha of a graphic.
 
 ```cs
@@ -338,6 +342,8 @@ Instantiates a Tween animating the alpha of a graphic.
 #### Tween Graphic Color
 
 `version 1.0.4`
+
+`require s com.unity.ugui`
 
 Instantiates a Tween animating the color of a graphic.
 
