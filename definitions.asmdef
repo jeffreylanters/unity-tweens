@@ -21,6 +21,11 @@
             "name": "com.unity.textmeshpro",
             "expression": "0.0.0",
             "define": "TWEENS_TEXTMESHPRO"
+        },
+        {
+            "name": "com.unity.ugui",
+            "expression": "0.0.0",
+            "define": "TWEENS_UNITY_UI"
         }
     ],
     "noEngineReferences": false

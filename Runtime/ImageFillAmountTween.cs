@@ -1,3 +1,5 @@
+#if TWEENS_UNITY_UI
+
 using ElRaccoone.Tweens.Core;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,3 +24,5 @@ namespace ElRaccoone.Tweens {
     }
   }
 }
+
+#endif
