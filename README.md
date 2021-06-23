@@ -489,6 +489,16 @@ Instantiates a Tween easing the color of a Light.
 <GameObject, Component>.TweenLightColor (Color to, float duration) : Tween<Color>;
 ```
 
+#### Tween Light Intensity
+
+`version 1.9.3`
+
+Instantiates a Tween easing the intensity of a Light.
+
+```cs
+<GameObject, Component>.TweenLightIntensity (float to, float duration) : Tween<float>;
+```
+
 #### Tween Volume Weight (Scriptable Render Pipeline)
 
 `version 1.6.7`
