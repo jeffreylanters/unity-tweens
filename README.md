@@ -25,7 +25,7 @@ Hi! My name is Jeffrey Lanters, thanks for checking out my modules! I've been a 
 **Made with &hearts; by Jeffrey Lanters**
 **&Gt;**
 
-</br></br>
+</br>
 
 </div>
 
