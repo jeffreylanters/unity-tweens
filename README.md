@@ -67,7 +67,7 @@ public class MyGameObject : MonoBehaviour {
   private void Start () {
     this.gameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
     this.gameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
-    this.gameObject.TweenValueFloat (0, 2,  (value => { })).SetFrom (100).SetEaseSineOut ();
+    this.gameObject.TweenValueFloat (0, 2, (value => { })).SetFrom (100).SetEaseSineOut ();
     this.gameObject.TweenCancelAll ();
   }
   private async void AsyncAnimationSequence () {
