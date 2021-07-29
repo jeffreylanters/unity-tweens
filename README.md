@@ -17,7 +17,7 @@ An extremely light weight, extendable and customisable tweening engine made for 
 
 </br></br>
 
-[![npm](https://img.shields.io/badge/fund_this_project-sponsor-E12C9A.svg?style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
+[![sponsors](https://img.shields.io/github/sponsors/jeffreylanters?color=E12C9A&label=sponsor%20this%20project&style=for-the-badge)](https://github.com/sponsors/jeffreylanters)
 
 Hi! My name is Jeffrey Lanters, thanks for checking out my modules! I've been a Unity developer for years when in 2020 I decided to start sharing my modules by open-sourcing them. So feel free to look around. If you're using this module for production, please consider donating to support the project. When using any of the packages, please make sure to **Star** this repository and give credit to **Jeffrey Lanters** somewhere in your app or game. Also keep in mind **it it prohibited to sublicense and/or sell copies of the Software in stores such as the Unity Asset Store!** Thanks for your time.
 
