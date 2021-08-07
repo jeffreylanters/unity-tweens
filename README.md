@@ -586,7 +586,7 @@ Cancels all the running tweens.
 Sets the From value of a tween, when not set the current value will be used.
 
 ```cs
-<Tween>.SetFrom (T valueFrom) : Tween<T>;
+<Tween<T>>.SetFrom (T valueFrom) : Tween<T>;
 ```
 
 #### Set On Complete
@@ -597,7 +597,7 @@ Sets the event which will be invoked when the tween completes playing. This will
 not be invoked when the tween is canceled.
 
 ```cs
-<Tween>.SetOnComplete (Action onComplete) : Tween<T>;
+<Tween<T>>.SetOnComplete (Action onComplete) : Tween<T>;
 ```
 
 #### Set On Cancel
@@ -607,7 +607,7 @@ not be invoked when the tween is canceled.
 Sets the event which will be invoked when the tween is canceled.
 
 ```cs
-<Tween>.SetOnCancel (Action onCancel) : Tween<T>;
+<Tween<T>>.SetOnCancel (Action onCancel) : Tween<T>;
 ```
 
 #### Set Ping Pong
@@ -617,7 +617,7 @@ Sets the event which will be invoked when the tween is canceled.
 Enabled ping pong playback, this will bounce the animation back and forth. The tween has play forward and backwards to count as one cycle. Use either SetLoopCount or SetInifinite to set the number of times the animation should ping pong.
 
 ```cs
-<Tween>.SetPingPong () : Tween<T>;
+<Tween<T>>.SetPingPong () : Tween<T>;
 ```
 
 #### Set Loop Count
@@ -627,7 +627,7 @@ Enabled ping pong playback, this will bounce the animation back and forth. The t
 Sets the number of times the animation should loop.
 
 ```cs
-<Tween>.SetLoopCount (int loopCount) : Tween<T>;
+<Tween<T>>.SetLoopCount (int loopCount) : Tween<T>;
 ```
 
 #### Set Infinite
@@ -637,7 +637,7 @@ Sets the number of times the animation should loop.
 Sets this tween to infinite, the loopcount will be ignored.
 
 ```cs
-<Tween>.SetInfinite () : Tween<T>;
+<Tween<T>>.SetInfinite () : Tween<T>;
 ```
 
 #### Set Delay
@@ -647,7 +647,7 @@ Sets this tween to infinite, the loopcount will be ignored.
 Sets the delay of this tween. The tween will not play anything until the requested delay time is reached. You can change this behaviour by enabeling 'goToFirstFrameImmediately' to set the animation to the first frame immediately.
 
 ```cs
-<Tween>.SetDelay (float delay, bool goToFirstFrameImmediately = false) : Tween<T>;
+<Tween<T>>.SetDelay (float delay, bool goToFirstFrameImmediately = false) : Tween<T>;
 ```
 
 #### Set Time
@@ -657,7 +657,7 @@ Sets the delay of this tween. The tween will not play anything until the request
 Sets the time of the tween.
 
 ```cs
-<Tween>.SetTime (float time) : Tween<T>;
+<Tween<T>>.SetTime (float time) : Tween<T>;
 ```
 
 #### Set Random Time
@@ -667,7 +667,7 @@ Sets the time of the tween.
 Sets the time of the tween to a random value.
 
 ```cs
-<Tween>.SetRandomTime () : Tween<T>;
+<Tween<T>>.SetRandomTime () : Tween<T>;
 ```
 
 #### Set Paused
@@ -677,7 +677,7 @@ Sets the time of the tween to a random value.
 Sets whether the playback and delay should be paused.
 
 ```cs
-<Tween>.SetPaused (bool isPaused) : Tween<T>;
+<Tween<T>>.SetPaused (bool isPaused) : Tween<T>;
 ```
 
 #### Set Use Unscaled Time
@@ -687,7 +687,7 @@ Sets whether the playback and delay should be paused.
 Sets whether the tween should use the unscaled delta time instead of the scaled delta time.
 
 ```cs
-<Tween>.SetUseUnscaledTime (bool useUnscaledTime) : Tween<T>;
+<Tween<T>>.SetUseUnscaledTime (bool useUnscaledTime) : Tween<T>;
 ```
 
 #### Set Overshooting
@@ -697,7 +697,7 @@ Sets whether the tween should use the unscaled delta time instead of the scaled 
 Sets the overshooting of Eases that exceed their boundaries such as elastic and back.
 
 ```cs
-<Tween>.SetOvershooting (float overshooting) : Tween<T>;
+<Tween<T>>.SetOvershooting (float overshooting) : Tween<T>;
 ```
 
 #### Set Ease
@@ -707,7 +707,7 @@ Sets the overshooting of Eases that exceed their boundaries such as elastic and 
 Sets the ease for this tween.
 
 ```cs
-<Tween>.SetEase (Ease ease) : Tween<T>;
+<Tween<T>>.SetEase (Ease ease) : Tween<T>;
 ```
 
 #### Set Ease Linear
@@ -717,7 +717,7 @@ Sets the ease for this tween.
 Sets the ease for this tween to Linear.
 
 ```cs
-<Tween>.SetEaseLinear () : Tween<T>;
+<Tween<T>>.SetEaseLinear () : Tween<T>;
 ```
 
 #### Set Ease Sine In
@@ -727,7 +727,7 @@ Sets the ease for this tween to Linear.
 Sets the ease for this tween to SineIn.
 
 ```cs
-<Tween>.SetEaseSineIn () : Tween<T>;
+<Tween<T>>.SetEaseSineIn () : Tween<T>;
 ```
 
 #### Set Ease Sine Out
@@ -737,7 +737,7 @@ Sets the ease for this tween to SineIn.
 Sets the ease for this tween to SineOut.
 
 ```cs
-<Tween>.SetEaseSineOut () : Tween<T>;
+<Tween<T>>.SetEaseSineOut () : Tween<T>;
 ```
 
 #### Set Ease Sine In Out
@@ -747,7 +747,7 @@ Sets the ease for this tween to SineOut.
 Sets the ease for this tween to SineInOut.
 
 ```cs
-<Tween>.SetEaseSineInOut () : Tween<T>;
+<Tween<T>>.SetEaseSineInOut () : Tween<T>;
 ```
 
 #### Set Ease Quad In
@@ -757,7 +757,7 @@ Sets the ease for this tween to SineInOut.
 Sets the ease for this tween to QuadIn.
 
 ```cs
-<Tween>.SetEaseQuadIn () : Tween<T>;
+<Tween<T>>.SetEaseQuadIn () : Tween<T>;
 ```
 
 #### Set Ease Quad Out
@@ -767,7 +767,7 @@ Sets the ease for this tween to QuadIn.
 Sets the ease for this tween to QuadOut.
 
 ```cs
-<Tween>.SetEaseQuadOut () : Tween<T>;
+<Tween<T>>.SetEaseQuadOut () : Tween<T>;
 ```
 
 #### Set Ease Quad In Out
@@ -777,7 +777,7 @@ Sets the ease for this tween to QuadOut.
 Sets the ease for this tween to QuadInOut.
 
 ```cs
-<Tween>.SetEaseQuadInOut () : Tween<T>;
+<Tween<T>>.SetEaseQuadInOut () : Tween<T>;
 ```
 
 #### Set Ease Cubic In
@@ -787,7 +787,7 @@ Sets the ease for this tween to QuadInOut.
 Sets the ease for this tween to CubicIn.
 
 ```cs
-<Tween>.SetEaseCubicIn () : Tween<T>;
+<Tween<T>>.SetEaseCubicIn () : Tween<T>;
 ```
 
 #### Set Ease Cubic Out
@@ -797,7 +797,7 @@ Sets the ease for this tween to CubicIn.
 Sets the ease for this tween to CubicOut.
 
 ```cs
-<Tween>.SetEaseCubicOut () : Tween<T>;
+<Tween<T>>.SetEaseCubicOut () : Tween<T>;
 ```
 
 #### Set Ease Cubic In Out
@@ -807,7 +807,7 @@ Sets the ease for this tween to CubicOut.
 Sets the ease for this tween to CubicInOut.
 
 ```cs
-<Tween>.SetEaseCubicInOut () : Tween<T>;
+<Tween<T>>.SetEaseCubicInOut () : Tween<T>;
 ```
 
 #### Set Ease Quart In
@@ -817,7 +817,7 @@ Sets the ease for this tween to CubicInOut.
 Sets the ease for this tween to QuartIn.
 
 ```cs
-<Tween>.SetEaseQuartIn () : Tween<T>;
+<Tween<T>>.SetEaseQuartIn () : Tween<T>;
 ```
 
 #### Set Ease Quart Out
@@ -827,7 +827,7 @@ Sets the ease for this tween to QuartIn.
 Sets the ease for this tween to QuartOut.
 
 ```cs
-<Tween>.SetEaseQuartOut () : Tween<T>;
+<Tween<T>>.SetEaseQuartOut () : Tween<T>;
 ```
 
 #### Set Ease Quart In Out
@@ -837,7 +837,7 @@ Sets the ease for this tween to QuartOut.
 Sets the ease for this tween to QuartInOut.
 
 ```cs
-<Tween>.SetEaseQuartInOut () : Tween<T>;
+<Tween<T>>.SetEaseQuartInOut () : Tween<T>;
 ```
 
 #### Set Ease Quint In
@@ -847,7 +847,7 @@ Sets the ease for this tween to QuartInOut.
 Sets the ease for this tween to QuintIn.
 
 ```cs
-<Tween>.SetEaseQuintIn () : Tween<T>;
+<Tween<T>>.SetEaseQuintIn () : Tween<T>;
 ```
 
 #### Set Ease Quint Out
@@ -857,7 +857,7 @@ Sets the ease for this tween to QuintIn.
 Sets the ease for this tween to QuintOut.
 
 ```cs
-<Tween>.SetEaseQuintOut () : Tween<T>;
+<Tween<T>>.SetEaseQuintOut () : Tween<T>;
 ```
 
 #### Set Ease Quint In Out
@@ -867,7 +867,7 @@ Sets the ease for this tween to QuintOut.
 Sets the ease for this tween to QuintInOut.
 
 ```cs
-<Tween>.SetEaseQuintInOut () : Tween<T>;
+<Tween<T>>.SetEaseQuintInOut () : Tween<T>;
 ```
 
 #### Set Ease Expo In
@@ -877,7 +877,7 @@ Sets the ease for this tween to QuintInOut.
 Sets the ease for this tween to ExpoIn.
 
 ```cs
-<Tween>.SetEaseExpoIn () : Tween<T>;
+<Tween<T>>.SetEaseExpoIn () : Tween<T>;
 ```
 
 #### Set Ease Expo Out
@@ -887,7 +887,7 @@ Sets the ease for this tween to ExpoIn.
 Sets the ease for this tween to ExpoOut.
 
 ```cs
-<Tween>.SetEaseExpoOut () : Tween<T>;
+<Tween<T>>.SetEaseExpoOut () : Tween<T>;
 ```
 
 #### Set Ease Expo In Out
@@ -897,7 +897,7 @@ Sets the ease for this tween to ExpoOut.
 Sets the ease for this tween to ExpoInOut.
 
 ```cs
-<Tween>.SetEaseExpoInOut () : Tween<T>;
+<Tween<T>>.SetEaseExpoInOut () : Tween<T>;
 ```
 
 #### Set Ease Circ In
@@ -907,7 +907,7 @@ Sets the ease for this tween to ExpoInOut.
 Sets the ease for this tween to CircIn.
 
 ```cs
-<Tween>.SetEaseCircIn () : Tween<T>;
+<Tween<T>>.SetEaseCircIn () : Tween<T>;
 ```
 
 #### Set Ease Circ Out
@@ -917,7 +917,7 @@ Sets the ease for this tween to CircIn.
 Sets the ease for this tween to CircOut.
 
 ```cs
-<Tween>.SetEaseCircOut () : Tween<T>;
+<Tween<T>>.SetEaseCircOut () : Tween<T>;
 ```
 
 #### Set Ease Circ In Out
@@ -927,7 +927,7 @@ Sets the ease for this tween to CircOut.
 Sets the ease for this tween to CircInOut.
 
 ```cs
-<Tween>.SetEaseCircInOut () : Tween<T>;
+<Tween<T>>.SetEaseCircInOut () : Tween<T>;
 ```
 
 #### Set Ease Back In
@@ -937,7 +937,7 @@ Sets the ease for this tween to CircInOut.
 Sets the ease for this tween to BackIn.
 
 ```cs
-<Tween>.SetEaseBackIn () : Tween<T>;
+<Tween<T>>.SetEaseBackIn () : Tween<T>;
 ```
 
 #### Set Ease Back Out
@@ -947,7 +947,7 @@ Sets the ease for this tween to BackIn.
 Sets the ease for this tween to BackOut.
 
 ```cs
-<Tween>.SetEaseBackOut () : Tween<T>;
+<Tween<T>>.SetEaseBackOut () : Tween<T>;
 ```
 
 #### Set Ease Back In Out
@@ -957,7 +957,7 @@ Sets the ease for this tween to BackOut.
 Sets the ease for this tween to BackInOut.
 
 ```cs
-<Tween>.SetEaseBackInOut () : Tween<T>;
+<Tween<T>>.SetEaseBackInOut () : Tween<T>;
 ```
 
 #### Set Ease Elastic In
@@ -967,7 +967,7 @@ Sets the ease for this tween to BackInOut.
 Sets the ease for this tween to ElasticIn.
 
 ```cs
-<Tween>.SetEaseElasticIn () : Tween<T>;
+<Tween<T>>.SetEaseElasticIn () : Tween<T>;
 ```
 
 #### Set Ease Elastic Out
@@ -977,7 +977,7 @@ Sets the ease for this tween to ElasticIn.
 Sets the ease for this tween to ElasticOut.
 
 ```cs
-<Tween>.SetEaseElasticOut () : Tween<T>;
+<Tween<T>>.SetEaseElasticOut () : Tween<T>;
 ```
 
 #### Set Ease Elastic In Out
@@ -987,7 +987,7 @@ Sets the ease for this tween to ElasticOut.
 Sets the ease for this tween to ElasticInOut.
 
 ```cs
-<Tween>.SetEaseElasticInOut () : Tween<T>;
+<Tween<T>>.SetEaseElasticInOut () : Tween<T>;
 ```
 
 #### Set Ease Bounce In
@@ -997,7 +997,7 @@ Sets the ease for this tween to ElasticInOut.
 Sets the ease for this tween to BounceIn.
 
 ```cs
-<Tween>.SetEaseBounceIn () : Tween<T>;
+<Tween<T>>.SetEaseBounceIn () : Tween<T>;
 ```
 
 #### Set Ease Bounce Out
@@ -1007,7 +1007,7 @@ Sets the ease for this tween to BounceIn.
 Sets the ease for this tween to BounceOut.
 
 ```cs
-<Tween>.SetEaseBounceOut () : Tween<T>;
+<Tween<T>>.SetEaseBounceOut () : Tween<T>;
 ```
 
 #### Set Ease Bounce In Out
@@ -1017,7 +1017,7 @@ Sets the ease for this tween to BounceOut.
 Sets the ease for this tween to BounceInOut.
 
 ```cs
-<Tween>.SetEaseBounceInOut () : Tween<T>;
+<Tween<T>>.SetEaseBounceInOut () : Tween<T>;
 ```
 
 ## Other Methods
@@ -1029,7 +1029,7 @@ Sets the ease for this tween to BounceInOut.
 Cancel the tween.
 
 ```cs
-<Tween>.Cancel () : void;
+<Tween<T>>.Cancel () : void;
 ```
 
 #### Await
@@ -1039,7 +1039,7 @@ Cancel the tween.
 Returns a Task allowing the Tween to be awaited using an Async Await block until the Tween is either completed, destroyed, canceld or was unable to start. Make sure to cancel your Async method to prevent errors from being throwing in the Unity Editor when leaving Play mode while using Tasks to chain a sequence of Tweens.
 
 ```cs
-<Tween>.Await () : Task;
+<Tween<T>>.Await () : Task;
 ```
 
 #### Yield
@@ -1049,7 +1049,7 @@ Returns a Task allowing the Tween to be awaited using an Async Await block until
 Returns a IEnumerator allowing the Tween to be yielded using a coroutine until the Tween is either completed, destroyed, canceld or was unable to start.
 
 ```cs
-<Tween>.Yield () : IEnumerator;
+<Tween<T>>.Yield () : IEnumerator;
 ```
 
 #### Get Total Duration
@@ -1059,5 +1059,5 @@ Returns a IEnumerator allowing the Tween to be yielded using a coroutine until t
 Gets the total duration of the tween including the loop count and ping pong settings, and the delay optionally.
 
 ```cs
-<Tween>.GetTotalDuration (bool includeDelay = false) : float;
+<Tween<T>>.GetTotalDuration (bool includeDelay = false) : float;
 ```
