@@ -1,4 +1,4 @@
-#if TWEENS_TEXTMESHPRO
+#if TWEENS_DEFINED_COM_UNITY_TEXTMESHPRO
 
 using ElRaccoone.Tweens.Core;
 using UnityEngine;

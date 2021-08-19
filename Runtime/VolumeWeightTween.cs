@@ -1,4 +1,4 @@
-#if TWEENS_RENDER_PIPELINES_CORE
+#if TWEENS_DEFINED_COM_UNITY_RENDERPIPELINES_CORE
 
 using ElRaccoone.Tweens.Core;
 using UnityEngine;

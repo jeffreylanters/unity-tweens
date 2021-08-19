@@ -41,7 +41,7 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenRotationY (45, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAnglesZ"))
         this.target.TweenRotationZ (45, 1).SetFrom (0);
-#if TWEENS_UGUI
+#if TWEENS_DEFINED_COM_UNITY_UGUI
       if (GUILayout.Button ("GraphicAlpha"))
         this.target.TweenGraphicAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("GraphicColor"))
@@ -97,13 +97,13 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenTextMeshAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("TextMeshColor"))
         this.target.TweenTextMeshColor (Color.white, 1).SetFrom (Color.red);
-#if TWEENS_TEXTMESHPRO
+#if TWEENS_DEFINED_COM_UNITY_TEXTMESHPRO
       if (GUILayout.Button ("TextMeshProAlpha"))
         this.target.TweenTextMeshProAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("TextMeshProColor"))
         this.target.TweenTextMeshProColor (Color.white, 1).SetFrom (Color.red);
 #endif
-#if TWEENS_RENDER_PIPELINES_CORE
+#if TWEENS_DEFINED_COM_UNITY_RENDERPIPELINES_CORE
       if (GUILayout.Button ("VolumeWeight"))
         this.target.TweenVolumeWeight (1, 1).SetFrom (0);
 #endif
