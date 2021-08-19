@@ -363,7 +363,7 @@ namespace ElRaccoone.Tweens.Core {
     /// <param name="duration">The duration of the tween.</param>
     /// <param name="valueTo">The To value.</param>
     /// <returns>The current Tween.</returns>
-    internal Tween<DriverValueType> Finalize (float duration, DriverValueType valueTo) {
+    internal Tween<DriverValueType> Finalize (DriverValueType valueTo, float duration) {
       if (this.gameObject.activeInHierarchy == false) {
         this.Decommission ();
       } else {
