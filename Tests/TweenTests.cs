@@ -25,6 +25,14 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenAnchoredPositionY (1, 1).SetFrom (0);
       if (GUILayout.Button ("AudioSourcePitch"))
         this.target.TweenAudioSourcePitch (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AudioSourcePriority"))
+        this.target.TweenAudioSourcePriority (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AudioSourceReverbZoneMix"))
+        this.target.TweenAudioSourceReverbZoneMix (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AudioSourceSpatialBlend"))
+        this.target.TweenAudioSourceSpatialBlend (1, 1).SetFrom (0);
+      if (GUILayout.Button ("AudioSourceStereoPan"))
+        this.target.TweenAudioSourceStereoPan (1, 1).SetFrom (0);
       if (GUILayout.Button ("AudioSourceVolume"))
         this.target.TweenAudioSourceVolume (1, 1).SetFrom (0);
       if (GUILayout.Button ("CameraFieldOfView"))
