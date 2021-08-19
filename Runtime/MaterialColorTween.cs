@@ -9,6 +9,9 @@ namespace ElRaccoone.Tweens {
     public static Tween<Color> TweenMaterialColor (this GameObject self, Color to, float duration) =>
       Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
+    /// <summary>
+    /// The driver is responsible for updating the tween's state.
+    /// </summary>
     private class Driver : Tween<Color> {
       private MeshRenderer meshRenderer;
       private Material material;
@@ -21,10 +24,19 @@ namespace ElRaccoone.Tweens {
         return this.meshRenderer != null;
       }
 
+      /// <summary>
+      /// Overriden method which is called when the tween starts and should
+      /// return the tween's initial value.
+      /// </summary>
       public override Color OnGetFrom () {
         return this.material.color;
       }
 
+      /// <summary>
+      /// Overriden method which is called every tween update and should be used
+      /// to update the tween's value.
+      /// </summary>
+      /// <param name="easedTime">The current eased time of the tween's step.</param>
       public override void OnUpdate (float easedTime) {
         this.color = this.material.color;
         this.valueCurrent.r = this.InterpolateValue (this.valueFrom.r, this.valueTo.r, easedTime);

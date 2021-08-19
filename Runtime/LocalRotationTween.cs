@@ -9,6 +9,9 @@ namespace ElRaccoone.Tweens {
     public static Tween<Vector3> TweenLocalRotation (this GameObject self, Vector3 to, float duration) =>
       Tween<Vector3>.Add<Driver> (self).Finalize (to, duration);
 
+    /// <summary>
+    /// The driver is responsible for updating the tween's state.
+    /// </summary>
     private class Driver : Tween<Vector3, Transform> {
       private Quaternion quaternionValueFrom;
       private Quaternion quaternionValueTo;
@@ -19,12 +22,21 @@ namespace ElRaccoone.Tweens {
         return base.OnInitialize ();
       }
 
+      /// <summary>
+      /// Overriden method which is called when the tween starts and should
+      /// return the tween's initial value.
+      /// </summary>
       public override Vector3 OnGetFrom () {
         this.quaternionValueFrom = Quaternion.Euler (this.component.localEulerAngles);
         this.didConvertValueFromToQuanternion = true;
         return this.component.localEulerAngles;
       }
 
+      /// <summary>
+      /// Overriden method which is called every tween update and should be used
+      /// to update the tween's value.
+      /// </summary>
+      /// <param name="easedTime">The current eased time of the tween's step.</param>
       public override void OnUpdate (float easedTime) {
         if (this.didConvertValueFromToQuanternion == false) {
           this.quaternionValueFrom = Quaternion.Euler (this.valueFrom);
