@@ -307,7 +307,7 @@ Instantiates a Tween animating the Z axis of the LocalScale.
 <GameObject, Component>.TweenLocalScaleZ (float to, float duration) : Tween<float>;
 ```
 
-#### Tween Image Fill Amount (Unity UI)
+#### Tween Image Fill Amount (Unity GUI)
 
 `version 1.0.3`
 
@@ -319,7 +319,7 @@ Instantiates a Tween animating the fillAmount of an image.
 <GameObject, Component>.TweenImageFillAmount (float to, float duration) : Tween<float>;
 ```
 
-#### Tween Graphic Alpha (Unity UI)
+#### Tween Graphic Alpha (Unity GUI)
 
 `version 1.0.4`
 
@@ -331,11 +331,11 @@ Instantiates a Tween animating the alpha of a graphic.
 <GameObject, Component>.TweenGraphicAlpha (float to, float duration) : Tween<float>;
 ```
 
-#### Tween Graphic Color (Unity UI)
+#### Tween Graphic Color (Unity GUI)
 
 `version 1.0.4`
 
-`require s com.unity.ugui`
+`requires com.unity.ugui`
 
 Instantiates a Tween animating the color of a graphic.
 
