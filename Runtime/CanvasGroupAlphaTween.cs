@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class CanvasGroupAlphaTween {
     public static Tween<float> TweenCanvasGroupAlpha (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<float> TweenCanvasGroupAlpha (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<float, CanvasGroup> {
       public override float OnGetFrom () {

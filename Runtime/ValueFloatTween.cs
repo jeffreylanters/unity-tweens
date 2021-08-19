@@ -5,10 +5,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class ValueFloatTween {
     public static Tween<float> TweenValueFloat (this Component self, float to, float duration, Action<float> onUpdate) =>
-      Tween<float>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (to, duration);
 
     public static Tween<float> TweenValueFloat (this GameObject self, float to, float duration, Action<float> onUpdate) =>
-      Tween<float>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (to, duration);
 
     private class Driver : Tween<float> {
       private Action<float> onUpdate = null;

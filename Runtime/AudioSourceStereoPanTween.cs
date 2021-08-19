@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class AudioSourceStereoPanTween {
     public static Tween<float> TweenAudioSourceStereoPan (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<float> TweenAudioSourceStereoPan (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<float, AudioSource> {
       public override float OnGetFrom () {

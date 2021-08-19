@@ -5,10 +5,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class ValueVector3Tween {
     public static Tween<Vector3> TweenValueVector3 (this Component self, Vector3 to, float duration, Action<Vector3> onUpdate) =>
-      Tween<Vector3>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
+      Tween<Vector3>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (to, duration);
 
     public static Tween<Vector3> TweenValueVector3 (this GameObject self, Vector3 to, float duration, Action<Vector3> onUpdate) =>
-      Tween<Vector3>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
+      Tween<Vector3>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (to, duration);
 
     private class Driver : Tween<Vector3> {
       private Action<Vector3> onUpdate = null;

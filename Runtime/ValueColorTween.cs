@@ -5,10 +5,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class ValueColorTween {
     public static Tween<Color> TweenValueColor (this Component self, Color to, float duration, Action<Color> onUpdate) =>
-      Tween<Color>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (to, duration);
 
     public static Tween<Color> TweenValueColor (this GameObject self, Color to, float duration, Action<Color> onUpdate) =>
-      Tween<Color>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).SetOnUpdate (onUpdate).Finalize (to, duration);
 
     private class Driver : Tween<Color> {
       private Action<Color> onUpdate = null;

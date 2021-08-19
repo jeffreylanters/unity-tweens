@@ -7,10 +7,10 @@ using TMPro;
 namespace ElRaccoone.Tweens {
   public static class TextMeshProAlphaTween {
     public static Tween<float> TweenTextMeshProAlpha (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<float> TweenTextMeshProAlpha (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<float, TextMeshPro> {
       private Color color;

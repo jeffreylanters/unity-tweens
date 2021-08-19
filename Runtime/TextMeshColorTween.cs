@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class TextMeshColorTween {
     public static Tween<Color> TweenTextMeshColor (this Component self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<Color> TweenTextMeshColor (this GameObject self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<Color, TextMesh> {
       public override Color OnGetFrom () {

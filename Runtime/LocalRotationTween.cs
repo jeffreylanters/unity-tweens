@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class LocalRotationTween {
     public static Tween<Vector3> TweenLocalRotation (this Component self, Vector3 to, float duration) =>
-      Tween<Vector3>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Vector3>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<Vector3> TweenLocalRotation (this GameObject self, Vector3 to, float duration) =>
-      Tween<Vector3>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Vector3>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<Vector3, Transform> {
       private Quaternion quaternionValueFrom;

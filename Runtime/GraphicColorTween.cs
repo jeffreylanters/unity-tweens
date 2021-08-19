@@ -7,10 +7,10 @@ using UnityEngine.UI;
 namespace ElRaccoone.Tweens {
   public static class GraphicColorTween {
     public static Tween<Color> TweenGraphicColor (this Component self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<Color> TweenGraphicColor (this GameObject self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<Color, Graphic> {
       public override Color OnGetFrom () {

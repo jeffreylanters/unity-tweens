@@ -7,10 +7,10 @@ using UnityEngine.UI;
 namespace ElRaccoone.Tweens {
   public static class ImageFillAmountTween {
     public static Tween<float> TweenImageFillAmount (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<float> TweenImageFillAmount (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<float, Image> {
       public override float OnGetFrom () {

@@ -7,10 +7,10 @@ using UnityEngine.Rendering;
 namespace ElRaccoone.Tweens {
   public static class VolumeWeightTween {
     public static Tween<float> TweenVolumeWeight (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<float> TweenVolumeWeight (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (duration, to);
+      Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<float, Volume> {
       public override float OnGetFrom () {

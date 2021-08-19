@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class AnchoredPositionTween {
     public static Tween<Vector2> TweenAnchoredPosition (this Component self, Vector2 to, float duration) =>
-      Tween<Vector2>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Vector2>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<Vector2> TweenAnchoredPosition (this GameObject self, Vector2 to, float duration) =>
-      Tween<Vector2>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Vector2>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<Vector2, RectTransform> {
       public override Vector2 OnGetFrom () {

@@ -4,10 +4,10 @@ using UnityEngine;
 namespace ElRaccoone.Tweens {
   public static class MaterialColorTween {
     public static Tween<Color> TweenMaterialColor (this Component self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
     public static Tween<Color> TweenMaterialColor (this GameObject self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (duration, to);
+      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
 
     private class Driver : Tween<Color> {
       private MeshRenderer meshRenderer;
