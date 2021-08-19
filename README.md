@@ -438,16 +438,6 @@ Instantiates a Tween animating the alpha of a CanvasGroup.
 <GameObject, Component>.TweenCanvasGroupAlpha (float to, float duration) : Tween<float>;
 ```
 
-#### Tween Audio Source Volume
-
-`version 1.0.11`
-
-Instantiates a Tween easing the volume of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourceVolume (float to, float duration) : Tween<float>;
-```
-
 #### Tween Audio Source Pitch
 
 `version 1.0.11`
@@ -456,6 +446,56 @@ Instantiates a Tween easing the pitch of an AudioSource.
 
 ```cs
 <GameObject, Component>.TweenAudioSourcePitch (float to, float duration) : Tween<float>;
+```
+
+#### Tween Audio Source Priority
+
+`version 1.10.0`
+
+Instantiates a Tween easing the priority of an AudioSource.
+
+```cs
+<GameObject, Component>.TweenAudioSourcePriority (float to, float duration) : Tween<float>;
+```
+
+#### Tween Audio Source Reverb Zone Mix
+
+`version 1.10.0`
+
+Instantiates a Tween easing the reverb zone mix of an AudioSource.
+
+```cs
+<GameObject, Component>.TweenAudioSourceReverbZoneMix (float to, float duration) : Tween<float>;
+```
+
+#### Tween Audio Source Spatial Blend
+
+`version 1.10.0`
+
+Instantiates a Tween easing the spatial blend of an AudioSource.
+
+```cs
+<GameObject, Component>.TweenAudioSourceSpatialBlend (float to, float duration) : Tween<float>;
+```
+
+#### Tween Audio Source Stereo Pan
+
+`version 1.10.0`
+
+Instantiates a Tween easing the stereo pan of an AudioSource.
+
+```cs
+<GameObject, Component>.TweenAudioSourceStereoPan (float to, float duration) : Tween<float>;
+```
+
+#### Tween Audio Source Volume
+
+`version 1.0.11`
+
+Instantiates a Tween easing the volume of an AudioSource.
+
+```cs
+<GameObject, Component>.TweenAudioSourceVolume (float to, float duration) : Tween<float>;
 ```
 
 #### Tween Camera Field Of View
