@@ -590,16 +590,6 @@ Instantiates a Tween animating the a color value.
 <GameObject, Component>.TweenValueColor (Color to, float duration, Action<Color> onUpdate) : Tween<Color>;
 ```
 
-#### Tween Delayed Invoke
-
-`version 1.0.0`
-
-Instantiates a Tween which invokes a lambra method.
-
-```cs
-<GameObject, Component>.TweenDelayedInvoke (float duration, Action onComplete) : Tween<float>;
-```
-
 #### Tween Cancel All
 
 `version 1.0.0`
