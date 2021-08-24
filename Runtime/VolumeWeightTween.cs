@@ -15,8 +15,8 @@ namespace ElRaccoone.Tweens {
     /// <summary>
     /// The driver is responsible for updating the tween's state.
     /// </summary>
-    private class Driver : Tween<float, Volume> 
-    {  
+    private class Driver : Tween<float, Volume> {
+      
       /// <summary>
       /// Overriden method which is called when the tween starts and should
       /// return the tween's initial value.
