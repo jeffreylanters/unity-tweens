@@ -12,7 +12,7 @@ namespace ElRaccoone.Tweens {
     /// <param name="to">The target value.</param>
     /// <param name="duration">The Tween's duration.</param>
     /// <returns>A Tween.</returns>
-    public static Tween<float> TweenLightSpotRange (this Component self, float to, float duration) =>
+    public static Tween<float> TweenLightRange (this Component self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     /// <summary>
@@ -23,7 +23,7 @@ namespace ElRaccoone.Tweens {
     /// <param name="to">The target value.</param>
     /// <param name="duration">The Tween's duration.</param>
     /// <returns>A Tween.</returns>
-    public static Tween<float> TweenLightSpotRange (this GameObject self, float to, float duration) =>
+    public static Tween<float> TweenLightRange (this GameObject self, float to, float duration) =>
       Tween<float>.Add<Driver> (self).Finalize (to, duration);
 
     /// <summary>
