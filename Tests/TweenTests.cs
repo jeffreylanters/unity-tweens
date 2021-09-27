@@ -61,6 +61,10 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenLightColor (Color.red, 1).SetFrom (Color.white);
       if (GUILayout.Button ("LightIntensity"))
         this.target.TweenLightIntensity (10, 1).SetFrom (0);
+      if (GUILayout.Button ("LightRange"))
+        this.target.TweenLightRange (10, 1).SetFrom (0);
+      if (GUILayout.Button ("LightSpotAngle"))
+        this.target.TweenLightSpotAngle (10, 1).SetFrom (0);
       if (GUILayout.Button ("LocalEulerAngles"))
         this.target.TweenLocalRotation (Vector3.one * 45, 1).SetFrom (Vector3.zero);
       if (GUILayout.Button ("LocalEulerAnglesX"))
