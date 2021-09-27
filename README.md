@@ -56,18 +56,21 @@ These are some of the endless possibilities using Tweens. Tweens can be invoked 
 ```cs
 using UnityEngine;
 using ElRaccoone.Tweens;
-public class MyGameObject : MonoBehaviour {
+
+public class SomeComponent : MonoBehaviour {
   private void Start () {
     this.gameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
     this.gameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
     this.gameObject.TweenValueFloat (0, 2, (value => { })).SetFrom (100).SetEaseSineOut ();
     this.gameObject.TweenCancelAll ();
   }
+
   private async void AsyncAnimationSequence () {
     await this.gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Await ();
     await this.gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Await ();
     await this.gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Await ();
   }
+
   private IEnumerator RoutineAnimationSequence () {
     yield return this.gameObject.TweenGraphicColor (Color.red, 5).SetEaseCircInOut ().Yield ();
     yield return this.gameObject.TweenGraphicColor (Color.green, 5).SetEaseCircInOut ().Yield ();
