@@ -538,6 +538,26 @@ Instantiates a Tween easing the intensity of a Light.
 <GameObject, Component>.TweenLightIntensity (float to, float duration) : Tween<float>;
 ```
 
+#### Tween Light Range
+
+`version 1.11.0`
+
+Instantiates a Tween easing the range of a Light.
+
+```cs
+<GameObject, Component>.TweenLightRange (float to, float duration) : Tween<float>;
+```
+
+#### Tween Light Spot Angle
+
+`version 1.11.0`
+
+Instantiates a Tween easing the spot angle of a Light.
+
+```cs
+<GameObject, Component>.TweenLightSpotAngle (float to, float duration) : Tween<float>;
+```
+
 #### Tween Volume Weight (Scriptable Render Pipeline)
 
 `version 1.6.7`
