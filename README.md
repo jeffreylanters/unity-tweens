@@ -58,24 +58,24 @@ using UnityEngine;
 using ElRaccoone.Tweens;
 
 public class SomeComponent : MonoBehaviour {
-  private void Start() {
-    this.gameObject.TweenPosition(new Vector3 (10, 1, 15), 5).SetFrom(Vector3.zero).SetOnComplete(SomeMethod);
-    this.gameObject.TweenAnchoredPositionX(100, 2).SetPingPong().SetLoopCount(2);
-    this.gameObject.TweenLocalRotation(Vector3.one * 360, 10).SetDelay(10).SetEaseSineOut();
-    this.gameObject.TweenImageFillAmount(0.75, 2).SetEaseQuartInOut().SetRandomTime();
-    this.gameObject.TweenMaterialColor(Color.red, 10).SetUseUnscaledTime(false).SetEaseCircInOut();
-    this.gameObject.TweenLightIntensity(10, 1).SetInfinite().SetRandomTime();
-    this.gameObject.TweenCancelAll();
+  private void Start () {
+    this.gameObject.TweenPosition (new Vector3  (10, 1, 15), 5).SetFrom (Vector3.zero).SetOnComplete (SomeMethod);
+    this.gameObject.TweenAnchoredPositionX (100, 2).SetPingPong ().SetLoopCount (2);
+    this.gameObject.TweenLocalRotation (Vector3.one * 360, 10).SetDelay (10).SetEaseSineOut ();
+    this.gameObject.TweenImageFillAmount (0.75, 2).SetEaseQuartInOut ().SetRandomTime ();
+    this.gameObject.TweenMaterialColor (Color.red, 10).SetUseUnscaledTime (false).SetEaseCircInOut ();
+    this.gameObject.TweenLightIntensity (10, 1).SetInfinite ().SetRandomTime ();
+    this.gameObject.TweenCancelAll ();
   }
 
-  private async void AsyncAnimationSequence() {
-    await this.gameObject.TweenCanvasGroupAlpha(0, 1).SetEaseElasticIn().SetOvershooting(2);
-    await this.gameObject.TweenVolumeWeight(50, 2).SetTime(0.25f).SetEaseExpoOut();
+  private async void AsyncAnimationSequence () {
+    await this.gameObject.TweenCanvasGroupAlpha (0, 1).SetEaseElasticIn ().SetOvershooting (2);
+    await this.gameObject.TweenVolumeWeight (50, 2).SetTime (0.25f).SetEaseExpoOut ();
   }
 
   private IEnumerator RoutineAnimationSequence () {
-    yield return this.gameObject.TweenAudioSourcePriority(5, 10).SetEase(EaseType.BounceInOut);
-    yield return this.gameObject.TweenValueFloat(100, 1, value => { }).SetFrom(100).SetEaseSineIn();
+    yield return this.gameObject.TweenAudioSourcePriority (5, 10).SetEase (EaseType.BounceInOut);
+    yield return this.gameObject.TweenValueFloat (100, 1, value => { }).SetFrom (100).SetEaseSineIn ();
   }
 }
 ```
