@@ -51,30 +51,31 @@ This module is benchmarked against LeanTween and ITween and beats both in Unity 
 
 ## Getting Started
 
-These are some of the endless possibilities using Tweens. Tweens can be invoked on any GameObject and Component and fetches their own required components so you don't have to. Chainable Options can used to customize the behaviour to your needs.
+These are some of the endless possibilities using Tweens. Tweens can be invoked on any GameObject and Component and fetches their own required components so you don't have to. Chainable Options can used endlessly in order to customize the behaviour to your needs.
 
 ```cs
 using UnityEngine;
 using ElRaccoone.Tweens;
 
 public class SomeComponent : MonoBehaviour {
-  private void Start () {
-    this.gameObject.TweenLocalRotationX (10, 1).SetFrom (-10).SetDelay (1).SetEaseQuadIn ();
-    this.gameObject.TweenGraphicColor (Color.red, 10).SetPingPong ().SetLoop (10).SetEaseBackInOut ();
-    this.gameObject.TweenValueFloat (0, 2, (value => { })).SetFrom (100).SetEaseSineOut ();
-    this.gameObject.TweenCancelAll ();
+  private void Start() {
+    this.gameObject.TweenPosition(new Vector3 (10, 1, 15), 5).SetFrom(Vector3.zero).SetOnComplete(SomeMethod);
+    this.gameObject.TweenAnchoredPositionX(100, 2).SetPingPong().SetLoopCount(2);
+    this.gameObject.TweenLocalRotation(Vector3.one * 360, 10).SetDelay(10).SetEaseSineOut();
+    this.gameObject.TweenImageFillAmount(0.75, 2).SetEaseQuartInOut().SetRandomTime();
+    this.gameObject.TweenMaterialColor(Color.red, 10).SetUseUnscaledTime(false).SetEaseCircInOut();
+    this.gameObject.TweenLightIntensity(10, 1).SetInfinite().SetRandomTime();
+    this.gameObject.TweenCancelAll();
   }
 
-  private async void AsyncAnimationSequence () {
-    await this.gameObject.TweenPosition (new Vector3 (10, 1, 15), 5).SetEaseSineInOut ().Await ();
-    await this.gameObject.TweenPosition (new Vector3 (25, 5, 30), 5).SetEaseSineInOut ().Await ();
-    await this.gameObject.TweenScaleY (100, 5).SetFrom (1).SetLoopCount (5).Await ();
+  private async void AsyncAnimationSequence() {
+    await this.gameObject.TweenCanvasGroupAlpha(0, 1).SetEaseElasticIn().SetOvershooting(2);
+    await this.gameObject.TweenVolumeWeight(50, 2).SetTime(0.25f).SetEaseExpoOut();
   }
 
   private IEnumerator RoutineAnimationSequence () {
-    yield return this.gameObject.TweenGraphicColor (Color.red, 5).SetEaseCircInOut ().Yield ();
-    yield return this.gameObject.TweenGraphicColor (Color.green, 5).SetEaseCircInOut ().Yield ();
-    yield return this.gameObject.TweenLocalRotationZ (360, 5).SetFrom (1).SetPingPong ().Yield ();
+    yield return this.gameObject.TweenAudioSourcePriority(5, 10).SetEase(EaseType.BounceInOut);
+    yield return this.gameObject.TweenValueFloat(100, 1, value => { }).SetFrom(100).SetEaseSineIn();
   }
 }
 ```
@@ -753,7 +754,7 @@ Sets the overshooting of Eases that exceed their boundaries such as elastic and 
 Sets the ease for this tween.
 
 ```cs
-<Tween<T>>.SetEase (Ease ease) : Tween<T>;
+<Tween<T>>.SetEase (EaseType ease) : Tween<T>;
 ```
 
 #### Set Ease Linear
