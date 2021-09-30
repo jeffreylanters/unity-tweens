@@ -64,7 +64,7 @@ public class SomeComponent : MonoBehaviour {
     this.gameObject.TweenLocalRotation (Vector3.one * 360, 10).SetDelay (10).SetEaseSineOut ();
     this.gameObject.TweenImageFillAmount (0.75, 2).SetEaseQuartInOut ().SetRandomTime ();
     this.gameObject.TweenMaterialColor (Color.red, 10).SetUseUnscaledTime (false).SetEaseCircInOut ();
-    this.gameObject.TweenLightIntensity (10, 1).SetInfinite ().SetRandomTime ();
+    this.gameObject.TweenLightIntensity (10, 1).SetInfinite ().SetRandomTime ().SetOnCancel (SomeOtherMethod);
     this.gameObject.TweenCancelAll ();
   }
 
