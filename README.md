@@ -69,13 +69,13 @@ public class SomeComponent : MonoBehaviour {
   }
 
   private async void AsyncAnimationSequence () {
-    await this.gameObject.TweenCanvasGroupAlpha (0, 1).SetEaseElasticIn ().SetOvershooting (2);
-    await this.gameObject.TweenVolumeWeight (50, 2).SetTime (0.25f).SetEaseExpoOut ();
+    await this.gameObject.TweenCanvasGroupAlpha (0, 1).SetEaseElasticIn ().SetOvershooting (2).Await ();
+    await this.gameObject.TweenVolumeWeight (50, 2).SetTime (0.25f).SetEaseExpoOut ().Await ();
   }
 
   private IEnumerator RoutineAnimationSequence () {
-    yield return this.gameObject.TweenAudioSourcePriority (5, 10).SetEase (EaseType.BounceInOut);
-    yield return this.gameObject.TweenValueFloat (100, 1, value => { }).SetFrom (100).SetEaseSineIn ();
+    yield return this.gameObject.TweenAudioSourcePriority (5, 10).SetEase (EaseType.BounceInOut).Yield ();
+    yield return this.gameObject.TweenValueFloat (100, 1, value => { }).SetFrom (100).SetEaseSineIn ().Yield ();
   }
 }
 ```
