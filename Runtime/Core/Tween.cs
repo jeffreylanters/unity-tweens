@@ -825,8 +825,17 @@ namespace ElRaccoone.Tweens.Core {
     /// </summary>
     /// <returns>An awaitable Task.</returns>
     public async Task Await () {
-      while (this.isCompleted == false && this.isDecommissioned == false)
+      while (this.isCompleted == false && this.isDecommissioned == false) {
+#if UNITY_EDITOR
+        // It is possible for the Application to stop playing in the middle of a
+        // Tween. Usually this is no problem, since the application is stopped
+        // anyway. But when in the editor, the runtime is still running, so to
+        // avoid any issues, we stop when the application is no longer playing.
+        if (Application.isPlaying == false)
+          return;
+#endif
         await Task.Yield ();
+      }
     }
 
     /// <summary>
