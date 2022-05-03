@@ -192,6 +192,26 @@ Instantiates a Tween animating the Y axis of the AnchoredPosition.
 <GameObject, Component>.TweenAnchoredPositionY (float to, float duration) : Tween<float>;
 ```
 
+#### Tween Anchor Min
+
+`version 1.12.0`
+
+Instantiates a Tween animating the AnchorMin.
+
+```cs
+<GameObject, Component>.TweenAnchorMin (Vector2 to, float duration) : Tween<Vector2>;
+```
+
+#### Tween Anchor Max
+
+`version 1.12.0`
+
+Instantiates a Tween animating the AnchorMax.
+
+```cs
+<GameObject, Component>.TweenAnchorMax (Vector2 to, float duration) : Tween<Vector2>;
+```
+
 #### Tween Rotation
 
 `version 1.0.0`
