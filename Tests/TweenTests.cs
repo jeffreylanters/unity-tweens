@@ -23,6 +23,10 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenAnchoredPositionX (1, 1).SetFrom (0);
       if (GUILayout.Button ("AnchoredPositionY"))
         this.target.TweenAnchoredPositionY (1, 1).SetFrom (0);
+      if (GUILayout.Button ("TweenAnchorMin"))
+        this.target.TweenAnchorMin (new Vector2 (1, 0), 1).SetFrom (new Vector2 (-1, 0));
+      if (GUILayout.Button ("TweenAnchorMax"))
+        this.target.TweenAnchorMax (new Vector2 (1, 0), 1).SetFrom (new Vector2 (-1, 0));
       if (GUILayout.Button ("AudioSourcePitch"))
         this.target.TweenAudioSourcePitch (1, 1).SetFrom (0);
       if (GUILayout.Button ("AudioSourcePriority"))
