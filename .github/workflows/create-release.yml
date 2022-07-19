@@ -29,3 +29,4 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
+          body_path: RELEASE-NOTES.md
