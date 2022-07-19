@@ -1,7 +1,7 @@
 {
   "name": "nl.elraccoone.tweens",
   "displayName": "Tweens",
-  "version": "1.12.1",
+  "version": "2.0.0",
   "unity": "2018.1",
   "description": "An extremely light weight, extendable and customisable tweening engine made for strictly typed script-based animations for user-interfaces and world-space objects optimised for all platforms.",
   "type": "library",
