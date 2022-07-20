@@ -282,6 +282,8 @@ namespace ElRaccoone.Tweens.Core {
       // decomissioned right away.
       else if (this.hasDuration == false) {
         this.OnUpdate (Easer.Apply (this.ease, 1));
+        if (this.hasOnComplete == true)
+          this.onComplete ();
         this.Decommission ();
         return;
       }
