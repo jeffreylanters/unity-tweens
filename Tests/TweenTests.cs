@@ -196,12 +196,27 @@ namespace ElRaccoone.Tweens.Tests {
       if (GUILayout.Button ("Tween Value Vector3"))
         this.target.TweenValueVector3 (Vector3.one, 2, (v) => Debug.Log (v)).SetEaseSineInOut ().SetFrom (-Vector3.one);
 
+      // Event Testing
+      GUILayout.Label ("[EVENT TESTING]");
+      if (GUILayout.Button ("Tween OnComplete"))
+        this.target.TweenValueFloat (1, 1, (v) => { }).SetFrom (0).SetOnComplete (() => Debug.Log ("OnComplete"));
+      if (GUILayout.Button ("Tween OnComplete with no duration"))
+        this.target.TweenValueFloat (1, 0, (v) => { }).SetFrom (0).SetOnComplete (() => Debug.Log ("OnComplete"));
+      if (GUILayout.Button ("Tween OnCancel"))
+        this.target.TweenValueFloat (1, 1, (v) => { }).SetFrom (0).SetOnCancel (() => Debug.Log ("OnCancel"));
+      if (GUILayout.Button ("Tween OnStart"))
+        this.target.TweenValueFloat (1, 1, (v) => { }).SetFrom (0).SetOnStart (() => Debug.Log ("OnStart"));
+      if (GUILayout.Button ("Tween OnStart with delay"))
+        this.target.TweenValueFloat (1, 1, (v) => { }).SetFrom (0).SetOnStart (() => Debug.Log ("OnStart")).SetDelay(1);
+      if (GUILayout.Button ("Tween OnStart with no duration"))
+        this.target.TweenValueFloat (1, 0, (v) => { }).SetFrom (0).SetOnStart (() => Debug.Log ("OnStart"));
+      if (GUILayout.Button ("Tween OnStart with delay and no duration"))
+        this.target.TweenValueFloat (1, 0, (v) => { }).SetFrom (0).SetOnStart (() => Debug.Log ("OnStart")).SetDelay(1);
+
       // Flicker Testing
       GUILayout.Label ("[CANCELING TESTING]");
       if (GUILayout.Button ("TweenScale"))
         this.target.TweenLocalScaleX (1, 5).SetFrom (0);
-      if (GUILayout.Button ("TweenScale With OnCancel"))
-        this.target.TweenLocalScaleX (1, 5).SetFrom (0).SetOnCancel (() => Debug.Log ("Did Cancel"));
       if (GUILayout.Button ("CancelAll"))
         this.target.TweenCancelAll ();
 
