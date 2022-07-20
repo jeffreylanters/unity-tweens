@@ -170,6 +170,25 @@ namespace ElRaccoone.Tweens.Core {
     private float overshooting = 0;
 
     /// <summary>
+    /// Defines whether this Tween has a start callback. When this is defined
+    /// the onStart action will be invoked when the Tween starts.
+    /// </summary>
+    private bool hasOnStart = false;
+
+    /// <summary>
+    /// Defines whether the Tween's onStart action is invoked when the Tween
+    /// starts.
+    /// </summary>
+    private bool didTriggerOnStart = false;
+
+    /// <summary>
+    /// The start callback will be invoked when the Tween completes. This
+    /// will only happen when the Tween truely start and will not invoke before
+    /// the delay.
+    /// </summary>
+    private Action onStart = null;
+
+    /// <summary>
     /// Defines whether this Tween has a completion callback. When this is
     /// defined, the onComplete action will be invoked when the Tween completes.
     /// </summary>
@@ -282,6 +301,9 @@ namespace ElRaccoone.Tweens.Core {
       // decomissioned right away.
       else if (this.hasDuration == false) {
         this.OnUpdate (Easer.Apply (this.ease, 1));
+        // the onstart and oncomplete callbacks will be invoked anyway.
+        if (this.hasOnStart == true)
+          this.onStart ();
         if (this.hasOnComplete == true)
           this.onComplete ();
         this.Decommission ();
@@ -289,6 +311,13 @@ namespace ElRaccoone.Tweens.Core {
       }
       // Oterwise it is... Showtime!
       else {
+        // Right before the tween will start, the onstart callback will be 
+        // invoked.
+        if (didTriggerOnStart == false) {
+          if (this.hasOnStart == true)
+            this.onStart ();
+          didTriggerOnStart = true;
+        }
         // Increase or decrease the time of the tween based on the direction.
         var _timeDelta = (this.useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime) / this.duration;
         this.time += this.isPlayingForward == true ? _timeDelta : -_timeDelta;
@@ -384,6 +413,17 @@ namespace ElRaccoone.Tweens.Core {
     public Tween<DriverValueType> SetFrom (DriverValueType valueFrom) {
       this.didOverwriteFrom = true;
       this.valueFrom = valueFrom;
+      return this;
+    }
+
+    /// <summary>
+    /// Binds an onStart event which will be invoked when the tween starts.
+    /// </summary>
+    /// <param name="onComplete">The completion callback.</param>
+    /// <returns>The current Tween.</returns>
+    public Tween<DriverValueType> SetOnStart (Action onStart) {
+      this.hasOnStart = true;
+      this.onStart = onStart;
       return this;
     }
 
