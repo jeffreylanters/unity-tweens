@@ -656,6 +656,16 @@ Sets the From value of a tween, when not set the current value will be used.
 <Tween<T>>.SetFrom (T valueFrom) : Tween<T>;
 ```
 
+#### Set On Start
+
+`version 2.1.0`
+
+Sets the event which will be invoked right before the tween starts playing after a potential delay. This will not be invoked when the tween is canceled.
+
+```cs
+<Tween<T>>.SetOnStart (Action onStart) : Tween<T>;
+```
+
 #### Set On Complete
 
 `version 1.1.0`
