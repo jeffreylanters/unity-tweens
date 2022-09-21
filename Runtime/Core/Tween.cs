@@ -417,9 +417,11 @@ namespace ElRaccoone.Tweens.Core {
     }
 
     /// <summary>
-    /// Binds an onStart event which will be invoked when the tween starts.
+    /// Binds an onStart event which will be invoked right before the tween 
+    /// starts after a potential delay. It will not be invoked when the tween
+    /// is canceled.
     /// </summary>
-    /// <param name="onComplete">The completion callback.</param>
+    /// <param name="onStart">The start callback.</param>
     /// <returns>The current Tween.</returns>
     public Tween<DriverValueType> SetOnStart (Action onStart) {
       this.hasOnStart = true;
