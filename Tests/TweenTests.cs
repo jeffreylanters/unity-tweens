@@ -12,6 +12,7 @@ namespace ElRaccoone.Tweens.Tests {
 
     private Vector2 scrollPosition = new Vector2 ();
 
+#if TWEENS_DEFINED_COM_UNITY_UGUI
     private void OnGUI () {
       this.scrollPosition = GUILayout.BeginScrollView (this.scrollPosition, GUILayout.Width (Screen.width / 3f));
 
@@ -53,14 +54,12 @@ namespace ElRaccoone.Tweens.Tests {
         this.target.TweenRotationY (45, 1).SetFrom (0);
       if (GUILayout.Button ("EulerAnglesZ"))
         this.target.TweenRotationZ (45, 1).SetFrom (0);
-#if TWEENS_DEFINED_COM_UNITY_UGUI
       if (GUILayout.Button ("GraphicAlpha"))
         this.target.TweenGraphicAlpha (1, 1).SetFrom (0);
       if (GUILayout.Button ("GraphicColor"))
         this.target.TweenGraphicColor (Color.white, 1).SetFrom (Color.red);
       if (GUILayout.Button ("ImageFillAmount"))
         this.target.TweenImageFillAmount (1, 1).SetFrom (0);
-#endif
       if (GUILayout.Button ("LightColor"))
         this.target.TweenLightColor (Color.red, 1).SetFrom (Color.white);
       if (GUILayout.Button ("LightIntensity"))
@@ -222,6 +221,7 @@ namespace ElRaccoone.Tweens.Tests {
 
       GUILayout.EndScrollView ();
     }
+#endif
   }
 }
 
