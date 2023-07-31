@@ -8,5 +8,11 @@
   "hideInEditor": false,
   "documentationUrl": "https://github.com/jeffreylanters/unity-tweens",
   "changelogUrl": "https://github.com/jeffreylanters/unity-tweens/releases",
-  "licensesUrl": "https://github.com/jeffreylanters/unity-tweens/blob/master/LICENSE.md"
+  "licensesUrl": "https://github.com/jeffreylanters/unity-tweens/blob/master/LICENSE.md",
+  "repository": "https://github.com/jeffreylanters/unity-tweens.git",
+  "author": {
+    "name": "Jeffrey Lanters",
+    "email": "hallo@jeffreylanters.nl",
+    "url": "https://github.com/jeffreylanters"
+  }
 }
