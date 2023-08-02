@@ -2,11 +2,11 @@ using Tweens.Core;
 using UnityEngine;
 
 namespace Tweens {
-  public sealed class PositionXTween : Tween<float> {
-    public PositionXTween (Component target) : base (target) { }
+  public sealed class SpriteRendererOpacityTween : Tween<SpriteRenderer, float> {
+    public SpriteRendererOpacityTween (GameObject target) : base (target) { }
 
     internal sealed override float From () {
-      return target.transform.position.x;
+      return component.color.a;
     }
 
     internal sealed override float Lerp (float time) {
@@ -14,9 +14,9 @@ namespace Tweens {
     }
 
     internal sealed override void Apply (float value) {
-      var position = target.transform.position;
-      position.x = value;
-      target.transform.position = position;
+      var color = component.color;
+      color.a = value;
+      component.color = color;
     }
   }
 }

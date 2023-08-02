@@ -65,28 +65,7 @@ var tween = new PositionTween (transform) {
   onEnd = new Action (() => Debug.Log ("onEnd")),
   onCancel = new Action (() => Debug.Log ("onCancel")),
   onUpdate = new Action<Vector3> ((value) => Debug.Log ($"onUpdate: {value}")),
-  easeType = EaseType.SineInOut
+  easeType = EaseType.SineInOut,
+  // And many more options...
 };
-```
-
-## Tweening Methods
-
-#### Tween Position
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Position.
-
-```cs
-public PositionTween (Component target);
-```
-
-#### Tween Position X
-
-`version 1.0.0`
-
-Instantiates a Tween animating the X axis of the Position.
-
-```cs
-public PositionXTween (Component target);
 ```
