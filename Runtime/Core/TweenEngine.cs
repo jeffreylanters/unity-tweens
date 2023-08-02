@@ -21,7 +21,7 @@ namespace Tweens.Core {
       }
       registerQueue.Clear ();
       foreach (var tween in tweens) {
-        if (tween.target == null) {
+        if (tween.gameObject == null) {
           tween.Cancel ();
           continue;
         }

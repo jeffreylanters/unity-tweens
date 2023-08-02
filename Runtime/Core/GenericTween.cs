@@ -3,16 +3,19 @@ using Tweens.Core.Data;
 using UnityEngine;
 
 namespace Tweens.Core {
-  public abstract class Tween<Type> : Tween {
-    public SetValue<Type> from = new ();
-    public SetValue<Action<Type>> onUpdate = new ();
-    public Type to;
+  public abstract class Tween<ComponentType, DataType> : Tween {
+    public SetValue<DataType> from = new ();
+    public SetValue<Action<DataType>> onUpdate = new ();
+    public DataType to;
+    public ComponentType component;
 
-    internal abstract Type From ();
-    internal abstract Type Lerp (float time);
-    internal abstract void Apply (Type value);
+    internal abstract DataType From ();
+    internal abstract DataType Lerp (float time);
+    internal abstract void Apply (DataType value);
 
-    public Tween (Component target) : base (target) { }
+    public Tween (GameObject target) : base (target) {
+      component = target.GetComponent<ComponentType> ();
+    }
 
     internal sealed override void Awake () {
       base.Awake ();

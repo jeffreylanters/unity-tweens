@@ -18,14 +18,14 @@ namespace Tweens.Core {
     public CompletableValue<Action> onStart = new ();
     public SetValue<Action> onEnd = new ();
     public CompletableValue<Action> onCancel = new ();
-    internal readonly Component target;
+    internal readonly GameObject gameObject;
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal CancellationTokenSource cancellationTokenSource = new ();
     internal CancellationToken cancellationToken;
 
-    public Tween (Component target) {
-      this.target = target.GetComponent<Component> ();
+    public Tween (GameObject target) {
+      gameObject = target;
       cancellationToken = cancellationTokenSource.Token;
       TweenEngine.Register (this);
     }
