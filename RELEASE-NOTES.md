@@ -1,2 +1,2 @@
-- Added onStart callback to all tweens
-- Fixed an issue where tweens without a duration would not trigger a completion event
+- Version 3 introduces a whole new architecture with a improved Tween building!
+- Various bug fixes and performance improvements.
