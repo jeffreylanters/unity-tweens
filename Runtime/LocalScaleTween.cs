@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Tweens {
   public sealed class LocalScaleTween : Tween<Transform, Vector3> {
-    internal sealed override Vector3 From(Transform component) {
+    internal sealed override Vector3 Current(Transform component) {
       return component.localScale;
     }
 

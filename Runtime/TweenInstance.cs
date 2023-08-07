@@ -1,24 +1,23 @@
 using System.Threading;
 using UnityEngine;
 using Tweens.Core;
-using Tweens.Core.Data;
 
 namespace Tweens {
   public abstract class TweenInstance {
     public GameObject target;
     public bool isPaused;
     internal float duration;
+    internal float? delay;
+    internal bool useScaledTime = true;
+    internal bool usePingPong;
+    internal bool isInfinite;
+    internal int? loops;
+    internal EaseType easeType;
     internal float time;
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal CancellationTokenSource cancellationTokenSource = new();
     internal CancellationToken cancellationToken;
-    internal bool useScaledTime = true;
-    internal bool usePingPong;
-    internal bool isInfinite;
-    internal EaseType easeType;
-    internal SetValue<float> delay;
-    internal SetValue<int> loops = new();
 
     internal abstract void Update();
     public abstract void Cancel();

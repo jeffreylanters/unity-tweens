@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Tweens {
   public sealed class PositionTween : Tween<Transform, Vector3> {
-    internal sealed override Vector3 From(Transform component) {
+    internal sealed override Vector3 Current(Transform component) {
+      Debug.Log("Current" + component.position);
       return component.position;
     }
 

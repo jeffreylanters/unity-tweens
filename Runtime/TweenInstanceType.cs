@@ -1,5 +1,4 @@
 using System;
-using Tweens.Core.Data;
 using Tweens.Core;
 using UnityEngine;
 
@@ -8,26 +7,26 @@ namespace Tweens {
     readonly ComponentType component;
     readonly DataType from;
     readonly DataType to;
-    readonly Action<ComponentType, DataType> apply;
-    readonly Func<DataType, DataType, float, DataType> lerp;
-    readonly SetValue<Action<TweenInstance<ComponentType, DataType>, DataType>> onUpdate = new();
-    internal SetValue<Action<TweenInstance<ComponentType, DataType>>> onEnd;
-    internal CompletableValue<Action<TweenInstance<ComponentType, DataType>>> onStart;
-    internal CompletableValue<Action<TweenInstance<ComponentType, DataType>>> onCancel;
+    readonly Action<ComponentType, DataType> apply; // TODO -- make this a delegate
+    readonly Func<DataType, DataType, float, DataType> lerp; // TODO -- make this a delegate
+    internal Action<TweenInstance<ComponentType, DataType>> onStart; // TODO -- make this a delegate
+    readonly Action<TweenInstance<ComponentType, DataType>, DataType> onUpdate; // TODO -- make this a delegate
+    internal Action<TweenInstance<ComponentType, DataType>> onEnd; // TODO -- make this a delegate
+    internal Action onCancel; // TODO -- make this a delegate
 
     internal TweenInstance(GameObject target, Tween<ComponentType, DataType> tween) : base(target) {
       component = target.GetComponent<ComponentType>();
-      from = tween.from.HasValue ? tween.from : tween.From(component);
-      to = tween.to;
+      from = tween.from != null ? tween.from : tween.Current(component);
+      to = tween.to != null ? tween.to : tween.Current(component);
       duration = tween.duration > 0 ? tween.duration : 0.001f;
-      onStart = tween.onStart.HasValue ? new(tween.onStart) : new();
-      onEnd = tween.onEnd.HasValue ? new(tween.onEnd) : new();
-      onCancel = tween.onCancel.HasValue ? new(tween.onCancel) : new();
+      onStart = tween.onStart;
+      onEnd = tween.onEnd;
+      onCancel = tween.onCancel;
       useScaledTime = tween.useScaledTime;
-      delay = tween.delay.HasValue ? new(tween.delay) : new();
+      delay = tween.delay;
       easeType = tween.easeType;
-      loops = tween.loops.HasValue ? new(tween.loops) : new();
-      onUpdate = tween.onUpdate.HasValue ? new(tween.onUpdate) : new();
+      loops = tween.loops;
+      onUpdate = tween.onUpdate;
       usePingPong = tween.usePingPong;
       isInfinite = tween.isInfinite;
       apply = tween.Apply;
@@ -45,13 +44,13 @@ namespace Tweens {
       if (delay.HasValue) {
         delay -= deltaTime;
         if (delay <= 0) {
-          delay.Unset();
+          delay = null;
         }
         return;
       }
-      if (onStart.HasValue && !onStart.DidComplete) {
-        onStart.Value.Invoke(this);
-        onStart.Complete();
+      if (onStart != null) {
+        onStart!.Invoke(this);
+        onStart = null;
       }
       var timeStep = deltaTime / duration;
       time += isForwards ? timeStep : -timeStep;
@@ -77,8 +76,8 @@ namespace Tweens {
       var easedTime = MathHelper.EaseTime(easeType, time);
       var value = lerp(from, to, easedTime);
       apply(component, value);
-      if (onUpdate.HasValue) {
-        onUpdate.Value.Invoke(this, value);
+      if (onUpdate != null) {
+        onUpdate!.Invoke(this, value);
       }
       if (didReachEnd) {
         if (loops.HasValue && loops > 1) {
@@ -87,8 +86,9 @@ namespace Tweens {
           time = 0;
         }
         else {
-          if (onEnd.HasValue) {
-            onEnd.Value.Invoke(this);
+          if (onEnd != null) {
+            onEnd!.Invoke(this);
+            onEnd = null;
           }
           Cleanup();
         }
@@ -96,9 +96,9 @@ namespace Tweens {
     }
 
     public sealed override void Cancel() {
-      if (onCancel.HasValue && !onCancel.DidComplete) {
-        onCancel.Value.Invoke(this);
-        onCancel.Complete();
+      if (onCancel != null) {
+        onCancel!.Invoke();
+        onCancel = null;
       }
       Cleanup();
     }
