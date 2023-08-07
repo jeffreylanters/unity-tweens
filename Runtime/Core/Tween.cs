@@ -8,35 +8,35 @@ namespace Tweens.Core {
   public abstract class Tween {
     public float duration;
     public float time;
-    public SetValue<float> delay = new ();
+    public SetValue<float> delay = new();
     public bool useScaledTime = true;
     public bool isPaused;
     public bool usePingPong;
     public bool isInfinite;
-    public SetValue<int> loops = new ();
+    public SetValue<int> loops = new();
     public EaseType easeType;
-    public CompletableValue<Action> onStart = new ();
-    public SetValue<Action> onEnd = new ();
-    public CompletableValue<Action> onCancel = new ();
+    public CompletableValue<Action> onStart = new();
+    public SetValue<Action> onEnd = new();
+    public CompletableValue<Action> onCancel = new();
     internal readonly GameObject gameObject;
     internal bool isForwards = true;
     internal bool didReachEnd;
-    internal CancellationTokenSource cancellationTokenSource = new ();
+    internal CancellationTokenSource cancellationTokenSource = new();
     internal CancellationToken cancellationToken;
 
-    public Tween (GameObject target) {
+    public Tween(GameObject target) {
       gameObject = target;
       cancellationToken = cancellationTokenSource.Token;
-      TweenEngine.Register (this);
+      TweenEngine.Register(this);
     }
 
-    internal virtual void Awake () {
+    internal virtual void Awake() {
       if (duration <= 0) {
         duration = 0.001f;
       }
     }
 
-    internal virtual void Update () {
+    internal virtual void Update() {
       if (isPaused) {
         return;
       }
@@ -44,13 +44,13 @@ namespace Tweens.Core {
       if (delay.IsSet) {
         delay -= deltaTime;
         if (delay <= 0) {
-          delay.Unset ();
+          delay.Unset();
         }
         return;
       }
       if (onStart.IsSet && !onStart.DidComplete) {
-        onStart.value.Invoke ();
-        onStart.Complete ();
+        onStart.value.Invoke();
+        onStart.Complete();
       }
       var timeStep = deltaTime / duration;
       time += isForwards ? timeStep : -timeStep;
@@ -58,12 +58,15 @@ namespace Tweens.Core {
         time = 1;
         if (usePingPong) {
           isForwards = false;
-        } else if (!isInfinite) {
+        }
+        else if (!isInfinite) {
           didReachEnd = true;
-        } else {
+        }
+        else {
           time = 0;
         }
-      } else if (usePingPong && time < 0) {
+      }
+      else if (usePingPong && time < 0) {
         time = 0;
         isForwards = true;
         if (!isInfinite) {
@@ -75,21 +78,22 @@ namespace Tweens.Core {
           didReachEnd = false;
           loops -= 1;
           time = 0;
-        } else {
+        }
+        else {
           if (onEnd.IsSet) {
-            onEnd.value.Invoke ();
+            onEnd.value.Invoke();
           }
-          Cleanup ();
+          Cleanup();
         }
       }
     }
 
-    internal void Cleanup () {
-      cancellationTokenSource.Cancel ();
-      TweenEngine.Unregister (this);
+    internal void Cleanup() {
+      cancellationTokenSource.Cancel();
+      TweenEngine.Unregister(this);
     }
 
-    internal float Interpolate (float from, float to, float time) {
+    internal float Interpolate(float from, float to, float time) {
       if (time > 1)
         time -= (time - 1) / 1;
       else if (this.time < 0)
@@ -97,18 +101,18 @@ namespace Tweens.Core {
       return from * (1 - time) + to * time;
     }
 
-    public async Task Async () {
+    public async Task Async() {
       while (!cancellationToken.IsCancellationRequested) {
-        await Task.Yield ();
+        await Task.Yield();
       }
     }
 
-    public void Cancel () {
+    public void Cancel() {
       if (onCancel.IsSet && !onCancel.DidComplete) {
-        onCancel.value.Invoke ();
-        onCancel.Complete ();
+        onCancel.value.Invoke();
+        onCancel.Complete();
       }
-      Cleanup ();
+      Cleanup();
     }
   }
 }
