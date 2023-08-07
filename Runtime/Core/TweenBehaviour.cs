@@ -1,7 +1,8 @@
 using UnityEngine;
 
 namespace Tweens.Core {
-  internal class TweenBehaviour : MonoBehaviour {
+  [AddComponentMenu("")]
+  class TweenBehaviour : MonoBehaviour {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     internal static void Initialize() {
       DontDestroyOnLoad(new GameObject("TweenBehaviour", typeof(TweenBehaviour)));

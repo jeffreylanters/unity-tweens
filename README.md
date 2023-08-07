@@ -45,16 +45,13 @@ openupm add nl.jeffreylanters.tweens
 This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use options for all use cases.
 
 - [Getting Started](#getting-started) - Code examples on how to create your first Tween
-- [Tweening Methods](#tweening-methods) - Tweening methods available to animate various properties
-- [Chainable Options](#chainable-options) - Chainable options allowing you to alter the Tween's behaviour
-- [Other Methods](#other-methods) - Various other options available on instanciated Tweens
 
 ## Getting Started
 
-These are some of the endless possibilities using Tweens. Tweens can be invoked on any GameObject and Component and fetches their own required components so you don't have to. Chainable Options can used endlessly in order to customize the behaviour to your needs.
+To get started, create a new instance of one of the many available tween types and add it to a GameObject. The following example shows how to create a new PositionTween and add it to a GameObject.
 
 ```cs
-var tween = new PositionTween (transform) {
+PositionTween tween = new() {
   from = new Vector3(0, 10, 0),
   to = new Vector3(20, 0, 20),
   duration = 10,
@@ -68,4 +65,5 @@ var tween = new PositionTween (transform) {
   easeType = EaseType.SineInOut,
   // And many more options...
 };
+gameObject.AddTween(tween);
 ```

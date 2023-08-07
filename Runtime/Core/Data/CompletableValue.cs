@@ -1,23 +1,40 @@
 namespace Tweens.Core.Data {
   public class CompletableValue<Type> {
-    public Type value;
-    public bool IsSet { get; private set; }
-    public bool DidComplete { get; private set; }
+    public Type Value { get; private set; }
+    internal bool IsSet { get; private set; }
+    internal bool DidComplete { get; private set; }
 
-    public void Unset() {
+    internal CompletableValue() { }
+
+    internal CompletableValue(Type value) {
+      this.Value = value;
+      IsSet = true;
+    }
+
+    internal CompletableValue(CompletableValue<Type> completableValue) {
+      Value = completableValue.Value;
+      IsSet = completableValue.IsSet;
+    }
+
+    internal CompletableValue(SetValue<Type> setValue) {
+      Value = setValue.Value;
+      IsSet = setValue.IsSet;
+    }
+
+    internal void Unset() {
       IsSet = false;
     }
 
-    public void Complete() {
+    internal void Complete() {
       DidComplete = true;
     }
 
     public static implicit operator Type(CompletableValue<Type> test) {
-      return test.value;
+      return test.Value;
     }
 
     public static implicit operator CompletableValue<Type>(Type value) {
-      return new CompletableValue<Type> { value = value, IsSet = true };
+      return new CompletableValue<Type> { Value = value, IsSet = true };
     }
   }
 }

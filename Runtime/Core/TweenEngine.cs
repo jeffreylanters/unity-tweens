@@ -1,43 +1,37 @@
 using System.Collections.Generic;
 
 namespace Tweens.Core {
-  class TweenEngine {
-    static readonly List<Tween> tweens = new();
-    static readonly List<Tween> registerQueue = new();
-    static readonly List<Tween> unregisterQueue = new();
+  static class TweenEngine {
+    static readonly List<TweenInstance> active = new();
+    static readonly List<TweenInstance> removeQueue = new();
 
-    internal static void Register(Tween tween) {
-      registerQueue.Add(tween);
+    internal static void Add(TweenInstance tweenInstance) {
+      active.Add(tweenInstance);
     }
 
-    internal static void Unregister(Tween tween) {
-      unregisterQueue.Add(tween);
+    internal static void Remove(TweenInstance tweenInstance) {
+      removeQueue.Add(tweenInstance);
     }
 
     internal static void Update() {
-      foreach (var tween in registerQueue) {
-        tweens.Add(tween);
-        tween.Awake();
-      }
-      registerQueue.Clear();
-      foreach (var tween in tweens) {
-        if (tween.gameObject == null) {
-          tween.Cancel();
+      foreach (var tweenInstance in active) {
+        if (tweenInstance.target == null) {
+          tweenInstance.Cancel();
           continue;
         }
-        tween.Update();
+        tweenInstance.Update();
       }
-      foreach (var tween in unregisterQueue) {
-        tweens.Remove(tween);
+      foreach (var tweenInstance in removeQueue) {
+        active.Remove(tweenInstance);
       }
-      unregisterQueue.Clear();
+      removeQueue.Clear();
     }
 
     internal static void Destroy() {
-      foreach (var tween in tweens) {
-        tween.Cancel();
+      foreach (var tweenInstance in active) {
+        tweenInstance.Cancel();
       }
-      tweens.Clear();
+      active.Clear();
     }
   }
 }
