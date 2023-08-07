@@ -1,6 +1,6 @@
 namespace Tweens.Core {
   public class Nullable<Type> {
-    public Type Value { get; private set; }
+    internal Type Value { get; private set; }
     internal bool HasValue { get; private set; }
 
     internal Nullable() { }
