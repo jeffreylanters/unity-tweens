@@ -42,7 +42,7 @@ openupm add nl.jeffreylanters.tweens
 
 # Documentation
 
-This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use options for all use cases.
+This module is benchmarked against other great tweening libraries LeanTween and ITween and outperforms both while running 1000 complex tweens simulataniously. The power and speed you expect, with a modern strictly typed API, clean and ease-to-use options for all your tweening needs.
 
 - [Getting Started](#getting-started) - Code examples on how to create your first Tween
 
@@ -52,18 +52,10 @@ To get started, create a new instance of one of the many available tween types a
 
 ```cs
 PositionTween tween = new() {
-  from = new Vector3(0, 10, 0),
-  to = new Vector3(20, 0, 20),
+  to = new Vector3(10, 5, 20),
   duration = 10,
   delay = 2,
-  usePingPong = true,
-  loops = 2,
-  onStart = new Action (() => Debug.Log ("onStart")),
-  onEnd = new Action (() => Debug.Log ("onEnd")),
-  onCancel = new Action (() => Debug.Log ("onCancel")),
-  onUpdate = new Action<Vector3> ((value) => Debug.Log ($"onUpdate: {value}")),
   easeType = EaseType.SineInOut,
-  // And many more options...
 };
 gameObject.AddTween(tween);
 ```

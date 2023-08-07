@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Tweens.Core {
   static class TweenEngine {
@@ -32,6 +33,10 @@ namespace Tweens.Core {
         tweenInstance.Cancel();
       }
       active.Clear();
+    }
+
+    internal static void OnGUI() {
+      GUILayout.Label("Tweens: " + active.Count);
     }
   }
 }

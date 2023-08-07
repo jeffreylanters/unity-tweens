@@ -17,21 +17,24 @@ namespace Tweens {
 
     internal TweenInstance(GameObject target, Tween<ComponentType, DataType> tween) : base(target) {
       component = target.GetComponent<ComponentType>();
-      from = tween.from.IsSet ? tween.from : tween.From(component);
+      from = tween.from.HasValue ? tween.from : tween.From(component);
       to = tween.to;
       duration = tween.duration > 0 ? tween.duration : 0.001f;
-      onStart = tween.onStart.IsSet ? new(tween.onStart) : new();
-      onEnd = tween.onEnd.IsSet ? new(tween.onEnd) : new();
-      onCancel = tween.onCancel.IsSet ? new(tween.onCancel) : new();
+      onStart = tween.onStart.HasValue ? new(tween.onStart) : new();
+      onEnd = tween.onEnd.HasValue ? new(tween.onEnd) : new();
+      onCancel = tween.onCancel.HasValue ? new(tween.onCancel) : new();
       useScaledTime = tween.useScaledTime;
-      delay = tween.delay.IsSet ? new(tween.delay) : new();
+      delay = tween.delay.HasValue ? new(tween.delay) : new();
       easeType = tween.easeType;
-      loops = tween.loops.IsSet ? new(tween.loops) : new();
-      onUpdate = tween.onUpdate.IsSet ? new(tween.onUpdate) : new();
+      loops = tween.loops.HasValue ? new(tween.loops) : new();
+      onUpdate = tween.onUpdate.HasValue ? new(tween.onUpdate) : new();
       usePingPong = tween.usePingPong;
       isInfinite = tween.isInfinite;
       apply = tween.Apply;
       lerp = tween.Lerp;
+      if (tween.prewarm && delay.HasValue) {
+        apply(component, lerp(from, to, 0));
+      }
     }
 
     internal sealed override void Update() {
@@ -39,14 +42,14 @@ namespace Tweens {
         return;
       }
       var deltaTime = useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
-      if (delay.IsSet) {
+      if (delay.HasValue) {
         delay -= deltaTime;
         if (delay <= 0) {
           delay.Unset();
         }
         return;
       }
-      if (onStart.IsSet && !onStart.DidComplete) {
+      if (onStart.HasValue && !onStart.DidComplete) {
         onStart.Value.Invoke(this);
         onStart.Complete();
       }
@@ -74,17 +77,17 @@ namespace Tweens {
       var easedTime = MathHelper.EaseTime(easeType, time);
       var value = lerp(from, to, easedTime);
       apply(component, value);
-      if (onUpdate.IsSet) {
+      if (onUpdate.HasValue) {
         onUpdate.Value.Invoke(this, value);
       }
       if (didReachEnd) {
-        if (loops.IsSet && loops > 1) {
+        if (loops.HasValue && loops > 1) {
           didReachEnd = false;
           loops -= 1;
           time = 0;
         }
         else {
-          if (onEnd.IsSet) {
+          if (onEnd.HasValue) {
             onEnd.Value.Invoke(this);
           }
           Cleanup();
@@ -93,7 +96,7 @@ namespace Tweens {
     }
 
     public sealed override void Cancel() {
-      if (onCancel.IsSet && !onCancel.DidComplete) {
+      if (onCancel.HasValue && !onCancel.DidComplete) {
         onCancel.Value.Invoke(this);
         onCancel.Complete();
       }

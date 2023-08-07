@@ -6,6 +6,7 @@ namespace Tweens.Core {
     public SetValue<float> delay = new();
     public bool useScaledTime = true;
     public bool usePingPong;
+    public bool prewarm;
     public bool isInfinite;
     public SetValue<int> loops = new();
     public EaseType easeType;

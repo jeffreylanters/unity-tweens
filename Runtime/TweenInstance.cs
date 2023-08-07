@@ -2,7 +2,6 @@ using System.Threading;
 using UnityEngine;
 using Tweens.Core;
 using Tweens.Core.Data;
-using System;
 
 namespace Tweens {
   public abstract class TweenInstance {
