@@ -11,7 +11,6 @@ namespace Tweens {
     internal bool usePingPong;
     internal bool isInfinite;
     internal int? loops;
-    internal EaseType easeType;
     internal FillMode fillMode = FillMode.Backwards;
     public GameObject target;
     public bool isPaused;
@@ -20,6 +19,8 @@ namespace Tweens {
     internal bool didReachEnd;
     internal CancellationTokenSource cancellationTokenSource = new();
     internal CancellationToken cancellationToken;
+    internal Func<float, float> easeFunction;
+    internal Action onCancel; // TODO -- make this a delegate
 
     internal abstract void Update();
     public abstract void Cancel();
@@ -42,7 +43,6 @@ namespace Tweens {
     internal Action<TweenInstance<ComponentType, DataType>> onStart; // TODO -- make this a delegate
     internal Action<TweenInstance<ComponentType, DataType>, DataType> onUpdate; // TODO -- make this a delegate
     internal Action<TweenInstance<ComponentType, DataType>> onEnd; // TODO -- make this a delegate
-    internal Action onCancel; // TODO -- make this a delegate
     readonly ComponentType component;
     readonly Action<ComponentType, DataType> apply; // TODO -- make this a delegate
     readonly Func<DataType, DataType, float, DataType> lerp; // TODO -- make this a delegate
@@ -58,7 +58,6 @@ namespace Tweens {
       onCancel = tween.onCancel;
       useScaledTime = tween.useScaledTime;
       delay = tween.delay;
-      easeType = tween.easeType;
       loops = tween.loops;
       onUpdate = tween.onUpdate;
       usePingPong = tween.usePingPong;
@@ -66,6 +65,7 @@ namespace Tweens {
       apply = tween.Apply;
       lerp = tween.Lerp;
       fillMode = tween.fillMode;
+      easeFunction = EaseFunctions.GetFunction(tween.easeType);
       if (fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
         apply(component, from);
       }
@@ -108,7 +108,7 @@ namespace Tweens {
           didReachEnd = true;
         }
       }
-      var easedTime = MathHelper.EaseTime(easeType, time);
+      var easedTime = easeFunction(time);
       var value = lerp(from, to, easedTime);
       apply(component, value);
       if (onUpdate != null) {

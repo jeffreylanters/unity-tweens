@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 
 namespace Tweens.Core {
-  internal static class MathHelper {
+  internal static class EaseFunctions {
     const float ConstantA = 1.70158f;
     const float ConstantB = ConstantA * 1.525f;
     const float ConstantC = ConstantA + 1f;
@@ -10,40 +11,40 @@ namespace Tweens.Core {
     const float ConstantF = 7.5625f;
     const float ConstantG = 2.75f;
 
-    internal static float EaseTime(EaseType ease, float time) {
-      return ease switch {
-        EaseType.Linear => Linear(time),
-        EaseType.SineIn => SineIn(time),
-        EaseType.SineOut => SineOut(time),
-        EaseType.SineInOut => SineInOut(time),
-        EaseType.QuadIn => QuadIn(time),
-        EaseType.QuadOut => QuadOut(time),
-        EaseType.QuadInOut => QuadInOut(time),
-        EaseType.CubicIn => CubicIn(time),
-        EaseType.CubicOut => CubicOut(time),
-        EaseType.CubicInOut => CubicInOut(time),
-        EaseType.QuartIn => QuartIn(time),
-        EaseType.QuartOut => QuartOut(time),
-        EaseType.QuartInOut => QuartInOut(time),
-        EaseType.QuintIn => QuintIn(time),
-        EaseType.QuintOut => QuintOut(time),
-        EaseType.QuintInOut => QuintInOut(time),
-        EaseType.ExpoIn => ExpoIn(time),
-        EaseType.ExpoOut => ExpoOut(time),
-        EaseType.ExpoInOut => ExpoInOut(time),
-        EaseType.CircIn => CircIn(time),
-        EaseType.CircOut => CircOut(time),
-        EaseType.CircInOut => CircInOut(time),
-        EaseType.BackIn => BackIn(time),
-        EaseType.BackOut => BackOut(time),
-        EaseType.BackInOut => BackInOut(time),
-        EaseType.ElasticIn => ElasticIn(time),
-        EaseType.ElasticOut => ElasticOut(time),
-        EaseType.ElasticInOut => ElasticInOut(time),
-        EaseType.BounceIn => BounceIn(time),
-        EaseType.BounceOut => BounceOut(time),
-        EaseType.BounceInOut => BounceInOut(time),
-        _ => 0,
+    internal static Func<float, float> GetFunction(EaseType easeType) {
+      return easeType switch {
+        EaseType.Linear => Linear,
+        EaseType.SineIn => SineIn,
+        EaseType.SineOut => SineOut,
+        EaseType.SineInOut => SineInOut,
+        EaseType.QuadIn => QuadIn,
+        EaseType.QuadOut => QuadOut,
+        EaseType.QuadInOut => QuadInOut,
+        EaseType.CubicIn => CubicIn,
+        EaseType.CubicOut => CubicOut,
+        EaseType.CubicInOut => CubicInOut,
+        EaseType.QuartIn => QuartIn,
+        EaseType.QuartOut => QuartOut,
+        EaseType.QuartInOut => QuartInOut,
+        EaseType.QuintIn => QuintIn,
+        EaseType.QuintOut => QuintOut,
+        EaseType.QuintInOut => QuintInOut,
+        EaseType.ExpoIn => ExpoIn,
+        EaseType.ExpoOut => ExpoOut,
+        EaseType.ExpoInOut => ExpoInOut,
+        EaseType.CircIn => CircIn,
+        EaseType.CircOut => CircOut,
+        EaseType.CircInOut => CircInOut,
+        EaseType.BackIn => BackIn,
+        EaseType.BackOut => BackOut,
+        EaseType.BackInOut => BackInOut,
+        EaseType.ElasticIn => ElasticIn,
+        EaseType.ElasticOut => ElasticOut,
+        EaseType.ElasticInOut => ElasticInOut,
+        EaseType.BounceIn => BounceIn,
+        EaseType.BounceOut => BounceOut,
+        EaseType.BounceInOut => BounceInOut,
+        _ => throw new NotImplementedException($"EaseType {easeType} not implemented"),
       };
     }
 
