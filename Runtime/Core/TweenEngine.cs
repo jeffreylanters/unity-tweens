@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Tweens.Core {
   static class TweenEngine {
-    static readonly List<TweenInstance> active = new();
+    internal static readonly List<TweenInstance> active = new();
     static readonly List<TweenInstance> removeQueue = new();
 
     internal static void Add(TweenInstance tweenInstance) {
