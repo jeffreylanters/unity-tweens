@@ -66,7 +66,7 @@ namespace Tweens {
       apply = tween.Apply;
       lerp = tween.Lerp;
       fillMode = tween.fillMode;
-      if ((fillMode == FillMode.Both || fillMode == FillMode.Forwards) && delay.HasValue) {
+      if (fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
         apply(component, from);
       }
     }
