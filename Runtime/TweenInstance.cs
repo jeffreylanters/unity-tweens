@@ -35,7 +35,7 @@ namespace Tweens {
     }
   }
 
-  public class TweenInstance<ComponentType, DataType> : TweenInstance {
+  public class TweenInstance<ComponentType, DataType> : TweenInstance where ComponentType : Component {
     internal DataType initial;
     internal DataType from;
     internal DataType to;

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Tweens.Core {
   public abstract class Tween {
@@ -12,7 +13,7 @@ namespace Tweens.Core {
     public FillMode fillMode = FillMode.Backwards;
   }
 
-  public abstract class Tween<ComponentType, DataType> : Tween {
+  public abstract class Tween<ComponentType, DataType> : Tween where ComponentType : Component {
     public Nullable<DataType> from;
     public Nullable<DataType> to;
     public Action<TweenInstance<ComponentType, DataType>> onStart; // TODO -- make this a delegate
