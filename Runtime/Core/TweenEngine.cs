@@ -34,9 +34,5 @@ namespace Tweens.Core {
       }
       active.Clear();
     }
-
-    internal static void OnGUI() {
-      GUILayout.Label("Tweens: " + active.Count);
-    }
   }
 }
