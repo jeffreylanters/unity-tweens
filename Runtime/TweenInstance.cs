@@ -128,9 +128,6 @@ namespace Tweens {
           if (fillMode == FillMode.Forwards || fillMode == FillMode.None) {
             apply(component, initial);
           }
-          else if (fillMode == FillMode.Both) {
-            apply(component, to);
-          }
           Cleanup();
         }
       }
