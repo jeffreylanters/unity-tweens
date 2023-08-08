@@ -2,9 +2,9 @@ using Tweens.Core;
 using UnityEngine;
 
 namespace Tweens {
-  public sealed class PositionTween : Tween<Transform, Vector3> {
+  public sealed class LocalPositionTween : Tween<Transform, Vector3> {
     internal sealed override Vector3 Current(Transform component) {
-      return component.position;
+      return component.localPosition;
     }
 
     internal sealed override Vector3 Lerp(Vector3 from, Vector3 to, float time) {
@@ -12,7 +12,7 @@ namespace Tweens {
     }
 
     internal sealed override void Apply(Transform component, Vector3 value) {
-      component.position = value;
+      component.localPosition = value;
     }
   }
 }
