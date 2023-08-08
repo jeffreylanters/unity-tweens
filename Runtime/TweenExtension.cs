@@ -8,5 +8,11 @@ namespace Tweens {
       TweenEngine.Add(instance);
       return instance;
     }
+
+    public static TweenInstance<ComponentType, DataType> AddTween<ComponentType, DataType>(this Component target, Tween<ComponentType, DataType> tween) {
+      var instance = new TweenInstance<ComponentType, DataType>(target.gameObject, tween);
+      TweenEngine.Add(instance);
+      return instance;
+    }
   }
 }
