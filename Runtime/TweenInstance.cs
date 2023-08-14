@@ -18,7 +18,7 @@ namespace Tweens {
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal CancellationTokenSource cancellationTokenSource = new();
-    internal CancellationToken cancellationToken;
+    internal CancellationToken cancellationToken; // TODO -- implement cancellation
     internal Func<float, float> easeFunction;
     internal Action onCancel; // TODO -- make this a delegate
 
