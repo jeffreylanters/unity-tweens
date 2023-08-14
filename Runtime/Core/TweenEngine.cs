@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Tweens.Core {
   static class TweenEngine {
@@ -11,6 +12,16 @@ namespace Tweens.Core {
 
     internal static void Remove(TweenInstance tweenInstance) {
       removeQueue.Add(tweenInstance);
+    }
+
+    internal static List<TweenInstance> Get(GameObject target) {
+      var result = new List<TweenInstance>();
+      foreach (var tweenInstance in active) {
+        if (tweenInstance.target == target) {
+          result.Add(tweenInstance);
+        }
+      }
+      return result;
     }
 
     internal static void Update() {
