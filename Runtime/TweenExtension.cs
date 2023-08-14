@@ -10,9 +10,14 @@ namespace Tweens {
     }
 
     public static TweenInstance<ComponentType, DataType> AddTween<ComponentType, DataType>(this Component target, Tween<ComponentType, DataType> tween) where ComponentType : Component {
-      var instance = new TweenInstance<ComponentType, DataType>(target.gameObject, tween);
-      TweenEngine.Add(instance);
-      return instance;
+      return target.gameObject.AddTween(tween);
+    }
+
+    public static void CancelTweens(this GameObject target) {
+      var instances = TweenEngine.Get(target);
+      foreach (var instance in instances) {
+        instance.Cancel();
+      }
     }
   }
 }
