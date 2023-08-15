@@ -11,9 +11,5 @@ namespace Tweens.Core {
     internal void Update() {
       TweenEngine.Update();
     }
-
-    internal void OnDestroy() {
-      TweenEngine.Destroy();
-    }
   }
 }

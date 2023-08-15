@@ -37,12 +37,5 @@ namespace Tweens.Core {
       }
       removeQueue.Clear();
     }
-
-    internal static void Destroy() {
-      foreach (var tweenInstance in active) {
-        tweenInstance.Cancel();
-      }
-      active.Clear();
-    }
   }
 }
