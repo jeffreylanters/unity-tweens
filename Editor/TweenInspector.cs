@@ -6,7 +6,7 @@ namespace Tweens.Editor {
   internal class TweenInspector : EditorWindow {
     Vector2 scrollPosition;
 
-    [MenuItem("Tweens/Inspector")]
+    [MenuItem("Window/Analysis/Tween Inspector", false, 1000)]
     internal static void ShowWindow() {
       GetWindow<TweenInspector>("Tween Inspector");
     }
