@@ -13,7 +13,7 @@ namespace Tweens.Editor {
 
     void OnGUI() {
       scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-      DrawRow("Target", "Time", "Duration", "Delay", "Loops", "PingPong", "Direction");
+      DrawRow("Target", "Time", "Duration", "Delay", "Loops", "Direction");
       if (!Application.isPlaying) {
         EditorGUILayout.HelpBox("You can only inspect tweens while the app is running.", MessageType.Info);
         EditorGUILayout.EndScrollView();
@@ -27,7 +27,6 @@ namespace Tweens.Editor {
           $"{tweenInstance.duration:0.00}",
           tweenInstance.delay != null ? $"{tweenInstance.delay:0.00}" : "N/A",
           tweenInstance.loops != null ? $"{tweenInstance.loops}" : "N/A",
-          tweenInstance.usePingPong ? "Yes" : "No",
           tweenInstance.isForwards ? "Forwards" : "Backwards"
         );
       }
