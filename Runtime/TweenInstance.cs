@@ -1,7 +1,6 @@
 using System.Threading;
 using UnityEngine;
 using Tweens.Core;
-using System;
 
 namespace Tweens {
   public abstract class TweenInstance {
@@ -20,8 +19,8 @@ namespace Tweens {
     internal bool didReachEnd;
     internal CancellationTokenSource cancellationTokenSource = new();
     internal CancellationToken cancellationToken; // TODO -- implement cancellation
-    internal Func<float, float> easeFunction;
-    internal Action onCancel; // TODO -- make this a delegate
+    internal EaseFunctionDelegate easeFunction;
+    internal OnCancelDelegate onCancel;
 
     internal abstract void Update();
     public abstract void Cancel();
@@ -41,12 +40,12 @@ namespace Tweens {
     internal DataType initial;
     internal DataType from;
     internal DataType to;
-    internal Action<TweenInstance<ComponentType, DataType>> onStart; // TODO -- make this a delegate
-    internal Action<TweenInstance<ComponentType, DataType>, DataType> onUpdate; // TODO -- make this a delegate
-    internal Action<TweenInstance<ComponentType, DataType>> onEnd; // TODO -- make this a delegate
     readonly ComponentType component;
-    readonly Action<ComponentType, DataType> apply; // TODO -- make this a delegate
-    readonly Func<DataType, DataType, float, DataType> lerp; // TODO -- make this a delegate
+    internal OnStartDelegate<ComponentType, DataType> onStart;
+    internal OnUpdateDelegate<ComponentType, DataType> onUpdate;
+    internal OnEndDelegate<ComponentType, DataType> onEnd;
+    readonly ApplyDelegate<ComponentType, DataType> apply;
+    readonly LerpDelegate<DataType> lerp;
 
     internal TweenInstance(GameObject target, Tween<ComponentType, DataType> tween) : base(target) {
       component = target.GetComponent<ComponentType>();

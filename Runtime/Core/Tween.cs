@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Tweens.Core {
@@ -18,10 +17,10 @@ namespace Tweens.Core {
   public abstract class Tween<ComponentType, DataType> : Tween where ComponentType : Component {
     public Nullable<DataType> from;
     public Nullable<DataType> to;
-    public Action<TweenInstance<ComponentType, DataType>> onStart; // TODO -- make this a delegate
-    public Action<TweenInstance<ComponentType, DataType>, DataType> onUpdate; // TODO -- make this a delegate
-    public Action<TweenInstance<ComponentType, DataType>> onEnd; // TODO -- make this a delegate
-    public Action onCancel; // TODO -- make this a delegate
+    public OnStartDelegate<ComponentType, DataType> onStart;
+    public OnUpdateDelegate<ComponentType, DataType> onUpdate;
+    public OnEndDelegate<ComponentType, DataType> onEnd;
+    public OnCancelDelegate onCancel;
 
     internal abstract DataType Current(ComponentType component);
     internal abstract DataType Lerp(DataType from, DataType to, float time);

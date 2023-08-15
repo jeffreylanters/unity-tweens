@@ -6,12 +6,12 @@ namespace Tweens.Core {
     const float ConstantA = 1.70158f;
     const float ConstantB = ConstantA * 1.525f;
     const float ConstantC = ConstantA + 1f;
-    const float ConstantD = (2f * Mathf.PI) / 3f;
-    const float ConstantE = (2f * Mathf.PI) / 4.5f;
+    const float ConstantD = 2f * Mathf.PI / 3f;
+    const float ConstantE = 2f * Mathf.PI / 4.5f;
     const float ConstantF = 7.5625f;
     const float ConstantG = 2.75f;
 
-    internal static Func<float, float> GetFunction(EaseType easeType) {
+    internal static EaseFunctionDelegate GetFunction(EaseType easeType) {
       return easeType switch {
         EaseType.Linear => Linear,
         EaseType.SineIn => SineIn,
@@ -146,7 +146,7 @@ namespace Tweens.Core {
 
     static float BackInOut(float time) {
       return time < 0.5 ?
-        (Mathf.Pow(2 * time, 2) * ((ConstantB + 1) * 2 * time - ConstantB)) / 2 :
+        Mathf.Pow(2 * time, 2) * ((ConstantB + 1) * 2 * time - ConstantB) / 2 :
         (Mathf.Pow(2 * time - 2, 2) * ((ConstantB + 1) * (time * 2 - 2) + ConstantB) + 2) / 2;
     }
 
@@ -159,7 +159,7 @@ namespace Tweens.Core {
     }
 
     static float ElasticInOut(float time) {
-      return time == 0 ? 0 : time == 1 ? 1 : time < 0.5 ? -(Mathf.Pow(2, 20 * time - 10) * Mathf.Sin((20 * time - 11.125f) * ConstantE)) / 2 : (Mathf.Pow(2, -20 * time + 10) * Mathf.Sin((20 * time - 11.125f) * ConstantE)) / 2 + 1;
+      return time == 0 ? 0 : time == 1 ? 1 : time < 0.5 ? -(Mathf.Pow(2, 20 * time - 10) * Mathf.Sin((20 * time - 11.125f) * ConstantE)) / 2 : Mathf.Pow(2, -20 * time + 10) * Mathf.Sin((20 * time - 11.125f) * ConstantE) / 2 + 1;
     }
 
     static float BounceIn(float time) {
