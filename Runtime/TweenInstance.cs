@@ -7,9 +7,10 @@ namespace Tweens {
   public abstract class TweenInstance {
     internal float duration;
     internal float? delay;
+    internal float? pingPongInterval;
+    internal float? repeatInterval;
     internal bool useScaledTime = true;
     internal bool usePingPong;
-    internal bool isInfinite;
     internal int? loops;
     internal FillMode fillMode = FillMode.Backwards;
     public GameObject target;
@@ -58,10 +59,11 @@ namespace Tweens {
       onCancel = tween.onCancel;
       useScaledTime = tween.useScaledTime;
       delay = tween.delay;
-      loops = tween.loops;
+      pingPongInterval = tween.pingPongInterval;
+      repeatInterval = tween.repeatInterval;
+      loops = tween.isInfinite ? -1 : tween.loops;
       onUpdate = tween.onUpdate;
       usePingPong = tween.usePingPong;
-      isInfinite = tween.isInfinite;
       apply = tween.Apply;
       lerp = tween.Lerp;
       fillMode = tween.fillMode;
@@ -93,19 +95,23 @@ namespace Tweens {
         time = 1;
         if (usePingPong) {
           isForwards = false;
-        }
-        else if (!isInfinite) {
-          didReachEnd = true;
+          if (pingPongInterval.HasValue) {
+            delay = pingPongInterval;
+          }
         }
         else {
-          time = 0;
+          didReachEnd = true;
+          if (repeatInterval.HasValue) {
+            delay = repeatInterval;
+          }
         }
       }
       else if (usePingPong && time < 0) {
         time = 0;
         isForwards = true;
-        if (!isInfinite) {
-          didReachEnd = true;
+        didReachEnd = true;
+        if (repeatInterval.HasValue) {
+          delay = repeatInterval;
         }
       }
       var easedTime = easeFunction(time);
@@ -115,10 +121,12 @@ namespace Tweens {
         onUpdate!.Invoke(this, value);
       }
       if (didReachEnd) {
-        if (loops.HasValue && loops > 1) {
+        if (loops.HasValue && (loops > 1 || loops == -1)) {
           didReachEnd = false;
-          loops -= 1;
           time = 0;
+          if (loops > 1) {
+            loops -= 1;
+          }
         }
         else {
           if (onEnd != null) {

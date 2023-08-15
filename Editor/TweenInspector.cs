@@ -26,7 +26,7 @@ namespace Tweens.Editor {
           $"{tweenInstance.time:0.00}",
           $"{tweenInstance.duration:0.00}",
           tweenInstance.delay != null ? $"{tweenInstance.delay:0.00}" : "N/A",
-          tweenInstance.isInfinite ? "Infinite" : (tweenInstance.loops != null ? $"{tweenInstance.loops}" : "N/A"),
+          tweenInstance.loops != null ? $"{tweenInstance.loops}" : "N/A",
           tweenInstance.usePingPong ? "Yes" : "No",
           tweenInstance.isForwards ? "Forwards" : "Backwards"
         );

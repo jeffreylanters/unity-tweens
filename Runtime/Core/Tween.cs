@@ -5,6 +5,8 @@ namespace Tweens.Core {
   public abstract class Tween {
     public float duration;
     public float? delay;
+    public float? pingPongInterval;
+    public float? repeatInterval;
     public bool useScaledTime = true;
     public bool usePingPong;
     public bool isInfinite;
