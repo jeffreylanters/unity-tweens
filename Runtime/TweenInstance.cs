@@ -14,6 +14,7 @@ namespace Tweens {
     internal FillMode fillMode = FillMode.Backwards;
     public GameObject target;
     public bool isPaused;
+    internal bool isDecommissioned;
     internal float time;
     internal bool isForwards = true;
     internal bool didReachEnd;
@@ -32,7 +33,7 @@ namespace Tweens {
 
     internal void Cleanup() {
       cancellationTokenSource.Cancel();
-      TweenEngine.Remove(this);
+      isDecommissioned = true;
     }
   }
 
@@ -73,6 +74,10 @@ namespace Tweens {
     }
 
     internal sealed override void Update() {
+      if (target == null) {
+        Cancel();
+        return;
+      }
       if (isPaused) {
         return;
       }

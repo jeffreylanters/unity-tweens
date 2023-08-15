@@ -13,17 +13,16 @@ namespace Tweens.Editor {
 
     void OnGUI() {
       scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-      DrawRow("Target", "Layer", "Time", "Duration", "Delay", "Loops", "Direction");
+      DrawRow("Target", "Time", "Duration", "Delay", "Loops", "Direction");
       if (!Application.isPlaying) {
         EditorGUILayout.HelpBox("You can only inspect tweens while the app is running.", MessageType.Info);
         EditorGUILayout.EndScrollView();
         return;
       }
-      for (var i = TweenEngine.active.Count - 1; i >= 0; i--) {
-        var tweenInstance = TweenEngine.active[i];
+      for (var i = TweenEngine.instances.Count - 1; i >= 0; i--) {
+        var tweenInstance = TweenEngine.instances[i];
         DrawRow(
           tweenInstance.target.name,
-          tweenInstance.layer != null ? $"{tweenInstance.layer}" : "N/A",
           $"{tweenInstance.time:0.00}",
           $"{tweenInstance.duration:0.00}",
           tweenInstance.delay != null ? $"{tweenInstance.delay:0.00}" : "N/A",
