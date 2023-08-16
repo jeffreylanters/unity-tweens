@@ -9,8 +9,16 @@ namespace Tweens {
       return instance;
     }
 
-    public static void CancelTweens(this GameObject target) {
-      var instances = TweenEngine.instances.FindAll(instance => instance.target == target);
+    public static void CancelTweens(this GameObject target, bool includeChildren = false) {
+      var instances = TweenEngine.instances.FindAll(instance => {
+        if (instance.target == target) {
+          return true;
+        }
+        if (includeChildren) {
+          return instance.target.transform.IsChildOf(target.transform);
+        }
+        return false;
+      });
       foreach (var instance in instances) {
         instance.Cancel();
       }

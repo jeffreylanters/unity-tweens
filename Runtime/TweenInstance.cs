@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 using Tweens.Core;
 
@@ -18,8 +17,6 @@ namespace Tweens {
     internal float time;
     internal bool isForwards = true;
     internal bool didReachEnd;
-    internal CancellationTokenSource cancellationTokenSource = new();
-    internal CancellationToken cancellationToken; // TODO -- implement cancellation
     internal EaseFunctionDelegate easeFunction;
     internal OnCancelDelegate onCancel;
 
@@ -28,12 +25,6 @@ namespace Tweens {
 
     internal TweenInstance(GameObject target) {
       this.target = target;
-      cancellationToken = cancellationTokenSource.Token;
-    }
-
-    internal void Cleanup() {
-      cancellationTokenSource.Cancel();
-      isDecommissioned = true;
     }
   }
 
@@ -140,7 +131,7 @@ namespace Tweens {
           if (fillMode == FillMode.Forwards || fillMode == FillMode.None) {
             apply(component, initial);
           }
-          Cleanup();
+          isDecommissioned = true;
         }
       }
     }
@@ -150,7 +141,7 @@ namespace Tweens {
         onCancel!.Invoke();
         onCancel = null;
       }
-      Cleanup();
+      isDecommissioned = true;
     }
   }
 }
