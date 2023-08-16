@@ -9,7 +9,7 @@ namespace Tweens {
       return instance;
     }
 
-    public static TweenInstance[] AddTweens<ComponentType1, DataType1, ComponentType2, DataType2>(this GameObject target, Tween<ComponentType1, DataType1> tween1, Tween<ComponentType2, DataType2> tween2) where ComponentType1 : Component where ComponentType2 : Component {
+    public static TweenInstance[] AddTween<ComponentType1, DataType1, ComponentType2, DataType2>(this GameObject target, Tween<ComponentType1, DataType1> tween1, Tween<ComponentType2, DataType2> tween2) where ComponentType1 : Component where ComponentType2 : Component {
       var instances = new TweenInstance[] {
         new TweenInstance<ComponentType1, DataType1>(target, tween1),
         new TweenInstance<ComponentType2, DataType2>(target, tween2),
@@ -18,7 +18,7 @@ namespace Tweens {
       return instances;
     }
 
-    public static TweenInstance[] AddTweens<ComponentType1, DataType1, ComponentType2, DataType2, ComponentType3, DataType3>(this GameObject target, Tween<ComponentType1, DataType1> tween1, Tween<ComponentType2, DataType2> tween2, Tween<ComponentType3, DataType3> tween3) where ComponentType1 : Component where ComponentType2 : Component where ComponentType3 : Component {
+    public static TweenInstance[] AddTween<ComponentType1, DataType1, ComponentType2, DataType2, ComponentType3, DataType3>(this GameObject target, Tween<ComponentType1, DataType1> tween1, Tween<ComponentType2, DataType2> tween2, Tween<ComponentType3, DataType3> tween3) where ComponentType1 : Component where ComponentType2 : Component where ComponentType3 : Component {
       var instances = new TweenInstance[] {
         new TweenInstance<ComponentType1, DataType1>(target, tween1),
         new TweenInstance<ComponentType2, DataType2>(target, tween2),
