@@ -28,7 +28,7 @@ namespace Tweens {
       return instances;
     }
 
-    public static void CancelTweens(this GameObject target, bool includeChildren = false) {
+    public static GameObject CancelTweens(this GameObject target, bool includeChildren = false) {
       var instances = TweenEngine.instances.FindAll(instance => {
         if (instance.target == target) {
           return true;
@@ -41,6 +41,7 @@ namespace Tweens {
       foreach (var instance in instances) {
         instance.Cancel();
       }
+      return target;
     }
   }
 }
