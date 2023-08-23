@@ -3,61 +3,61 @@ using Tweens.Core;
 
 namespace Tweens {
   public abstract class TweenInstance {
-    internal float duration;
+    internal readonly float duration;
+    internal readonly float? pingPongInterval;
+    internal readonly float? repeatInterval;
+    internal readonly bool useUnscaledTime;
+    internal readonly bool usePingPong;
+    internal readonly FillMode fillMode = FillMode.Backwards;
     internal float? delay;
-    internal float? pingPongInterval;
-    internal float? repeatInterval;
-    internal bool useScaledTime = true;
-    internal bool usePingPong;
     internal int? loops;
-    internal FillMode fillMode = FillMode.Backwards;
-    public GameObject target;
-    public bool isPaused;
     internal bool isDecommissioned;
     internal float time;
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal EaseFunctionDelegate easeFunction;
     internal OnCancelDelegate onCancel;
+    public readonly GameObject target;
+    public bool isPaused;
 
     internal abstract void Update();
     public abstract void Cancel();
 
-    internal TweenInstance(GameObject target) {
+    internal TweenInstance(GameObject target, Tween tween) {
       this.target = target;
+      duration = tween.duration > 0 ? tween.duration : 0.001f;
+      pingPongInterval = tween.pingPongInterval;
+      repeatInterval = tween.repeatInterval;
+      useUnscaledTime = tween.useUnscaledTime;
+      usePingPong = tween.usePingPong;
+      fillMode = tween.fillMode;
     }
   }
 
   public class TweenInstance<ComponentType, DataType> : TweenInstance where ComponentType : Component {
-    internal DataType initial;
-    internal DataType from;
-    internal DataType to;
+    public readonly DataType initial;
+    public readonly DataType from;
+    public readonly DataType to;
     readonly ComponentType component;
-    internal OnStartDelegate<ComponentType, DataType> onStart;
-    internal OnUpdateDelegate<ComponentType, DataType> onUpdate;
-    internal OnEndDelegate<ComponentType, DataType> onEnd;
+    OnStartDelegate<ComponentType, DataType> onStart;
+    readonly OnUpdateDelegate<ComponentType, DataType> onUpdate;
+    OnEndDelegate<ComponentType, DataType> onEnd;
     readonly ApplyDelegate<ComponentType, DataType> apply;
     readonly LerpDelegate<DataType> lerp;
 
-    internal TweenInstance(GameObject target, Tween<ComponentType, DataType> tween) : base(target) {
+    internal TweenInstance(GameObject target, Tween<ComponentType, DataType> tween) : base(target, tween) {
       component = target.GetComponent<ComponentType>();
       initial = tween.Current(component);
       from = tween.from != null ? tween.from : tween.Current(component);
       to = tween.to != null ? tween.to : tween.Current(component);
-      duration = tween.duration > 0 ? tween.duration : 0.001f;
       onStart = tween.onStart;
       onEnd = tween.onEnd;
       onCancel = tween.onCancel;
-      useScaledTime = tween.useScaledTime;
       delay = tween.delay;
-      pingPongInterval = tween.pingPongInterval;
-      repeatInterval = tween.repeatInterval;
       loops = tween.isInfinite ? -1 : tween.loops;
       onUpdate = tween.onUpdate;
-      usePingPong = tween.usePingPong;
       apply = tween.Apply;
       lerp = tween.Lerp;
-      fillMode = tween.fillMode;
       easeFunction = EaseFunctions.GetFunction(tween.easeType);
       if (fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
         apply(component, from);
@@ -72,7 +72,7 @@ namespace Tweens {
       if (isPaused) {
         return;
       }
-      var deltaTime = useScaledTime ? Time.deltaTime : Time.unscaledDeltaTime;
+      var deltaTime = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
       if (delay.HasValue) {
         delay -= deltaTime;
         if (delay <= 0) {

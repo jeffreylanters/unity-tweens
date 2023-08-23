@@ -6,7 +6,7 @@ namespace Tweens.Core {
     public float? delay;
     public float? pingPongInterval;
     public float? repeatInterval;
-    public bool useScaledTime = true;
+    public bool useUnscaledTime;
     public bool usePingPong;
     public bool isInfinite;
     public int? loops;
