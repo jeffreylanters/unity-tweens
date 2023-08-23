@@ -98,7 +98,9 @@ The following Tween Types can be used to alter values of a Transform Component; 
 
 The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`.
 
-<!-- TODO -- Add Tween Types -->
+### Generic
+
+The following Tween Types can be used to alter values of any property; `FloatTween`, `Vector2Tween`, `Vector3Tween`, `Vector4Tween`, `ColorTween`, `QuaternionTween`, `RectTween`.
 
 ## Tween Options
 
