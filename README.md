@@ -42,20 +42,301 @@ openupm add nl.jeffreylanters.tweens
 
 # Documentation
 
-This module is benchmarked against other great tweening libraries LeanTween and ITween and outperforms both while running 1000 complex tweens simulataniously. The power and speed you expect, with a modern strictly typed API, clean and ease-to-use options for all your tweening needs.
+Tweens focuses on providing a simple and easy to use API for creating and managing tween animations. The module is designed to be as lightweight as possible, while still providing a wide range of features. The module is also designed to be as extendable as possible, allowing you to create your own custom Tweens and Tweens while keeping typings strict.
 
 - [Getting Started](#getting-started) - Code examples on how to create your first Tween
+- [Tween Types](#tween-types) - A list of all available Tween types
+- [Tween Options](#tween-options) - A list of all available Tween options
+- [Tween Instances](#tween-instances) - Methods available on Tween instances
 
 ## Getting Started
 
-To get started, create a new instance of one of the many available tween types and add it to a GameObject. The following example shows how to create a new PositionTween and add it to a GameObject.
+To get started, create a new instance of one of the many available Tween types and add it to a GameObject. The following example shows how to create a new PositionTween and add it to a GameObject in order to move a GameObject from its current position to a new position.
 
 ```cs
 PositionTween tween = new() {
   to = new Vector3(10, 5, 20),
-  duration = 10,
-  delay = 2,
-  easeType = EaseType.SineInOut,
+  duration = 5,
 };
 gameObject.AddTween(tween);
 ```
+
+The PositionTween in this example represents a configuration rather than a running tween, so you can reuse it as many times as you need while it can also be altered during uses.
+
+```cs
+PositionTween tween = new() {
+  to = new Vector3(10, 5, 20),
+  duration = 5,
+};
+gameObject.AddTween(tween);
+differentGameObject.AddTween(tween);
+tween.to.x = 20;
+otherGameObject.AddTween(tween);
+```
+
+When a Tween is added, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
+
+```cs
+PositionTween tween = new() { };
+var instance = gameObject.AddTween(tween);
+instance.Cancel();
+```
+
+These are just some of the many options available to you, for more information on how to use this Tweens. Not only are there many different types of Tweens, but there are also many different options available to you. For more information on how to use this module, please refer to the rest of the documentation.
+
+Happy Tweening!
+
+## Tween Types
+
+To start animating a value, you will need to create a new Tween. The following sections will list all available Tween types. When a Tween will animate a specific value within a Component, the Tween will get the required Component from the GameObject automatically. When the Component is not available, the Tween will be cancelled.
+
+<!-- TODO -- Add Tween Types -->
+
+## Tween Options
+
+While the Tween Type defines what the Tween will do, the Tween Options define how the Tween will do it. In the following sections, you will find a list of all available Tween Options.
+
+### From
+
+The from value defines the starting value of the Tween. When the from value is not set, the Tween will use the current value of the property.
+
+```cs
+DataType from;
+```
+
+```cs
+ExampleTween tween = new() {
+  from = new Vector3(10, 5, 20),
+};
+```
+
+### To
+
+The to value defines the end value of the Tween. When the to value is not set, the Tween will use the current value of the property.
+
+```cs
+DataType to;
+```
+
+```cs
+ExampleTween tween = new() {
+  to = new Vector3(10, 5, 20),
+};
+```
+
+### Duration
+
+The duration of the Tween in seconds defines how long the Tween will take to complete. When the duration is not set, the Tween will complete instantly.
+
+```cs
+float duration;
+```
+
+```cs
+ExampleTween tween = new() {
+  duration = 5,
+};
+```
+
+### Delay
+
+The delay of the Tween in seconds defines how long the Tween will wait before starting. To change the behaviour of how to the delay will affect the Tween before it starts, you can change the [Fill Mode](#fill-mode). When the delay is not set, the Tween will start instantly.
+
+```cs
+float delay;
+```
+
+```cs
+ExampleTween tween = new() {
+  delay = 5,
+};
+```
+
+### Loops
+
+The amount of times the Tween will loop defines how many times the Tween will repeat itself. When the Tween is using a [Ping Pong](#ping-pong) loop type, the Tween has to play both the forward and backward animation to count as one loop. When [Infinite](#infinite) is set, the Tween will loop forever and the loop count will be ignored. When the amount of loops is not set, the Tween will not loop.
+
+```cs
+int loops;
+```
+
+```cs
+ExampleTween tween = new() {
+  loops = 5,
+};
+```
+
+### Infinite
+
+The infinite option defines whether the Tween will loop forever. When the Tween is set to loop forever, the [Loops](#loops) option will be ignored. When the infinite option is not set, the Tween will not loop forever.
+
+```cs
+bool isInfinite;
+```
+
+```cs
+ExampleTween tween = new() {
+  isInfinite = true,
+};
+```
+
+### Ping Pong
+
+The ping pong option defines whether the Tween will play the animation backwards after the animation has finished. When the ping pong option is not set, the Tween will not play the animation backwards after the animation has finished.
+
+```cs
+bool usePingPong;
+```
+
+```cs
+ExampleTween tween = new() {
+  usePingPong = true,
+};
+```
+
+### Ping Pong Interval
+
+The ping pong interval defines how long the Tween will wait before playing the animation backwards after the animation has finished. When the ping pong interval is not set, the Tween will play the animation backwards instantly after the animation has finished.
+
+```cs
+float pingPongInterval;
+```
+
+```cs
+ExampleTween tween = new() {
+  pingPongInterval = 5,
+};
+```
+
+### Repeat Interval
+
+The repeat interval defines how long the Tween will wait before repeating itself. When the repeat interval is not set, the Tween will repeat itself instantly after the animation has finished.
+
+```cs
+float repeatInterval;
+```
+
+```cs
+ExampleTween tween = new() {
+  repeatInterval = 5,
+};
+```
+
+### Ease Type
+
+The ease type defines how the Tween will animate. When the ease type is not set, the Tween will animate linearly.
+
+The following easetypes can be applied; `Linear`, `SineIn`, `SineOut`, `SineInOut`, `QuadIn`, `QuadOut`, `QuadInOut`, `CubicIn`, `CubicOut`, `CubicInOut`, `QuartIn`, `QuartOut`, `QuartInOut`, `QuintIn`, `QuintOut`, `QuintInOut`, `ExpoIn`, `ExpoOut`, `ExpoInOut`, `CircIn`, `CircOut`, `CircInOut`, `BackIn`, `BackOut`, `BackInOut`, `ElasticIn`, `ElasticOut`, `ElasticInOut`, `BounceIn`, `BounceOut`, `BounceInOut`.
+
+```cs
+EaseType easeType;
+```
+
+```cs
+ExampleTween tween = new() {
+  easeType = EaseType.QuadInOut,
+};
+```
+
+### Use Unscaled Time
+
+The use unscaled time option defines whether the Tween will use the unscaled time. When the use unscaled time option is not set, the Tween will use the scaled time.
+
+```cs
+bool useUnscaledTime;
+```
+
+```cs
+ExampleTween tween = new() {
+  useUnscaledTime = true,
+};
+```
+
+### Fill Mode
+
+The fill mode defines how the Tween will behave before the Tween has started and after the Tween has ended. When the fill mode is not set, the fill mode will be set to `Backward`.
+
+- `None` - The animation will not be applied before the Tween has started, will return to its original state after the Tween has ended.
+- `Forward` - The animation will be applied before the Tween has started, but will return to its original state after the Tween has ended.
+- `Backward` - The animation will not be applied before the Tween has started, but will remain in its final state after the Tween has ended.
+- `Both` - The animation will be applied before the Tween has started, and will remain in its final state after the Tween has ended.
+
+```cs
+FillMode fillMode;
+```
+
+```cs
+ExampleTween tween = new() {
+  fillMode = FillMode.Both,
+};
+```
+
+### On Start
+
+The on start delegate will be invoked when the Tween has started.
+
+```cs
+OnStartDelegate<ComponentType, DataType> onStart;
+```
+
+```cs
+ExampleTween tween = new() {
+  onStart = (instance) => {
+    Debug.Log("Tween has started");
+  },
+};
+```
+
+### On Update
+
+The on update delegate will be invoked when the Tween has updated.
+
+```cs
+OnUpdateDelegate<ComponentType, DataType> onUpdate;
+```
+
+```cs
+ExampleTween tween = new() {
+  onUpdate = (instance, value) => {
+    Debug.Log("Tween has updated");
+  },
+};
+```
+
+### on End
+
+The on end delegate will be invoked when the Tween has ended.
+
+```cs
+OnEndDelegate<ComponentType, DataType> onEnd;
+```
+
+```cs
+ExampleTween tween = new() {
+  onEnd = (instance) => {
+    Debug.Log("Tween has ended");
+  },
+};
+```
+
+### On Cancel
+
+The on cancel delegate will be invoked when the Tween has been cancelled.
+
+```cs
+OnCancelDelegate<ComponentType, DataType> onCancel;
+```
+
+```cs
+ExampleTween tween = new() {
+  onCancel = () => {
+    Debug.Log("Tween has been cancelled");
+  },
+};
+```
+
+## Tween Instances
+
+When a Tween is added to a GameObject, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
+
+<!-- TODO -- Document Tween Instances -->
