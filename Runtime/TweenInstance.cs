@@ -35,15 +35,15 @@ namespace Tweens {
   }
 
   public class TweenInstance<ComponentType, DataType> : TweenInstance where ComponentType : Component {
-    public readonly DataType initial;
-    public readonly DataType from;
-    public readonly DataType to;
     readonly ComponentType component;
     OnStartDelegate<ComponentType, DataType> onStart;
     readonly OnUpdateDelegate<ComponentType, DataType> onUpdate;
     OnEndDelegate<ComponentType, DataType> onEnd;
     readonly ApplyDelegate<ComponentType, DataType> apply;
     readonly LerpDelegate<DataType> lerp;
+    readonly DataType initial;
+    readonly DataType from;
+    readonly DataType to;
 
     internal TweenInstance(GameObject target, Tween<ComponentType, DataType> tween) : base(target, tween) {
       component = target.GetComponent<ComponentType>();
