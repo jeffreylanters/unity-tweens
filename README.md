@@ -90,6 +90,14 @@ Happy Tweening!
 
 To start animating a value, you will need to create a new Tween. The following sections will list all available Tween types. When a Tween will animate a specific value within a Component, the Tween will get the required Component from the GameObject automatically. When the Component is not available, the Tween will be cancelled.
 
+### Transform
+
+The following Tween Types can be used to alter values of a Transform Component; `PositionTween`, `RotationTween`, `LocalPositionTween`, `LocalRotationTween`, `LocalScaleTween`.
+
+### Sprite Renderer
+
+The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`.
+
 <!-- TODO -- Add Tween Types -->
 
 ## Tween Options
@@ -226,7 +234,7 @@ ExampleTween tween = new() {
 
 The ease type defines how the Tween will animate. When the ease type is not set, the Tween will animate linearly.
 
-The following easetypes can be applied; `Linear`, `SineIn`, `SineOut`, `SineInOut`, `QuadIn`, `QuadOut`, `QuadInOut`, `CubicIn`, `CubicOut`, `CubicInOut`, `QuartIn`, `QuartOut`, `QuartInOut`, `QuintIn`, `QuintOut`, `QuintInOut`, `ExpoIn`, `ExpoOut`, `ExpoInOut`, `CircIn`, `CircOut`, `CircInOut`, `BackIn`, `BackOut`, `BackInOut`, `ElasticIn`, `ElasticOut`, `ElasticInOut`, `BounceIn`, `BounceOut`, `BounceInOut`.
+The following Ease Types can be applied; `Linear`, `SineIn`, `SineOut`, `SineInOut`, `QuadIn`, `QuadOut`, `QuadInOut`, `CubicIn`, `CubicOut`, `CubicInOut`, `QuartIn`, `QuartOut`, `QuartInOut`, `QuintIn`, `QuintOut`, `QuintInOut`, `ExpoIn`, `ExpoOut`, `ExpoInOut`, `CircIn`, `CircOut`, `CircInOut`, `BackIn`, `BackOut`, `BackInOut`, `ElasticIn`, `ElasticOut`, `ElasticInOut`, `BounceIn`, `BounceOut`, `BounceInOut`.
 
 ```cs
 EaseType easeType;
