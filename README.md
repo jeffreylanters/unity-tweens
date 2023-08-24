@@ -48,6 +48,9 @@ Tweens focuses on providing a simple and easy to use API for creating and managi
 - [Tween Types](#tween-types) - A list of all available Tween types
 - [Tween Options](#tween-options) - A list of all available Tween options
 - [Tween Instances](#tween-instances) - Methods available on Tween instances
+- [Other Methods](#other-methods) - Other methods available on the Tween module
+
+Still using version 2 of Tweens? View the [documentation here](https://github.com/jeffreylanters/unity-tweens/tree/v2.1.0)!
 
 ## Getting Started
 
@@ -105,6 +108,8 @@ The following Tween Types can be used to alter values of a Sprite Renderer Compo
 ### Generic
 
 The following Tween Types can be used to alter values of any property; `FloatTween`, `Vector2Tween`, `Vector3Tween`, `Vector4Tween`, `ColorTween`, `QuaternionTween`, `RectTween`.
+
+<!-- TODO -- Add more Tween types from version 2.x -->
 
 ## Tween Options
 
@@ -354,3 +359,9 @@ ExampleTween tween = new() {
 When a Tween is added to a GameObject, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
 <!-- TODO -- Document Tween Instances -->
+
+## Other Methods
+
+Tweens also provides a few other methods that can be used to control the Tween module.
+
+<!-- TODO -- Document Other Methods -->
