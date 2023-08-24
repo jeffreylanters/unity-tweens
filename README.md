@@ -103,7 +103,7 @@ The following Tween Types can be used to alter values of a Rect Transform Compon
 
 ### Sprite Renderer
 
-The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`.
+The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`, `SpriteRendererColorTween`.
 
 ### Generic
 
