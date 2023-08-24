@@ -80,7 +80,7 @@ otherGameObject.AddTween(tween);
 When a Tween is added, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
 ```cs
-PositionTween tween = new() { };
+PositionTween tween = new();
 var instance = gameObject.AddTween(tween);
 instance.Cancel();
 ```
@@ -358,7 +358,47 @@ ExampleTween tween = new() {
 
 When a Tween is added to a GameObject, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
-<!-- TODO -- Document Tween Instances -->
+### Cancel
+
+The cancel method will cancel the Tween. When the Tween is cancelled, the [On Cancel](#on-cancel) delegate will be invoked.
+
+```cs
+void Cancel();
+```
+
+```cs
+ExampleTween tween = new();
+var instance = gameObject.AddTween(tween);
+instance.Cancel();
+```
+
+### Is Paused
+
+The is paused property will return whether the Tween is paused while also allowing you to pause the Tween.
+
+```cs
+bool isPaused { get; set; }
+```
+
+```cs
+ExampleTween tween = new();
+var instance = gameObject.AddTween(tween);
+instance.isPaused = true;
+```
+
+### Target
+
+The target property will return the target GameObject of the Tween.
+
+```cs
+readonly GameObject target;
+```
+
+```cs
+ExampleTween tween = new();
+var instance = gameObject.AddTween(tween);
+Debug.Log(instance.target);
+```
 
 ## Other Methods
 
