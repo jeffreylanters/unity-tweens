@@ -94,6 +94,10 @@ To start animating a value, you will need to create a new Tween. The following s
 
 The following Tween Types can be used to alter values of a Transform Component; `PositionTween`, `PositionXTween`, `PositionYTween`, `PositionZTween`, `LocalPositionTween`, `LocalPositionXTween`, `LocalPositionYTween`, `LocalPositionZTween`, `RotationTween`, `LocalRotationTween`, `LocalScaleTween`, `LocalScaleXTween`, `LocalScaleTweenY`, `LocalScaleTweenZ`.
 
+### Rect Transform
+
+The following Tween Types can be used to alter values of a Rect Transform Component; `AnchoredPositionTween`, `AnchoredPositionXTween`, `AnchoredPositionYTween`, `AnchorMinTween`, `AnchorMaxTween`.
+
 ### Sprite Renderer
 
 The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`.
