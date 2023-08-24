@@ -12,6 +12,7 @@ namespace Tweens.Core {
     public int? loops;
     public EaseType easeType;
     public FillMode fillMode = FillMode.Backwards;
+    public AnimationCurve animationCurve;
   }
 
   public abstract class Tween<ComponentType, DataType> : Tween where ComponentType : Component {

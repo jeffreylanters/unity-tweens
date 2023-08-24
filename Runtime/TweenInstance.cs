@@ -58,7 +58,14 @@ namespace Tweens {
       onUpdate = tween.onUpdate;
       apply = tween.Apply;
       lerp = tween.Lerp;
-      easeFunction = EaseFunctions.GetFunction(tween.easeType);
+      if (tween.animationCurve != null) {
+        var animationCurve = new AnimationCurve();
+        animationCurve.CopyFrom(tween.animationCurve);
+        easeFunction = animationCurve.Evaluate;
+      }
+      else {
+        easeFunction = EaseFunctions.GetFunction(tween.easeType);
+      }
       if (fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
         apply(component, from);
       }

@@ -243,7 +243,7 @@ ExampleTween tween = new() {
 
 ### Ease Type
 
-The ease type defines how the Tween will animate. When the ease type is not set, the Tween will animate linearly.
+The ease type defines how the Tween will animate. If an [Animation Curve](#animation-curve) is set, the Ease Type won't be used. When the ease type is not set, the Tween will animate linearly.
 
 The following Ease Types can be applied; `Linear`, `SineIn`, `SineOut`, `SineInOut`, `QuadIn`, `QuadOut`, `QuadInOut`, `CubicIn`, `CubicOut`, `CubicInOut`, `QuartIn`, `QuartOut`, `QuartInOut`, `QuintIn`, `QuintOut`, `QuintInOut`, `ExpoIn`, `ExpoOut`, `ExpoInOut`, `CircIn`, `CircOut`, `CircInOut`, `BackIn`, `BackOut`, `BackInOut`, `ElasticIn`, `ElasticOut`, `ElasticInOut`, `BounceIn`, `BounceOut`, `BounceInOut`.
 
@@ -254,6 +254,20 @@ EaseType easeType;
 ```cs
 ExampleTween tween = new() {
   easeType = EaseType.QuadInOut,
+};
+```
+
+### Animation Curve
+
+The animation curve defines how the Tween will animate. The animation curve can be used to create custom ease types. When the animation curve is not set, the Tween will animate according to the [Ease Type](#ease-type).
+
+```cs
+AnimationCurve animationCurve;
+```
+
+```cs
+ExampleTween tween = new() {
+  animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1),
 };
 ```
 
