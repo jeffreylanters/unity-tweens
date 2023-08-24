@@ -404,4 +404,27 @@ Debug.Log(instance.target);
 
 Tweens also provides a few other methods that can be used to control the Tween module.
 
-<!-- TODO -- Document Other Methods -->
+### Add Tween
+
+The add tween method will add a new Tween to the target GameObject. When the Tween is added, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
+
+```cs
+TweenInstance<ComponentType, DataType> AddTween<ComponentType, DataType>(this GameObject target, Tween<ComponentType, DataType> tween) where ComponentType : Component;
+```
+
+```cs
+ExampleTween tween = new();
+var instance = gameObject.AddTween(tween);
+```
+
+### Cancel Tweens
+
+The cancel tweens method will cancel all Tweens on the target GameObject. When a Tween is cancelled, the [On Cancel](#on-cancel) delegate will be invoked. When the include children option is set, all Tweens on the children of the target GameObject will also be cancelled, otherwise only the Tweens on the target GameObject will be cancelled.
+
+```cs
+void CancelTweens(this GameObject target, bool includeChildren = false);
+```
+
+```cs
+gameObject.CancelTweens();
+```
