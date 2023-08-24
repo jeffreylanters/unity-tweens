@@ -377,7 +377,7 @@ instance.Cancel();
 The is paused property will return whether the Tween is paused while also allowing you to pause the Tween.
 
 ```cs
-bool isPaused { get; set; }
+bool isPaused;
 ```
 
 ```cs
