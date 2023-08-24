@@ -92,7 +92,7 @@ To start animating a value, you will need to create a new Tween. The following s
 
 ### Transform
 
-The following Tween Types can be used to alter values of a Transform Component; `PositionTween`, `PositionXTween`, `PositionYTween`, `PositionZTween`, `LocalPositionTween`, `LocalPositionXTween`, `LocalPositionYTween`, `LocalPositionZTween`, `RotationTween`, `LocalRotationTween`, `LocalScaleTween`, `LocalScaleXTween`, `LocalScaleTweenY`, `LocalScaleTweenZ`.
+The following Tween Types can be used to alter values of a Transform Component; `PositionTween`, `PositionXTween`, `PositionYTween`, `PositionZTween`, `LocalPositionTween`, `LocalPositionXTween`, `LocalPositionYTween`, `LocalPositionZTween`, `RotationTween`, `LocalRotationTween`, `EulerAnglesTween`, `EulerAnglesXTween`, `EulerAnglesYTween`, `EulerAnglesZTween`, `LocalEulerAnglesTween`, `LocalEulerAnglesXTween`, `LocalEulerAnglesYTween`, `LocalEulerAnglesZTween`, `LocalScaleTween`, `LocalScaleXTween`, `LocalScaleTweenY`, `LocalScaleTweenZ`.
 
 ### Rect Transform
 
