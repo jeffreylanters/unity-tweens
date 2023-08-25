@@ -66,7 +66,7 @@ namespace Tweens {
       else {
         easeFunction = EaseFunctions.GetFunction(tween.easeType);
       }
-      if (fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
+      if (delay == null || delay == 0 || fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
         apply(component, from);
         if (onUpdate != null) {
           onUpdate!.Invoke(this, from);
