@@ -21,6 +21,9 @@ namespace Tweens.Editor {
       }
       for (var i = TweenEngine.instances.Count - 1; i >= 0; i--) {
         var tweenInstance = TweenEngine.instances[i];
+        if (tweenInstance.isDecommissioned) {
+          continue;
+        }
         DrawRow(
           tweenInstance.target.name,
           $"{tweenInstance.time:0.00}",
