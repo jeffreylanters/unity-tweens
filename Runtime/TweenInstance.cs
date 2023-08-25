@@ -59,16 +59,14 @@ namespace Tweens {
       apply = tween.Apply;
       lerp = tween.Lerp;
       easeFunction = tween.animationCurve != null ? new AnimationCurve(tween.animationCurve.keys).Evaluate : EaseFunctions.GetFunction(tween.easeType);
-      if (delay == null || delay == 0 || fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
+      if (delay > 0 && (fillMode == FillMode.Both || fillMode == FillMode.Forwards)) {
         apply(component, from);
-        if (onUpdate != null) {
-          onUpdate!.Invoke(this, from);
-        }
+        onUpdate?.Invoke(this, from);
       }
     }
 
     internal sealed override void Update() {
-      if (target == null) {
+      if (component == null) {
         Cancel();
         return;
       }
@@ -84,7 +82,7 @@ namespace Tweens {
         return;
       }
       if (onStart != null) {
-        onStart!.Invoke(this);
+        onStart.Invoke(this);
         onStart = null;
       }
       var timeStep = deltaTime / duration;
@@ -93,33 +91,25 @@ namespace Tweens {
         time = 1;
         if (usePingPong) {
           isForwards = false;
-          if (pingPongInterval.HasValue) {
-            delay = pingPongInterval;
-          }
+          delay = pingPongInterval ?? delay;
         }
         else {
           didReachEnd = true;
-          if (repeatInterval.HasValue) {
-            delay = repeatInterval;
-          }
+          delay = repeatInterval ?? delay;
         }
       }
       else if (usePingPong && time < 0) {
         time = 0;
         isForwards = true;
         didReachEnd = true;
-        if (repeatInterval.HasValue) {
-          delay = repeatInterval;
-        }
+        delay = repeatInterval ?? delay;
       }
       var easedTime = easeFunction(time);
       var value = lerp(from, to, easedTime);
       apply(component, value);
-      if (onUpdate != null) {
-        onUpdate!.Invoke(this, value);
-      }
+      onUpdate?.Invoke(this, value);
       if (didReachEnd) {
-        if (loops.HasValue && (loops > 1 || loops == -1)) {
+        if (loops > 1 || loops == -1) {
           didReachEnd = false;
           time = 0;
           if (loops > 1) {
@@ -127,16 +117,11 @@ namespace Tweens {
           }
         }
         else {
-          if (onEnd != null) {
-            onEnd!.Invoke(this);
-            onEnd = null;
-          }
           if (fillMode == FillMode.Forwards || fillMode == FillMode.None) {
             apply(component, initial);
-            if (onUpdate != null) {
-              onUpdate!.Invoke(this, initial);
-            }
+            onUpdate?.Invoke(this, initial);
           }
+          onEnd?.Invoke(this);
           isDecommissioned = true;
         }
       }
@@ -144,7 +129,7 @@ namespace Tweens {
 
     public sealed override void Cancel() {
       if (onCancel != null) {
-        onCancel!.Invoke();
+        onCancel.Invoke();
         onCancel = null;
       }
       isDecommissioned = true;
