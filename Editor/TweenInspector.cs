@@ -5,6 +5,7 @@ using Tweens.Core;
 namespace Tweens.Editor {
   internal class TweenInspector : EditorWindow {
     Vector2 scrollPosition;
+    string searchQuery;
 
     [MenuItem("Window/Analysis/Tween Inspector", false, 1000)]
     internal static void ShowWindow() {
@@ -12,10 +13,23 @@ namespace Tweens.Editor {
     }
 
     void OnGUI() {
+      EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
+      if (GUILayout.Button("Cancel all", EditorStyles.toolbarButton)) {
+        if (Application.isPlaying) {
+          for (var i = TweenEngine.instances.Count - 1; i >= 0; i--) {
+            var tweenInstance = TweenEngine.instances[i];
+            tweenInstance.Cancel();
+          }
+        }
+      }
+      GUILayout.FlexibleSpace();
+      searchQuery = EditorGUILayout.TextField(searchQuery, EditorStyles.toolbarSearchField);
+      EditorGUILayout.EndHorizontal();
       scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-      DrawRow("Target", "Time", "Duration", "Delay", "Loops", "Direction");
-      if (!Application.isPlaying) {
-        EditorGUILayout.HelpBox("You can only inspect tweens while the app is running.", MessageType.Info);
+      LabelRow("Target", "Time", "Duration", "Delay", "Loops", "Direction");
+      if (!Application.isPlaying || TweenEngine.instances.Count == 0) {
+        GUILayout.Space(20);
+        GUILayout.Label("No tweens running", EditorStyles.centeredGreyMiniLabel);
         EditorGUILayout.EndScrollView();
         return;
       }
@@ -24,7 +38,10 @@ namespace Tweens.Editor {
         if (tweenInstance.isDecommissioned) {
           continue;
         }
-        DrawRow(
+        if (!string.IsNullOrEmpty(searchQuery) && !tweenInstance.target.name.Contains(searchQuery)) {
+          continue;
+        }
+        LabelRow(
           tweenInstance.target.name,
           $"{tweenInstance.time:0.00}",
           $"{tweenInstance.duration:0.00}",
@@ -43,7 +60,7 @@ namespace Tweens.Editor {
       Repaint();
     }
 
-    void DrawRow(params string[] labels) {
+    void LabelRow(params string[] labels) {
       EditorGUILayout.BeginHorizontal();
       for (int i = 0; i < labels.Length; i++) {
         var label = labels[i];
