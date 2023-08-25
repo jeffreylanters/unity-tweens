@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using Tweens.Core;
@@ -76,3 +77,4 @@ namespace Tweens.Editor {
     }
   }
 }
+#endif
