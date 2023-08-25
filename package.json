@@ -1,10 +1,14 @@
 {
   "name": "nl.jeffreylanters.tweens",
   "displayName": "Tweens",
-  "version": "3.0.0",
-  "unity": "2018.1",
+  "version": "3.0.0-pre.1",
+  "unity": "2020.1",
   "description": "An extremely light weight, extendable and customisable tweening engine made for strictly typed script-based animations for user-interfaces and world-space objects optimised for all platforms.",
   "type": "library",
+  "keywords": [
+    "Tweens",
+    "Animation"
+  ],
   "hideInEditor": false,
   "documentationUrl": "https://github.com/jeffreylanters/unity-tweens",
   "changelogUrl": "https://github.com/jeffreylanters/unity-tweens/releases",
