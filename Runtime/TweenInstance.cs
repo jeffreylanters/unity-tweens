@@ -68,6 +68,9 @@ namespace Tweens {
       }
       if (fillMode == FillMode.Both || fillMode == FillMode.Forwards) {
         apply(component, from);
+        if (onUpdate != null) {
+          onUpdate!.Invoke(this, from);
+        }
       }
     }
 
@@ -137,6 +140,9 @@ namespace Tweens {
           }
           if (fillMode == FillMode.Forwards || fillMode == FillMode.None) {
             apply(component, initial);
+            if (onUpdate != null) {
+              onUpdate!.Invoke(this, initial);
+            }
           }
           isDecommissioned = true;
         }
