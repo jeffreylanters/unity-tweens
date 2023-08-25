@@ -26,7 +26,17 @@ namespace Tweens.Editor {
       searchQuery = EditorGUILayout.TextField(searchQuery, EditorStyles.toolbarSearchField);
       EditorGUILayout.EndHorizontal();
       scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
-      LabelRow("Target", "Time", "Duration", "Delay", "Loops", "Direction");
+      EditorGUILayout.BeginHorizontal();
+      GUILayout.Space(10);
+      EditorGUILayout.LabelField("Target", EditorStyles.largeLabel);
+      GUILayout.FlexibleSpace();
+      EditorGUILayout.LabelField("Time", GUILayout.Width(50));
+      EditorGUILayout.LabelField("Duration", GUILayout.Width(50));
+      EditorGUILayout.LabelField("Delay", GUILayout.Width(50));
+      EditorGUILayout.LabelField("Loops", GUILayout.Width(50));
+      EditorGUILayout.LabelField("Direction", GUILayout.Width(50));
+      GUILayout.Space(10);
+      EditorGUILayout.EndHorizontal();
       if (!Application.isPlaying || TweenEngine.instances.Count == 0) {
         GUILayout.Space(20);
         GUILayout.Label("No tweens running", EditorStyles.centeredGreyMiniLabel);
@@ -41,14 +51,17 @@ namespace Tweens.Editor {
         if (!string.IsNullOrEmpty(searchQuery) && !tweenInstance.target.name.Contains(searchQuery)) {
           continue;
         }
-        LabelRow(
-          tweenInstance.target.name,
-          $"{tweenInstance.time:0.00}",
-          $"{tweenInstance.duration:0.00}",
-          tweenInstance.delay != null ? $"{tweenInstance.delay:0.00}" : "N/A",
-          tweenInstance.loops != null ? $"{tweenInstance.loops}" : "N/A",
-          tweenInstance.isForwards ? "Forwards" : "Backwards"
-        );
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Space(10);
+        EditorGUILayout.LabelField(tweenInstance.target.name, EditorStyles.boldLabel);
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.LabelField($"{tweenInstance.time:0.00}", GUILayout.Width(50));
+        EditorGUILayout.LabelField($"{tweenInstance.duration:0.00}", GUILayout.Width(50));
+        EditorGUILayout.LabelField(tweenInstance.delay != null ? $"{tweenInstance.delay:0.00}" : "N/A", GUILayout.Width(50));
+        EditorGUILayout.LabelField(tweenInstance.loops != null ? $"{tweenInstance.loops}" : "N/A", GUILayout.Width(50));
+        EditorGUILayout.LabelField(tweenInstance.isForwards ? "Forwards" : "Backwards", GUILayout.Width(50));
+        GUILayout.Space(10);
+        EditorGUILayout.EndHorizontal();
       }
       EditorGUILayout.EndScrollView();
     }
@@ -58,15 +71,6 @@ namespace Tweens.Editor {
         return;
       }
       Repaint();
-    }
-
-    void LabelRow(params string[] labels) {
-      EditorGUILayout.BeginHorizontal();
-      for (int i = 0; i < labels.Length; i++) {
-        var label = labels[i];
-        EditorGUILayout.LabelField(label, i == 0 ? EditorStyles.boldLabel : EditorStyles.label, GUILayout.Width(i == 0 ? 100 : 50));
-      }
-      EditorGUILayout.EndHorizontal();
     }
   }
 }
