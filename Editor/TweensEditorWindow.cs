@@ -7,10 +7,18 @@ namespace Tweens.Editor {
   internal class TweensEditorWindow : EditorWindow {
     Vector2 scrollPosition;
     string searchQuery;
+    bool showDirection;
+    bool showIsPaused;
+    bool showPingPongInterval;
+    bool showRepeatInterval;
 
     [MenuItem("Window/Analysis/Tweens", false, 1000)]
     internal static void ShowWindow() {
-      GetWindow<TweensEditorWindow>("Tweens");
+      var window = GetWindow<TweensEditorWindow>("Tweens");
+      window.showDirection = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showDirection", false);
+      window.showIsPaused = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", false);
+      window.showPingPongInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", false);
+      window.showRepeatInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", false);
     }
 
     void OnGUI() {
@@ -25,6 +33,14 @@ namespace Tweens.Editor {
       }
       GUILayout.FlexibleSpace();
       searchQuery = EditorGUILayout.TextField(searchQuery, EditorStyles.toolbarSearchField);
+      if (GUILayout.Button(EditorGUIUtility.IconContent("d_SceneViewVisibility@2x"), EditorStyles.toolbarDropDown)) {
+        var menu = new GenericMenu();
+        menu.AddItem(new GUIContent("Show Direction"), showDirection, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showDirection", showDirection = !showDirection));
+        menu.AddItem(new GUIContent("Show Paused"), showIsPaused, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", showIsPaused = !showIsPaused));
+        menu.AddItem(new GUIContent("Show PingPongInterval"), showPingPongInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", showPingPongInterval = !showPingPongInterval));
+        menu.AddItem(new GUIContent("Show RepeatInterval"), showRepeatInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", showRepeatInterval = !showRepeatInterval));
+        menu.ShowAsContext();
+      }
       EditorGUILayout.EndHorizontal();
       scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
       EditorGUILayout.BeginHorizontal();
@@ -35,7 +51,18 @@ namespace Tweens.Editor {
       EditorGUILayout.LabelField("Duration", EditorStyles.miniLabel, GUILayout.Width(50));
       EditorGUILayout.LabelField("Halt", EditorStyles.miniLabel, GUILayout.Width(50));
       EditorGUILayout.LabelField("Loops", EditorStyles.miniLabel, GUILayout.Width(50));
-      EditorGUILayout.LabelField("Direction", EditorStyles.miniLabel, GUILayout.Width(50));
+      if (showDirection) {
+        EditorGUILayout.LabelField("Direction", EditorStyles.miniLabel, GUILayout.Width(50));
+      }
+      if (showIsPaused) {
+        EditorGUILayout.LabelField("Paused", EditorStyles.miniLabel, GUILayout.Width(50));
+      }
+      if (showPingPongInterval) {
+        EditorGUILayout.LabelField("PingPong", EditorStyles.miniLabel, GUILayout.Width(50));
+      }
+      if (showRepeatInterval) {
+        EditorGUILayout.LabelField("Repeat", EditorStyles.miniLabel, GUILayout.Width(50));
+      }
       GUILayout.Space(10);
       EditorGUILayout.EndHorizontal();
       if (!Application.isPlaying || TweenEngine.instances.Count == 0) {
@@ -62,7 +89,18 @@ namespace Tweens.Editor {
         EditorGUILayout.LabelField($"{tweenInstance.duration:0.00}s", GUILayout.Width(50));
         EditorGUILayout.LabelField(tweenInstance.haltTime != null ? $"{tweenInstance.haltTime:0.00}s" : "-", GUILayout.Width(50));
         EditorGUILayout.LabelField(tweenInstance.loops != null ? $"{tweenInstance.loops}" : "-", GUILayout.Width(50));
-        EditorGUILayout.LabelField(tweenInstance.isForwards ? "Forwards" : "Backwards", GUILayout.Width(50));
+        if (showDirection) {
+          EditorGUILayout.LabelField(tweenInstance.isForwards ? "Forwards" : "Backwards", GUILayout.Width(50));
+        }
+        if (showIsPaused) {
+          EditorGUILayout.LabelField(tweenInstance.isPaused ? "Paused" : "Playing", GUILayout.Width(50));
+        }
+        if (showPingPongInterval) {
+          EditorGUILayout.LabelField(tweenInstance.pingPongInterval != null ? $"{tweenInstance.pingPongInterval:0.00}s" : "-", GUILayout.Width(50));
+        }
+        if (showRepeatInterval) {
+          EditorGUILayout.LabelField(tweenInstance.repeatInterval != null ? $"{tweenInstance.repeatInterval:0.00}s" : "-", GUILayout.Width(50));
+        }
         GUILayout.Space(10);
         EditorGUILayout.EndHorizontal();
       }
