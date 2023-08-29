@@ -259,6 +259,20 @@ var tween = new ExampleTween {
 };
 ```
 
+### Offset
+
+The offset defines on which time the Tween will start. When the offset is not set, the Tween will start at the beginning.
+
+```cs
+float offset;
+```
+
+```cs
+var tween = new ExampleTween {
+  offset = 5,
+};
+```
+
 ### Ease Type
 
 The ease type defines how the Tween will animate. If an [Animation Curve](#animation-curve) is set, the Ease Type won't be used. When the ease type is not set, the Tween will animate linearly.
