@@ -3,20 +3,20 @@ using Tweens.Core;
 
 namespace Tweens {
   public abstract class TweenInstance {
-    internal readonly float duration;
-    internal readonly float? pingPongInterval;
-    internal readonly float? repeatInterval;
-    internal readonly bool useUnscaledTime;
-    internal readonly bool usePingPong;
-    internal readonly FillMode fillMode = FillMode.Backwards;
-    internal float? delay;
+    readonly internal float duration;
+    readonly internal float? pingPongInterval;
+    readonly internal float? repeatInterval;
+    readonly internal bool useUnscaledTime;
+    readonly internal bool usePingPong;
+    readonly internal FillMode fillMode = FillMode.Backwards;
+    internal float? haltTime;
     internal int? loops;
     internal bool isDecommissioned;
     internal float time;
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal EaseFunctionDelegate easeFunction;
-    public readonly GameObject target;
+    readonly public GameObject target;
     public bool isPaused;
 
     internal abstract void Update();
@@ -57,14 +57,14 @@ namespace Tweens {
       onEnd = tween.onEnd;
       onCancel = tween.onCancel;
       onFinally = tween.onFinally;
-      delay = tween.delay;
+      haltTime = tween.delay;
       loops = tween.isInfinite ? -1 : tween.loops;
       onUpdate = tween.onUpdate;
       apply = tween.Apply;
       lerp = tween.Lerp;
       easeFunction = tween.animationCurve != null ? new AnimationCurve(tween.animationCurve.keys).Evaluate : EaseFunctions.GetFunction(tween.easeType);
       onAdd?.Invoke(this);
-      if (delay > 0 && (fillMode == FillMode.Both || fillMode == FillMode.Forwards)) {
+      if (haltTime > 0 && (fillMode == FillMode.Both || fillMode == FillMode.Forwards)) {
         apply(component, from);
         onUpdate?.Invoke(this, from);
       }
@@ -79,10 +79,10 @@ namespace Tweens {
         return;
       }
       var deltaTime = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
-      if (delay.HasValue) {
-        delay -= deltaTime;
-        if (delay <= 0) {
-          delay = null;
+      if (haltTime.HasValue) {
+        haltTime -= deltaTime;
+        if (haltTime <= 0) {
+          haltTime = null;
         }
         else {
           return;
@@ -98,18 +98,18 @@ namespace Tweens {
         time = 1;
         if (usePingPong) {
           isForwards = false;
-          delay = pingPongInterval ?? delay;
+          haltTime = pingPongInterval ?? haltTime;
         }
         else {
           didReachEnd = true;
-          delay = repeatInterval ?? delay;
+          haltTime = repeatInterval ?? haltTime;
         }
       }
       else if (usePingPong && time < 0) {
         time = 0;
         isForwards = true;
         didReachEnd = true;
-        delay = repeatInterval ?? delay;
+        haltTime = repeatInterval ?? haltTime;
       }
       var easedTime = easeFunction(time);
       var value = lerp(from, to, easedTime);
