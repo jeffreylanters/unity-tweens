@@ -125,6 +125,10 @@ The following Tween Types can be used to alter values of any property; `FloatTwe
 
 The following Tween Types can be used to alter values of an Audio Source Component; `AudioSourceVolumeTween`, `AudioSourcePitchTween`, `AudioSourcePanTween`, `AudioSourcePriorityTween`, `AudioSourceReverbZoneMixTween`, `AudioSourceSpatialBlendTween`.
 
+### Light
+
+The following Tween Types can be used to alter values of a Light Component; `LightColorTween`, `LightIntensityTween`, `LightRangeTween`, `LightSpotAngleTween`.
+
 ## Tween Options
 
 While the Tween Type defines what the Tween will do, the Tween Options define how the Tween will do it. In the following sections, you will find a list of all available Tween Options.
