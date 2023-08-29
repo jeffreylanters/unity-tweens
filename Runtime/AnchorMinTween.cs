@@ -1,37 +1,18 @@
-using ElRaccoone.Tweens.Core;
+using Tweens.Core;
 using UnityEngine;
 
-namespace ElRaccoone.Tweens {
-  public static class AnchorMinTween {
-    public static Tween<Vector2> TweenAnchorMin (this Component self, Vector2 to, float duration) =>
-      Tween<Vector2>.Add<Driver> (self).Finalize (to, duration);
+namespace Tweens {
+  public sealed class AnchorMinTween : Tween<RectTransform, Vector2> {
+    internal sealed override Vector2 Current(RectTransform component) {
+      return component.anchorMin;
+    }
 
-    public static Tween<Vector2> TweenAnchorMin (this GameObject self, Vector2 to, float duration) =>
-      Tween<Vector2>.Add<Driver> (self).Finalize (to, duration);
+    internal sealed override Vector2 Lerp(Vector2 from, Vector2 to, float time) {
+      return Vector2.LerpUnclamped(from, to, time);
+    }
 
-    /// <summary>
-    /// The driver is responsible for updating the tween's state.
-    /// </summary>
-    private class Driver : Tween<Vector2, RectTransform> {
-      
-      /// <summary>
-      /// Overriden method which is called when the tween starts and should
-      /// return the tween's initial value.
-      /// </summary>
-      public override Vector2 OnGetFrom () {
-        return this.component.anchorMin;
-      }
-
-      /// <summary>
-      /// Overriden method which is called every tween update and should be used
-      /// to update the tween's value.
-      /// </summary>
-      /// <param name="easedTime">The current eased time of the tween's step.</param>
-      public override void OnUpdate (float easedTime) {
-        this.valueCurrent.x = this.InterpolateValue (this.valueFrom.x, this.valueTo.x, easedTime);
-        this.valueCurrent.y = this.InterpolateValue (this.valueFrom.y, this.valueTo.y, easedTime);
-        this.component.anchorMin = this.valueCurrent;
-      }
+    internal sealed override void Apply(RectTransform component, Vector2 value) {
+      component.anchorMin = value;
     }
   }
 }

@@ -1,44 +1,21 @@
 #if TWEENS_DEFINED_COM_UNITY_UGUI
-
-using ElRaccoone.Tweens.Core;
+using Tweens.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ElRaccoone.Tweens {
-  public static class GraphicColorTween {
-    public static Tween<Color> TweenGraphicColor (this Component self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
+namespace Tweens {
+  public sealed class GraphicColorTween : Tween<Graphic, Color> {
+    internal sealed override Color Current(Graphic component) {
+      return component.color;
+    }
 
-    public static Tween<Color> TweenGraphicColor (this GameObject self, Color to, float duration) =>
-      Tween<Color>.Add<Driver> (self).Finalize (to, duration);
+    internal sealed override Color Lerp(Color from, Color to, float time) {
+      return Color.LerpUnclamped(from, to, time);
+    }
 
-    /// <summary>
-    /// The driver is responsible for updating the tween's state.
-    /// </summary>
-    private class Driver : Tween<Color, Graphic> {
-      
-      /// <summary>
-      /// Overriden method which is called when the tween starts and should
-      /// return the tween's initial value.
-      /// </summary>
-      public override Color OnGetFrom () {
-        return this.component.color;
-      }
-
-      /// <summary>
-      /// Overriden method which is called every tween update and should be used
-      /// to update the tween's value.
-      /// </summary>
-      /// <param name="easedTime">The current eased time of the tween's step.</param>
-      public override void OnUpdate (float easedTime) {
-        this.valueCurrent.r = this.InterpolateValue (this.valueFrom.r, this.valueTo.r, easedTime);
-        this.valueCurrent.g = this.InterpolateValue (this.valueFrom.g, this.valueTo.g, easedTime);
-        this.valueCurrent.b = this.InterpolateValue (this.valueFrom.b, this.valueTo.b, easedTime);
-        this.valueCurrent.a = this.InterpolateValue (this.valueFrom.a, this.valueTo.a, easedTime);
-        this.component.color = this.valueCurrent;
-      }
+    internal sealed override void Apply(Graphic component, Color value) {
+      component.color = value;
     }
   }
 }
-
 #endif

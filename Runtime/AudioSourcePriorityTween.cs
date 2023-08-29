@@ -1,36 +1,18 @@
-using ElRaccoone.Tweens.Core;
+using Tweens.Core;
 using UnityEngine;
 
-namespace ElRaccoone.Tweens {
-  public static class AudioSourcePriorityTween {
-    public static Tween<float> TweenAudioSourcePriority (this Component self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (to, duration);
+namespace Tweens {
+  public sealed class AudioSourcePriorityTween : Tween<AudioSource, int> {
+    internal sealed override int Current(AudioSource component) {
+      return component.priority;
+    }
 
-    public static Tween<float> TweenAudioSourcePriority (this GameObject self, float to, float duration) =>
-      Tween<float>.Add<Driver> (self).Finalize (to, duration);
+    internal sealed override int Lerp(int from, int to, float time) {
+      return Mathf.RoundToInt(Mathf.LerpUnclamped(from, to, time));
+    }
 
-    /// <summary>
-    /// The driver is responsible for updating the tween's state.
-    /// </summary>
-    private class Driver : Tween<float, AudioSource> {
-
-      /// <summary>
-      /// Overriden method which is called when the tween starts and should
-      /// return the tween's initial value.
-      /// </summary>
-      public override float OnGetFrom () {
-        return this.component.priority;
-      }
-
-      /// <summary>
-      /// Overriden method which is called every tween update and should be used
-      /// to update the tween's value.
-      /// </summary>
-      /// <param name="easedTime">The current eased time of the tween's step.</param>
-      public override void OnUpdate (float easedTime) {
-        this.valueCurrent = this.InterpolateValue (this.valueFrom, this.valueTo, easedTime);
-        this.component.priority = Mathf.RoundToInt (this.valueCurrent);
-      }
+    internal sealed override void Apply(AudioSource component, int value) {
+      component.priority = value;
     }
   }
 }

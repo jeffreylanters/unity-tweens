@@ -3,7 +3,7 @@
 ![readme splash](https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/repository-readme-splash.png)
 
 [![license](https://img.shields.io/badge/mit-license-red.svg?style=for-the-badge)](https://github.com/jeffreylanters/unity-tweens/blob/master/LICENSE.md)
-[![openupm](https://img.shields.io/npm/v/nl.elraccoone.tweens?label=UPM&registry_uri=https://package.openupm.com&style=for-the-badge&color=232c37)](https://openupm.com/packages/nl.elraccoone.tweens/)
+[![openupm](https://img.shields.io/npm/v/nl.jeffreylanters.tweens?label=UPM&registry_uri=https://package.openupm.com&style=for-the-badge&color=232c37)](https://openupm.com/packages/nl.jeffreylanters.tweens/)
 [![build](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)](https://github.com/jeffreylanters/unity-tweens/actions)
 [![deployment](https://img.shields.io/badge/state-success-brightgreen.svg?style=for-the-badge)](https://github.com/jeffreylanters/unity-tweens/deployments)
 [![stars](https://img.shields.io/github/stars/jeffreylanters/unity-tweens.svg?style=for-the-badge&color=fe8523&label=stargazers)](https://github.com/jeffreylanters/unity-tweens/stargazers)
@@ -29,7 +29,7 @@ An extremely light weight, extendable and customisable tweening engine made for 
 Install the latest stable release using the Unity Package Manager by adding the following line to your `manifest.json` file located within your project's Packages directory, or by adding the Git URL to the Package Manager Window inside of Unity.
 
 ```json
-"nl.elraccoone.tweens": "git+https://github.com/jeffreylanters/unity-tweens"
+"nl.jeffreylanters.tweens": "git+https://github.com/jeffreylanters/unity-tweens"
 ```
 
 ### Using OpenUPM
@@ -37,1104 +37,430 @@ Install the latest stable release using the Unity Package Manager by adding the 
 The module is availble on the OpenUPM package registry, you can install the latest stable release using the OpenUPM Package manager's Command Line Tool using the following command.
 
 ```sh
-openupm add nl.elraccoone.tweens
+openupm add nl.jeffreylanters.tweens
 ```
 
 # Documentation
 
-This module is benchmarked against LeanTween and ITween and beats both in Unity 2020.1 with running 1000 complex tweens simulataniously. The power and speed you expect get other tweening engines, with strictly typed, clean and ease-to-use chainable methods for all use cases.
+Tweens focuses on providing a simple and easy to use API for creating and managing tween animations. The module is designed to be as lightweight as possible, while still providing a wide range of features. The module is also designed to be as extendable as possible, allowing you to create your own custom Tweens and Tweens while keeping typings strict.
 
 - [Getting Started](#getting-started) - Code examples on how to create your first Tween
-- [Tweening Methods](#tweening-methods) - Tweening methods available to animate various properties
-- [Chainable Options](#chainable-options) - Chainable options allowing you to alter the Tween's behaviour
-- [Other Methods](#other-methods) - Various other options available on instanciated Tweens
+- [Tween Types](#tween-types) - A list of all available Tween types
+- [Tween Options](#tween-options) - A list of all available Tween options
+- [Tween Instances](#tween-instances) - Methods available on Tween instances
+- [Other Methods](#other-methods) - Other methods available on the Tween module
+
+Still using version 2 of Tweens? View the [documentation here](https://github.com/jeffreylanters/unity-tweens/tree/v2.1.0)!
 
 ## Getting Started
 
-These are some of the endless possibilities using Tweens. Tweens can be invoked on any GameObject and Component and fetches their own required components so you don't have to. Chainable Options can used endlessly in order to customize the behaviour to your needs.
+To get started, create a new instance of one of the many available Tween types and add it to a GameObject. The following example shows how to create a new PositionTween and add it to a GameObject in order to move a GameObject from its current position to a new position.
 
 ```cs
-using UnityEngine;
-using ElRaccoone.Tweens;
-
-public class SomeComponent : MonoBehaviour {
-  private void Start () {
-    this.gameObject.TweenPosition (new Vector3  (10, 1, 15), 5).SetFrom (Vector3.zero).SetOnComplete (SomeMethod);
-    this.gameObject.TweenAnchoredPositionX (100, 2).SetPingPong ().SetLoopCount (2);
-    this.gameObject.TweenLocalRotation (Vector3.one * 360, 10).SetDelay (10).SetEaseSineOut ();
-    this.gameObject.TweenImageFillAmount (0.75, 2).SetEaseQuartInOut ().SetRandomTime ();
-    this.gameObject.TweenMaterialColor (Color.red, 10).SetUseUnscaledTime (false).SetEaseCircInOut ();
-    this.gameObject.TweenLightIntensity (10, 1).SetInfinite ().SetRandomTime ().SetOnCancel (SomeOtherMethod);
-    this.gameObject.TweenCancelAll ();
-  }
-
-  private async void AsyncAnimationSequence () {
-    await this.gameObject.TweenCanvasGroupAlpha (0, 1).SetEaseElasticIn ().SetOvershooting (2).Await ();
-    await this.gameObject.TweenVolumeWeight (50, 2).SetTime (0.25f).SetEaseExpoOut ().Await ();
-  }
-
-  private IEnumerator RoutineAnimationSequence () {
-    yield return this.gameObject.TweenAudioSourcePriority (5, 10).SetEase (EaseType.BounceInOut).Yield ();
-    yield return this.gameObject.TweenValueFloat (100, 1, value => { }).SetFrom (100).SetEaseSineIn ().Yield ();
-  }
-}
+var tween = new PositionTween {
+  to = new Vector3(10, 5, 20),
+  duration = 5,
+};
+gameObject.AddTween(tween);
 ```
 
-## Tweening Methods
-
-#### Tween Position
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Position.
+The PositionTween in this example represents a configuration rather than a running tween, so you can reuse it as many times as you need while it can also be altered during uses.
 
 ```cs
-<GameObject, Component>.TweenPosition (Vector3 to, float duration) : Tween<Vector3>;
+var tween = new PositionTween {
+  to = new Vector3(10, 5, 20),
+  duration = 5,
+};
+gameObject.AddTween(tween);
+differentGameObject.AddTween(tween);
+tween.to.x = 20;
+otherGameObject.AddTween(tween);
 ```
 
-#### Tween Position X
-
-`version 1.0.0`
-
-Instantiates a Tween animating the X axis of the Position.
+When a Tween is added, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
 ```cs
-<GameObject, Component>.TweenPositionX (float to, float duration) : Tween<float>;
+var tween = new PositionTween { };
+var instance = gameObject.AddTween(tween);
+instance.Cancel();
 ```
 
-#### Tween Position Y
+These are just some of the many options available to you, for more information on how to use this Tweens. Not only are there many different types of Tweens, but there are also many different options available to you. For more information on how to use this module, please refer to the rest of the documentation.
 
-`version 1.0.0`
+Use the built-in Tween Inspector to analyze and debug Tweens. The Tween Inspector can be found in the Window menu under the Analysis category.
 
-Instantiates a Tween animating the Y axis of the Position.
+![Tween Inspector Window](https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/tween-inspector.png)
 
-```cs
-<GameObject, Component>.TweenPositionY (float to, float duration) : Tween<float>;
-```
+Happy Tweening!
 
-#### Tween Position Z
+## Tween Types
 
-`version 1.0.0`
+To start animating a value, you will need to create a new Tween. The following sections will list all available Tween types. When a Tween will animate a specific value within a Component, the Tween will get the required Component from the GameObject automatically. When the Component is not available, the Tween will be cancelled.
 
-Instantiates a Tween animating the Z axis of the Position.
+### Transform
 
-```cs
-<GameObject, Component>.TweenPositionZ (float to, float duration) : Tween<float>;
-```
+The following Tween Types can be used to alter values of a Transform Component; `PositionTween`, `PositionXTween`, `PositionYTween`, `PositionZTween`, `LocalPositionTween`, `LocalPositionXTween`, `LocalPositionYTween`, `LocalPositionZTween`, `RotationTween`, `LocalRotationTween`, `EulerAnglesTween`, `EulerAnglesXTween`, `EulerAnglesYTween`, `EulerAnglesZTween`, `LocalEulerAnglesTween`, `LocalEulerAnglesXTween`, `LocalEulerAnglesYTween`, `LocalEulerAnglesZTween`, `LocalScaleTween`, `LocalScaleXTween`, `LocalScaleTweenY`, `LocalScaleTweenZ`.
 
-#### Tween Local Position
+### Rect Transform
 
-`version 1.0.0`
+The following Tween Types can be used to alter values of a Rect Transform Component; `AnchoredPositionTween`, `AnchoredPositionXTween`, `AnchoredPositionYTween`, `AnchorMinTween`, `AnchorMaxTween`.
 
-Instantiates a Tween animating the LocalPosition.
+### Sprite Renderer
 
-```cs
-<GameObject, Component>.TweenLocalPosition (Vector3 to, float duration) : Tween<Vector3>;
-```
+The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`, `SpriteRendererColorTween`.
 
-#### Tween Local Position X
-
-`version 1.0.0`
-
-Instantiates a Tween animating the X axis of the LocalPosition.
-
-```cs
-<GameObject, Component>.TweenLocalPositionX (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Position Y
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Y axis of the LocalPosition.
-
-```cs
-<GameObject, Component>.TweenLocalPositionY (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Position Z
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Z axis of the LocalPosition.
-
-```cs
-<GameObject, Component>.TweenLocalPositionZ (float to, float duration) : Tween<float>;
-```
-
-#### Tween Anchored Position
-
-`version 1.0.2`
-
-Instantiates a Tween animating the AnchoredPosition.
-
-```cs
-<GameObject, Component>.TweenAnchoredPosition (Vector2 to, float duration) : Tween<Vector2>;
-```
-
-#### Tween Anchored Position X
-
-`version 1.0.2`
-
-Instantiates a Tween animating the X axis of the AnchoredPosition.
-
-```cs
-<GameObject, Component>.TweenAnchoredPositionX (float to, float duration) : Tween<float>;
-```
-
-#### Tween Anchored Position Y
-
-`version 1.0.2`
-
-Instantiates a Tween animating the Y axis of the AnchoredPosition.
-
-```cs
-<GameObject, Component>.TweenAnchoredPositionY (float to, float duration) : Tween<float>;
-```
-
-#### Tween Anchor Min
-
-`version 1.12.0`
-
-Instantiates a Tween animating the AnchorMin.
-
-```cs
-<GameObject, Component>.TweenAnchorMin (Vector2 to, float duration) : Tween<Vector2>;
-```
-
-#### Tween Anchor Max
-
-`version 1.12.0`
-
-Instantiates a Tween animating the AnchorMax.
-
-```cs
-<GameObject, Component>.TweenAnchorMax (Vector2 to, float duration) : Tween<Vector2>;
-```
-
-#### Tween Rotation
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Rotation.
-
-```cs
-<GameObject, Component>.TweenRotation (Vector3 to, float duration) : Tween<Vector3>;
-```
-
-#### Tween Rotation X
-
-`version 1.0.0`
-
-Instantiates a Tween animating the X axis of the Rotation.
-
-```cs
-<GameObject, Component>.TweenRotationX (float to, float duration) : Tween<float>;
-```
-
-#### Tween Rotation Y
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Y axis of the Rotation.
-
-```cs
-<GameObject, Component>.TweenRotationY (float to, float duration) : Tween<float>;
-```
-
-#### Tween Rotation Z
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Z axis of the Rotation.
-
-```cs
-<GameObject, Component>.TweenRotationZ (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Rotation
-
-`version 1.0.0`
-
-Instantiates a Tween animating the LocalRotation.
-
-```cs
-<GameObject, Component>.TweenLocalRotation (Vector3 to, float duration) : Tween<Vector3>;
-```
-
-#### Tween Local Rotation X
-
-`version 1.0.0`
-
-Instantiates a Tween animating the X axis of the LocalRotation.
-
-```cs
-<GameObject, Component>.TweenLocalRotationX (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Rotation Y
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Y axis of the LocalRotation.
-
-```cs
-<GameObject, Component>.TweenLocalRotationY (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Rotation Z
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Z axis of the LocalRotation.
-
-```cs
-<GameObject, Component>.TweenLocalRotationZ (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Scale
-
-`version 1.0.0`
-
-Instantiates a Tween animating the LocalScale.
-
-```cs
-<GameObject, Component>.TweenLocalScale (Vector3 to, float duration) : Tween<Vector3>;
-```
-
-#### Tween Local Scale X
-
-`version 1.0.0`
-
-Instantiates a Tween animating the X axis of the LocalScale.
-
-```cs
-<GameObject, Component>.TweenLocalScaleX (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Scale Y
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Y axis of the LocalScale.
-
-```cs
-<GameObject, Component>.TweenLocalScaleY (float to, float duration) : Tween<float>;
-```
-
-#### Tween Local Scale Z
-
-`version 1.0.0`
-
-Instantiates a Tween animating the Z axis of the LocalScale.
-
-```cs
-<GameObject, Component>.TweenLocalScaleZ (float to, float duration) : Tween<float>;
-```
-
-#### Tween Image Fill Amount (Unity GUI)
-
-`version 1.0.3`
+### Image
 
 `requires com.unity.ugui`
 
-Instantiates a Tween animating the fillAmount of an image.
+The following Tween Types can be used to alter values of an Image Component; `ImageFillAmountTween`.
 
-```cs
-<GameObject, Component>.TweenImageFillAmount (float to, float duration) : Tween<float>;
-```
-
-#### Tween Graphic Alpha (Unity GUI)
-
-`version 1.0.4`
+### Graphic
 
 `requires com.unity.ugui`
 
-Instantiates a Tween animating the alpha of a graphic.
+The following Tween Types can be used to alter values of a Graphic Component; `GraphicAlphaTween`, `GraphicColorTween`.
 
-```cs
-<GameObject, Component>.TweenGraphicAlpha (float to, float duration) : Tween<float>;
-```
-
-#### Tween Graphic Color (Unity GUI)
-
-`version 1.0.4`
-
-`requires com.unity.ugui`
-
-Instantiates a Tween animating the color of a graphic.
-
-```cs
-<GameObject, Component>.TweenGraphicColor (Color to, float duration) : Tween<Color>;
-```
-
-#### Tween Sprite Renderer Alpha
-
-`version 1.0.4`
-
-Instantiates a Tween animating the alpha of a SpriteRenderer.
-
-```cs
-<GameObject, Component>.TweenSpriteRendererAlpha (float to, float duration) : Tween<float>;
-```
-
-#### Tween Sprite Renderer Color
-
-`version 1.0.5`
-
-Instantiates a Tween animating the color of a SpriteRenderer.
-
-```cs
-<GameObject, Component>.TweenSpriteRendererColor (Color to, float duration) : Tween<Color>;
-```
-
-#### Tween Material Alpha
-
-`version 1.0.9`
-
-Instantiates a Tween animating the alpha of a Material.
-
-```cs
-<GameObject, Component>.TweenMaterialAlpha (float to, float duration) : Tween<float>;
-```
-
-#### Tween Material Color
-
-`version 1.0.9`
-
-Instantiates a Tween animating the color of a Material.
-
-```cs
-<GameObject, Component>.TweenMaterialColor (Color to, float duration) : Tween<Color>;
-```
-
-#### Tween Text Mesh Alpha
-
-`version 1.0.8`
-
-Instantiates a Tween animating the alpha of a TextMesh.
-
-```cs
-<GameObject, Component>.TweenTextMeshAlpha (float to, float duration) : Tween<float>;
-```
-
-#### Tween Text Mesh Color
-
-`version 1.7.0`
-
-Instantiates a Tween animating the color of a TextMesh.
-
-```cs
-<GameObject, Component>.TweenTextMeshColor (Color to, float duration) : Tween<Color>;
-```
-
-#### Tween Text Mesh Pro Color (Text Mesh Pro)
-
-`version 1.7.0`
-
-`requires com.unity.textmeshpro`
-
-Instantiates a Tween animating the color of a TextMeshPro.
-
-```cs
-<GameObject, Component>.TweenTextMeshProColor (Color to, float duration) : Tween<Color>;
-```
-
-#### Tween Text Mesh Pro Alpha (Text Mesh Pro)
-
-`version 1.7.0`
-
-`requires com.unity.textmeshpro`
-
-Instantiates a Tween animating the alpha of a TextMeshPro.
-
-```cs
-<GameObject, Component>.TweenTextMeshProAlpha (float to, float duration) : Tween<float>;
-```
-
-#### Tween Canvas Group Alpha
-
-`version 1.0.10`
-
-Instantiates a Tween animating the alpha of a CanvasGroup.
-
-```cs
-<GameObject, Component>.TweenCanvasGroupAlpha (float to, float duration) : Tween<float>;
-```
-
-#### Tween Audio Source Pitch
-
-`version 1.0.11`
-
-Instantiates a Tween easing the pitch of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourcePitch (float to, float duration) : Tween<float>;
-```
-
-#### Tween Audio Source Priority
-
-`version 1.10.0`
-
-Instantiates a Tween easing the priority of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourcePriority (float to, float duration) : Tween<float>;
-```
-
-#### Tween Audio Source Reverb Zone Mix
-
-`version 1.10.0`
-
-Instantiates a Tween easing the reverb zone mix of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourceReverbZoneMix (float to, float duration) : Tween<float>;
-```
-
-#### Tween Audio Source Spatial Blend
-
-`version 1.10.0`
-
-Instantiates a Tween easing the spatial blend of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourceSpatialBlend (float to, float duration) : Tween<float>;
-```
-
-#### Tween Audio Source Stereo Pan
-
-`version 1.10.0`
-
-Instantiates a Tween easing the stereo pan of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourceStereoPan (float to, float duration) : Tween<float>;
-```
-
-#### Tween Audio Source Volume
-
-`version 1.0.11`
-
-Instantiates a Tween easing the volume of an AudioSource.
-
-```cs
-<GameObject, Component>.TweenAudioSourceVolume (float to, float duration) : Tween<float>;
-```
-
-#### Tween Camera Field Of View
-
-`version 1.6.4`
-
-Instantiates a Tween easing the field of view of a Camera.
-
-```cs
-<GameObject, Component>.TweenCameraFieldOfView (float to, float duration) : Tween<float>;
-```
-
-#### Tween Camera Orthographic Size
-
-`version 1.6.4`
-
-Instantiates a Tween easing the orthographic size of a Camera.
-
-```cs
-<GameObject, Component>.TweenCameraOrthographicSize (float to, float duration) : Tween<float>;
-```
-
-#### Tween Light Color
-
-`version 1.6.6`
-
-Instantiates a Tween easing the color of a Light.
-
-```cs
-<GameObject, Component>.TweenLightColor (Color to, float duration) : Tween<Color>;
-```
-
-#### Tween Light Intensity
-
-`version 1.9.3`
-
-Instantiates a Tween easing the intensity of a Light.
-
-```cs
-<GameObject, Component>.TweenLightIntensity (float to, float duration) : Tween<float>;
-```
-
-#### Tween Light Range
-
-`version 1.11.0`
-
-Instantiates a Tween easing the range of a Light.
-
-```cs
-<GameObject, Component>.TweenLightRange (float to, float duration) : Tween<float>;
-```
-
-#### Tween Light Spot Angle
-
-`version 1.11.0`
-
-Instantiates a Tween easing the spot angle of a Light.
-
-```cs
-<GameObject, Component>.TweenLightSpotAngle (float to, float duration) : Tween<float>;
-```
+### Generic
 
-#### Tween Volume Weight (Scriptable Render Pipeline)
+The following Tween Types can be used to alter values of any property; `FloatTween`, `Vector2Tween`, `Vector3Tween`, `Vector4Tween`, `ColorTween`, `QuaternionTween`, `RectTween`.
 
-`version 1.6.7`
+### Audio Source
 
-`requires com.unity.render-pipelines.core`
+The following Tween Types can be used to alter values of an Audio Source Component; `AudioSourceVolumeTween`, `AudioSourcePitchTween`, `AudioSourcePanTween`, `AudioSourcePriorityTween`, `AudioSourceReverbZoneMixTween`, `AudioSourceSpatialBlendTween`.
 
-Instantiates a Tween animating the weight of a post-processing volume.
+### Light
 
-```cs
-<GameObject, Component>.TweenVolumeWeight (float to, float duration) : Tween<float>;
-```
-
-#### Tween Value Float
-
-`version 1.0.3`
-
-Instantiates a Tween animating the a float value.
-
-```cs
-<GameObject, Component>.TweenValueFloat (float to, float duration, Action<float> onUpdate) : Tween<float>;
-```
-
-#### Tween Value Vector2
-
-`version 1.6.5`
-
-Instantiates a Tween animating the a Vector2 value.
-
-```cs
-<GameObject, Component>.TweenValueVector2 (Vector2 to, float duration, Action<Vector2> onUpdate) : Tween<Vector2>;
-```
-
-#### Tween Value Vector3
-
-`version 1.6.5`
-
-Instantiates a Tween animating the a Vector3 value.
-
-```cs
-<GameObject, Component>.TweenValueVector3 (Vector3 to, float duration, Action<Vector3> onUpdate) : Tween<Vector3>;
-```
-
-#### Tween Value Color
-
-`version 1.2.0`
-
-Instantiates a Tween animating the a color value.
-
-```cs
-<GameObject, Component>.TweenValueColor (Color to, float duration, Action<Color> onUpdate) : Tween<Color>;
-```
-
-#### Tween Cancel All
-
-`version 1.0.0`
-
-Cancels all the running tweens.
-
-```cs
-<GameObject, Component>.TweenCancelAll (bool includeChildren = false, bool includeInactive = false) : Tween<T>;
-```
-
-## Chainable Options
-
-#### Set From
+The following Tween Types can be used to alter values of a Light Component; `LightColorTween`, `LightIntensityTween`, `LightRangeTween`, `LightSpotAngleTween`.
 
-`version 1.0.0`
+## Tween Options
 
-Sets the From value of a tween, when not set the current value will be used.
+While the Tween Type defines what the Tween will do, the Tween Options define how the Tween will do it. In the following sections, you will find a list of all available Tween Options.
 
-```cs
-<Tween<T>>.SetFrom (T valueFrom) : Tween<T>;
-```
-
-#### Set On Start
-
-`version 2.1.0`
-
-Sets the event which will be invoked right before the tween starts playing after a potential delay. This will not be invoked when the tween is canceled.
-
-```cs
-<Tween<T>>.SetOnStart (Action onStart) : Tween<T>;
-```
-
-#### Set On Complete
-
-`version 1.1.0`
-
-Sets the event which will be invoked when the tween completes playing. This will
-not be invoked when the tween is canceled.
-
-```cs
-<Tween<T>>.SetOnComplete (Action onComplete) : Tween<T>;
-```
-
-#### Set On Cancel
-
-`version 1.3.0`
-
-Sets the event which will be invoked when the tween is canceled.
+### From
 
-```cs
-<Tween<T>>.SetOnCancel (Action onCancel) : Tween<T>;
-```
-
-#### Set Ping Pong
-
-`version 1.6.0`
+The from value defines the starting value of the Tween. When the from value is not set, the Tween will use the current value of the property.
 
-Enabled ping pong playback, this will bounce the animation back and forth. The tween has play forward and backwards to count as one cycle. Use either SetLoopCount or SetInifinite to set the number of times the animation should ping pong.
-
 ```cs
-<Tween<T>>.SetPingPong () : Tween<T>;
+DataType from;
 ```
-
-#### Set Loop Count
-
-`version 1.2.0`
-
-Sets the number of times the animation should loop.
 
 ```cs
-<Tween<T>>.SetLoopCount (int loopCount) : Tween<T>;
+var tween = new ExampleTween {
+  from = new Vector3(10, 5, 20),
+};
 ```
 
-#### Set Infinite
+### To
 
-`version 1.5.0`
+The to value defines the end value of the Tween. When the to value is not set, the Tween will use the current value of the property.
 
-Sets this tween to infinite, the loopcount will be ignored.
-
 ```cs
-<Tween<T>>.SetInfinite () : Tween<T>;
+DataType to;
 ```
-
-#### Set Delay
-
-`version 1.3.0`
-
-Sets the delay of this tween. The tween will not play anything until the requested delay time is reached. You can change this behaviour by enabeling 'goToFirstFrameImmediately' to set the animation to the first frame immediately.
 
 ```cs
-<Tween<T>>.SetDelay (float delay, bool goToFirstFrameImmediately = false) : Tween<T>;
+var tween = new ExampleTween {
+  to = new Vector3(10, 5, 20),
+};
 ```
 
-#### Set Time
+### Duration
 
-`version 1.1.0`
+The duration of the Tween in seconds defines how long the Tween will take to complete. When the duration is not set, the Tween will complete instantly.
 
-Sets the time of the tween.
-
 ```cs
-<Tween<T>>.SetTime (float time) : Tween<T>;
+float duration;
 ```
-
-#### Set Random Time
 
-`version 1.3.0`
-
-Sets the time of the tween to a random value.
-
 ```cs
-<Tween<T>>.SetRandomTime () : Tween<T>;
+var tween = new ExampleTween {
+  duration = 5,
+};
 ```
-
-#### Set Paused
 
-`version 1.4.0`
+### Delay
 
-Sets whether the playback and delay should be paused.
+The delay of the Tween in seconds defines how long the Tween will wait before starting. To change the behaviour of how to the delay will affect the Tween before it starts, you can change the [Fill Mode](#fill-mode). When the delay is not set, the Tween will start instantly.
 
 ```cs
-<Tween<T>>.SetPaused (bool isPaused) : Tween<T>;
+float delay;
 ```
 
-#### Set Use Unscaled Time
-
-`version 1.6.1`
-
-Sets whether the tween should use the unscaled delta time instead of the scaled delta time.
-
 ```cs
-<Tween<T>>.SetUseUnscaledTime (bool useUnscaledTime) : Tween<T>;
+var tween = new ExampleTween {
+  delay = 5,
+};
 ```
-
-#### Set Overshooting
 
-`version 1.5.0`
+### Loops
 
-Sets the overshooting of Eases that exceed their boundaries such as elastic and back.
+The amount of times the Tween will loop defines how many times the Tween will repeat itself. When the Tween is using a [Ping Pong](#ping-pong) loop type, the Tween has to play both the forward and backward animation to count as one loop. When [Infinite](#infinite) is set, the Tween will loop forever and the loop count will be ignored. When the amount of loops is not set, the Tween will not loop.
 
 ```cs
-<Tween<T>>.SetOvershooting (float overshooting) : Tween<T>;
+int loops;
 ```
 
-#### Set Ease
-
-`version 1.5.0`
-
-Sets the ease for this tween.
-
 ```cs
-<Tween<T>>.SetEase (EaseType ease) : Tween<T>;
+var tween = new ExampleTween {
+  loops = 5,
+};
 ```
-
-#### Set Ease Linear
 
-`version 1.0.0`
+### Infinite
 
-Sets the ease for this tween to Linear.
+The infinite option defines whether the Tween will loop forever. When the Tween is set to loop forever, the [Loops](#loops) option will be ignored. When the infinite option is not set, the Tween will not loop forever.
 
 ```cs
-<Tween<T>>.SetEaseLinear () : Tween<T>;
+bool isInfinite;
 ```
 
-#### Set Ease Sine In
-
-`version 1.0.0`
-
-Sets the ease for this tween to SineIn.
-
 ```cs
-<Tween<T>>.SetEaseSineIn () : Tween<T>;
+var tween = new ExampleTween {
+  isInfinite = true,
+};
 ```
-
-#### Set Ease Sine Out
 
-`version 1.0.0`
+### Ping Pong
 
-Sets the ease for this tween to SineOut.
+The ping pong option defines whether the Tween will play the animation backwards after the animation has finished. When the ping pong option is not set, the Tween will not play the animation backwards after the animation has finished.
 
 ```cs
-<Tween<T>>.SetEaseSineOut () : Tween<T>;
+bool usePingPong;
 ```
 
-#### Set Ease Sine In Out
-
-`version 1.0.0`
-
-Sets the ease for this tween to SineInOut.
-
 ```cs
-<Tween<T>>.SetEaseSineInOut () : Tween<T>;
+var tween = new ExampleTween {
+  usePingPong = true,
+};
 ```
 
-#### Set Ease Quad In
+### Ping Pong Interval
 
-`version 1.0.0`
+The ping pong interval defines how long the Tween will wait before playing the animation backwards after the animation has finished. When the ping pong interval is not set, the Tween will play the animation backwards instantly after the animation has finished.
 
-Sets the ease for this tween to QuadIn.
-
 ```cs
-<Tween<T>>.SetEaseQuadIn () : Tween<T>;
+float pingPongInterval;
 ```
-
-#### Set Ease Quad Out
 
-`version 1.0.0`
-
-Sets the ease for this tween to QuadOut.
-
 ```cs
-<Tween<T>>.SetEaseQuadOut () : Tween<T>;
+var tween = new ExampleTween {
+  pingPongInterval = 5,
+};
 ```
 
-#### Set Ease Quad In Out
+### Repeat Interval
 
-`version 1.0.0`
+The repeat interval defines how long the Tween will wait before repeating itself. When the repeat interval is not set, the Tween will repeat itself instantly after the animation has finished.
 
-Sets the ease for this tween to QuadInOut.
-
 ```cs
-<Tween<T>>.SetEaseQuadInOut () : Tween<T>;
+float repeatInterval;
 ```
-
-#### Set Ease Cubic In
 
-`version 1.0.0`
-
-Sets the ease for this tween to CubicIn.
-
 ```cs
-<Tween<T>>.SetEaseCubicIn () : Tween<T>;
+var tween = new ExampleTween {
+  repeatInterval = 5,
+};
 ```
 
-#### Set Ease Cubic Out
+### Ease Type
 
-`version 1.0.0`
+The ease type defines how the Tween will animate. If an [Animation Curve](#animation-curve) is set, the Ease Type won't be used. When the ease type is not set, the Tween will animate linearly.
 
-Sets the ease for this tween to CubicOut.
+The following Ease Types can be applied; `Linear`, `SineIn`, `SineOut`, `SineInOut`, `QuadIn`, `QuadOut`, `QuadInOut`, `CubicIn`, `CubicOut`, `CubicInOut`, `QuartIn`, `QuartOut`, `QuartInOut`, `QuintIn`, `QuintOut`, `QuintInOut`, `ExpoIn`, `ExpoOut`, `ExpoInOut`, `CircIn`, `CircOut`, `CircInOut`, `BackIn`, `BackOut`, `BackInOut`, `ElasticIn`, `ElasticOut`, `ElasticInOut`, `BounceIn`, `BounceOut`, `BounceInOut`.
 
 ```cs
-<Tween<T>>.SetEaseCubicOut () : Tween<T>;
+EaseType easeType;
 ```
-
-#### Set Ease Cubic In Out
-
-`version 1.0.0`
 
-Sets the ease for this tween to CubicInOut.
-
 ```cs
-<Tween<T>>.SetEaseCubicInOut () : Tween<T>;
+var tween = new ExampleTween {
+  easeType = EaseType.QuadInOut,
+};
 ```
-
-#### Set Ease Quart In
 
-`version 1.0.0`
+### Animation Curve
 
-Sets the ease for this tween to QuartIn.
+The animation curve defines how the Tween will animate. The animation curve can be used to create custom ease types. When the animation curve is not set, the Tween will animate according to the [Ease Type](#ease-type).
 
 ```cs
-<Tween<T>>.SetEaseQuartIn () : Tween<T>;
+AnimationCurve animationCurve;
 ```
-
-#### Set Ease Quart Out
-
-`version 1.0.0`
 
-Sets the ease for this tween to QuartOut.
-
 ```cs
-<Tween<T>>.SetEaseQuartOut () : Tween<T>;
+var tween = new ExampleTween {
+  animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1),
+};
 ```
-
-#### Set Ease Quart In Out
 
-`version 1.0.0`
+### Use Unscaled Time
 
-Sets the ease for this tween to QuartInOut.
+The use unscaled time option defines whether the Tween will use the unscaled time. When the use unscaled time option is not set, the Tween will use the scaled time.
 
 ```cs
-<Tween<T>>.SetEaseQuartInOut () : Tween<T>;
+bool useUnscaledTime;
 ```
-
-#### Set Ease Quint In
-
-`version 1.0.0`
-
-Sets the ease for this tween to QuintIn.
 
 ```cs
-<Tween<T>>.SetEaseQuintIn () : Tween<T>;
+var tween = new ExampleTween {
+  useUnscaledTime = true,
+};
 ```
 
-#### Set Ease Quint Out
+### Fill Mode
 
-`version 1.0.0`
+The fill mode defines how the Tween will behave before the Tween has started and after the Tween has ended. When the fill mode is not set, the fill mode will be set to `Backward`.
 
-Sets the ease for this tween to QuintOut.
+- `None` - The animation will not be applied before the Tween has started, will return to its original state after the Tween has ended.
+- `Forward` - The animation will be applied before the Tween has started, but will return to its original state after the Tween has ended.
+- `Backward` - The animation will not be applied before the Tween has started, but will remain in its final state after the Tween has ended.
+- `Both` - The animation will be applied before the Tween has started, and will remain in its final state after the Tween has ended.
 
 ```cs
-<Tween<T>>.SetEaseQuintOut () : Tween<T>;
+FillMode fillMode;
 ```
 
-#### Set Ease Quint In Out
-
-`version 1.0.0`
-
-Sets the ease for this tween to QuintInOut.
-
 ```cs
-<Tween<T>>.SetEaseQuintInOut () : Tween<T>;
+var tween = new ExampleTween {
+  fillMode = FillMode.Both,
+};
 ```
-
-#### Set Ease Expo In
 
-`version 1.0.0`
+### On Start
 
-Sets the ease for this tween to ExpoIn.
+The on start delegate will be invoked when the Tween has started.
 
 ```cs
-<Tween<T>>.SetEaseExpoIn () : Tween<T>;
+OnStartDelegate<ComponentType, DataType> onStart;
 ```
 
-#### Set Ease Expo Out
-
-`version 1.0.0`
-
-Sets the ease for this tween to ExpoOut.
-
 ```cs
-<Tween<T>>.SetEaseExpoOut () : Tween<T>;
+var tween = new ExampleTween {
+  onStart = (instance) => {
+    Debug.Log("Tween has started");
+  },
+};
 ```
-
-#### Set Ease Expo In Out
 
-`version 1.0.0`
+### On Update
 
-Sets the ease for this tween to ExpoInOut.
+The on update delegate will be invoked when the Tween has updated.
 
 ```cs
-<Tween<T>>.SetEaseExpoInOut () : Tween<T>;
+OnUpdateDelegate<ComponentType, DataType> onUpdate;
 ```
 
-#### Set Ease Circ In
-
-`version 1.0.0`
-
-Sets the ease for this tween to CircIn.
-
 ```cs
-<Tween<T>>.SetEaseCircIn () : Tween<T>;
+var tween = new ExampleTween {
+  onUpdate = (instance, value) => {
+    Debug.Log("Tween has updated");
+  },
+};
 ```
-
-#### Set Ease Circ Out
 
-`version 1.0.0`
+### on End
 
-Sets the ease for this tween to CircOut.
+The on end delegate will be invoked when the Tween has ended.
 
 ```cs
-<Tween<T>>.SetEaseCircOut () : Tween<T>;
+OnEndDelegate<ComponentType, DataType> onEnd;
 ```
 
-#### Set Ease Circ In Out
-
-`version 1.0.0`
-
-Sets the ease for this tween to CircInOut.
-
 ```cs
-<Tween<T>>.SetEaseCircInOut () : Tween<T>;
+var tween = new ExampleTween {
+  onEnd = (instance) => {
+    Debug.Log("Tween has ended");
+  },
+};
 ```
 
-#### Set Ease Back In
+### On Cancel
 
-`version 1.0.0`
+The on cancel delegate will be invoked when the Tween has been cancelled.
 
-Sets the ease for this tween to BackIn.
-
 ```cs
-<Tween<T>>.SetEaseBackIn () : Tween<T>;
+OnCancelDelegate<ComponentType, DataType> onCancel;
 ```
-
-#### Set Ease Back Out
 
-`version 1.0.0`
-
-Sets the ease for this tween to BackOut.
-
 ```cs
-<Tween<T>>.SetEaseBackOut () : Tween<T>;
+var tween = new ExampleTween {
+  onCancel = () => {
+    Debug.Log("Tween has been cancelled");
+  },
+};
 ```
-
-#### Set Ease Back In Out
-
-`version 1.0.0`
 
-Sets the ease for this tween to BackInOut.
+## Tween Instances
 
-```cs
-<Tween<T>>.SetEaseBackInOut () : Tween<T>;
-```
+When a Tween is added to a GameObject, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
-#### Set Ease Elastic In
+### Cancel
 
-`version 1.0.0`
+The cancel method will cancel the Tween. When the Tween is cancelled, the [On Cancel](#on-cancel) delegate will be invoked.
 
-Sets the ease for this tween to ElasticIn.
-
 ```cs
-<Tween<T>>.SetEaseElasticIn () : Tween<T>;
+void Cancel();
 ```
-
-#### Set Ease Elastic Out
-
-`version 1.0.0`
 
-Sets the ease for this tween to ElasticOut.
-
 ```cs
-<Tween<T>>.SetEaseElasticOut () : Tween<T>;
+var tween = new ExampleTween { };
+var instance = gameObject.AddTween(tween);
+instance.Cancel();
 ```
-
-#### Set Ease Elastic In Out
 
-`version 1.0.0`
+### Is Paused
 
-Sets the ease for this tween to ElasticInOut.
+The is paused property will return whether the Tween is paused while also allowing you to pause the Tween.
 
 ```cs
-<Tween<T>>.SetEaseElasticInOut () : Tween<T>;
+bool isPaused;
 ```
-
-#### Set Ease Bounce In
-
-`version 1.0.0`
 
-Sets the ease for this tween to BounceIn.
-
 ```cs
-<Tween<T>>.SetEaseBounceIn () : Tween<T>;
+var tween = new ExampleTween { };
+var instance = gameObject.AddTween(tween);
+instance.isPaused = true;
 ```
-
-#### Set Ease Bounce Out
 
-`version 1.0.0`
+### Target
 
-Sets the ease for this tween to BounceOut.
+The target property will return the target GameObject of the Tween.
 
 ```cs
-<Tween<T>>.SetEaseBounceOut () : Tween<T>;
+readonly GameObject target;
 ```
-
-#### Set Ease Bounce In Out
-
-`version 1.0.0`
-
-Sets the ease for this tween to BounceInOut.
 
 ```cs
-<Tween<T>>.SetEaseBounceInOut () : Tween<T>;
+var tween = new ExampleTween { };
+var instance = gameObject.AddTween(tween);
+Debug.Log(instance.target);
 ```
 
 ## Other Methods
 
-#### Cancel
+Tweens also provides a few other methods that can be used to control the Tween module.
 
-`version 1.0.0`
+### Add Tween
 
-Cancel the tween.
+The add tween method will add a new Tween to the target GameObject. When the Tween is added, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
 ```cs
-<Tween<T>>.Cancel () : void;
+TweenInstance<ComponentType, DataType> AddTween<ComponentType, DataType>(this GameObject target, Tween<ComponentType, DataType> tween) where ComponentType : Component;
 ```
 
-#### Await
-
-`version 1.9.1`
-
-Returns a Task allowing the Tween to be awaited using an Async Await block until the Tween is either completed, destroyed, canceld or was unable to start. Make sure to cancel your Async method to prevent errors from being throwing in the Unity Editor when leaving Play mode while using Tasks to chain a sequence of Tweens.
-
 ```cs
-<Tween<T>>.Await () : Task;
+var tween = new ExampleTween { };
+var instance = gameObject.AddTween(tween);
 ```
 
-#### Yield
+### Cancel Tweens
 
-`version 1.9.1`
-
-Returns a IEnumerator allowing the Tween to be yielded using a coroutine until the Tween is either completed, destroyed, canceld or was unable to start.
+The cancel tweens method will cancel all Tweens on the target GameObject. When a Tween is cancelled, the [On Cancel](#on-cancel) delegate will be invoked. When the include children option is set, all Tweens on the children of the target GameObject will also be cancelled, otherwise only the Tweens on the target GameObject will be cancelled.
 
 ```cs
-<Tween<T>>.Yield () : IEnumerator;
+void CancelTweens(this GameObject target, bool includeChildren = false);
 ```
 
-#### Get Total Duration
-
-`version 1.6.2`
-
-Gets the total duration of the tween including the loop count and ping pong settings, and the delay optionally.
-
 ```cs
-<Tween<T>>.GetTotalDuration (bool includeDelay = false) : float;
+gameObject.CancelTweens();
 ```
