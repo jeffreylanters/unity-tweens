@@ -87,6 +87,10 @@ instance.Cancel();
 
 These are just some of the many options available to you, for more information on how to use this Tweens. Not only are there many different types of Tweens, but there are also many different options available to you. For more information on how to use this module, please refer to the rest of the documentation.
 
+Use the built-in Tween Inspector to analyze and debug Tweens. The Tween Inspector can be found in the Window menu under the Analysis category.
+
+![Tween Inspector Window](https://raw.githubusercontent.com/jeffreylanters/unity-tweens/master/.github/WIKI/tween-inspector.png)
+
 Happy Tweening!
 
 ## Tween Types
