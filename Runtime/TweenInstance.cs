@@ -33,6 +33,7 @@ namespace Tweens {
       useUnscaledTime = tween.useUnscaledTime;
       usePingPong = tween.usePingPong;
       fillMode = tween.fillMode;
+      time = tween.offset ?? 0;
 #if UNITY_EDITOR
       @tweenTypeName = tween.GetType().Name;
 #endif
@@ -100,8 +101,8 @@ namespace Tweens {
       }
       var timeStep = deltaTime / duration;
       time += isForwards ? timeStep : -timeStep;
-      if (time >= 1) {
-        time = 1;
+      if (time >= duration) {
+        time = duration;
         if (usePingPong) {
           isForwards = false;
           haltTime = pingPongInterval ?? haltTime;
@@ -117,7 +118,7 @@ namespace Tweens {
         didReachEnd = true;
         haltTime = repeatInterval ?? haltTime;
       }
-      var easedTime = easeFunction(time);
+      var easedTime = easeFunction(time / duration);
       var value = lerp(from, to, easedTime);
       apply(component, value);
       onUpdate?.Invoke(this, value);

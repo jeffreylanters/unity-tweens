@@ -10,6 +10,7 @@ namespace Tweens.Core {
     public bool usePingPong;
     public bool isInfinite;
     public int? loops;
+    public float? offset;
     public EaseType easeType;
     public FillMode fillMode = FillMode.Backwards;
     public AnimationCurve animationCurve;
