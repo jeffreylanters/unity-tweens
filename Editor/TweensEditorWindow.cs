@@ -4,13 +4,13 @@ using UnityEditor;
 using Tweens.Core;
 
 namespace Tweens.Editor {
-  internal class TweenInspector : EditorWindow {
+  internal class TweensEditorWindow : EditorWindow {
     Vector2 scrollPosition;
     string searchQuery;
 
-    [MenuItem("Window/Analysis/Tween Inspector", false, 1000)]
+    [MenuItem("Window/Analysis/Tweens", false, 1000)]
     internal static void ShowWindow() {
-      GetWindow<TweenInspector>("Tween Inspector");
+      GetWindow<TweensEditorWindow>("Tweens");
     }
 
     void OnGUI() {
