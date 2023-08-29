@@ -18,6 +18,9 @@ namespace Tweens {
     internal EaseFunctionDelegate easeFunction;
     readonly public GameObject target;
     public bool isPaused;
+#if UNITY_EDITOR
+    readonly internal string @tweenTypeName;
+#endif
 
     internal abstract void Update();
     public abstract void Cancel();
@@ -30,6 +33,9 @@ namespace Tweens {
       useUnscaledTime = tween.useUnscaledTime;
       usePingPong = tween.usePingPong;
       fillMode = tween.fillMode;
+#if UNITY_EDITOR
+      @tweenTypeName = tween.GetType().Name;
+#endif
     }
   }
 

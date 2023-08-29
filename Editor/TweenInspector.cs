@@ -31,11 +31,11 @@ namespace Tweens.Editor {
       GUILayout.Space(10);
       EditorGUILayout.LabelField("Target", EditorStyles.miniBoldLabel);
       GUILayout.FlexibleSpace();
-      EditorGUILayout.LabelField("Time", EditorStyles.miniBoldLabel, GUILayout.Width(50));
-      EditorGUILayout.LabelField("Duration", EditorStyles.miniBoldLabel, GUILayout.Width(50));
-      EditorGUILayout.LabelField("Halt", EditorStyles.miniBoldLabel, GUILayout.Width(50));
-      EditorGUILayout.LabelField("Loops", EditorStyles.miniBoldLabel, GUILayout.Width(50));
-      EditorGUILayout.LabelField("Direction", EditorStyles.miniBoldLabel, GUILayout.Width(50));
+      EditorGUILayout.LabelField("Time", EditorStyles.miniLabel, GUILayout.Width(50));
+      EditorGUILayout.LabelField("Duration", EditorStyles.miniLabel, GUILayout.Width(50));
+      EditorGUILayout.LabelField("Halt", EditorStyles.miniLabel, GUILayout.Width(50));
+      EditorGUILayout.LabelField("Loops", EditorStyles.miniLabel, GUILayout.Width(50));
+      EditorGUILayout.LabelField("Direction", EditorStyles.miniLabel, GUILayout.Width(50));
       GUILayout.Space(10);
       EditorGUILayout.EndHorizontal();
       if (!Application.isPlaying || TweenEngine.instances.Count == 0) {
@@ -54,14 +54,14 @@ namespace Tweens.Editor {
         }
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(10);
-        if (GUILayout.Button(tweenInstance.target.name, EditorStyles.linkLabel)) {
+        if (GUILayout.Button($"{tweenInstance.target.name} ({tweenInstance.@tweenTypeName})", EditorStyles.linkLabel)) {
           EditorGUIUtility.PingObject(tweenInstance.target);
         }
         GUILayout.FlexibleSpace();
         EditorGUILayout.LabelField($"{tweenInstance.time:0.00}t", GUILayout.Width(50));
         EditorGUILayout.LabelField($"{tweenInstance.duration:0.00}s", GUILayout.Width(50));
-        EditorGUILayout.LabelField(tweenInstance.haltTime != null ? $"{tweenInstance.haltTime:0.00}" : "N/A", GUILayout.Width(50));
-        EditorGUILayout.LabelField(tweenInstance.loops != null ? $"{tweenInstance.loops}" : "N/A", GUILayout.Width(50));
+        EditorGUILayout.LabelField(tweenInstance.haltTime != null ? $"{tweenInstance.haltTime:0.00}s" : "-", GUILayout.Width(50));
+        EditorGUILayout.LabelField(tweenInstance.loops != null ? $"{tweenInstance.loops}" : "-", GUILayout.Width(50));
         EditorGUILayout.LabelField(tweenInstance.isForwards ? "Forwards" : "Backwards", GUILayout.Width(50));
         GUILayout.Space(10);
         EditorGUILayout.EndHorizontal();
