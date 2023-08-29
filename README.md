@@ -121,6 +121,10 @@ The following Tween Types can be used to alter values of a Graphic Component; `G
 
 The following Tween Types can be used to alter values of any property; `FloatTween`, `Vector2Tween`, `Vector3Tween`, `Vector4Tween`, `ColorTween`, `QuaternionTween`, `RectTween`.
 
+### Audio Source
+
+The following Tween Types can be used to alter values of an Audio Source Component; `AudioSourceVolumeTween`, `AudioSourcePitchTween`, `AudioSourcePanTween`, `AudioSourcePriorityTween`, `AudioSourceReverbZoneMixTween`, `AudioSourceSpatialBlendTween`.
+
 ## Tween Options
 
 While the Tween Type defines what the Tween will do, the Tween Options define how the Tween will do it. In the following sections, you will find a list of all available Tween Options.
