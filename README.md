@@ -322,6 +322,22 @@ var tween = new ExampleTween {
 };
 ```
 
+### On Add
+
+The on add delegate will be invoked when the Tween has been added to a GameObject.
+
+```cs
+OnAddDelegate<ComponentType, DataType> onAdd;
+```
+
+```cs
+var tween = new ExampleTween {
+  onAdd = (instance) => {
+    Debug.Log("Tween has been added");
+  },
+};
+```
+
 ### On Start
 
 The on start delegate will be invoked when the Tween has started.

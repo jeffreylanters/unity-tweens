@@ -35,6 +35,7 @@ namespace Tweens {
 
   public class TweenInstance<ComponentType, DataType> : TweenInstance where ComponentType : Component {
     readonly ComponentType component;
+    readonly OnAddDelegate<ComponentType, DataType> onAdd;
     OnStartDelegate<ComponentType, DataType> onStart;
     readonly OnUpdateDelegate<ComponentType, DataType> onUpdate;
     readonly OnEndDelegate<ComponentType, DataType> onEnd;
@@ -52,6 +53,7 @@ namespace Tweens {
       from = tween.from != null ? tween.from : tween.Current(component);
       to = tween.to != null ? tween.to : tween.Current(component);
       onStart = tween.onStart;
+      onAdd = tween.onAdd;
       onEnd = tween.onEnd;
       onCancel = tween.onCancel;
       onFinally = tween.onFinally;
@@ -61,6 +63,7 @@ namespace Tweens {
       apply = tween.Apply;
       lerp = tween.Lerp;
       easeFunction = tween.animationCurve != null ? new AnimationCurve(tween.animationCurve.keys).Evaluate : EaseFunctions.GetFunction(tween.easeType);
+      onAdd?.Invoke(this);
       if (delay > 0 && (fillMode == FillMode.Both || fillMode == FillMode.Forwards)) {
         apply(component, from);
         onUpdate?.Invoke(this, from);

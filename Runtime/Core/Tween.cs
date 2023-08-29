@@ -18,6 +18,7 @@ namespace Tweens.Core {
   public abstract class Tween<ComponentType, DataType> : Tween where ComponentType : Component {
     public Nullable<DataType> from;
     public Nullable<DataType> to;
+    public OnAddDelegate<ComponentType, DataType> onAdd;
     public OnStartDelegate<ComponentType, DataType> onStart;
     public OnUpdateDelegate<ComponentType, DataType> onUpdate;
     public OnEndDelegate<ComponentType, DataType> onEnd;
