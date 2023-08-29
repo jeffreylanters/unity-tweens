@@ -7,9 +7,11 @@ namespace Tweens.Core {
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     internal static void Initialize() {
+#if UNITY_EDITOR
       if (instance != null) {
         return;
       }
+#endif
       instance = new GameObject("TweenBehaviour").AddComponent<TweenBehaviour>();
       DontDestroyOnLoad(instance.gameObject);
     }
