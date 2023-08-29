@@ -39,8 +39,8 @@ namespace Tweens.Editor {
         var menu = new GenericMenu();
         menu.AddItem(new GUIContent("Show Direction"), showDirection, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showDirection", showDirection = !showDirection));
         menu.AddItem(new GUIContent("Show Paused"), showIsPaused, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", showIsPaused = !showIsPaused));
-        menu.AddItem(new GUIContent("Show PingPongInterval"), showPingPongInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", showPingPongInterval = !showPingPongInterval));
-        menu.AddItem(new GUIContent("Show RepeatInterval"), showRepeatInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", showRepeatInterval = !showRepeatInterval));
+        menu.AddItem(new GUIContent("Show Ping Pong Interval"), showPingPongInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", showPingPongInterval = !showPingPongInterval));
+        menu.AddItem(new GUIContent("Show Repeat Interval"), showRepeatInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", showRepeatInterval = !showRepeatInterval));
         menu.ShowAsContext();
       }
       EditorGUILayout.EndHorizontal();
