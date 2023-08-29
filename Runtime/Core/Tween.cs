@@ -21,7 +21,8 @@ namespace Tweens.Core {
     public OnStartDelegate<ComponentType, DataType> onStart;
     public OnUpdateDelegate<ComponentType, DataType> onUpdate;
     public OnEndDelegate<ComponentType, DataType> onEnd;
-    public OnCancelDelegate onCancel;
+    public OnCancelDelegate<ComponentType, DataType> onCancel;
+    public OnFinallyDelegate<ComponentType, DataType> onFinally;
 
     internal abstract DataType Current(ComponentType component);
     internal abstract DataType Lerp(DataType from, DataType to, float time);

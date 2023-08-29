@@ -16,7 +16,6 @@ namespace Tweens {
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal EaseFunctionDelegate easeFunction;
-    internal OnCancelDelegate onCancel;
     public readonly GameObject target;
     public bool isPaused;
 
@@ -38,7 +37,9 @@ namespace Tweens {
     readonly ComponentType component;
     OnStartDelegate<ComponentType, DataType> onStart;
     readonly OnUpdateDelegate<ComponentType, DataType> onUpdate;
-    OnEndDelegate<ComponentType, DataType> onEnd;
+    readonly OnEndDelegate<ComponentType, DataType> onEnd;
+    internal OnCancelDelegate<ComponentType, DataType> onCancel;
+    internal OnFinallyDelegate<ComponentType, DataType> onFinally;
     readonly ApplyDelegate<ComponentType, DataType> apply;
     readonly LerpDelegate<DataType> lerp;
     readonly DataType initial;
@@ -53,6 +54,7 @@ namespace Tweens {
       onStart = tween.onStart;
       onEnd = tween.onEnd;
       onCancel = tween.onCancel;
+      onFinally = tween.onFinally;
       delay = tween.delay;
       loops = tween.isInfinite ? -1 : tween.loops;
       onUpdate = tween.onUpdate;
@@ -124,16 +126,15 @@ namespace Tweens {
             onUpdate?.Invoke(this, initial);
           }
           onEnd?.Invoke(this);
+          onFinally?.Invoke(this);
           isDecommissioned = true;
         }
       }
     }
 
     public sealed override void Cancel() {
-      if (onCancel != null) {
-        onCancel.Invoke();
-        onCancel = null;
-      }
+      onCancel?.Invoke(this);
+      onFinally?.Invoke(this);
       isDecommissioned = true;
     }
   }

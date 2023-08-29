@@ -380,8 +380,24 @@ OnCancelDelegate<ComponentType, DataType> onCancel;
 
 ```cs
 var tween = new ExampleTween {
-  onCancel = () => {
+  onCancel = (instance) => {
     Debug.Log("Tween has been cancelled");
+  },
+};
+```
+
+### On Finally
+
+The on finally delegate will be invoked when the Tween has ended or has been cancelled.
+
+```cs
+OnFinallyDelegate<ComponentType, DataType> onFinally;
+```
+
+```cs
+var tween = new ExampleTween {
+  onFinally = (instance) => {
+    Debug.Log("Tween has ended or has been cancelled");
   },
 };
 ```
