@@ -8,7 +8,7 @@ namespace Tweens.Core {
       DontDestroyOnLoad(new GameObject("TweenBehaviour", typeof(TweenBehaviour)));
     }
 
-    internal void Update() {
+    internal void LateUpdate() {
       TweenEngine.Update();
     }
   }
