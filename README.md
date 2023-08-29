@@ -57,7 +57,7 @@ Still using version 2 of Tweens? View the [documentation here](https://github.co
 To get started, create a new instance of one of the many available Tween types and add it to a GameObject. The following example shows how to create a new PositionTween and add it to a GameObject in order to move a GameObject from its current position to a new position.
 
 ```cs
-PositionTween tween = new() {
+var tween = new PositionTween {
   to = new Vector3(10, 5, 20),
   duration = 5,
 };
@@ -67,7 +67,7 @@ gameObject.AddTween(tween);
 The PositionTween in this example represents a configuration rather than a running tween, so you can reuse it as many times as you need while it can also be altered during uses.
 
 ```cs
-PositionTween tween = new() {
+var tween = new PositionTween {
   to = new Vector3(10, 5, 20),
   duration = 5,
 };
@@ -80,7 +80,7 @@ otherGameObject.AddTween(tween);
 When a Tween is added, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.
 
 ```cs
-PositionTween tween = new();
+var tween = new PositionTween { };
 var instance = gameObject.AddTween(tween);
 instance.Cancel();
 ```
@@ -124,7 +124,7 @@ DataType from;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   from = new Vector3(10, 5, 20),
 };
 ```
@@ -138,7 +138,7 @@ DataType to;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   to = new Vector3(10, 5, 20),
 };
 ```
@@ -152,7 +152,7 @@ float duration;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   duration = 5,
 };
 ```
@@ -166,7 +166,7 @@ float delay;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   delay = 5,
 };
 ```
@@ -180,7 +180,7 @@ int loops;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   loops = 5,
 };
 ```
@@ -194,7 +194,7 @@ bool isInfinite;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   isInfinite = true,
 };
 ```
@@ -208,7 +208,7 @@ bool usePingPong;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   usePingPong = true,
 };
 ```
@@ -222,7 +222,7 @@ float pingPongInterval;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   pingPongInterval = 5,
 };
 ```
@@ -236,7 +236,7 @@ float repeatInterval;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   repeatInterval = 5,
 };
 ```
@@ -252,7 +252,7 @@ EaseType easeType;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   easeType = EaseType.QuadInOut,
 };
 ```
@@ -266,7 +266,7 @@ AnimationCurve animationCurve;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   animationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1),
 };
 ```
@@ -280,7 +280,7 @@ bool useUnscaledTime;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   useUnscaledTime = true,
 };
 ```
@@ -299,7 +299,7 @@ FillMode fillMode;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   fillMode = FillMode.Both,
 };
 ```
@@ -313,7 +313,7 @@ OnStartDelegate<ComponentType, DataType> onStart;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   onStart = (instance) => {
     Debug.Log("Tween has started");
   },
@@ -329,7 +329,7 @@ OnUpdateDelegate<ComponentType, DataType> onUpdate;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   onUpdate = (instance, value) => {
     Debug.Log("Tween has updated");
   },
@@ -345,7 +345,7 @@ OnEndDelegate<ComponentType, DataType> onEnd;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   onEnd = (instance) => {
     Debug.Log("Tween has ended");
   },
@@ -361,7 +361,7 @@ OnCancelDelegate<ComponentType, DataType> onCancel;
 ```
 
 ```cs
-ExampleTween tween = new() {
+var tween = new ExampleTween {
   onCancel = () => {
     Debug.Log("Tween has been cancelled");
   },
@@ -381,7 +381,7 @@ void Cancel();
 ```
 
 ```cs
-ExampleTween tween = new();
+var tween = new ExampleTween { };
 var instance = gameObject.AddTween(tween);
 instance.Cancel();
 ```
@@ -395,7 +395,7 @@ bool isPaused;
 ```
 
 ```cs
-ExampleTween tween = new();
+var tween = new ExampleTween { };
 var instance = gameObject.AddTween(tween);
 instance.isPaused = true;
 ```
@@ -409,7 +409,7 @@ readonly GameObject target;
 ```
 
 ```cs
-ExampleTween tween = new();
+var tween = new ExampleTween { };
 var instance = gameObject.AddTween(tween);
 Debug.Log(instance.target);
 ```
@@ -427,7 +427,7 @@ TweenInstance<ComponentType, DataType> AddTween<ComponentType, DataType>(this Ga
 ```
 
 ```cs
-ExampleTween tween = new();
+var tween = new ExampleTween { };
 var instance = gameObject.AddTween(tween);
 ```
 
