@@ -11,6 +11,7 @@ namespace Tweens.Editor {
     bool showIsPaused;
     bool showPingPongInterval;
     bool showRepeatInterval;
+    bool showLoops;
 
     [MenuItem("Window/Analysis/Tweens", false, 1000)]
     internal static void ShowWindow() {
@@ -19,6 +20,7 @@ namespace Tweens.Editor {
       window.showIsPaused = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", false);
       window.showPingPongInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", false);
       window.showRepeatInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", false);
+      window.showLoops = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showLoops", false);
     }
 
     void OnGUI() {
@@ -50,7 +52,9 @@ namespace Tweens.Editor {
       EditorGUILayout.LabelField("Time", EditorStyles.miniLabel, GUILayout.Width(50));
       EditorGUILayout.LabelField("Duration", EditorStyles.miniLabel, GUILayout.Width(50));
       EditorGUILayout.LabelField("Halt", EditorStyles.miniLabel, GUILayout.Width(50));
-      EditorGUILayout.LabelField("Loops", EditorStyles.miniLabel, GUILayout.Width(50));
+      if (showLoops) {
+        EditorGUILayout.LabelField("Loops", EditorStyles.miniLabel, GUILayout.Width(50));
+      }
       if (showDirection) {
         EditorGUILayout.LabelField("Direction", EditorStyles.miniLabel, GUILayout.Width(50));
       }
@@ -88,7 +92,9 @@ namespace Tweens.Editor {
         EditorGUILayout.LabelField($"{tweenInstance.time:0.00}t", GUILayout.Width(50));
         EditorGUILayout.LabelField($"{tweenInstance.duration:0.00}s", GUILayout.Width(50));
         EditorGUILayout.LabelField(tweenInstance.haltTime != null ? $"{tweenInstance.haltTime:0.00}s" : "-", GUILayout.Width(50));
-        EditorGUILayout.LabelField(tweenInstance.loops != null ? $"{tweenInstance.loops}" : "-", GUILayout.Width(50));
+        if (showLoops) {
+          EditorGUILayout.LabelField(tweenInstance.loops != null ? $"{tweenInstance.loops}" : "-", GUILayout.Width(50));
+        }
         if (showDirection) {
           EditorGUILayout.LabelField(tweenInstance.isForwards ? "Forwards" : "Backwards", GUILayout.Width(50));
         }
