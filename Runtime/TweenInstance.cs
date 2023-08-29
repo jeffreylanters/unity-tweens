@@ -63,11 +63,11 @@ namespace Tweens {
         apply(component, from);
         onUpdate?.Invoke(this, from);
       }
-      Debug.Log($"Tween is added on frame {Time.frameCount}");
+      Debug.Log($"Tween on {target.name} is added on frame {Time.frameCount}");
     }
 
     internal sealed override void Update() {
-      Debug.Log($"Tween is updated on frame {Time.frameCount}");
+      Debug.Log($"Tween on {target.name} is updated on frame {Time.frameCount}");
       if (component == null) {
         Cancel();
         return;
