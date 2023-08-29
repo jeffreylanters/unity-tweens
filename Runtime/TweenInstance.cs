@@ -79,7 +79,9 @@ namespace Tweens {
         if (delay <= 0) {
           delay = null;
         }
-        return;
+        else {
+          return;
+        }
       }
       if (onStart != null) {
         onStart.Invoke(this);
