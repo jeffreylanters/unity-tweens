@@ -113,7 +113,7 @@ The following Tween Types can be used to alter values of a Sprite Renderer Compo
 
 The following Tween Types can only be used if the `requires com.unity.ugui` package is installed in your project, and can be used to alter values of an Image Component; `ImageFillAmountTween`.
 
-### Graphic `requires com.unity.ugui`
+### Graphic
 
 The following Tween Types can only be used if the `requires com.unity.ugui` package is installed in your project, and can be used to alter values of a Graphic Component; `GraphicAlphaTween`, `GraphicColorTween`.
 
