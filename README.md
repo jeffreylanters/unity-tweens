@@ -109,13 +109,13 @@ The following Tween Types can be used to alter values of a Rect Transform Compon
 
 The following Tween Types can be used to alter values of a Sprite Renderer Component; `SpriteRendererAlphaTween`, `SpriteRendererColorTween`.
 
-### Image `requires com.unity.ugui`
+### Image
 
-The following Tween Types can be used to alter values of an Image Component; `ImageFillAmountTween`.
+The following Tween Types can only be used if the `requires com.unity.ugui` package is installed in your project, and can be used to alter values of an Image Component; `ImageFillAmountTween`.
 
 ### Graphic `requires com.unity.ugui`
 
-The following Tween Types can be used to alter values of a Graphic Component; `GraphicAlphaTween`, `GraphicColorTween`.
+The following Tween Types can only be used if the `requires com.unity.ugui` package is installed in your project, and can be used to alter values of a Graphic Component; `GraphicAlphaTween`, `GraphicColorTween`.
 
 ### Generic
 
