@@ -16,13 +16,16 @@ namespace Tweens {
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal EaseFunctionDelegate easeFunction;
+    /// <summary>The target property defines the target GameObject on which the Tween is running.</summary>
     readonly public GameObject target;
+    /// <summary>The is paused property will return whether the Tween is paused while also allowing you to pause the Tween.</summary>
     public bool isPaused;
 #if UNITY_EDITOR
     readonly internal string @tweenTypeName;
 #endif
 
     internal abstract void Update();
+    /// <summary>The cancel method will cancel the Tween. When the Tween is cancelled, the OnCancel and OnFinally delegates will be invoked.</summary>
     public abstract void Cancel();
 
     internal TweenInstance(GameObject target, Tween tween) {
@@ -142,6 +145,7 @@ namespace Tweens {
       }
     }
 
+    /// <summary>The cancel method will cancel the Tween. When the Tween is cancelled, the OnCancel and OnFinally delegates will be invoked.</summary>
     public sealed override void Cancel() {
       onCancel?.Invoke(this);
       onFinally?.Invoke(this);
