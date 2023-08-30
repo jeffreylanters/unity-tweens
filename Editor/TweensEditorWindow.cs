@@ -103,7 +103,7 @@ namespace Tweens.Editor {
       }
       for (var i = TweenEngine.instances.Count - 1; i >= 0; i--) {
         var tweenInstance = TweenEngine.instances[i];
-        if (tweenInstance.isDecommissioned) {
+        if (tweenInstance.isDecommissioned || tweenInstance.target == null) {
           continue;
         }
         if (!string.IsNullOrEmpty(searchQuery) && !tweenInstance.target.name.Contains(searchQuery)) {
