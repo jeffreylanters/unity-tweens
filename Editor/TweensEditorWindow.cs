@@ -4,7 +4,14 @@ using UnityEditor;
 using Tweens.Core;
 
 namespace Tweens.Editor {
-  internal class TweensEditorWindow : EditorWindow {
+  internal class TweensEditorWindow : EditorWindow, IHasCustomMenu {
+    const string baseKey = "Tweens.Editor.TweensEditorWindow";
+    const string showDirectionKey = baseKey + ".showDirection";
+    const string showIsPausedKey = baseKey + ".showIsPaused";
+    const string showPingPongIntervalKey = baseKey + ".showPingPongInterval";
+    const string showRepeatIntervalKey = baseKey + ".showRepeatInterval";
+    const string showLoopsKey = baseKey + ".showLoops";
+    const string autoRepaintKey = baseKey + ".autoRepaint";
     Vector2 scrollPosition;
     string searchQuery;
     bool showDirection;
@@ -12,16 +19,23 @@ namespace Tweens.Editor {
     bool showPingPongInterval;
     bool showRepeatInterval;
     bool showLoops;
+    bool autoRepaint;
 
     [MenuItem("Window/Analysis/Tweens", false, 1000)]
     internal static void ShowWindow() {
       var window = GetWindow<TweensEditorWindow>("Tweens");
       window.titleContent = new GUIContent("Tweens", EditorGUIUtility.IconContent("d_PlayButton").image);
-      window.showDirection = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showDirection", false);
-      window.showIsPaused = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", false);
-      window.showPingPongInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", false);
-      window.showRepeatInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", false);
-      window.showLoops = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showLoops", false);
+      window.showDirection = EditorPrefs.GetBool(showDirectionKey, false);
+      window.showIsPaused = EditorPrefs.GetBool(showIsPausedKey, false);
+      window.showPingPongInterval = EditorPrefs.GetBool(showPingPongIntervalKey, false);
+      window.showRepeatInterval = EditorPrefs.GetBool(showRepeatIntervalKey, false);
+      window.showLoops = EditorPrefs.GetBool(showLoopsKey, false);
+      window.autoRepaint = EditorPrefs.GetBool(autoRepaintKey, true);
+    }
+
+    void IHasCustomMenu.AddItemsToMenu(GenericMenu menu) {
+      menu.AddItem(new GUIContent("Auto repaint"), autoRepaint, () => EditorPrefs.SetBool(autoRepaintKey, autoRepaint = !autoRepaint));
+      menu.AddItem(new GUIContent("Documentation"), false, () => Application.OpenURL("https://github.com/jeffreylanters/unity-tweens"));
     }
 
     void OnGUI() {
@@ -42,10 +56,11 @@ namespace Tweens.Editor {
       searchQuery = EditorGUILayout.TextField(searchQuery, EditorStyles.toolbarSearchField);
       if (GUILayout.Button(EditorGUIUtility.IconContent("d_SceneViewVisibility@2x"), EditorStyles.toolbarDropDown)) {
         var menu = new GenericMenu();
-        menu.AddItem(new GUIContent("Show Direction"), showDirection, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showDirection", showDirection = !showDirection));
-        menu.AddItem(new GUIContent("Show Paused"), showIsPaused, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", showIsPaused = !showIsPaused));
-        menu.AddItem(new GUIContent("Show Ping Pong Interval"), showPingPongInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", showPingPongInterval = !showPingPongInterval));
-        menu.AddItem(new GUIContent("Show Repeat Interval"), showRepeatInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", showRepeatInterval = !showRepeatInterval));
+        menu.AddItem(new GUIContent("Show Direction"), showDirection, () => EditorPrefs.SetBool(showDirectionKey, showDirection = !showDirection));
+        menu.AddItem(new GUIContent("Show Paused"), showIsPaused, () => EditorPrefs.SetBool(showIsPausedKey, showIsPaused = !showIsPaused));
+        menu.AddItem(new GUIContent("Show Ping Pong Interval"), showPingPongInterval, () => EditorPrefs.SetBool(showPingPongIntervalKey, showPingPongInterval = !showPingPongInterval));
+        menu.AddItem(new GUIContent("Show Repeat Interval"), showRepeatInterval, () => EditorPrefs.SetBool(showRepeatIntervalKey, showRepeatInterval = !showRepeatInterval));
+        menu.AddItem(new GUIContent("Show Loops"), showLoops, () => EditorPrefs.SetBool(showLoopsKey, showLoops = !showLoops));
         menu.ShowAsContext();
       }
       GUI.enabled = Application.isPlaying;
@@ -55,6 +70,7 @@ namespace Tweens.Editor {
       GUILayout.Space(10);
       EditorGUILayout.LabelField("Target", EditorStyles.miniBoldLabel);
       GUILayout.FlexibleSpace();
+      EditorGUILayout.LabelField("Progress", EditorStyles.miniLabel, GUILayout.Width(100));
       EditorGUILayout.LabelField("Time", EditorStyles.miniLabel, GUILayout.Width(50));
       EditorGUILayout.LabelField("Duration", EditorStyles.miniLabel, GUILayout.Width(50));
       EditorGUILayout.LabelField("Halt", EditorStyles.miniLabel, GUILayout.Width(50));
@@ -103,7 +119,9 @@ namespace Tweens.Editor {
           }
         }
         GUILayout.FlexibleSpace();
-        EditorGUILayout.LabelField($"{tweenInstance.time:0.00}t", GUILayout.Width(50));
+        EditorGUILayout.LabelField("Progress", GUILayout.Width(100));
+        EditorGUI.ProgressBar(GUILayoutUtility.GetLastRect(), tweenInstance.time / tweenInstance.duration, $"{Mathf.Round(tweenInstance.time / tweenInstance.duration * 100)}%");
+        EditorGUILayout.LabelField($"{tweenInstance.time:0.00}s", GUILayout.Width(100));
         EditorGUILayout.LabelField($"{tweenInstance.duration:0.00}s", GUILayout.Width(50));
         EditorGUILayout.LabelField(tweenInstance.haltTime != null ? $"{tweenInstance.haltTime:0.00}s" : "-", GUILayout.Width(50));
         if (showLoops) {
@@ -129,7 +147,7 @@ namespace Tweens.Editor {
     }
 
     void Update() {
-      if (!EditorApplication.isPlaying || EditorApplication.isPaused) {
+      if (!autoRepaint || !EditorApplication.isPlaying || EditorApplication.isPaused) {
         return;
       }
       Repaint();
