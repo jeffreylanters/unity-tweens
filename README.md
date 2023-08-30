@@ -48,7 +48,7 @@ Tweens focuses on providing a simple and easy to use API for creating and managi
 - [Tween Types](#tween-types) - A list of all available Tween types
 - [Tween Options](#tween-options) - A list of all available Tween options
 - [Tween Instances](#tween-instances) - Methods available on Tween instances
-- [Other Methods](#other-methods) - Other methods available on the Tween module
+- [Extensions](#extensions) - Extensions available by the Tween module
 
 Still using version 2 of Tweens? View the [documentation here](https://github.com/jeffreylanters/unity-tweens/tree/v2.1.0)!
 
@@ -478,9 +478,9 @@ var instance = gameObject.AddTween(tween);
 Debug.Log(instance.target);
 ```
 
-## Other Methods
+## Extensions
 
-Tweens also provides a few other methods that can be used to control the Tween module.
+Tweens also provides extension methods that can be used to control the Tween module.
 
 ### Add Tween
 
