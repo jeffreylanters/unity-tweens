@@ -20,7 +20,7 @@ namespace Tweens.Editor {
     bool showPingPongInterval;
     bool showRepeatInterval;
     bool showLoops;
-    bool autoRepaint;
+    bool autoRepaint = true;
 
     [MenuItem("Window/Analysis/Tweens", false, 1000)]
     internal static void ShowWindow() {
