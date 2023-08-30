@@ -438,7 +438,7 @@ When a Tween is added to a GameObject, an Instance will be returned. This is whe
 
 ### Cancel
 
-The cancel method will cancel the Tween. When the Tween is cancelled, the [On Cancel](#on-cancel) delegate will be invoked.
+The cancel method will cancel the Tween. When the Tween is cancelled, the [On Cancel](#on-cancel) and [On Finally](#on-finally) delegates will be invoked.
 
 ```cs
 void Cancel();
@@ -466,7 +466,7 @@ instance.isPaused = true;
 
 ### Target
 
-The target property will return the target GameObject of the Tween.
+The target property defines the target GameObject on which the Tween is running.
 
 ```cs
 readonly GameObject target;
@@ -497,7 +497,7 @@ var instance = gameObject.AddTween(tween);
 
 ### Cancel Tweens
 
-The cancel tweens method will cancel all Tweens on the target GameObject. When a Tween is cancelled, the [On Cancel](#on-cancel) delegate will be invoked. When the include children option is set, all Tweens on the children of the target GameObject will also be cancelled, otherwise only the Tweens on the target GameObject will be cancelled.
+The cancel tweens method will cancel all Tweens on the target GameObject. When a Tween is cancelled, the [On Cancel](#on-cancel) and [On Finally](#on-finally) delegates will be invoked. When the include children option is set, all Tweens on the children of the target GameObject will also be cancelled, otherwise only the Tweens on the target GameObject will be cancelled.
 
 ```cs
 void CancelTweens(this GameObject target, bool includeChildren = false);
