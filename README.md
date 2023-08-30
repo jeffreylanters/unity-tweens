@@ -321,7 +321,7 @@ var tween = new ExampleTween {
 
 The fill mode defines how the Tween will behave before the Tween has started and after the Tween has ended. When the fill mode is not set, the fill mode will be set to `Backward`.
 
-- `None` - The animation will not be applied before the Tween has started, will return to its original state after the Tween has ended.
+- `None` - The animation will not be applied before the Tween has started, and will return to its original state after the Tween has ended.
 - `Forward` - The animation will be applied before the Tween has started, but will return to its original state after the Tween has ended.
 - `Backward` - The animation will not be applied before the Tween has started, but will remain in its final state after the Tween has ended.
 - `Both` - The animation will be applied before the Tween has started, and will remain in its final state after the Tween has ended.
