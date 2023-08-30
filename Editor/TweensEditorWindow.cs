@@ -16,6 +16,7 @@ namespace Tweens.Editor {
     [MenuItem("Window/Analysis/Tweens", false, 1000)]
     internal static void ShowWindow() {
       var window = GetWindow<TweensEditorWindow>("Tweens");
+      window.titleContent = new GUIContent("Tweens", EditorGUIUtility.IconContent("d_PlayButton").image);
       window.showDirection = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showDirection", false);
       window.showIsPaused = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showIsPaused", false);
       window.showPingPongInterval = EditorPrefs.GetBool("Tweens.Editor.TweensEditorWindow.showPingPongInterval", false);
@@ -24,16 +25,20 @@ namespace Tweens.Editor {
     }
 
     void OnGUI() {
+      var wasEnabled = GUI.enabled;
+      GUI.enabled = Application.isPlaying;
       EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
       if (GUILayout.Button("Cancel all", EditorStyles.toolbarButton)) {
-        if (Application.isPlaying) {
-          for (var i = TweenEngine.instances.Count - 1; i >= 0; i--) {
-            var tweenInstance = TweenEngine.instances[i];
-            tweenInstance.Cancel();
-          }
-        }
+        TweenEngine.instances.ForEach(tweenInstance => tweenInstance.Cancel());
+      }
+      if (GUILayout.Button("Pause all", EditorStyles.toolbarButton)) {
+        TweenEngine.instances.ForEach(tweenInstance => tweenInstance.isPaused = true);
+      }
+      if (GUILayout.Button("Unpause all", EditorStyles.toolbarButton)) {
+        TweenEngine.instances.ForEach(tweenInstance => tweenInstance.isPaused = false);
       }
       GUILayout.FlexibleSpace();
+      GUI.enabled = true;
       searchQuery = EditorGUILayout.TextField(searchQuery, EditorStyles.toolbarSearchField);
       if (GUILayout.Button(EditorGUIUtility.IconContent("d_SceneViewVisibility@2x"), EditorStyles.toolbarDropDown)) {
         var menu = new GenericMenu();
@@ -43,6 +48,7 @@ namespace Tweens.Editor {
         menu.AddItem(new GUIContent("Show Repeat Interval"), showRepeatInterval, () => EditorPrefs.SetBool("Tweens.Editor.TweensEditorWindow.showRepeatInterval", showRepeatInterval = !showRepeatInterval));
         menu.ShowAsContext();
       }
+      GUI.enabled = Application.isPlaying;
       EditorGUILayout.EndHorizontal();
       scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
       EditorGUILayout.BeginHorizontal();
@@ -86,7 +92,15 @@ namespace Tweens.Editor {
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(10);
         if (GUILayout.Button($"{tweenInstance.target.name} ({tweenInstance.@tweenTypeName})", EditorStyles.linkLabel)) {
-          EditorGUIUtility.PingObject(tweenInstance.target);
+          if (Event.current.button == 1) {
+            var menu = new GenericMenu();
+            menu.AddItem(new GUIContent("Pause"), tweenInstance.isPaused, () => tweenInstance.isPaused = !tweenInstance.isPaused);
+            menu.AddItem(new GUIContent("Cancel"), false, () => tweenInstance.Cancel());
+            menu.ShowAsContext();
+          }
+          else {
+            EditorGUIUtility.PingObject(tweenInstance.target);
+          }
         }
         GUILayout.FlexibleSpace();
         EditorGUILayout.LabelField($"{tweenInstance.time:0.00}t", GUILayout.Width(50));
@@ -111,6 +125,7 @@ namespace Tweens.Editor {
         EditorGUILayout.EndHorizontal();
       }
       EditorGUILayout.EndScrollView();
+      GUI.enabled = wasEnabled;
     }
 
     void Update() {
