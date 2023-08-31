@@ -49,6 +49,7 @@ Tweens focuses on providing a simple and easy to use API for creating and managi
 - [Tween Options](#tween-options) - A list of all available Tween options
 - [Tween Instances](#tween-instances) - Methods available on Tween instances
 - [Extensions](#extensions) - Extensions available by the Tween module
+- [Advanced Examples](#advanced-examples) - Advanced examples on how to use the Tween module
 
 Still using version 2 of Tweens? View the [documentation here](https://github.com/jeffreylanters/unity-tweens/tree/v2.1.0)!
 
@@ -505,4 +506,24 @@ void CancelTweens(this GameObject target, bool includeChildren = false);
 
 ```cs
 gameObject.CancelTweens();
+```
+
+## Advanced Examples
+
+Besides the many different types of Tweens and Tween Options, Tweens also provides a wide range of features that can be used to create advanced animations. The following sections will show you how to implemented some of these features to create advanced animation logic.
+
+### Tweening Custom Values
+
+The following example shows how to create a custom Tween that can be used to animate a value of an enemy Component. The Tween will animate the value of the Component from the current value to the new value.
+
+```cs
+var enemy = GetComponent<Enemy>();
+var tween = new FloatTween {
+  from = enemy.health,
+  to = 23,
+  duration = 1,
+  easeType = EaseType.SineOut,
+  onUpdate = (_, value) => enemy.health = value,
+};
+enemy.gameObject.AddTween(tween);
 ```
