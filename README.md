@@ -117,10 +117,6 @@ The following Tween Types can only be used if the `requires com.unity.ugui` pack
 
 The following Tween Types can only be used if the `requires com.unity.ugui` package is installed in your project, and can be used to alter values of a Graphic Component; `GraphicAlphaTween`, `GraphicColorTween`.
 
-### Generic
-
-The following Tween Types can be used to alter values of any property; `FloatTween`, `Vector2Tween`, `Vector3Tween`, `Vector4Tween`, `ColorTween`, `QuaternionTween`, `RectTween`.
-
 ### Audio Source
 
 The following Tween Types can be used to alter values of an Audio Source Component; `AudioSourceVolumeTween`, `AudioSourcePitchTween`, `AudioSourcePanTween`, `AudioSourcePriorityTween`, `AudioSourceReverbZoneMixTween`, `AudioSourceSpatialBlendTween`.
@@ -128,6 +124,10 @@ The following Tween Types can be used to alter values of an Audio Source Compone
 ### Light
 
 The following Tween Types can be used to alter values of a Light Component; `LightColorTween`, `LightIntensityTween`, `LightRangeTween`, `LightSpotAngleTween`.
+
+### Generic
+
+The following Tween Types can be used to alter values of any property; `FloatTween`, `Vector2Tween`, `Vector3Tween`, `Vector4Tween`, `ColorTween`, `QuaternionTween`, `RectTween`.
 
 ## Tween Options
 
