@@ -101,7 +101,7 @@ namespace Tweens.Editor {
         EditorGUILayout.EndScrollView();
         return;
       }
-      for (var i = TweenEngine.instances.Count - 1; i >= 0; i--) {
+      for (var i = TweenEngine.instances.Count - 1; i >= 0; i -= 1) {
         var tweenInstance = TweenEngine.instances[i];
         if (tweenInstance.isDecommissioned || tweenInstance.target == null) {
           continue;
