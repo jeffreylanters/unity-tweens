@@ -102,8 +102,7 @@ namespace Tweens {
         onStart.Invoke(this);
         onStart = null;
       }
-      var timeStep = deltaTime / duration;
-      time += isForwards ? timeStep : -timeStep;
+      time += isForwards ? deltaTime : -deltaTime;
       if (time >= duration) {
         time = duration;
         if (usePingPong) {
