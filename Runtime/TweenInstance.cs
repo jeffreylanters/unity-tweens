@@ -98,7 +98,7 @@ namespace Tweens {
           return;
         }
       }
-      if (onStart != null) {
+      if (onStart != null && component != null) {
         onStart.Invoke(this);
         onStart = null;
       }
@@ -146,8 +146,10 @@ namespace Tweens {
 
     /// <summary>The cancel method will cancel the Tween. When the Tween is cancelled, the OnCancel and OnFinally delegates will be invoked.</summary>
     public sealed override void Cancel() {
-      onCancel?.Invoke(this);
-      onFinally?.Invoke(this);
+      if (component != null) {
+        onCancel?.Invoke(this);
+        onFinally?.Invoke(this);
+      }
       isDecommissioned = true;
     }
   }
