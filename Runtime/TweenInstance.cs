@@ -13,6 +13,7 @@ namespace Tweens {
     internal int? loops;
     internal bool isDecommissioned;
     internal float time;
+    internal bool dontInvokeWhenDestroyed;
     internal bool isForwards = true;
     internal bool didReachEnd;
     internal EaseFunctionDelegate easeFunction;
@@ -37,6 +38,7 @@ namespace Tweens {
       usePingPong = tween.usePingPong;
       fillMode = tween.fillMode;
       time = tween.offset ?? 0;
+      dontInvokeWhenDestroyed = tween.dontInvokeWhenDestroyed;
 #if UNITY_EDITOR
       @tweenTypeName = tween.GetType().Name;
 #endif
@@ -146,8 +148,10 @@ namespace Tweens {
 
     /// <summary>The cancel method will cancel the Tween. When the Tween is cancelled, the OnCancel and OnFinally delegates will be invoked.</summary>
     public sealed override void Cancel() {
-      onCancel?.Invoke(this);
-      onFinally?.Invoke(this);
+      if (!dontInvokeWhenDestroyed && component == null) {
+        onCancel?.Invoke(this);
+        onFinally?.Invoke(this);
+      }
       isDecommissioned = true;
     }
   }

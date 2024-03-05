@@ -434,6 +434,20 @@ var tween = new ExampleTween {
 };
 ```
 
+### Dont Invoke When Destroyed
+
+The don't invoke when destroyed option defines whether the Tween will invoke the delegates when the component is not longer present in the scene. When not set, all delegates will be invoked even when the component is destroyed.
+
+```cs
+bool dontInvokeWhenDestroyed;
+```
+
+```cs
+var tween = new ExampleTween {
+  dontInvokeWhenDestroyed = true
+};
+```
+
 ## Tween Instances
 
 When a Tween is added to a GameObject, an Instance will be returned. This is where the Tween will be running. The Instance can be used to control the Tween, for example to pause, resume or cancel the Tween.

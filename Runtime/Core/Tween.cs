@@ -26,6 +26,8 @@ namespace Tweens.Core {
     public FillMode fillMode = FillMode.Backwards;
     /// <summary>The animation curve defines how the Tween will animate. The animation curve can be used to create custom ease types. When the animation curve is not set, the Tween will animate according to the Ease Type.</summary>
     public AnimationCurve animationCurve;
+    /// <summary>The don't invoke when destroyed option defines whether the Tween will invoke the delegates when the component is not longer present in the scene. When not set, all delegates will be invoked even when the component is destroyed.</summary>
+    public bool dontInvokeWhenDestroyed;
   }
 
   public abstract class Tween<ComponentType, DataType> : Tween where ComponentType : Component {
