@@ -523,6 +523,22 @@ void CancelTweens(this GameObject target, bool includeChildren = false);
 gameObject.CancelTweens();
 ```
 
+### Await Decommission
+
+The await decommission method will return an enumerator that will await the decommission of the Tween. This can be used in coroutines to wait for the Tween to finish or be cancelled.
+
+```cs
+IEnumerator AwaitDecommission();
+```
+
+### Await Decommission Async
+
+The await decommission async method will return an awaitable that will await the decommission of the Tween. This can be used in async methods to wait for the Tween to finish or be cancelled.
+
+```cs
+Awaitable AwaitDecommissionAsync();
+```
+
 ## Advanced Examples
 
 Besides the many different types of Tweens and Tween Options, Tweens also provides a wide range of features that can be used to create advanced animations. The following sections will show you how to implemented some of these features to create advanced animation logic.
