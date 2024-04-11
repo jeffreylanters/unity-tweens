@@ -1,1 +1,1 @@
-- Resolved an issue where the Tween would not play on the expected timing [#42] [#43]
+- Added support for await Tween Instances using Async en Enumerator methods. [#45]
