@@ -494,6 +494,22 @@ var instance = gameObject.AddTween(tween);
 Debug.Log(instance.target);
 ```
 
+### Await Decommission
+
+The await decommission method will return an enumerator that will await the decommission of the Tween. This can be used in coroutines to wait for the Tween to finish or be cancelled.
+
+```cs
+IEnumerator AwaitDecommission();
+```
+
+### Await Decommission Async
+
+The await decommission async method will return an awaitable that will await the decommission of the Tween. This can be used in async methods to wait for the Tween to finish or be cancelled.
+
+```cs
+Awaitable AwaitDecommissionAsync();
+```
+
 ## Extensions
 
 Tweens also provides extension methods that can be used to control the Tween module.
@@ -521,22 +537,6 @@ void CancelTweens(this GameObject target, bool includeChildren = false);
 
 ```cs
 gameObject.CancelTweens();
-```
-
-### Await Decommission
-
-The await decommission method will return an enumerator that will await the decommission of the Tween. This can be used in coroutines to wait for the Tween to finish or be cancelled.
-
-```cs
-IEnumerator AwaitDecommission();
-```
-
-### Await Decommission Async
-
-The await decommission async method will return an awaitable that will await the decommission of the Tween. This can be used in async methods to wait for the Tween to finish or be cancelled.
-
-```cs
-Awaitable AwaitDecommissionAsync();
 ```
 
 ## Advanced Examples
