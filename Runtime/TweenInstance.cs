@@ -1,5 +1,6 @@
 using UnityEngine;
 using Tweens.Core;
+using System.Collections;
 
 namespace Tweens {
   public abstract class TweenInstance {
@@ -154,5 +155,21 @@ namespace Tweens {
       }
       isDecommissioned = true;
     }
+
+    /// <summary>The await decommission method will return an enumerator that will await the decommission of the Tween. This can be used in coroutines to wait for the Tween to finish or be cancelled.</summary>
+    public IEnumerator AwaitDecommission() {
+      while (!isDecommissioned) {
+        yield return null;
+      }
+    }
+
+#if UNITY_2023_1_OR_NEWER
+    /// <summary>The await decommission async method will return an awaitable that will await the decommission of the Tween. This can be used in async methods to wait for the Tween to finish or be cancelled.</summary>
+    public async Awaitable AwaitDecommissionAsync() {
+      while (!isDecommissioned) {
+        await Awaitable.EndOfFrameAsync();
+      }
+    }
+#endif
   }
 }
