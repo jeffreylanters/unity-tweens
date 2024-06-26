@@ -149,7 +149,7 @@ namespace Tweens {
 
     /// <summary>The cancel method will cancel the Tween. When the Tween is cancelled, the OnCancel and OnFinally delegates will be invoked.</summary>
     public sealed override void Cancel() {
-      if (!dontInvokeWhenDestroyed && component == null) {
+      if (!dontInvokeWhenDestroyed || component != null) {
         onCancel?.Invoke(this);
         onFinally?.Invoke(this);
       }
