@@ -502,12 +502,24 @@ The await decommission method will return an enumerator that will await the deco
 IEnumerator AwaitDecommission();
 ```
 
+```cs
+var tween = new ExampleTween { };
+var instance = gameObject.AddTween(tween);
+yield return instance.AwaitDecommission();
+```
+
 ### Await Decommission Async
 
 The await decommission async method will return an awaitable that will await the decommission of the Tween. This can be used in async methods to wait for the Tween to finish or be cancelled.
 
 ```cs
 Awaitable AwaitDecommissionAsync();
+```
+
+```cs
+var tween = new ExampleTween { };
+var instance = gameObject.AddTween(tween);
+await instance.AwaitDecommissionAsync();
 ```
 
 ## Extensions
