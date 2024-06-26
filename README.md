@@ -436,7 +436,7 @@ var tween = new ExampleTween {
 
 ### Dont Invoke When Destroyed
 
-The don't invoke when destroyed option defines whether the Tween will invoke the delegates when the component is not longer present in the scene. When not set, all delegates will be invoked even when the component is destroyed.
+The don't invoke when destroyed option defines whether the Tween should invoke the delegates when the component is no longer present in the scene. When not set, all delegates will be invoked even when the component is destroyed.
 
 ```cs
 bool dontInvokeWhenDestroyed;
