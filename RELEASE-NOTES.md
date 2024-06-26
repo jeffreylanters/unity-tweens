@@ -1,1 +1,1 @@
-- Added support for await Tween Instances using Async en Enumerator methods. [#45]
+- Resolved an issue where delegates will be invoked when explicitly asked not to [#46]
