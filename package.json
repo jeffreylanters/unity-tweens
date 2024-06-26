@@ -1,7 +1,7 @@
 {
   "name": "nl.jeffreylanters.tweens",
   "displayName": "Tweens",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "unity": "2020.1",
   "description": "An extremely light weight, extendable and customisable tweening engine made for strictly typed script-based animations for user-interfaces and world-space objects optimised for all platforms.",
   "type": "library",
